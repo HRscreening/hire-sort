@@ -1,139 +1,205 @@
-import React from 'react';
 import { Check, ArrowRight } from 'lucide-react';
+import { motion, type Variants } from 'framer-motion';
+
+const ease = [0.22, 1, 0.36, 1] as const;
+
+const containerVariants: Variants = {
+  hidden: {},
+  show: {
+    transition: { staggerChildren: 0.07, delayChildren: 0.05 },
+  },
+};
+
+const itemUp: Variants = {
+  hidden: { opacity: 0, y: 18 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease } },
+};
+
+const floatEnter = (x: number, y: number, delay: number): Variants => ({
+  hidden: { opacity: 0, x, y, scale: 0.92 },
+  show: {
+    opacity: 1,
+    x: 0,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.6, ease, delay },
+  },
+});
 
 const Hero = () => {
   return (
-    <section className="hero">
-      <div className="hero-grid-bg"></div>
+    <motion.section
+      className="hero"
+      initial="hidden"
+      animate="show"
+      variants={containerVariants}
+    >
+      <motion.div
+        className="hero-grid-bg"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, ease }}
+      />
 
       {/* Floating left: resume snippet card */}
-      <div className="hero-float-left">
-        <div className="float-card">
-          <div className="float-card-label">Resume Detected</div>
-          <div className="float-resume-lines">
-            <div className="float-resume-line name"></div>
-            <div className="float-resume-line title"></div>
-            <div className="float-resume-line w90"></div>
-            <div className="float-resume-line w80"></div>
-            <div className="float-resume-line w65"></div>
-            <div className="float-resume-line w90"></div>
-            <div className="float-resume-line w50"></div>
+      <motion.div className="hero-float-left" variants={floatEnter(-32, 16, 0.25)}>
+        <motion.div
+          animate={{ y: [0, -10, 0] }}
+          transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 0.9 }}
+          whileHover={{ scale: 1.04, rotate: -1, transition: { type: 'spring', stiffness: 260, damping: 18 } }}
+        >
+          <div className="float-card">
+            <div className="float-card-label">Resume Detected</div>
+            <div className="float-resume-lines">
+              {['name', 'title', 'w90', 'w80', 'w65', 'w90', 'w50'].map((cls, i) => (
+                <motion.div
+                  key={i}
+                  className={`float-resume-line ${cls}`}
+                  initial={{ scaleX: 0, originX: 0 }}
+                  animate={{ scaleX: 1 }}
+                  transition={{ delay: 0.5 + i * 0.05, duration: 0.35, ease }}
+                />
+              ))}
+            </div>
+            <div className="float-resume-skills">
+              {['Python', 'AWS', 'React', 'SQL'].map((skill, i) => (
+                <motion.span
+                  key={skill}
+                  className="float-skill-pill"
+                  initial={{ opacity: 0, y: 6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.85 + i * 0.05, duration: 0.3, ease }}
+                >
+                  {skill}
+                </motion.span>
+              ))}
+            </div>
           </div>
-          <div className="float-resume-skills">
-            <span className="float-skill-pill">Python</span>
-            <span className="float-skill-pill">AWS</span>
-            <span className="float-skill-pill">React</span>
-            <span className="float-skill-pill">SQL</span>
-          </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       {/* Floating right: score card */}
-      <div className="hero-float-right">
-        <div className="float-card">
-          <div className="float-card-label">Top Candidate</div>
-          <div className="float-score-header">
-            <div className="float-score-avatar">SC</div>
-            <div>
-              <div className="float-score-name">Sarah Chen</div>
-              <div className="float-score-role">Sr. Backend Engineer</div>
+      <motion.div className="hero-float-right" variants={floatEnter(32, 16, 0.3)}>
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+          whileHover={{ scale: 1.04, rotate: 1, transition: { type: 'spring', stiffness: 260, damping: 18 } }}
+        >
+          <div className="float-card">
+            <div className="float-card-label">Top Candidate</div>
+            <div className="float-score-header">
+              <div className="float-score-avatar">SC</div>
+              <div>
+                <div className="float-score-name">Sarah Chen</div>
+                <div className="float-score-role">Sr. Backend Engineer</div>
+              </div>
             </div>
-          </div>
-          <div className="float-score-ring">
-            <svg className="float-ring-svg" viewBox="0 0 48 48">
-              <circle className="track" cx="24" cy="24" r="20" />
-              <circle className="fill" cx="24" cy="24" r="20" />
-            </svg>
-            <div>
-              <div className="float-score-num">92%</div>
-              <div className="float-score-label">Match Score</div>
+            <div className="float-score-ring">
+              <svg className="float-ring-svg" viewBox="0 0 48 48">
+                <circle className="track" cx="24" cy="24" r="20" />
+                <motion.circle
+                  className="fill"
+                  cx="24"
+                  cy="24"
+                  r="20"
+                  initial={{ pathLength: 0 }}
+                  animate={{ pathLength: 0.92 }}
+                  transition={{ delay: 0.5, duration: 1.5, ease }}
+                />
+              </svg>
+              <div>
+                <span className='float-stat-num'>
+                  92%
+                </span>
+                <div className="float-score-label">Match Score</div>
+              </div>
             </div>
+            <motion.div
+              className="float-score-tag"
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.05, duration: 0.35, ease }}
+            >
+              Best Fit
+            </motion.div>
           </div>
-          <div className="float-score-tag">Best Fit</div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       {/* Floating bottom-left: stat */}
-      <div className="hero-float-left-low">
-        <div className="float-stat-card">
-          <div className="float-stat-num">2.4s</div>
-          <div className="float-stat-label">Avg. per resume</div>
-        </div>
-      </div>
+      <motion.div className="hero-float-left-low" variants={floatEnter(-24, 24, 0.4)}>
+        <motion.div
+          animate={{ y: [0, -8, 0] }}
+          transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut', delay: 1.1 }}
+          whileHover={{ scale: 1.06 }}
+        >
+          <div className="float-stat-card">
+            <div className="float-stat-num">2.4s</div>
+            <div className="float-stat-label">Avg. per resume</div>
+          </div>
+        </motion.div>
+      </motion.div>
 
       {/* Floating bottom-right: notification */}
-      <div className="hero-float-right-low">
-        <div className="float-card-mini">
-          <div className="float-mini-icon">
-            <Check strokeWidth={2.5} />
+      <motion.div className="hero-float-right-low" variants={floatEnter(24, 24, 0.45)}>
+        <motion.div
+          animate={{ y: [0, 9, 0] }}
+          transition={{ duration: 6.5, repeat: Infinity, ease: 'easeInOut', delay: 1.2 }}
+          whileHover={{ scale: 1.05 }}
+        >
+          <div className="float-card-mini">
+            <motion.div
+              className="float-mini-icon"
+              initial={{ scale: 0, rotate: -90 }}
+              animate={{ scale: 1, rotate: 0 }}
+              transition={{ delay: 0.7, type: 'spring', stiffness: 300, damping: 14 }}
+            >
+              <Check strokeWidth={2.5} />
+            </motion.div>
+            <div>
+              <div className="float-mini-text">47 resumes ranked</div>
+              <div className="float-mini-sub">Completed just now</div>
+            </div>
           </div>
-          <div>
-            <div className="float-mini-text">47 resumes ranked</div>
-            <div className="float-mini-sub">Completed just now</div>
-          </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
-      <div className="hero-badge">
-        <span className="dot"></span>
+      <motion.div className="hero-badge" variants={itemUp}>
+        <motion.span
+          className="dot"
+          animate={{ scale: [1, 1.4, 1], opacity: [1, 0.6, 1] }}
+          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+        />
         AI-powered resume screening
-      </div>
+      </motion.div>
 
-      <h1>Screen resumes in <span className="accent">seconds</span>, not hours</h1>
-      <p className="subtitle">Upload resumes, describe the role, and let AI rank your candidates with explainable scores. No more manual screening.</p>
+      <motion.h1 variants={itemUp}>
+        Screen resumes in <span className="accent">seconds</span>, not hours
+      </motion.h1>
+      <motion.p className="subtitle" variants={itemUp}>
+        Upload resumes, describe the role, and let AI rank your candidates with explainable scores. No more manual screening.
+      </motion.p>
 
-      {/* Upload Drop Zone | will be used later*/}
-      {/* <div className="upload-zone-wrapper">
-        <div className="upload-zone" id="dropZone">
-          <div className="upload-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-              <polyline points="17 8 12 3 7 8" />
-              <line x1="12" y1="3" x2="12" y2="15" />
-            </svg>
-          </div>
-          <div className="upload-title">Drop your resume here to get started</div>
-          <div className="upload-subtitle">Upload a single resume or a ZIP of multiple resumes</div>
-          <div className="upload-actions">
-            <button className="upload-btn" onClick={() => (window as any).document.getElementById('fileInput').click()}>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48" />
-              </svg>
-              Browse files
-            </button>
-            <span className="upload-or">or</span>
-            <a href="#" className="upload-link">try with sample data</a>
-          </div>
-          <div className="upload-formats">
-            <span><span className="format-dot"></span> PDF</span>
-            <span><span className="format-dot"></span> DOCX</span>
-            <span><span className="format-dot"></span> ZIP</span>
-            <span><span className="format-dot"></span> Max 50MB</span>
-          </div>
-          <input type="file" id="fileInput" hidden accept=".pdf,.docx,.zip" multiple />
-        </div>
-      </div> */}
-
-        <div className="hero-cta">
-          <a href="#" className="btn-primary hero-cta-btn">
-            Get Started
+      <motion.div className="hero-cta" variants={itemUp}>
+        <motion.a
+          href="#"
+          className="btn-primary hero-cta-btn"
+          whileHover={{ scale: 1.04, y: -2 }}
+          whileTap={{ scale: 0.97 }}
+          transition={{ type: 'spring', stiffness: 360, damping: 18 }}
+        >
+          Get Started
+          <motion.span
+            initial={{ x: 0 }}
+            whileHover={{ x: 4 }}
+            style={{ display: 'inline-flex' }}
+          >
             <ArrowRight size={16} strokeWidth={2.5} />
-          </a>
-          <span className="hero-cta-sub">No credit card required &middot; Free forever plan</span>
-        </div>
-
-      {/* Removed For now */}
-      {/* <div className="trusted-by">
-        <div className="trusted-label">Trusted by hiring teams at</div>
-        <div className="trusted-logos">
-          <span className="logo-placeholder">Acme Corp</span>
-          <span className="logo-placeholder">TechVentures</span>
-          <span className="logo-placeholder">StartupHQ</span>
-          <span className="logo-placeholder">GrowthCo</span>
-          <span className="logo-placeholder">HireWell</span>
-        </div>
-      </div> */}
-    </section>
+          </motion.span>
+        </motion.a>
+        {/* <span className="hero-cta-sub">No credit card required &middot; Free forever plan</span> */}
+      </motion.div>
+    </motion.section>
   );
 };
 

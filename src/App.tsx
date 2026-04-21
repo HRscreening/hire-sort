@@ -7,7 +7,10 @@
 } from "@tanstack/react-router";
 import LandingPage from "@/pages/home/index";
 import ContactUsPage from "@/pages/home/contactUs";
-
+import PrivacyPolicyPage from "@/pages/home/privacy";
+import Navbar from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer';
+import { div } from "framer-motion/client";
 // ─── Layouts ────────────────────────────────────────────────
 
 function RootLayout() {
@@ -15,27 +18,50 @@ function RootLayout() {
 }
 
 
+
+function PublicLayout() {
+  return (
+    <div>
+      <Navbar />
+      <Outlet />
+      <Footer />
+    </div>
+
+  );
+}
+
 // ─── Route tree ─────────────────────────────────────────────
 
 const rootRoute = createRootRoute({ component: RootLayout });
 
-const landingRoute = createRoute({
+const publicLayoutRoute = createRoute({
   getParentRoute: () => rootRoute,
+  id: "public",
+  component: PublicLayout,
+});
+
+const landingRoute = createRoute({
+  getParentRoute: () => publicLayoutRoute,
   path: "/",
   component: LandingPage,
 });
 
 const contactUsRoute = createRoute({
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => publicLayoutRoute,
   path: "/contact_us",
   component: ContactUsPage,
+});
+
+const privacyRoute = createRoute({
+  getParentRoute: () => publicLayoutRoute,
+  path: "/privacy",
+  component: PrivacyPolicyPage,
 });
 
 // ─── Build router ───────────────────────────────────────────
 
 const routeTree = rootRoute.addChildren([
-  landingRoute,
-  contactUsRoute
+  publicLayoutRoute.addChildren([landingRoute, contactUsRoute, privacyRoute]),
 ]);
 
 const router = createRouter({ routeTree });

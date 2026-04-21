@@ -1,242 +1,365 @@
-import React from 'react';
+import { motion, type Variants } from 'framer-motion';
+
+const ease = [0.22, 1, 0.36, 1] as const;
+
+const headerVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease } },
+};
+
+const rowContainer: Variants = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.15 } },
+};
+
+const fromLeft: Variants = {
+  hidden: { opacity: 0, x: -50 },
+  show: { opacity: 1, x: 0, transition: { duration: 0.8, ease } },
+};
+
+const fromRight: Variants = {
+  hidden: { opacity: 0, x: 50 },
+  show: { opacity: 1, x: 0, transition: { duration: 0.8, ease } },
+};
+
+const bulletVariants: Variants = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.1, delayChildren: 0.2 } },
+};
+
+const bulletItem: Variants = {
+  hidden: { opacity: 0, x: -12 },
+  show: { opacity: 1, x: 0, transition: { duration: 0.45, ease } },
+};
+
+const visualHover = {
+  whileHover: { y: -6, transition: { type: 'spring' as const, stiffness: 280, damping: 20 } },
+};
 
 const Features = () => {
   return (
     <section className="features-section" id="features">
-      <div className="section-header">
+      <motion.div
+        className="section-header"
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.4 }}
+        variants={headerVariants}
+      >
         <h2>Built for <span className="accent">real hiring</span> workflows</h2>
         <p>Every feature designed to save you time and help you find the right people.</p>
-      </div>
+      </motion.div>
 
       <div className="features-zigzag">
-        <div className="feature-row">
-          <div className="feature-text">
+        {/* Feature 1 */}
+        <motion.div
+          className="feature-row"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.25 }}
+          variants={rowContainer}
+        >
+          <motion.div className="feature-text" variants={fromLeft}>
             <h3>Explainable AI Scoring</h3>
             <p>No black boxes. Every candidate score comes with a detailed breakdown of strengths, gaps, and how they match the job description.</p>
-            <ul className="feature-bullets">
-              <li>
-                <span className="bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round"><polyline points="20 6 9 17 4 12" /></svg></span>
-                Weighted scoring across skills, experience, education
-              </li>
-              <li>
-                <span className="bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round"><polyline points="20 6 9 17 4 12" /></svg></span>
-                AI-written insight paragraph per candidate
-              </li>
-              <li>
-                <span className="bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round"><polyline points="20 6 9 17 4 12" /></svg></span>
-                Red flags and standout strengths highlighted
-              </li>
-            </ul>
-          </div>
-          <div className="feature-visual">
+            <motion.ul className="feature-bullets" variants={bulletVariants}>
+              {[
+                'Weighted scoring across skills, experience, education',
+                'AI-written insight paragraph per candidate',
+                'Red flags and standout strengths highlighted',
+              ].map((b) => (
+                <motion.li key={b} variants={bulletItem}>
+                  <span className="bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round"><polyline points="20 6 9 17 4 12" /></svg></span>
+                  {b}
+                </motion.li>
+              ))}
+            </motion.ul>
+          </motion.div>
+          <motion.div className="feature-visual" variants={fromRight} {...visualHover}>
             <div className="feature-visual-inner">
-              <div className="insight-card">
-                <div className="insight-header">
-                  <div className="insight-avatar">SC</div>
-                  <div>
-                    <div className="insight-name">Sarah Chen</div>
-                    <div className="insight-title">Sr. Backend Engineer &middot; 6 yrs</div>
+              {/* <div style={{ fontSize: '11px', fontWeight: 700, color: 'var(--charcoal-lt)', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '12px' }}>Criteria Breakdown</div> */}
+              
+              <div style={{ background: 'var(--white)', border: '1px solid var(--border-light)', borderRadius: '12px', padding: '16px', marginBottom: '10px', boxShadow: 'var(--shadow-sm)' }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                    <div style={{ display: 'flex', alignItems: 'baseline', gap: '2px' }}>
+                      <span style={{ fontSize: '14px', fontWeight: 800 }}>9</span>
+                      <span style={{ fontSize: '11px', opacity: 0.5 }}>/10</span>
+                    </div>
+                    <div style={{ width: '40px', height: '5px', background: 'var(--ivory-medium)', borderRadius: '30px' }}>
+                      <motion.div
+                        style={{ height: '100%', background: 'var(--success)', borderRadius: '30px' }}
+                        initial={{ width: 0 }}
+                        whileInView={{ width: '90%' }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.4, duration: 0.8 }}
+                      />
+                    </div>
+                    <span style={{ fontSize: '13px', fontWeight: 600 }}>Advanced Spreadsheet Skills</span>
+                    <span style={{ fontSize: '10px', fontWeight: 800, color: 'var(--success)', background: 'var(--success-bg)', padding: '2px 6px', borderRadius: '4px' }}>high</span>
                   </div>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.3 }}><polyline points="18 15 12 9 6 15"></polyline></svg>
                 </div>
-                <div className="insight-score-bar">
-                  <div className="score-track"><div className="score-fill" style={{ width: '92%' }}></div></div>
-                  <span className="score-value">92%</span>
-                </div>
-                <div className="insight-tags">
-                  <span className="insight-tag match">Best Fit</span>
-                  <span className="insight-tag">Python</span>
-                  <span className="insight-tag">System Design</span>
-                  <span className="insight-tag">AWS</span>
+
+                <p style={{ fontSize: '12px', color: 'var(--charcoal-lt)', marginBottom: '14px', lineHeight: '1.5' }}>
+                  The candidate demonstrates strong financial modeling, PnL projections, and pricing strategy development...
+                </p>
+
+                <div style={{ fontSize: '10px', fontWeight: 700, color: 'var(--charcoal-xlt)', textTransform: 'uppercase', marginBottom: '10px' }}>Evidence</div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                  {[
+                    "Developed a 5-year financial model simulating the merger of banks...",
+                    "Created PnL projections for the next year using revenue estimates...",
+                  ].map((text, i) => (
+                    <div key={i} style={{ display: 'flex', gap: '10px' }}>
+                      <div style={{ width: '2px', background: 'var(--accent)', opacity: 0.6, flexShrink: 0 }} />
+                      <p style={{ fontSize: '11px', fontStyle: 'italic', color: 'var(--charcoal-md)' }}>"{text}"</p>
+                    </div>
+                  ))}
                 </div>
               </div>
-              <div className="insight-card" style={{ opacity: 0.7 }}>
-                <div className="insight-header">
-                  <div className="insight-avatar">DK</div>
-                  <div>
-                    <div className="insight-name">David Kumar</div>
-                    <div className="insight-title">Full Stack Developer &middot; 4 yrs</div>
+
+              <div style={{ background: 'var(--white)', border: '1px solid var(--border-light)', borderRadius: '10px', padding: '10px 16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px', opacity: 0.8 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <div style={{ display: 'flex', alignItems: 'baseline', gap: '2px' }}>
+                    <span style={{ fontSize: '13px', fontWeight: 800 }}>10</span>
+                    <span style={{ fontSize: '10px', opacity: 0.5 }}>/10</span>
                   </div>
+                  <div style={{ width: '30px', height: '4px', background: 'var(--ivory-medium)', borderRadius: '30px' }}>
+                    <div style={{ width: '100%', height: '100%', background: 'var(--success)', borderRadius: '30px' }} />
+                  </div>
+                  <span style={{ fontSize: '12px', fontWeight: 600 }}>Professional Presentation Creation</span>
+                  <span style={{ fontSize: '9px', fontWeight: 800, color: 'var(--success)', background: 'var(--success-bg)', padding: '1px 5px', borderRadius: '3px' }}>high</span>
                 </div>
-                <div className="insight-score-bar">
-                  <div className="score-track"><div className="score-fill" style={{ width: '87%' }}></div></div>
-                  <span className="score-value">87%</span>
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.3 }}><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </div>
+
+              <div style={{ background: 'var(--white)', border: '1px solid var(--border-light)', borderRadius: '10px', padding: '10px 16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', opacity: 0.6 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <div style={{ display: 'flex', alignItems: 'baseline', gap: '2px' }}>
+                    <span style={{ fontSize: '13px', fontWeight: 800 }}>8</span>
+                    <span style={{ fontSize: '10px', opacity: 0.5 }}>/10</span>
+                  </div>
+                  <div style={{ width: '30px', height: '4px', background: 'var(--ivory-medium)', borderRadius: '30px' }}>
+                    <div style={{ width: '80%', height: '100%', background: 'var(--success)', borderRadius: '30px' }} />
+                  </div>
+                  <span style={{ fontSize: '12px', fontWeight: 600 }}>MIS Dashboard & Report Generation</span>
+                  <span style={{ fontSize: '9px', fontWeight: 800, color: 'var(--success)', background: 'var(--success-bg)', padding: '1px 5px', borderRadius: '3px' }}>high</span>
                 </div>
-                <div className="insight-tags">
-                  <span className="insight-tag">React</span>
-                  <span className="insight-tag">Node.js</span>
-                  <span className="insight-tag">PostgreSQL</span>
-                </div>
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.3 }}><polyline points="6 9 12 15 18 9"></polyline></svg>
               </div>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Feature 2: Bulk Processing */}
-        <div className="feature-row reverse">
-          <div className="feature-text">
+        <motion.div
+          className="feature-row reverse"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.25 }}
+          variants={rowContainer}
+        >
+          <motion.div className="feature-text" variants={fromRight}>
             <h3>Bulk Processing at Scale</h3>
             <p>Upload a ZIP with 500 resumes. Get ranked results in minutes, not days. Our async pipeline handles it all in the background.</p>
-            <ul className="feature-bullets">
-              <li>
-                <span className="bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round"><polyline points="20 6 9 17 4 12" /></svg></span>
-                ZIP upload with auto-extraction
-              </li>
-              <li>
-                <span className="bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round"><polyline points="20 6 9 17 4 12" /></svg></span>
-                Supports all resume file types, PDF, doc, docx, jpg
-              </li>
-              <li>
-                <span className="bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round"><polyline points="20 6 9 17 4 12" /></svg></span>
-                Background processing &mdash; come back when it's done
-              </li>
-            </ul>
-          </div>
-          <div className="feature-visual">
+            <motion.ul className="feature-bullets" variants={bulletVariants}>
+              {[
+                'ZIP upload with auto-extraction',
+                'Supports all resume file types, PDF, doc, docx, jpg',
+                "Background processing — come back when it's done",
+              ].map((b) => (
+                <motion.li key={b} variants={bulletItem}>
+                  <span className="bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round"><polyline points="20 6 9 17 4 12" /></svg></span>
+                  {b}
+                </motion.li>
+              ))}
+            </motion.ul>
+          </motion.div>
+          <motion.div className="feature-visual" variants={fromLeft} {...visualHover}>
             <div className="feature-visual-inner">
               <div style={{ fontSize: '13px', fontWeight: 600, marginBottom: '16px', color: 'var(--charcoal)' }}>Processing 147 of 200 resumes...</div>
               <div style={{ height: '8px', background: 'var(--ivory-medium)', borderRadius: '4px', overflow: 'hidden', marginBottom: '20px' }}>
-                <div style={{ width: '73.5%', height: '100%', background: 'linear-gradient(90deg, var(--copper), var(--copper-light))', borderRadius: '4px', transition: 'width 0.3s' }}></div>
+                <motion.div
+                  initial={{ width: 0 }}
+                  whileInView={{ width: '73.5%' }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.4, duration: 1.2, ease }}
+                  style={{ height: '100%', background: 'linear-gradient(90deg, var(--copper), var(--copper-light))', borderRadius: '4px' }}
+                />
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                <div className="file-row" style={{ borderLeft: '3px solid var(--success)' }}>
-                  <span className="file-name" style={{ fontSize: '12.5px' }}>batch_engineering_01.zip</span>
-                  <span style={{ fontSize: '11px', color: 'var(--success)', fontWeight: 600 }}>Complete</span>
-                </div>
-                <div className="file-row" style={{ borderLeft: '3px solid var(--charcoal)' }}>
-                  <span className="file-name" style={{ fontSize: '12.5px' }}>batch_engineering_02.zip</span>
-                  <span style={{ fontSize: '11px', color: 'var(--charcoal-md)', fontWeight: 600 }}>Processing</span>
-                </div>
-                <div className="file-row" style={{ borderLeft: '3px solid var(--border)' }}>
-                  <span className="file-name" style={{ fontSize: '12.5px' }}>batch_engineering_03.zip</span>
-                  <span style={{ fontSize: '11px', color: 'var(--charcoal-xlt)', fontWeight: 600 }}>Queued</span>
-                </div>
+                {[
+                  { label: 'batch_engineering_01.zip', status: 'Complete', borderColor: 'var(--success)', textColor: 'var(--success)' },
+                  { label: 'batch_engineering_02.zip', status: 'Processing', borderColor: 'var(--charcoal)', textColor: 'var(--charcoal-md)' },
+                  { label: 'batch_engineering_03.zip', status: 'Queued', borderColor: 'var(--border)', textColor: 'var(--charcoal-xlt)' },
+                ].map((row, i) => (
+                  <motion.div
+                    key={row.label}
+                    className="file-row"
+                    initial={{ opacity: 0, x: -16 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.6 + i * 0.12, duration: 0.45, ease }}
+                    style={{ borderLeft: `3px solid ${row.borderColor}` }}
+                  >
+                    <span className="file-name" style={{ fontSize: '12.5px' }}>{row.label}</span>
+                    <span style={{ fontSize: '11px', color: row.textColor, fontWeight: 600 }}>{row.status}</span>
+                  </motion.div>
+                ))}
               </div>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Feature 3: Contextual Search */}
-        <div className="feature-row">
-          <div className="feature-text">
+        <motion.div
+          className="feature-row"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.25 }}
+          variants={rowContainer}
+        >
+          <motion.div className="feature-text" variants={fromLeft}>
             <h3>Contextual Search, Not Keyword Search</h3>
             <p>Go beyond keyword matching. HireSort evaluates resumes based on contextual relevance, helping HR teams identify genuinely strong candidates faster and more accurately.</p>
-            <ul className="feature-bullets">
-              <li>
-                <span className="bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round"><polyline points="20 6 9 17 4 12" /></svg></span>
-                Semantic matching across skills and experience
-              </li>
-              <li>
-                <span className="bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round"><polyline points="20 6 9 17 4 12" /></svg></span>
-                Better fit detection beyond exact phrase overlap
-              </li>
-              <li>
-                <span className="bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round"><polyline points="20 6 9 17 4 12" /></svg></span>
-                Smarter shortlisting with fewer irrelevant matches
-              </li>
-            </ul>
-          </div>
-          <div className="feature-visual">
+            <motion.ul className="feature-bullets" variants={bulletVariants}>
+              {[
+                'Semantic matching across skills and experience',
+                'Better fit detection beyond exact phrase overlap',
+                'Smarter shortlisting with fewer irrelevant matches',
+              ].map((b) => (
+                <motion.li key={b} variants={bulletItem}>
+                  <span className="bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round"><polyline points="20 6 9 17 4 12" /></svg></span>
+                  {b}
+                </motion.li>
+              ))}
+            </motion.ul>
+          </motion.div>
+          <motion.div className="feature-visual" variants={fromRight} {...visualHover}>
             <div className="feature-visual-inner">
-              <div style={{ background: 'var(--white)', border: '1px solid var(--border-light)', borderRadius: '10px', padding: '10px 12px', display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--charcoal-lt)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
-                  <circle cx="11" cy="11" r="8" />
-                  <line x1="21" y1="21" x2="16.65" y2="16.65" />
-                </svg>
-                <span style={{ fontSize: '12.5px', color: 'var(--charcoal)', fontWeight: 500 }}>Senior engineer who can scale distributed systems</span>
-              </div>
-
-              <div style={{ fontSize: '10.5px', fontWeight: 700, color: 'var(--charcoal-xlt)', textTransform: 'uppercase', letterSpacing: '0.8px', marginBottom: '8px' }}>Semantic matches</div>
-
-              <div style={{ background: 'var(--white)', border: '1px solid var(--border-light)', borderRadius: '10px', padding: '12px', marginBottom: '8px' }}>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <div style={{ width: '26px', height: '26px', borderRadius: '50%', background: 'linear-gradient(135deg,#C8A27A,#B8926A)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '10.5px', fontWeight: 700, color: 'white' }}>SC</div>
-                    <span style={{ fontSize: '12.5px', fontWeight: 600 }}>Sarah Chen</span>
-                  </div>
-                  <span style={{ fontSize: '10.5px', fontWeight: 700, color: 'var(--success)', background: 'var(--success-bg)', padding: '3px 8px', borderRadius: '100px' }}>94% context</span>
-                </div>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
-                  <span style={{ fontSize: '11px', padding: '3px 8px', borderRadius: '6px', background: 'var(--ivory-medium)', color: 'var(--charcoal-md)', fontWeight: 500 }}>Kafka &rarr; distributed systems</span>
-                  <span style={{ fontSize: '11px', padding: '3px 8px', borderRadius: '6px', background: 'var(--ivory-medium)', color: 'var(--charcoal-md)', fontWeight: 500 }}>7 yrs &rarr; senior</span>
-                </div>
-              </div>
-
-              <div style={{ background: 'var(--white)', border: '1px solid var(--border-light)', borderRadius: '10px', padding: '12px', opacity: 0.75 }}>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <div style={{ width: '26px', height: '26px', borderRadius: '50%', background: 'linear-gradient(135deg,#7A9EC8,#6A8EB8)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '10.5px', fontWeight: 700, color: 'white' }}>DK</div>
-                    <span style={{ fontSize: '12.5px', fontWeight: 600 }}>David Kumar</span>
-                  </div>
-                  <span style={{ fontSize: '10.5px', fontWeight: 700, color: 'var(--charcoal-md)', background: 'var(--ivory-medium)', padding: '3px 8px', borderRadius: '100px' }}>81% context</span>
-                </div>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
-                  <span style={{ fontSize: '11px', padding: '3px 8px', borderRadius: '6px', background: 'var(--ivory-medium)', color: 'var(--charcoal-md)', fontWeight: 500 }}>microservices &rarr; distributed</span>
-                  <span style={{ fontSize: '11px', padding: '3px 8px', borderRadius: '6px', background: 'var(--ivory-medium)', color: 'var(--charcoal-md)', fontWeight: 500 }}>4 yrs &rarr; mid-senior</span>
-                </div>
+              <div style={{ fontSize: '11px', fontWeight: 700, color: 'var(--charcoal-lt)', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '12px' }}>Criteria Breakdown</div>
+              
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                {[
+                  { score: '10', title: 'Foundational Business Analysis', status: 'high', sub: 'The candidate demonstrates advanced business and fina...', progress: '100%' },
+                  { score: '9', title: 'Executive & Cross-Functional Coordinati...', status: 'high', sub: 'Direct experience working with a CEO, leading cross-func...', progress: '90%' },
+                  { score: '8', title: 'Structured Documentation & Informat...', status: 'medium', sub: 'The candidate\'s work on policy design, review, and MIS im...', progress: '80%', statusColor: 'var(--accent)', statusBg: '#FFF9F0' },
+                  { score: '10', title: 'High-Priority Task Execution', status: 'high', sub: 'Co-founding a startup, leading multiple complex consulti...', progress: '100%' },
+                ].map((item, i) => (
+                  <motion.div
+                    key={i}
+                    style={{ background: 'var(--white)', border: '1px solid var(--border-light)', borderRadius: '12px', padding: '12px 16px', boxShadow: 'var(--shadow-sm)' }}
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.3 + i * 0.1, duration: 0.5 }}
+                  >
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flex: 1 }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', width: '45px', flexShrink: 0 }}>
+                          <div style={{ display: 'flex', alignItems: 'baseline', gap: '1px' }}>
+                            <span style={{ fontSize: '14px', fontWeight: 800 }}>{item.score}</span>
+                            <span style={{ fontSize: '10px', opacity: 0.4 }}>/10</span>
+                          </div>
+                          <div style={{ height: '5px', background: 'var(--ivory-medium)', borderRadius: '10px', overflow: 'hidden' }}>
+                            <div style={{ width: item.progress, height: '100%', background: 'var(--success)', borderRadius: '10px' }} />
+                          </div>
+                        </div>
+                        
+                        <div style={{ flex: 1, minWidth: 0 }}>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '2px' }}>
+                            <span style={{ fontSize: '13px', fontWeight: 600, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{item.title}</span>
+                            <span style={{ 
+                              fontSize: '9px', 
+                              fontWeight: 800, 
+                              color: item.statusColor || 'var(--success)', 
+                              background: item.statusBg || 'var(--success-bg)', 
+                              padding: '1px 5px', 
+                              borderRadius: '4px',
+                              textTransform: 'lowercase'
+                            }}>{item.status}</span>
+                          </div>
+                          <div style={{ fontSize: '11px', color: 'var(--charcoal-lt)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{item.sub}</div>
+                        </div>
+                        
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.2, flexShrink: 0 }}><polyline points="6 9 12 15 18 9"></polyline></svg>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
               </div>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Feature 4: End-to-End Resume Management */}
-        <div className="feature-row reverse">
-          <div className="feature-text">
+        <motion.div
+          className="feature-row reverse"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.25 }}
+          variants={rowContainer}
+        >
+          <motion.div className="feature-text" variants={fromRight}>
             <h3>End-to-End Resume Management</h3>
             <p>Manage the entire resume screening workflow in one place &mdash; from intake and parsing to ranking, tracking, and final review. HireSort helps HR teams stay organized, collaborate better, and move faster.</p>
-            <ul className="feature-bullets">
-              <li>
-                <span className="bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round"><polyline points="20 6 9 17 4 12" /></svg></span>
-                Centralized resume upload, storage, and organization
-              </li>
-              <li>
-                <span className="bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round"><polyline points="20 6 9 17 4 12" /></svg></span>
-                Track candidate scores, shortlist status, and review stages
-              </li>
-              <li>
-                <span className="bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round"><polyline points="20 6 9 17 4 12" /></svg></span>
-                Export scores and status in CSV for collaboration, review, and decision-making
-              </li>
-            </ul>
-          </div>
-          <div className="feature-visual">
+            <motion.ul className="feature-bullets" variants={bulletVariants}>
+              {[
+                'Centralized resume upload, storage, and organization',
+                'Track candidate scores, shortlist status, and review stages',
+                'Export scores and status in CSV for collaboration, review, and decision-making',
+              ].map((b) => (
+                <motion.li key={b} variants={bulletItem}>
+                  <span className="bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round"><polyline points="20 6 9 17 4 12" /></svg></span>
+                  {b}
+                </motion.li>
+              ))}
+            </motion.ul>
+          </motion.div>
+          <motion.div className="feature-visual" variants={fromLeft} {...visualHover}>
             <div className="feature-visual-inner">
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
                 <div style={{ fontSize: '13px', fontWeight: 600, color: 'var(--charcoal)' }}>Candidate Pipeline</div>
                 <span style={{ fontSize: '11px', color: 'var(--charcoal-xlt)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.5px' }}>24 total</span>
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                <div style={{ background: 'var(--white)', border: '1px solid var(--border-light)', borderRadius: '10px', padding: '10px 12px', display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  <div style={{ width: '30px', height: '30px', borderRadius: '50%', background: 'linear-gradient(135deg,#C8A27A,#B8926A)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '11px', fontWeight: 700, color: 'white', flexShrink: 0 }}>SC</div>
-                  <div style={{ flex: 1, minWidth: 0 }}>
-                    <div style={{ fontSize: '12.5px', fontWeight: 600, color: 'var(--charcoal)' }}>Sarah Chen</div>
-                    <div style={{ fontSize: '11px', color: 'var(--charcoal-lt)' }}>Score 92 &middot; Shortlisted</div>
-                  </div>
-                  <span style={{ fontSize: '10.5px', fontWeight: 700, color: 'var(--success)', background: 'var(--success-bg)', padding: '3px 8px', borderRadius: '100px' }}>Interview</span>
-                </div>
-                <div style={{ background: 'var(--white)', border: '1px solid var(--border-light)', borderRadius: '10px', padding: '10px 12px', display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  <div style={{ width: '30px', height: '30px', borderRadius: '50%', background: 'linear-gradient(135deg,#7A9EC8,#6A8EB8)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '11px', fontWeight: 700, color: 'white', flexShrink: 0 }}>DK</div>
-                  <div style={{ flex: 1, minWidth: 0 }}>
-                    <div style={{ fontSize: '12.5px', fontWeight: 600, color: 'var(--charcoal)' }}>David Kumar</div>
-                    <div style={{ fontSize: '11px', color: 'var(--charcoal-lt)' }}>Score 87 &middot; Under review</div>
-                  </div>
-                  <span style={{ fontSize: '10.5px', fontWeight: 700, color: 'var(--charcoal-md)', background: 'var(--ivory-medium)', padding: '3px 8px', borderRadius: '100px' }}>Reviewing</span>
-                </div>
-                <div style={{ background: 'var(--white)', border: '1px solid var(--border-light)', borderRadius: '10px', padding: '10px 12px', display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  <div style={{ width: '30px', height: '30px', borderRadius: '50%', background: 'linear-gradient(135deg,#8AC87A,#7AB86A)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '11px', fontWeight: 700, color: 'white', flexShrink: 0 }}>AM</div>
-                  <div style={{ flex: 1, minWidth: 0 }}>
-                    <div style={{ fontSize: '12.5px', fontWeight: 600, color: 'var(--charcoal)' }}>Ana Martinez</div>
-                    <div style={{ fontSize: '11px', color: 'var(--charcoal-lt)' }}>Score 78 &middot; New</div>
-                  </div>
-                  <span style={{ fontSize: '10.5px', fontWeight: 700, color: 'var(--charcoal-xlt)', background: 'var(--ivory-medium)', padding: '3px 8px', borderRadius: '100px' }}>Parsed</span>
-                </div>
+                {[
+                  { initials: 'SC', name: 'Sarah Chen', sub: 'Score 92 · Shortlisted', tag: 'Interview', avatar: 'linear-gradient(135deg,#C8A27A,#B8926A)', tagColor: 'var(--success)', tagBg: 'var(--success-bg)' },
+                  { initials: 'DK', name: 'David Kumar', sub: 'Score 87 · Under review', tag: 'Reviewing', avatar: 'linear-gradient(135deg,#7A9EC8,#6A8EB8)', tagColor: 'var(--charcoal-md)', tagBg: 'var(--ivory-medium)' },
+                  { initials: 'AM', name: 'Ana Martinez', sub: 'Score 78 · New', tag: 'Parsed', avatar: 'linear-gradient(135deg,#8AC87A,#7AB86A)', tagColor: 'var(--charcoal-xlt)', tagBg: 'var(--ivory-medium)' },
+                ].map((row, i) => (
+                  <motion.div
+                    key={row.initials}
+                    initial={{ opacity: 0, x: -16 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.4 + i * 0.12, duration: 0.5, ease }}
+                    whileHover={{ x: 4 }}
+                    style={{ background: 'var(--white)', border: '1px solid var(--border-light)', borderRadius: '10px', padding: '10px 12px', display: 'flex', alignItems: 'center', gap: '10px' }}
+                  >
+                    <div style={{ width: '30px', height: '30px', borderRadius: '50%', background: row.avatar, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '11px', fontWeight: 700, color: 'white', flexShrink: 0 }}>{row.initials}</div>
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <div style={{ fontSize: '12.5px', fontWeight: 600, color: 'var(--charcoal)' }}>{row.name}</div>
+                      <div style={{ fontSize: '11px', color: 'var(--charcoal-lt)' }}>{row.sub}</div>
+                    </div>
+                    <span style={{ fontSize: '10.5px', fontWeight: 700, color: row.tagColor, background: row.tagBg, padding: '3px 8px', borderRadius: '100px' }}>{row.tag}</span>
+                  </motion.div>
+                ))}
               </div>
               <div style={{ marginTop: '12px', paddingTop: '12px', borderTop: '1px solid var(--border-light)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: '11.5px', color: 'var(--charcoal-lt)' }}>
                 <span>Intake &rarr; Parse &rarr; Rank &rarr; Review</span>
-                <span style={{ color: 'var(--copper)', fontWeight: 600 }}>Export CSV &darr;</span>
+                <motion.span
+                  style={{ color: 'var(--copper)', fontWeight: 600, cursor: 'pointer' }}
+                  whileHover={{ y: 2 }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 14 }}
+                >
+                  Export CSV &darr;
+                </motion.span>
               </div>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
