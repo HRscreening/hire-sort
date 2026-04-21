@@ -304,7 +304,7 @@ nav {
 
 .hero-grid-bg {
     position: absolute;
-    inset: -40px -100px;
+    inset: -40px 0;
     z-index: 0;
     pointer-events: none;
     background-image:
@@ -313,6 +313,9 @@ nav {
     background-size: 56px 56px;
     mask-image: radial-gradient(ellipse 80% 70% at 50% 35%, black 20%, transparent 75%);
     -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 35%, black 20%, transparent 75%);
+    width: 100vw;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 /* Floating flanking cards */
@@ -1338,6 +1341,38 @@ nav {
     min-height: 280px;
 }
 
+@media (max-width: 600px) {
+    .features-section {
+        padding: 60px 20px 80px;
+    }
+
+    .features-zigzag {
+        gap: 60px;
+    }
+
+    .feature-text h3 {
+        font-size: 24px;
+        margin-bottom: 12px;
+    }
+
+    .feature-text p {
+        font-size: 14.5px;
+        margin-bottom: 20px;
+    }
+
+    .feature-visual {
+        padding: 4px;
+        border-radius: var(--radius-xl);
+        overflow: hidden; /* Prevent bleed */
+    }
+
+    .feature-visual-inner {
+        padding: 16px;
+        min-height: auto;
+        border-radius: calc(var(--radius-xl) - 4px);
+    }
+}
+
 /* ===== STATS ===== */
 .stats-section {
     padding: 80px 24px;
@@ -2013,6 +2048,9 @@ footer {
     background-size: 56px 56px;
     mask-image: radial-gradient(ellipse 70% 80% at 50% 40%, black 10%, transparent 75%);
     -webkit-mask-image: radial-gradient(ellipse 70% 80% at 50% 40%, black 10%, transparent 75%);
+    width: 100vw;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .contact-page-hero-inner {
@@ -2399,10 +2437,21 @@ a.contact-info-value:hover {
     align-items: start;
 }
 
+@media (max-width: 900px) {
+    .privacy-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .privacy-toc {
+        display: none;
+    }
+}
+
 /* ----- Table of contents ----- */
 .privacy-toc {
     position: sticky;
     top: 92px;
+    z-index: 10;
     background: var(--white);
     border: 1px solid var(--border-light);
     border-radius: var(--radius-lg);

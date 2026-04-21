@@ -79,14 +79,14 @@ const Features = () => {
             <div className="feature-visual-inner">
               {/* <div style={{ fontSize: '11px', fontWeight: 700, color: 'var(--charcoal-lt)', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '12px' }}>Criteria Breakdown</div> */}
               
-              <div style={{ background: 'var(--white)', border: '1px solid var(--border-light)', borderRadius: '12px', padding: '16px', marginBottom: '10px', boxShadow: 'var(--shadow-sm)' }}>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                    <div style={{ display: 'flex', alignItems: 'baseline', gap: '2px' }}>
-                      <span style={{ fontSize: '14px', fontWeight: 800 }}>9</span>
+              <div style={{ background: 'var(--white)', border: '1px solid var(--border-light)', borderRadius: '12px', padding: '16px', marginBottom: '10px', boxShadow: 'var(--shadow-sm)', overflow: 'hidden' }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px', width: '100%' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flex: 1, minWidth: 0 }}>
+                    <div style={{ display: 'flex', alignItems: 'baseline', gap: '2px', flexShrink: 0 }}>
+                      <span style={{ fontSize: '13px', fontWeight: 800 }}>9</span>
                       <span style={{ fontSize: '11px', opacity: 0.5 }}>/10</span>
                     </div>
-                    <div style={{ width: '40px', height: '5px', background: 'var(--ivory-medium)', borderRadius: '30px' }}>
+                    <div style={{ width: '35px', height: '5px', background: 'var(--ivory-medium)', borderRadius: '30px', flexShrink: 0 }}>
                       <motion.div
                         style={{ height: '100%', background: 'var(--success)', borderRadius: '30px' }}
                         initial={{ width: 0 }}
@@ -95,10 +95,10 @@ const Features = () => {
                         transition={{ delay: 0.4, duration: 0.8 }}
                       />
                     </div>
-                    <span style={{ fontSize: '13px', fontWeight: 600 }}>Advanced Spreadsheet Skills</span>
-                    <span style={{ fontSize: '10px', fontWeight: 800, color: 'var(--success)', background: 'var(--success-bg)', padding: '2px 6px', borderRadius: '4px' }}>high</span>
+                    <span style={{ fontSize: '12.5px', fontWeight: 600, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', flex: 1, minWidth: 0 }}>Advanced Spreadsheet Skills</span>
+                    <span style={{ fontSize: '9px', fontWeight: 800, color: 'var(--success)', background: 'var(--success-bg)', padding: '2px 5px', borderRadius: '4px', flexShrink: 0 }}>high</span>
                   </div>
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.3 }}><polyline points="18 15 12 9 6 15"></polyline></svg>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.3, flexShrink: 0 }}><polyline points="18 15 12 9 6 15"></polyline></svg>
                 </div>
 
                 <p style={{ fontSize: '12px', color: 'var(--charcoal-lt)', marginBottom: '14px', lineHeight: '1.5' }}>
@@ -119,34 +119,34 @@ const Features = () => {
                 </div>
               </div>
 
-              <div style={{ background: 'var(--white)', border: '1px solid var(--border-light)', borderRadius: '10px', padding: '10px 16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px', opacity: 0.8 }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                  <div style={{ display: 'flex', alignItems: 'baseline', gap: '2px' }}>
-                    <span style={{ fontSize: '13px', fontWeight: 800 }}>10</span>
+              <div style={{ background: 'var(--white)', border: '1px solid var(--border-light)', borderRadius: '10px', padding: '10px 16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px', opacity: 0.8, overflow: 'hidden' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flex: 1, minWidth: 0 }}>
+                  <div style={{ display: 'flex', alignItems: 'baseline', gap: '2px', flexShrink: 0 }}>
+                    <span style={{ fontSize: '12.5px', fontWeight: 800 }}>10</span>
                     <span style={{ fontSize: '10px', opacity: 0.5 }}>/10</span>
                   </div>
-                  <div style={{ width: '30px', height: '4px', background: 'var(--ivory-medium)', borderRadius: '30px' }}>
+                  <div style={{ width: '30px', height: '4px', background: 'var(--ivory-medium)', borderRadius: '30px', flexShrink: 0 }}>
                     <div style={{ width: '100%', height: '100%', background: 'var(--success)', borderRadius: '30px' }} />
                   </div>
-                  <span style={{ fontSize: '12px', fontWeight: 600 }}>Professional Presentation Creation</span>
-                  <span style={{ fontSize: '9px', fontWeight: 800, color: 'var(--success)', background: 'var(--success-bg)', padding: '1px 5px', borderRadius: '3px' }}>high</span>
+                  <span style={{ fontSize: '12px', fontWeight: 600, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', flex: 1, minWidth: 0 }}>Professional Presentation Creation</span>
+                  <span style={{ fontSize: '9px', fontWeight: 800, color: 'var(--success)', background: 'var(--success-bg)', padding: '1px 5px', borderRadius: '3px', flexShrink: 0 }}>high</span>
                 </div>
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.3 }}><polyline points="6 9 12 15 18 9"></polyline></svg>
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.3, flexShrink: 0 }}><polyline points="6 9 12 15 18 9"></polyline></svg>
               </div>
 
-              <div style={{ background: 'var(--white)', border: '1px solid var(--border-light)', borderRadius: '10px', padding: '10px 16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', opacity: 0.6 }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                  <div style={{ display: 'flex', alignItems: 'baseline', gap: '2px' }}>
-                    <span style={{ fontSize: '13px', fontWeight: 800 }}>8</span>
+              <div style={{ background: 'var(--white)', border: '1px solid var(--border-light)', borderRadius: '10px', padding: '10px 16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', opacity: 0.6, overflow: 'hidden' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flex: 1, minWidth: 0 }}>
+                  <div style={{ display: 'flex', alignItems: 'baseline', gap: '2px', flexShrink: 0 }}>
+                    <span style={{ fontSize: '12.5px', fontWeight: 800 }}>8</span>
                     <span style={{ fontSize: '10px', opacity: 0.5 }}>/10</span>
                   </div>
-                  <div style={{ width: '30px', height: '4px', background: 'var(--ivory-medium)', borderRadius: '30px' }}>
+                  <div style={{ width: '30px', height: '4px', background: 'var(--ivory-medium)', borderRadius: '30px', flexShrink: 0 }}>
                     <div style={{ width: '80%', height: '100%', background: 'var(--success)', borderRadius: '30px' }} />
                   </div>
-                  <span style={{ fontSize: '12px', fontWeight: 600 }}>MIS Dashboard & Report Generation</span>
-                  <span style={{ fontSize: '9px', fontWeight: 800, color: 'var(--success)', background: 'var(--success-bg)', padding: '1px 5px', borderRadius: '3px' }}>high</span>
+                  <span style={{ fontSize: '12px', fontWeight: 600, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', flex: 1, minWidth: 0 }}>MIS Dashboard & Report Generation</span>
+                  <span style={{ fontSize: '9px', fontWeight: 800, color: 'var(--success)', background: 'var(--success-bg)', padding: '1px 5px', borderRadius: '3px', flexShrink: 0 }}>high</span>
                 </div>
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.3 }}><polyline points="6 9 12 15 18 9"></polyline></svg>
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.3, flexShrink: 0 }}><polyline points="6 9 12 15 18 9"></polyline></svg>
               </div>
             </div>
           </motion.div>
@@ -249,41 +249,50 @@ const Features = () => {
                 ].map((item, i) => (
                   <motion.div
                     key={i}
-                    style={{ background: 'var(--white)', border: '1px solid var(--border-light)', borderRadius: '12px', padding: '12px 16px', boxShadow: 'var(--shadow-sm)' }}
+                    style={{ 
+                      background: 'var(--white)', 
+                      border: '1px solid var(--border-light)', 
+                      borderRadius: '12px', 
+                      padding: '12px 16px', 
+                      boxShadow: 'var(--shadow-sm)',
+                      width: '100%',
+                      overflow: 'hidden'
+                    }}
                     initial={{ opacity: 0, x: 20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.3 + i * 0.1, duration: 0.5 }}
                   >
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flex: 1 }}>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', width: '45px', flexShrink: 0 }}>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flex: 1, minWidth: 0 }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', width: '40px', flexShrink: 0 }}>
                           <div style={{ display: 'flex', alignItems: 'baseline', gap: '1px' }}>
-                            <span style={{ fontSize: '14px', fontWeight: 800 }}>{item.score}</span>
-                            <span style={{ fontSize: '10px', opacity: 0.4 }}>/10</span>
+                            <span style={{ fontSize: '13px', fontWeight: 800 }}>{item.score}</span>
+                            <span style={{ fontSize: '9px', opacity: 0.4 }}>/10</span>
                           </div>
-                          <div style={{ height: '5px', background: 'var(--ivory-medium)', borderRadius: '10px', overflow: 'hidden' }}>
+                          <div style={{ height: '4px', background: 'var(--ivory-medium)', borderRadius: '10px', overflow: 'hidden' }}>
                             <div style={{ width: item.progress, height: '100%', background: 'var(--success)', borderRadius: '10px' }} />
                           </div>
                         </div>
                         
                         <div style={{ flex: 1, minWidth: 0 }}>
-                          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '2px' }}>
-                            <span style={{ fontSize: '13px', fontWeight: 600, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{item.title}</span>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '2px', flexWrap: 'wrap' }}>
+                            <span style={{ fontSize: '12px', fontWeight: 600, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', flex: 1, minWidth: 0 }}>{item.title}</span>
                             <span style={{ 
-                              fontSize: '9px', 
+                              fontSize: '8px', 
                               fontWeight: 800, 
                               color: item.statusColor || 'var(--success)', 
                               background: item.statusBg || 'var(--success-bg)', 
-                              padding: '1px 5px', 
+                              padding: '1px 4px', 
                               borderRadius: '4px',
-                              textTransform: 'lowercase'
+                              textTransform: 'lowercase',
+                              flexShrink: 0
                             }}>{item.status}</span>
                           </div>
-                          <div style={{ fontSize: '11px', color: 'var(--charcoal-lt)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{item.sub}</div>
+                          <div style={{ fontSize: '10.5px', color: 'var(--charcoal-lt)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{item.sub}</div>
                         </div>
                         
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.2, flexShrink: 0 }}><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.2, flexShrink: 0 }}><polyline points="6 9 12 15 18 9"></polyline></svg>
                       </div>
                     </div>
                   </motion.div>

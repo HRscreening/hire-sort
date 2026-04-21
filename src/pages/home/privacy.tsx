@@ -472,7 +472,7 @@ const PrivacyPolicy = () => {
 
           <motion.div className="privacy-updated" variants={fadeUp}>
             <Calendar size={13} strokeWidth={2.3} />
-            <span>Last updated&nbsp;&middot;&nbsp;01 Feb 2026</span>
+            <span>Last updated&nbsp;&middot;&nbsp;21 April 2026</span>
           </motion.div>
         </motion.div>
       </section>
