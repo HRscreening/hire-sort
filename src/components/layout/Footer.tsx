@@ -30,13 +30,14 @@ const Footer = () => {
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
           >
-            <motion.div
-              className="logo-icon"
-              whileHover={{ rotate: -8, scale: 1.08 }}
-              transition={{ type: 'spring', stiffness: 320, damping: 14 }}
-            >
-              H
-            </motion.div>
+          <motion.img
+            src='/logo.png'
+            width={28}
+            // className="logo-icon"
+            whileHover={{ rotate: -8, scale: 1.08 }}
+            transition={{ type: 'spring', stiffness: 320, damping: 14 }}
+
+          />
             <span className="logo-text">HireSort</span>
           </motion.a>
           <p>AI-powered resume screening that explains its reasoning. Built for hiring teams who value transparency.</p>
@@ -45,22 +46,19 @@ const Footer = () => {
         {([
           {
             title: 'Product',
-            links: [{ label: 'Features' }, { label: 'Pricing' }],
+            links: [{ label: 'Features' , to: '/#featur'}, { label: 'Pricing' ,to: '/#pricing'},],
           },
           {
             title: 'Resources',
             links: [
-              { label: 'Documentation' },
-              { label: 'Blog' },
-              { label: 'Help Center' },
-              { label: 'Status' },
+              { label: 'Blogs' },
+              { label: 'FAQs', to: '/faq' },
             ],
           },
           {
             title: 'Company',
             links: [
-              { label: 'About' },
-              { label: 'Careers' },
+              { label: 'About', to: '/about' },
               { label: 'Contact', to: '/contact_us' },
             ],
           },
@@ -68,8 +66,7 @@ const Footer = () => {
             title: 'Legal',
             links: [
               { label: 'Privacy', to: '/privacy' },
-              { label: 'Terms' },
-              { label: 'Security' },
+              { label: 'Terms', to: '/terms' },
             ],
           },
         ] as { title: string; links: { label: string; to?: string; href?: string }[] }[]).map((c) => (

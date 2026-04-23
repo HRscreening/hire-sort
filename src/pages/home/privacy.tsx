@@ -34,7 +34,7 @@ const sections: Section[] = [
     blocks: [
       {
         type: "p",
-        text: "Legal entity: DeskZero Pvt Ltd. Email: hello@hiresort.ai. Website: www.hiresort.ai.",
+        text: "Legal entity: DeskZero Pvt Ltd. Email: support@hiresort.ai. Website: www.hiresort.ai.",
       },
       {
         type: "p",
@@ -336,7 +336,7 @@ const sections: Section[] = [
       },
       {
         type: "p",
-        text: "To exercise your rights, contact us at hello@hiresort.ai.",
+        text: "To exercise your rights, contact us at support@hiresort.ai.",
       },
       {
         type: "p",
@@ -355,7 +355,7 @@ const sections: Section[] = [
       },
       {
         type: "p",
-        text: "You may submit requests by contacting us at hello@hiresort.ai.",
+        text: "You may submit requests by contacting us at support@hiresort.ai.",
       },
       {
         type: "p",
@@ -425,7 +425,7 @@ const sections: Section[] = [
     blocks: [
       {
         type: "p",
-        text: "If you have questions, requests, or complaints regarding this Privacy Policy or our data practices, contact DeskZero Pvt Ltd at hello@hiresort.ai or visit www.hiresort.ai.",
+        text: "If you have questions, requests, or complaints regarding this Privacy Policy or our data practices, contact DeskZero Pvt Ltd at support@hiresort.ai or visit www.hiresort.ai.",
       },
     ],
   },
@@ -550,8 +550,8 @@ const PrivacyPolicy = () => {
                   </div>
                 </div>
               </div>
-              <a href="mailto:hello@hiresort.ai" className="btn-primary hero-cta-btn">
-                Email hello@hiresort.ai
+              <a href="mailto:support@hiresort.ai" className="btn-primary hero-cta-btn">
+                Email support@hiresort.ai
               </a>
             </motion.div>
           </motion.article>

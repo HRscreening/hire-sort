@@ -1,0 +1,129 @@
+{
+  "metadata": {
+    "title": "How High-Performing Teams Read Resumes Faster and Better",
+    "slug": "how-high-performing-teams-read-resumes-faster-and-better",
+    "metaDescription": "Learn how high-performing hiring teams screen resumes faster without sacrificing accuracy, using structured scorecards, layered review, and AI-assisted workflows.",
+    "primaryKeyword": "read resumes faster",
+    "secondaryKeywords": [
+      "resume screening",
+      "faster hiring",
+      "AI resume screening",
+      "shortlist quality",
+      "recruiter productivity"
+    ],
+    "audience": [
+      "Recruiters",
+      "Hiring managers",
+      "Talent teams",
+      "Staffing firms"
+    ],
+    "estimatedReadingTime": "6–7 minutes"
+  },
+  "content": [
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Why resume screening feels slow"
+    },
+    {
+      "type": "paragraph",
+      "content": "Most recruiters are not slow because they lack urgency. They are slow because the first stage of hiring is usually under-structured. Every resume is opened as a fresh decision, every reviewer uses slightly different criteria, and too much time gets spent on profiles that should have been filtered in seconds."
+    },
+    {
+      "type": "paragraph",
+      "content": "That creates three problems at once: recruiter time gets consumed by low-value review, strong candidates can get buried in the pile, and shortlists become inconsistent across reviewers. The real issue is not effort. It is a lack of screening discipline."
+    },
+    {
+      "type": "numbered_section",
+      "title": "Start with non-negotiables before you open the inbox",
+      "content": [
+        "High-performing teams do not begin by reading resumes. They begin by agreeing on what truly matters for the role.",
+        "That means identifying the few criteria that are genuinely required to move a candidate forward.",
+        "Once those are defined, the screening process becomes dramatically faster because reviewers are no longer improvising."
+      ]
+    },
+    {
+      "type": "numbered_section",
+      "title": "Use a scorecard, not instinct alone",
+      "content": [
+        "Use structured evaluation instead of relying on gut feeling.",
+        "Evaluate dimensions like must-have skills, role relevance, impact, progression, and risks.",
+        "Scorecards reduce variation and improve fairness and speed."
+      ]
+    },
+    {
+      "type": "numbered_section",
+      "title": "Screen in passes, not in one deep read",
+      "content": [
+        "First pass: basic fit.",
+        "Second pass: deeper evaluation.",
+        "Third pass: ranking finalists.",
+        "Layered review saves time and improves focus."
+      ]
+    },
+    {
+      "type": "numbered_section",
+      "title": "Look for evidence, not just keywords",
+      "content": [
+        "Focus on proof of skills, not just claims.",
+        "Look for measurable impact and relevant experience.",
+        "Prioritize signal over buzzwords."
+      ]
+    },
+    {
+      "type": "numbered_section",
+      "title": "Standardize what counts as a red flag",
+      "content": [
+        "Align on how to interpret gaps, job switches, or non-traditional backgrounds.",
+        "Avoid re-debating the same issues repeatedly.",
+        "Improve consistency and fairness."
+      ]
+    },
+    {
+      "type": "numbered_section",
+      "title": "Use AI to reduce repetitive first-pass work",
+      "content": [
+        "AI can extract data, apply rubrics, and rank candidates.",
+        "It reduces repetitive effort in early screening.",
+        "Human judgment should still control final decisions."
+      ]
+    },
+    {
+      "type": "numbered_section",
+      "title": "Calibrate against real outcomes",
+      "content": [
+        "Compare screening decisions with interview performance.",
+        "Refine criteria over time.",
+        "Ensure speed comes from better judgment, not lower standards."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "What better screening really looks like"
+    },
+    {
+      "type": "paragraph",
+      "content": "The strongest teams are not necessarily the ones reading resumes the fastest. They are the ones using the clearest system. They know what matters, apply it consistently, and reserve deeper attention for the candidates most worth it."
+    },
+    {
+      "type": "paragraph",
+      "content": "When that happens, speed and accuracy stop being trade-offs."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Closing thought"
+    },
+    {
+      "type": "paragraph",
+      "content": "If your team is struggling to keep up with resume volume, the answer is not to rush harder. It is to introduce structure: clear non-negotiables, scorecards, layered review, evidence-based assessment, and AI support."
+    },
+    {
+      "type": "cta",
+      "title": "Want to make resume screening faster and more consistent?",
+      "description": "Our platform helps hiring teams evaluate resumes using structured rubrics, bulk screening workflows, and AI-assisted ranking.",
+      "actionText": "Get started for free"
+    }
+  ]
+}

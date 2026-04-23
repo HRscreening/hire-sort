@@ -101,8 +101,8 @@ const ContactUs = () => {
                 </div>
                 <div>
                   <div className="contact-info-label">Email</div>
-                  <a href="mailto:hello@hiresort.ai" className="contact-info-value">
-                    hello@hiresort.ai
+                  <a href="mailto:support@hiresort.ai" className="contact-info-value">
+                    support@hiresort.ai
                   </a>
                 </div>
               </div>

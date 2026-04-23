@@ -54,6 +54,7 @@ const Stats = () => {
         <CountStat value={90} suffix="%" label="Less time screening" />
         <CountStat value={15} suffix="s" label="Avg. processing time" delay={0.15} />
         <CountStat value={50000} suffix="+" label="Resumes processed" delay={0.3} />
+        <CountStat value={500} suffix="" label="uploads at once" delay={0.3} />
       </div>
     </section>
   );
