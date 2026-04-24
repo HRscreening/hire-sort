@@ -7,7 +7,7 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL || 'https://www.hiresort.ai';
+  process.env.NEXT_PUBLIC_SITE_URL || 'https://hiresort.ai';
 
 const dmSans = DM_Sans({
   subsets: ['latin'],

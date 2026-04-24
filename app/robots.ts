@@ -1,7 +1,6 @@
 import type { MetadataRoute } from 'next';
 
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL || 'https://www.hiresort.ai';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://hiresort.ai';
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -9,7 +8,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/api/', '/_next/'],
+        disallow: ['/api/'],
       },
     ],
     sitemap: `${siteUrl}/sitemap.xml`,

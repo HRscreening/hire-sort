@@ -6,7 +6,7 @@ import { PageHero } from '@/components/layout/PageHero';
 import { getAllPosts, type BlogPost } from './_lib/posts';
 import { breadcrumbJsonLd, jsonLdString } from '@/lib/seo';
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.hiresort.ai';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://hiresort.ai';
 
 export const metadata: Metadata = {
   title: 'Blog',

@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next';
 import { getAllPosts } from './(public)/blog/_lib/posts';
 
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL || 'https://www.hiresort.ai';
+  process.env.NEXT_PUBLIC_SITE_URL || 'https://hiresort.ai';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();

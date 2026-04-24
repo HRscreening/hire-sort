@@ -12,7 +12,7 @@ import {
 } from '../_lib/posts';
 import { breadcrumbJsonLd, jsonLdString } from '@/lib/seo';
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.hiresort.ai';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://hiresort.ai';
 
 type Params = Promise<{ slug: string }>;
 

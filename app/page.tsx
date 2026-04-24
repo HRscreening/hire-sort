@@ -7,7 +7,7 @@ import Pricing from '@/components/home/Pricing';
 import ContactSection from '@/components/home/ContactSection';
 import CTA from '@/components/home/CTA';
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.hiresort.ai';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://hiresort.ai';
 
 export const metadata: Metadata = {
   title: {
