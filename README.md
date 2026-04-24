@@ -1,115 +1,36 @@
-# HireSort — Frontend
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-React SPA for HireSort, an AI-powered resume screening platform. Built with Vite, TanStack Router, TanStack Query, and Tailwind CSS.
+## Getting Started
 
----
-
-## Architecture
-
-```
-frontend/
-  src/
-    routes/            Page-level components (one file per route)
-    components/        Shared UI (layout, AuthGuard, Sidebar)
-    lib/               API client, Supabase client, auth cache, utils
-    hooks/             useAuth
-    types/             Shared TypeScript types
-  App.tsx              Route tree definition
-  main.tsx             App entry point
-  vite.config.ts
-```
-
-### Stack
-
-| Layer | Technology |
-|---|---|
-| Framework | React 19 + Vite 6 |
-| Routing | TanStack Router v1 |
-| Data fetching | TanStack Query v5 |
-| Auth | Supabase JS (implicit OAuth flow) |
-| Styling | Tailwind CSS v4 |
-| Language | TypeScript |
-
-### Auth
-
-Auth tokens are cached in memory on load (hydrated from localStorage via Supabase) to avoid a network round-trip on every navigation. `initAuth()` is called immediately in `main.tsx` before React renders, so the session is available synchronously when the first route mounts.
-
-### Data fetching
-
-TanStack Query is used for all API calls. Long-running jobs (resume processing) are polled with exponential backoff via `refetchInterval` until the batch completes.
-
----
-
-## Getting started
-
-### Prerequisites
-
-- Node.js 20+
-- The [HireSort backend](https://github.com/prashant905/Resume-SaaS) running at `http://localhost:8000`
-- A Supabase project with Email and Google auth enabled
-
-### Install
-
-```bash
-npm install
-```
-
-### Configure
-
-```bash
-cp .env.example .env.local
-# Fill in your values
-```
-
-| Variable | Description |
-|---|---|
-| `VITE_SUPABASE_URL` | Supabase project URL |
-| `VITE_SUPABASE_ANON_KEY` | Supabase anon/public key |
-| `VITE_API_URL` | Backend API base URL (e.g. `http://localhost:8000`) |
-
-### Supabase setup
-
-In the Supabase dashboard:
-
-1. Enable **Email** and **Google** providers under Authentication > Providers.
-2. Add `http://localhost:5173/auth/callback` to **Redirect URLs** under Authentication > URL Configuration.
-
-### Run
+First, run the development server:
 
 ```bash
 npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-App runs at `http://localhost:5173`.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-### Build
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-```bash
-npm run build
-```
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-Output is in `dist/`.
+## Learn More
 
----
+To learn more about Next.js, take a look at the following resources:
 
-## Routes
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-| Path | Description |
-|---|---|
-| `/` | Landing page |
-| `/login` | Login with email or Google |
-| `/signup` | Sign up |
-| `/auth/callback` | OAuth callback handler |
-| `/onboarding` | First-time profile setup |
-| `/dashboard` | Usage overview |
-| `/screenings` | List of all jobs |
-| `/screenings/new` | Create a new job (JD upload + rubric generation) |
-| `/screenings/:id` | Job detail — upload CVs, view ranked results |
-| `/screenings/:id/:resumeId` | Individual candidate detail |
-| `/settings` | Profile, plan, billing, account deletion |
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
----
+## Deploy on Vercel
 
-## License
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-MIT
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
