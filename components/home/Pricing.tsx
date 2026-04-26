@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence, type Variants } from 'framer-motion';
+import { trackCTAClick, trackEvent } from '@/lib/google_analytics_tracker';
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -56,6 +57,16 @@ const ctaSecondary = `${ctaButtonBase} border border-line bg-white text-charcoal
 const Pricing = () => {
   const [isYearly, setIsYearly] = useState(false);
 
+  const setBilling = (yearly: boolean) => {
+    if (yearly !== isYearly) {
+      trackEvent('pricing_billing_toggle', { period: yearly ? 'yearly' : 'monthly' });
+    }
+    setIsYearly(yearly);
+  };
+
+  const selectPlan = (plan: 'free' | 'plus' | 'pro') => () =>
+    trackCTAClick('plan_select', 'pricing_' + plan + '_' + (isYearly ? 'yearly' : 'monthly'));
+
   return (
     <section id="pricing" className="mx-auto max-w-275 px-6 py-25">
       <motion.div
@@ -82,13 +93,13 @@ const Pricing = () => {
         className="mt-8 flex items-center justify-center gap-4"
       >
         <span
-          onClick={() => setIsYearly(false)}
+          onClick={() => setBilling(false)}
           className={`cursor-pointer text-[14.5px] font-semibold transition-colors ${isYearly ? 'text-charcoal-lt' : 'text-charcoal'}`}
         >
           Monthly
         </span>
         <motion.div
-          onClick={() => setIsYearly(!isYearly)}
+          onClick={() => setBilling(!isYearly)}
           whileTap={{ scale: 0.92 }}
           transition={{ type: 'spring', stiffness: 500, damping: 22 }}
           className={`relative h-6 w-12 cursor-pointer rounded-full p-0.5 transition-colors ${isYearly ? 'bg-copper' : 'bg-ivory-dark'}`}
@@ -98,7 +109,7 @@ const Pricing = () => {
           />
         </motion.div>
         <span
-          onClick={() => setIsYearly(true)}
+          onClick={() => setBilling(true)}
           className={`cursor-pointer text-[14.5px] font-semibold transition-colors ${isYearly ? 'text-charcoal' : 'text-charcoal-lt'}`}
         >
           Yearly
@@ -158,7 +169,7 @@ const Pricing = () => {
               </motion.li>
             ))}
           </ul>
-          <motion.a href="#" whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }} className={ctaSecondary}>
+          <motion.a href="#" onClick={selectPlan('free')} whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }} className={ctaSecondary}>
             Get started
           </motion.a>
         </motion.div>
@@ -206,7 +217,7 @@ const Pricing = () => {
               </motion.li>
             ))}
           </ul>
-          <motion.a href="#" whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.97 }} className={ctaPrimary}>
+          <motion.a href="#" onClick={selectPlan('plus')} whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.97 }} className={ctaPrimary}>
             Get started
           </motion.a>
         </motion.div>
@@ -246,7 +257,7 @@ const Pricing = () => {
               </motion.li>
             ))}
           </ul>
-          <motion.a href="#" whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }} className={ctaSecondary}>
+          <motion.a href="#" onClick={selectPlan('pro')} whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }} className={ctaSecondary}>
             Get started
           </motion.a>
         </motion.div>

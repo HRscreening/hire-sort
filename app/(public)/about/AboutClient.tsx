@@ -12,6 +12,7 @@ import {
   ArrowRight,
 } from 'lucide-react';
 import { PageHero, pageEase, pageFadeUp, pageStagger } from '@/components/layout/PageHero';
+import { trackCTAClick } from '@/lib/google_analytics_tracker';
 
 const callouts = [
   { num: '01', label: 'AI-powered analysis', sub: 'Structured scoring, not keyword matching.' },
@@ -239,6 +240,7 @@ const AboutClient = () => {
             <div className="flex flex-wrap items-center justify-center gap-3">
               <a
                 href="/#pricing"
+                onClick={() => trackCTAClick('get_started', 'about_bottom_cta')}
                 className="inline-flex items-center justify-center gap-2 rounded-md border border-copper bg-copper px-7 py-3.5 text-[14.5px] font-semibold leading-none text-white no-underline transition-colors hover:bg-copper-dark"
               >
                 Get Started
@@ -246,6 +248,7 @@ const AboutClient = () => {
               </a>
               <Link
                 href="/faqs"
+                onClick={() => trackCTAClick('browse_faqs', 'about_bottom_cta')}
                 className="inline-flex items-center justify-center gap-2 rounded-md border border-line bg-white px-7 py-3.5 text-[14.5px] font-semibold leading-none text-charcoal no-underline transition-colors hover:border-charcoal-xlt hover:bg-ivory-light"
               >
                 Browse FAQs

@@ -45,6 +45,7 @@ const PrivacyClient = () => {
         calloutTitle="Questions about your privacy?"
         calloutSub="A real human reads every message."
         calloutCta="Email support@hiresort.ai"
+        trackingLocation="privacy"
       />
     </>
   );

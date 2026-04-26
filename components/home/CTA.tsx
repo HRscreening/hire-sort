@@ -2,6 +2,7 @@
 
 import { ArrowRight } from 'lucide-react';
 import { motion, type Variants } from 'framer-motion';
+import { trackCTAClick } from '@/lib/google_analytics_tracker';
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -36,6 +37,7 @@ const CTA = () => {
       </motion.p>
       <motion.a
         href="#"
+        onClick={() => trackCTAClick('get_started', 'bottom_cta')}
         variants={item}
         whileHover={{ scale: 1.06, y: -3 }}
         whileTap={{ scale: 0.97 }}

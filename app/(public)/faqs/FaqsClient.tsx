@@ -1,11 +1,12 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
 import { AnimatePresence, motion } from 'framer-motion';
 import { HelpCircle, Search, ChevronDown, Mail, MessageSquare } from 'lucide-react';
 import { PageHero, pageEase, pageFadeUp, pageStagger } from '@/components/layout/PageHero';
 import { CATEGORIES, FAQS } from './_data';
+import { trackEvent, trackSearch, trackCTAClick } from '@/lib/google_analytics_tracker';
 
 const navButtonBase =
   'flex w-full items-center justify-between gap-2 rounded-md px-3 py-2 text-left text-[13.5px] font-medium transition-colors';
@@ -33,11 +34,40 @@ const FaqsClient = () => {
   }, [activeCategory, query]);
 
   const allExpanded = openId === '__all__';
-  const toggle = (id: string) => setOpenId((curr) => (curr === id ? null : id));
+  const toggle = (id: string) => {
+    setOpenId((curr) => {
+      const next = curr === id ? null : id;
+      if (next && next !== '__all__') {
+        const item = FAQS.find((f) => f.id === id);
+        trackEvent('faq_open', { faq_id: id, question: item?.question ?? '' });
+      }
+      return next;
+    });
+  };
   const expandAll = () => {
     if (filtered.length === 0) return;
-    setOpenId(allExpanded ? null : '__all__');
+    const next = allExpanded ? null : '__all__';
+    setOpenId(next);
+    trackEvent('faq_expand_all', { state: next ? 'expanded' : 'collapsed' });
   };
+
+  const selectCategory = (id: string) => {
+    if (id !== activeCategory) trackEvent('faq_category', { category: id });
+    setActiveCategory(id);
+  };
+
+  const searchTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  useEffect(() => {
+    if (searchTimer.current) clearTimeout(searchTimer.current);
+    const q = query.trim();
+    if (!q) return;
+    searchTimer.current = setTimeout(() => {
+      trackSearch(q, filtered.length);
+    }, 800);
+    return () => {
+      if (searchTimer.current) clearTimeout(searchTimer.current);
+    };
+  }, [query, filtered.length]);
 
   return (
     <>
@@ -91,7 +121,7 @@ const FaqsClient = () => {
                     type="button"
                     role="tab"
                     aria-selected={active}
-                    onClick={() => setActiveCategory(c.id)}
+                    onClick={() => selectCategory(c.id)}
                     className={`${navButtonBase} ${
                       active
                         ? 'bg-[rgba(200,90,23,0.08)] text-accent'
@@ -215,6 +245,7 @@ const FaqsClient = () => {
               </div>
               <Link
                 href="/contact"
+                onClick={() => trackCTAClick('contact_us', 'faqs_footer')}
                 className="inline-flex items-center justify-center gap-2 rounded-md border border-copper bg-copper px-5 py-2.5 text-[14px] font-semibold leading-none text-white no-underline transition-colors hover:bg-copper-dark"
               >
                 <Mail size={15} strokeWidth={2.5} />

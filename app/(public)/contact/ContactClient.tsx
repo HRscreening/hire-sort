@@ -11,6 +11,7 @@ import {
 import { motion } from 'framer-motion';
 import { supabase } from '@/lib/supabase_client';
 import { PageHero, pageEase, pageFadeUp } from '@/components/layout/PageHero';
+import { trackFormSubmit } from '@/lib/google_analytics_tracker';
 
 type FormState = {
   name: string;
@@ -68,9 +69,11 @@ const ContactClient = () => {
       ]);
       if (supabaseError) throw supabaseError;
       setSubmitted(true);
+      trackFormSubmit('contact', true);
     } catch (err) {
       console.error('Error submitting contact form:', err);
       setError('An unexpected error occurred. Please try again later.');
+      trackFormSubmit('contact', false);
     } finally {
       setLoading(false);
     }

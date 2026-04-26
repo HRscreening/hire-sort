@@ -51,6 +51,7 @@ const TermsClient = () => {
         calloutTitle="Questions about these Terms?"
         calloutSub="Reach out and a real human will reply."
         calloutCta="Email support@hiresort.ai"
+        trackingLocation="terms"
       />
     </>
   );

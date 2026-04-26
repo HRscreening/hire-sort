@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { ArrowLeft, ArrowRight, Calendar, Clock } from 'lucide-react';
+import { ArrowLeft, Calendar, Clock } from 'lucide-react';
 import {
   getAllPosts,
   getPostBySlug,
@@ -11,6 +11,7 @@ import {
   type BlogPost,
 } from '../_lib/posts';
 import { breadcrumbJsonLd, jsonLdString } from '@/lib/seo';
+import { InlineCTA } from '../_components/InlineCTA';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://hiresort.ai';
 
@@ -73,7 +74,7 @@ const formatDate = (iso: string) =>
     day: 'numeric',
   });
 
-const Block = ({ block }: { block: BlogBlock }) => {
+const Block = ({ block, slug }: { block: BlogBlock; slug: string }) => {
   if (block.type === 'heading') {
     if (block.level === 2) {
       return (
@@ -116,13 +117,7 @@ const Block = ({ block }: { block: BlogBlock }) => {
       )}
       <p className="text-[15px] leading-[1.7] text-charcoal-md">{block.text}</p>
       <div className="mt-4">
-        <Link
-          href="/#pricing"
-          className="inline-flex items-center gap-2 rounded-md border border-copper bg-copper px-5 py-2.5 text-[14px] font-semibold leading-none text-white no-underline transition-colors hover:bg-copper-dark"
-        >
-          Get started free
-          <ArrowRight size={14} strokeWidth={2.5} />
-        </Link>
+        <InlineCTA slug={slug} />
       </div>
     </aside>
   );
@@ -246,7 +241,7 @@ export default async function BlogPostPage({ params }: { params: Params }) {
         {/* Body */}
         <div className="flex flex-col">
           {post.body.map((block, i) => (
-            <Block key={i} block={block} />
+            <Block key={i} block={block} slug={post.slug} />
           ))}
         </div>
 

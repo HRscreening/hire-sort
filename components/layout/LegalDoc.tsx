@@ -4,6 +4,7 @@ import type { ReactNode } from 'react';
 import { motion } from 'framer-motion';
 import { Mail } from 'lucide-react';
 import { pageEase, pageFadeUp, pageStagger } from './PageHero';
+import { trackEvent } from '@/lib/google_analytics_tracker';
 
 export type LegalBlock =
   | { type: 'p'; text: string }
@@ -67,6 +68,8 @@ type LegalDocProps = {
   calloutTitle: string;
   calloutSub: string;
   calloutCta: string;
+  /** Used as analytics location for the email CTA, e.g. 'privacy' or 'terms'. */
+  trackingLocation: string;
 };
 
 export const LegalDoc = ({
@@ -75,6 +78,7 @@ export const LegalDoc = ({
   calloutTitle,
   calloutSub,
   calloutCta,
+  trackingLocation,
 }: LegalDocProps) => {
   return (
     <section className="mx-auto w-full max-w-300 px-6 pt-6 pb-24">
@@ -159,6 +163,7 @@ export const LegalDoc = ({
             </div>
             <a
               href="mailto:support@hiresort.ai"
+              onClick={() => trackEvent('email_support_click', { location: trackingLocation })}
               className="inline-flex items-center justify-center gap-2 rounded-md border border-copper bg-copper px-5 py-2.5 text-[14px] font-semibold leading-none text-white no-underline transition-colors hover:bg-copper-dark"
             >
               {calloutCta}

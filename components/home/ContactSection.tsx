@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { Mail, ArrowRight, MessageCircle, Clock } from 'lucide-react';
 import { motion, type Variants } from 'framer-motion';
+import { trackCTAClick } from '@/lib/google_analytics_tracker';
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -69,6 +70,7 @@ const ContactSection = () => {
           <motion.div variants={item} className="flex flex-wrap items-center gap-4">
             <Link
               href="/contact"
+              onClick={() => trackCTAClick('contact_us', 'home_contact_section')}
               className="inline-flex items-center justify-center gap-2 rounded-md border border-copper bg-copper px-8 py-3.5 text-[15px] font-semibold leading-none text-white shadow-[0_8px_24px_rgba(0,0,0,0.12)] no-underline transition-colors hover:bg-copper-dark"
             >
               <motion.span

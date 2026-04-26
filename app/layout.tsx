@@ -2,9 +2,12 @@ import type { Metadata, Viewport } from 'next';
 import { DM_Sans, DM_Mono } from 'next/font/google';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/next';
+import { GoogleAnalytics } from '@next/third-parties/google';
 import './globals.css';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
+
+const gtagKey = process.env.NEXT_PUBLIC_GA_ID || ''
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || 'https://hiresort.ai';
@@ -142,6 +145,7 @@ export default function RootLayout({
         <SpeedInsights />
         <Analytics />
       </body>
+      {gtagKey && <GoogleAnalytics gaId={gtagKey} />}
     </html>
   );
 }
