@@ -226,6 +226,21 @@ const Hero = () => {
         Upload resumes, describe the role, and let AI rank your candidates with explainable scores. No more manual screening.
       </motion.p>
 
+      <motion.div
+        variants={itemUp}
+        className="relative z-3 mx-auto mt-14 w-full max-w-4xl overflow-hidden rounded-xl border border-line-soft bg-white shadow-[0_20px_60px_rgba(0,0,0,0.12)]"
+      >
+        <video
+          src="/demo.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          className="block h-auto w-full"
+        />
+      </motion.div>
+
       <motion.div variants={itemUp} className="relative z-3 mt-9 flex flex-col items-center gap-3.5">
         <motion.a
           href="#"
@@ -241,6 +256,7 @@ const Hero = () => {
           </motion.span>
         </motion.a>
       </motion.div>
+
     </motion.section>
   );
 };

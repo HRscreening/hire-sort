@@ -4,6 +4,8 @@ import { getAllPosts } from './(public)/blog/_lib/posts';
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || 'https://hiresort.ai';
 
+export const revalidate = 3600;
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
 

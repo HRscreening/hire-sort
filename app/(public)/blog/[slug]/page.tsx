@@ -12,6 +12,12 @@ import {
 } from '../_lib/posts';
 import { breadcrumbJsonLd, jsonLdString } from '@/lib/seo';
 import { InlineCTA } from '../_components/InlineCTA';
+import { resolveCoverImage } from '../_lib/cover';
+
+const absoluteCover = (cover: string) => {
+  const r = resolveCoverImage(cover);
+  return r.startsWith('http') ? r : `${siteUrl}${r}`;
+};
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://hiresort.ai';
 
@@ -51,7 +57,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
       tags: post.tags,
       images: [
         {
-          url: post.coverImage,
+          url: absoluteCover(post.coverImage),
           width: 1200,
           height: 630,
           alt: post.coverAlt,
@@ -62,7 +68,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
       card: 'summary_large_image',
       title: post.title,
       description: post.description,
-      images: [post.coverImage],
+      images: [absoluteCover(post.coverImage)],
     },
   };
 }
@@ -132,7 +138,7 @@ const buildJsonLd = (post: BlogPost) => ({
   },
   headline: post.title,
   description: post.description,
-  image: [`${siteUrl}${post.coverImage}`],
+  image: [absoluteCover(post.coverImage)],
   datePublished: post.publishedAt,
   dateModified: post.updatedAt ?? post.publishedAt,
   author: {
@@ -229,7 +235,7 @@ export default async function BlogPostPage({ params }: { params: Params }) {
         {/* Cover */}
         <div className="relative mb-10 aspect-[16/9] w-full overflow-hidden rounded-2xl border border-line-soft bg-ivory-medium shadow-card">
           <Image
-            src={post.coverImage}
+            src={resolveCoverImage(post.coverImage)}
             alt={post.coverAlt}
             fill
             priority
@@ -278,7 +284,7 @@ export default async function BlogPostPage({ params }: { params: Params }) {
               >
                 <div className="relative aspect-[16/10] overflow-hidden bg-ivory-medium">
                   <Image
-                    src={p.coverImage}
+                    src={resolveCoverImage(p.coverImage)}
                     alt={p.coverAlt}
                     fill
                     sizes="(min-width: 1024px) 500px, (min-width: 640px) 50vw, 100vw"

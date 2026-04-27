@@ -84,6 +84,7 @@ export const metadata: Metadata = {
       'max-video-preview': -1,
     },
   },
+  
   icons: {
     icon: [
       { url: '/logo.png', type: 'image/png' },

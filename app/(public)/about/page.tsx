@@ -29,6 +29,7 @@ export const metadata: Metadata = {
     'HireSort values',
     'HireSort team',
   ],
+  
 };
 
 const crumbs = breadcrumbJsonLd([{ name: 'About' }]);
