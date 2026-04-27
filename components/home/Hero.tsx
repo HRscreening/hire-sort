@@ -237,7 +237,11 @@ const Hero = () => {
           loop
           playsInline
           preload="metadata"
-          className="block h-auto w-full"
+          disablePictureInPicture
+          disableRemotePlayback
+          controlsList="nodownload nofullscreen noremoteplayback"
+          className="pointer-events-none block aspect-video h-auto w-full object-cover"
+          style={{ filter: 'brightness(1)' }}
         />
       </motion.div>
 
