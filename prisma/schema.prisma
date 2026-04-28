@@ -29,7 +29,7 @@ model BlogPost {
 
   readingTime  String
 
-  coverImage   String
+  coverImage   String?
   coverAlt     String?
 
   category     String?

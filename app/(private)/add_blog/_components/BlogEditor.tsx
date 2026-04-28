@@ -89,7 +89,6 @@ export function BlogEditor() {
           name="cover"
           accept="image/jpeg,image/png,image/webp,image/avif,image/gif"
           onChange={onPickFile}
-          required
           className="block w-full cursor-pointer rounded-lg border border-line-soft bg-white text-[13px] text-charcoal-md file:mr-3 file:cursor-pointer file:rounded-l-lg file:border-0 file:bg-ivory-medium file:px-4 file:py-2.5 file:text-[13px] file:font-semibold file:text-charcoal hover:file:bg-ivory-dark"
         />
         {coverPreview && (
@@ -106,7 +105,7 @@ export function BlogEditor() {
       <div className="flex items-center gap-3">
         <button
           type="submit"
-          disabled={pending || json.trim() === '' || !coverFile}
+          disabled={pending || json.trim() === ''}
           className="inline-flex items-center gap-2 rounded-lg bg-accent px-5 py-2.5 text-[13.5px] font-semibold text-white transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50"
         >
           {pending && <Loader2 size={14} className="animate-spin" />}

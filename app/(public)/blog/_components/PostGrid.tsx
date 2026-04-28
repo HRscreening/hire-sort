@@ -36,7 +36,7 @@ export function PostGrid({
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.2 }}
-        className="grid grid-cols-1 gap-6 md:grid-cols-2"
+        className="grid grid-cols-1 gap-6 md:grid-cols-3"
       >
         {featured && <PostCard post={featured} featured index={0} />}
         {cards.map((post, i) => (

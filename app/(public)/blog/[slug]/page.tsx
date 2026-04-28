@@ -233,16 +233,18 @@ export default async function BlogPostPage({ params }: { params: Params }) {
         </header>
 
         {/* Cover */}
-        <div className="relative mb-10 aspect-[16/9] w-full overflow-hidden rounded-2xl border border-line-soft bg-ivory-medium shadow-card">
-          <Image
-            src={resolveCoverImage(post.coverImage)}
-            alt={post.coverAlt}
-            fill
-            priority
-            sizes="(min-width: 1024px) 800px, 100vw"
-            className="object-cover"
-          />
-        </div>
+        {post.coverImage &&
+          <div className="relative mb-10 aspect-[16/9] w-full overflow-hidden rounded-2xl border border-line-soft bg-ivory-medium shadow-card">
+            <Image
+              src={resolveCoverImage(post.coverImage)}
+              alt={post.coverAlt}
+              fill
+              priority
+              sizes="(min-width: 1024px) 800px, 100vw"
+              className="object-cover"
+            />
+          </div>
+        }
 
         {/* Body */}
         <div className="flex flex-col">
@@ -282,15 +284,16 @@ export default async function BlogPostPage({ params }: { params: Params }) {
                 href={`/blog/${p.slug}`}
                 className="group flex flex-col overflow-hidden rounded-xl border border-line-soft bg-white shadow-card transition-all hover:-translate-y-1 hover:shadow-lg"
               >
-                <div className="relative aspect-[16/10] overflow-hidden bg-ivory-medium">
-                  <Image
-                    src={resolveCoverImage(p.coverImage)}
-                    alt={p.coverAlt}
-                    fill
-                    sizes="(min-width: 1024px) 500px, (min-width: 640px) 50vw, 100vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                  />
-                </div>
+                {p.coverImage &&
+                  <div className="relative aspect-[16/10] overflow-hidden bg-ivory-medium">
+                    <Image
+                      src={resolveCoverImage(p.coverImage)}
+                      alt={p.coverAlt}
+                      fill
+                      sizes="(min-width: 1024px) 500px, (min-width: 640px) 50vw, 100vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    />
+                  </div>}
                 <div className="flex flex-1 flex-col gap-3 p-6">
                   <div className="text-[11px] font-semibold uppercase tracking-[0.6px] text-accent">
                     {p.category}

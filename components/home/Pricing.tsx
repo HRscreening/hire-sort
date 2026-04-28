@@ -199,8 +199,8 @@ const Pricing = () => {
           <ul className="mb-7 flex flex-1 list-none flex-col gap-2.5">
             {[
               'Includes everything in Free',
-              '1,000 AI resume analyses per month',
-              'Bulk upload of up to 500 resumes at a time',
+              '2,000 AI resume analyses per month',
+              'Bulk upload of up to 50 resumes at a time',
               'Priority AI processing',
               'Scale as you go — $0.05 per additional resume analysis.',
             ].map((f, i) => (
@@ -240,7 +240,7 @@ const Pricing = () => {
             {[
               'Includes everything in Plus',
               '10,000 AI resume analyses per month',
-              'Bulk upload of up to 1,000 resumes at a time',
+              'Bulk upload of up to 100 resumes at a time',
               'Reconfigure the scoring rubric and rescore candidates',
               'Scale as you go — $0.05 per additional resume analysis.',
             ].map((f, i) => (

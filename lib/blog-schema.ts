@@ -43,7 +43,7 @@ export const blogPostInputSchema = z.object({
   publishedAt: isoDate,
   updatedAt: isoDate.optional(),
   readingTime: z.string().min(1),
-  coverImage: z.string().min(1),
+  coverImage: z.string().min(1).nullable().default(null),
   coverAlt: z.string().optional().default(''),
   category: z.string().optional().default(''),
   tags: z.array(z.string().min(1)).default([]),

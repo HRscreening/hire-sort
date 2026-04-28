@@ -36,10 +36,10 @@ export async function createBlogAction(formData: FormData): Promise<CreateBlogRe
     };
   }
 
-  const cover = formData.get('cover');
-  if (!(cover instanceof File) || cover.size === 0) {
-    return { ok: false, reason: 'missing_image' };
-  }
+  const cover = formData.get('cover') ?? null;
+  // if (!(cover instanceof File) || cover.size === 0) {
+  //   cover = null;
+  // }
 
   // Validate the schema first with a placeholder coverImage so a bad
   // payload doesn't leave an orphaned upload in storage.
@@ -62,9 +62,14 @@ export async function createBlogAction(formData: FormData): Promise<CreateBlogRe
   });
   if (existing) return { ok: false, reason: 'duplicate', slug: data.slug };
 
-  const upload = await uploadCoverForSlug(data.slug, cover);
-  if (!upload.ok) return { ok: false, reason: 'upload_failed', message: upload.message };
-  data.coverImage = upload.path;
+  if (cover && cover instanceof File && cover.size > 0) {
+    const upload = await uploadCoverForSlug(data.slug, cover);
+    if (!upload.ok) return { ok: false, reason: 'upload_failed', message: upload.message };
+    data.coverImage = upload.path;
+  }
+  else {
+    data.coverImage = null;
+  }
 
   try {
     await prisma.blogPost.create({
@@ -77,7 +82,7 @@ export async function createBlogAction(formData: FormData): Promise<CreateBlogRe
         author: data.author,
         publishedAt: new Date(data.publishedAt),
         readingTime: data.readingTime,
-        coverImage: data.coverImage,
+        coverImage: data.coverImage ,
         coverAlt: data.coverAlt || null,
         category: data.category || null,
         tags: data.tags,

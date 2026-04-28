@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { ArrowUpRight, Calendar, Clock } from 'lucide-react';
 import type { BlogPost } from '../_lib/posts';
 import { resolveCoverImage } from '../_lib/cover';
+import { CoverPlaceholder } from './CoverPlaceholder';
 
 const formatDate = (iso: string) =>
   new Date(iso).toLocaleDateString('en-US', {
@@ -24,13 +25,14 @@ export function PostCard({
   index?: number;
 }) {
   const href = `/blog/${post.slug}`;
+  const coverSrc = resolveCoverImage(post.coverImage);
   return (
     <motion.div
       initial={{ opacity: 0, y: 18 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -10 }}
       transition={{ duration: 0.35, delay: Math.min(index * 0.05, 0.4), ease: [0.22, 1, 0.36, 1] }}
-      className={featured ? 'md:col-span-2' : ''}
+      className={featured ? 'md:col-span-3' : ''}
     >
       <Link
         href={href}
@@ -43,18 +45,22 @@ export function PostCard({
             featured ? 'aspect-16/10 md:w-[46%] md:aspect-auto' : 'aspect-16/10'
           }`}
         >
-          <Image
-            src={resolveCoverImage(post.coverImage)}
-            alt={post.coverAlt}
-            fill
-            sizes={
-              featured
-                ? '(min-width: 768px) 560px, 100vw'
-                : '(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw'
-            }
-            className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-            priority={featured}
-          />
+          {coverSrc ? (
+            <Image
+              src={coverSrc}
+              alt={post.coverAlt}
+              fill
+              sizes={
+                featured
+                  ? '(min-width: 868px) 560px, 100vw'
+                  : '(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw'
+              }
+              className="object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
+              priority={featured}
+            />
+          ) : (
+            <CoverPlaceholder seed={post.slug} category={post.category} />
+          )}
         </div>
 
         <div className="flex flex-1 flex-col gap-4 p-6 md:p-7">

@@ -32,6 +32,10 @@ function adminClient() {
   return cachedClient;
 }
 
+/*
+ Uploads a cover image for a blog post. The image is stored in Supabase Storage with a filename based on the blog post slug.
+ The function checks the file type against a list of allowed image types and returns an appropriate error message if the type is unsupported or if the upload fails.
+*/
 export async function uploadCoverForSlug(
   slug: string,
   file: File,
