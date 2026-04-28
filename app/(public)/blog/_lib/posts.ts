@@ -14,7 +14,7 @@ export type BlogPost = {
   publishedAt: string;
   updatedAt?: string;
   readingTime: string;
-  coverImage: string;
+  coverImage?: string;
   coverAlt: string;
   category: string;
   tags: string[];
@@ -33,7 +33,7 @@ type DbBlogPost = {
   publishedAt: Date;
   updatedAt: Date;
   readingTime: string;
-  coverImage: string;
+  coverImage: string | null;
   coverAlt: string | null;
   category: string | null;
   tags: string[];
@@ -50,7 +50,7 @@ const toBlogPost = (row: DbBlogPost): BlogPost => ({
   publishedAt: row.publishedAt.toISOString(),
   updatedAt: row.updatedAt.toISOString(),
   readingTime: row.readingTime,
-  coverImage: row.coverImage,
+  coverImage: row.coverImage ?? undefined,
   coverAlt: row.coverAlt ?? '',
   category: row.category ?? '',
   tags: row.tags,

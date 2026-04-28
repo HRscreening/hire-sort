@@ -25,7 +25,7 @@ export function PostCard({
   index?: number;
 }) {
   const href = `/blog/${post.slug}`;
-  const coverSrc = resolveCoverImage(post.coverImage);
+  const coverSrc = post.coverImage && resolveCoverImage(post.coverImage);
   return (
     <motion.div
       initial={{ opacity: 0, y: 18 }}

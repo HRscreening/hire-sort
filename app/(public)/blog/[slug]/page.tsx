@@ -14,7 +14,8 @@ import { breadcrumbJsonLd, jsonLdString } from '@/lib/seo';
 import { InlineCTA } from '../_components/InlineCTA';
 import { resolveCoverImage } from '../_lib/cover';
 
-const absoluteCover = (cover: string) => {
+const absoluteCover = (cover?: string) => {
+  if (!cover) return `${siteUrl}/blog/cover-placeholder.png`;
   const r = resolveCoverImage(cover);
   return r.startsWith('http') ? r : `${siteUrl}${r}`;
 };
@@ -234,7 +235,7 @@ export default async function BlogPostPage({ params }: { params: Params }) {
 
         {/* Cover */}
         {post.coverImage &&
-          <div className="relative mb-10 aspect-[16/9] w-full overflow-hidden rounded-2xl border border-line-soft bg-ivory-medium shadow-card">
+          <div className="relative mb-10 aspect-video w-full overflow-hidden rounded-2xl border border-line-soft bg-ivory-medium shadow-card">
             <Image
               src={resolveCoverImage(post.coverImage)}
               alt={post.coverAlt}
@@ -285,7 +286,7 @@ export default async function BlogPostPage({ params }: { params: Params }) {
                 className="group flex flex-col overflow-hidden rounded-xl border border-line-soft bg-white shadow-card transition-all hover:-translate-y-1 hover:shadow-lg"
               >
                 {p.coverImage &&
-                  <div className="relative aspect-[16/10] overflow-hidden bg-ivory-medium">
+                  <div className="relative aspect-16/10 overflow-hidden bg-ivory-medium">
                     <Image
                       src={resolveCoverImage(p.coverImage)}
                       alt={p.coverAlt}
@@ -298,7 +299,7 @@ export default async function BlogPostPage({ params }: { params: Params }) {
                   <div className="text-[11px] font-semibold uppercase tracking-[0.6px] text-accent">
                     {p.category}
                   </div>
-                  <h3 className="text-[18px] font-bold leading-[1.25] tracking-[-0.4px] text-charcoal">
+                  <h3 className="text-[18px] font-bold leading-tight tracking-[-0.4px] text-charcoal">
                     {p.title}
                   </h3>
                   <p className="line-clamp-2 text-[14px] leading-[1.6] text-charcoal-lt">
