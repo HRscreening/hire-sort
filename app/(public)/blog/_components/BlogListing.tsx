@@ -28,18 +28,19 @@ export async function BlogListing({ page }: { page: number }) {
       name: 'HireSort',
       logo: { '@type': 'ImageObject', url: `${siteUrl}/logo.png` },
     },
-    blogPost: posts.map((p) => ({
-      '@type': 'BlogPosting',
-      headline: p.title,
-      description: p.description,
-      datePublished: p.publishedAt,
-      dateModified: p.updatedAt ?? p.publishedAt,
-      image: resolveCoverImage(p.coverImage).startsWith('http')
-        ? resolveCoverImage(p.coverImage)
-        : `${siteUrl}${resolveCoverImage(p.coverImage)}`,
-      url: `${siteUrl}/blog/${p.slug}`,
-      author: { '@type': 'Person', name: p.author.name },
-    })),
+    blogPost: posts.map((p) => {
+      const resolvedImage = resolveCoverImage(p.coverImage);
+      return {
+        '@type': 'BlogPosting',
+        headline: p.title,
+        description: p.description,
+        datePublished: p.publishedAt,
+        dateModified: p.updatedAt ?? p.publishedAt,
+        image: resolvedImage.startsWith('http') ? resolvedImage : `${siteUrl}${resolvedImage}`,
+        url: `${siteUrl}/blog/${p.slug}`,
+        author: { '@type': 'Person', name: p.author.name },
+      };
+    }),
   };
 
   const crumbs = breadcrumbJsonLd([{ name: 'Blog' }]);

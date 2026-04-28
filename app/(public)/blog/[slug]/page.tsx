@@ -15,7 +15,6 @@ import { InlineCTA } from '../_components/InlineCTA';
 import { resolveCoverImage } from '../_lib/cover';
 
 const absoluteCover = (cover?: string) => {
-  if (!cover) return `${siteUrl}/blog/cover-placeholder.png`;
   const r = resolveCoverImage(cover);
   return r.startsWith('http') ? r : `${siteUrl}${r}`;
 };
