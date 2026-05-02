@@ -3,7 +3,10 @@
 import { useState } from 'react';
 import { motion, AnimatePresence, type Variants } from 'framer-motion';
 import { trackCTAClick, trackEvent } from '@/lib/google_analytics_tracker';
+import Link from 'next/link';
 
+
+const main_app_url = process.env.NEXT_PUBLIC_MAIN_APP_URL || 'http://localhost:3000';
 const ease = [0.22, 1, 0.36, 1] as const;
 
 const headerVariants: Variants = {
@@ -64,11 +67,11 @@ const Pricing = () => {
     setIsYearly(yearly);
   };
 
-  const selectPlan = (plan: 'free' | 'plus' | 'pro') => () =>
+  const selectPlan = (plan: 'free' | 'plus' | 'pro' | 'Enterprise') => () =>
     trackCTAClick('plan_select', 'pricing_' + plan + '_' + (isYearly ? 'yearly' : 'monthly'));
 
   return (
-    <section id="pricing" className="mx-auto max-w-275 px-6 py-25">
+    <section id="pricing" className="mx-auto max-w-315 px-6 py-25">
       <motion.div
         initial="hidden"
         whileInView="show"
@@ -131,7 +134,7 @@ const Pricing = () => {
         whileInView="show"
         viewport={{ once: true, amount: 0.2 }}
         variants={gridVariants}
-        className="mx-auto mt-14 grid max-w-105 grid-cols-1 gap-6 md:max-w-none md:grid-cols-3"
+        className="mx-auto mt-14 grid max-w-105 grid-cols-1 gap-4 md:max-w-none md:grid-cols-4"
       >
         {/* Free */}
         <motion.div
@@ -169,7 +172,7 @@ const Pricing = () => {
               </motion.li>
             ))}
           </ul>
-          <motion.a href="#" onClick={selectPlan('free')} whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }} className={ctaSecondary}>
+          <motion.a href={`${main_app_url}/login`} onClick={selectPlan('free')} whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }} className={ctaSecondary}>
             Get started
           </motion.a>
         </motion.div>
@@ -217,7 +220,7 @@ const Pricing = () => {
               </motion.li>
             ))}
           </ul>
-          <motion.a href="#" onClick={selectPlan('plus')} whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.97 }} className={ctaPrimary}>
+          <motion.a href={`${main_app_url}/login?plan=plus&isYearly=${isYearly}`} onClick={selectPlan('plus')} whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.97 }} className={ctaPrimary}>
             Get started
           </motion.a>
         </motion.div>
@@ -257,10 +260,54 @@ const Pricing = () => {
               </motion.li>
             ))}
           </ul>
-          <motion.a href="#" onClick={selectPlan('pro')} whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }} className={ctaSecondary}>
+          <motion.a href={`${main_app_url}/login?plan=pro&isYearly=${isYearly}`} onClick={selectPlan('pro')} whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }} className={ctaSecondary}>
             Get started
           </motion.a>
         </motion.div>
+
+        {/* Enterprise */}
+        <motion.div
+          variants={cardVariants}
+          whileHover={{ y: -10, transition: { type: 'spring', stiffness: 300, damping: 20 } }}
+          className={`${cardBaseClass} border-charcoal-xlt! bg-ivory-light`}
+        >
+          <div className={planNameClass}>Enterprise</div>
+          <div className="mb-1.5 flex items-baseline gap-1">
+            <PriceAmount amount="Custom" />
+          </div>
+          <p className={planDescClass}>
+            Built for large organizations that need advanced security, customization, and dedicated support at scale.
+          </p>
+          <ul className="mb-7 flex flex-1 list-none flex-col gap-2.5">
+            {[
+              'Everything in Pro',
+              'SSO & advanced security',
+              'Custom AI scoring & workflows',
+              'Bulk upload 500+ resumes at a time',
+              'API & ATS integrations',
+              'SLA & uptime guarantee',
+              'Data residency options & compliance',
+            ].map((f, i) => (
+              <motion.li
+                key={f}
+                initial={{ opacity: 0, x: -12 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.6 + i * 0.06, duration: 0.4, ease }}
+                className={planFeatureClass}
+              >
+                <Check />
+                {f}
+              </motion.li>
+            ))}
+          </ul>
+          <motion.div whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }} className="mt-auto">
+            <Link href="/contact" onClick={selectPlan('Enterprise')} className={ctaSecondary}>
+              Contact sales
+            </Link>
+          </motion.div>
+        </motion.div>
+
       </motion.div>
     </section>
   );

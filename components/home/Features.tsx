@@ -13,11 +13,11 @@ const rowContainer: Variants = {
   show: { transition: { staggerChildren: 0.15 } },
 };
 const fromLeft: Variants = {
-  hidden: { opacity: 0, x: -50 },
+  hidden: { opacity: 0, x: -24 },
   show: { opacity: 1, x: 0, transition: { duration: 0.8, ease } },
 };
 const fromRight: Variants = {
-  hidden: { opacity: 0, x: 50 },
+  hidden: { opacity: 0, x: 24 },
   show: { opacity: 1, x: 0, transition: { duration: 0.8, ease } },
 };
 const bulletVariants: Variants = {
@@ -52,8 +52,8 @@ const Bullets = ({ items }: { items: string[] }) => (
 );
 
 const VisualWrap = ({ children }: { children: React.ReactNode }) => (
-  <div className="rounded-2xl bg-linear-to-br from-ivory-medium to-ivory-dark p-1.5 shadow-lg sm:rounded-[32px]">
-    <div className="min-h-70 rounded-[26px] border border-line-soft bg-linear-to-b from-ivory-light to-ivory-medium p-7">
+  <div className="overflow-hidden rounded-2xl bg-linear-to-br from-ivory-medium to-ivory-dark p-1.5 shadow-lg sm:rounded-[32px]">
+    <div className="min-h-70 overflow-hidden rounded-[26px] border border-line-soft bg-linear-to-b from-ivory-light to-ivory-medium p-4 sm:p-7">
       {children}
     </div>
   </div>
@@ -65,7 +65,7 @@ const featureTextCopyClass = 'mb-6 text-[15.5px] leading-[1.7] text-charcoal-lt'
 
 const Features = () => {
   return (
-    <section id="features" className="mx-auto max-w-275 px-6 pt-20 pb-30">
+    <section id="features" className="mx-auto max-w-275 overflow-x-clip px-6 pt-20 pb-30">
       <motion.div
         initial="hidden"
         whileInView="show"
@@ -83,7 +83,7 @@ const Features = () => {
 
       <div className="flex flex-col gap-25">
         {/* Feature 1: Explainable AI */}
-        <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.25 }} variants={rowContainer} className={featureRowClass}>
+        <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0, margin: '0px 0px -10% 0px' }} variants={rowContainer} className={featureRowClass}>
           <motion.div variants={fromLeft}>
             <h3 className={featureTextHeadingClass}>Explainable AI Scoring</h3>
             <p className={featureTextCopyClass}>
@@ -153,7 +153,7 @@ const Features = () => {
         </motion.div>
 
         {/* Feature 2: Bulk Processing (reverse) */}
-        <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.25 }} variants={rowContainer} className={featureRowClass}>
+        <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0, margin: '0px 0px -10% 0px' }} variants={rowContainer} className={featureRowClass}>
           <motion.div variants={fromRight} className="md:order-2">
             <h3 className={featureTextHeadingClass}>Bulk Processing at Scale</h3>
             <p className={featureTextCopyClass}>
@@ -205,7 +205,7 @@ const Features = () => {
         </motion.div>
 
         {/* Feature 3: Contextual Search */}
-        <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.25 }} variants={rowContainer} className={featureRowClass}>
+        <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0, margin: '0px 0px -10% 0px' }} variants={rowContainer} className={featureRowClass}>
           <motion.div variants={fromLeft}>
             <h3 className={featureTextHeadingClass}>Contextual Search, Not Keyword Search</h3>
             <p className={featureTextCopyClass}>
@@ -309,7 +309,7 @@ const Features = () => {
         </motion.div>
 
         {/* Feature 4: End-to-End Resume Management (reverse) */}
-        <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.25 }} variants={rowContainer} className={featureRowClass}>
+        <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0, margin: '0px 0px -10% 0px' }} variants={rowContainer} className={featureRowClass}>
           <motion.div variants={fromRight} className="md:order-2">
             <h3 className={featureTextHeadingClass}>End-to-End Resume Management</h3>
             <p className={featureTextCopyClass}>
@@ -371,7 +371,7 @@ const Features = () => {
         </motion.div>
 
         {/* Feature 5: Privacy & Compliance */}
-        <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.25 }} variants={rowContainer} className={featureRowClass}>
+        <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0, margin: '0px 0px -10% 0px' }} variants={rowContainer} className={featureRowClass}>
           <motion.div variants={fromLeft}>
             <h3 className={featureTextHeadingClass}>Privacy and Compliance, Built In</h3>
             <p className={featureTextCopyClass}>

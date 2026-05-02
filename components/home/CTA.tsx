@@ -36,7 +36,7 @@ const CTA = () => {
         Upload your first batch and see ranked results in under 90 seconds. Free to start, no credit card required.
       </motion.p>
       <motion.a
-        href="#"
+        href="/#pricing"
         onClick={() => trackCTAClick('get_started', 'bottom_cta')}
         variants={item}
         whileHover={{ scale: 1.06, y: -3 }}

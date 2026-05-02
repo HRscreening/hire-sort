@@ -6,6 +6,7 @@ import { GoogleAnalytics } from '@next/third-parties/google';
 import './globals.css';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
+import BfcacheRemount from '@/components/layout/BfcacheRemount';
 
 const gtagKey = process.env.NEXT_PUBLIC_GA_ID || ''
 
@@ -130,9 +131,11 @@ export default function RootLayout({
       className={`${dmSans.variable} ${dmMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
-        <Navbar />
-        <main id="main" className="flex-1">{children}</main>
-        <Footer />
+        <BfcacheRemount>
+          <Navbar />
+          <main id="main" className="flex-1">{children}</main>
+          <Footer />
+        </BfcacheRemount>
         <script
           type="application/ld+json"
           // eslint-disable-next-line react/no-danger

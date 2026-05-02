@@ -1,9 +1,11 @@
 'use client';
 
-import { Check, ArrowRight } from 'lucide-react';
+import { Check, ArrowRight, Briefcase, GraduationCap, MapPin } from 'lucide-react';
 import { motion, type Variants } from 'framer-motion';
 import { trackCTAClick } from '@/lib/google_analytics_tracker';
+import Link from 'next/link';
 
+const main_app_url = process.env.NEXT_PUBLIC_MAIN_APP_URL || 'http://localhost:3000';
 const ease = [0.22, 1, 0.36, 1] as const;
 
 const containerVariants: Variants = {
@@ -64,26 +66,41 @@ const Hero = () => {
         >
           <div className={floatCardClass}>
             <div className={floatLabelClass}>Resume Detected</div>
-            <div className="flex flex-col gap-1.5">
+            <motion.div
+              initial={{ opacity: 0, y: 4 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.35, ease }}
+              className="mb-0.5 text-[13px] font-bold leading-tight text-charcoal"
+            >
+              Marcus Johnson
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 4 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.55, duration: 0.35, ease }}
+              className="mb-2 text-[11px] text-charcoal-lt"
+            >
+              Senior Full-Stack Engineer
+            </motion.div>
+            <div className="flex flex-col gap-1 text-[10px] text-charcoal-md">
               {[
-                { cls: 'h-2.5 w-[55%] rounded bg-charcoal mb-0.5' },
-                { cls: 'h-[7px] w-[70%] rounded-[3px] bg-charcoal-xlt opacity-60 mb-1.5' },
-                { cls: 'h-1.5 w-[90%] rounded-[3px] bg-ivory-medium' },
-                { cls: 'h-1.5 w-[80%] rounded-[3px] bg-ivory-medium' },
-                { cls: 'h-1.5 w-[65%] rounded-[3px] bg-ivory-medium' },
-                { cls: 'h-1.5 w-[90%] rounded-[3px] bg-ivory-medium' },
-                { cls: 'h-1.5 w-[50%] rounded-[3px] bg-ivory-medium' },
-              ].map((line, i) => (
+                { Icon: Briefcase, text: '6 yrs · Stripe, Airbnb' },
+                { Icon: GraduationCap, text: 'B.S. CS, UC Berkeley' },
+                { Icon: MapPin, text: 'San Francisco, CA' },
+              ].map(({ Icon, text }, i) => (
                 <motion.div
-                  key={i}
-                  className={line.cls}
-                  initial={{ scaleX: 0, originX: 0 }}
-                  animate={{ scaleX: 1 }}
-                  transition={{ delay: 0.5 + i * 0.05, duration: 0.35, ease }}
-                />
+                  key={text}
+                  initial={{ opacity: 0, x: -6 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.6 + i * 0.07, duration: 0.3, ease }}
+                  className="flex items-center gap-1.5"
+                >
+                  <Icon size={10} className="shrink-0 text-charcoal-lt" strokeWidth={2} />
+                  <span>{text}</span>
+                </motion.div>
               ))}
             </div>
-            <div className="mt-2 flex flex-wrap gap-1">
+            <div className="mt-2.5 flex flex-wrap gap-1">
               {['Python', 'AWS', 'React', 'SQL'].map((skill, i) => (
                 <motion.span
                   key={skill}
@@ -158,7 +175,7 @@ const Hero = () => {
       {/* Floating bottom-left: stat */}
       <motion.div
         variants={floatEnter(-24, 24, 0.4)}
-        className="pointer-events-none absolute left-5 top-75 z-2 hidden xl:block"
+        className="pointer-events-none absolute left-5 top-78 z-2 hidden xl:block"
       >
         <motion.div
           animate={{ y: [0, -8, 0] }}
@@ -247,7 +264,8 @@ const Hero = () => {
 
       <motion.div variants={itemUp} className="relative z-3 mt-9 flex flex-col items-center gap-3.5">
         <motion.a
-          href="#"
+          href={main_app_url + '/login'}
+          target='_self'
           onClick={() => trackCTAClick('get_started', 'hero')}
           whileHover={{ scale: 1.04, y: -2 }}
           whileTap={{ scale: 0.97 }}

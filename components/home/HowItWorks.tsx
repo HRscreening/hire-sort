@@ -32,7 +32,7 @@ const stepNumberClass =
 const cardTitleClass = 'mb-2.5 text-[19px] font-bold tracking-[-0.3px]';
 const cardCopyClass = 'text-[14.5px] leading-[1.65] text-charcoal-lt';
 const visualWrapClass =
-  'mt-6 min-h-30 rounded-md border border-line-soft bg-white p-4';
+  'mt-6 min-h-30 overflow-hidden rounded-md border border-line-soft bg-white p-4';
 
 const HowItWorks = () => {
   return (
@@ -102,8 +102,8 @@ const HowItWorks = () => {
                       </svg>
                     )}
                   </div>
-                  <span className="flex-1 font-medium text-charcoal">{file.name}</span>
-                  <span className="text-xs text-charcoal-xlt">{file.size}</span>
+                  <span className="min-w-0 flex-1 truncate font-medium text-charcoal">{file.name}</span>
+                  <span className="shrink-0 text-xs text-charcoal-xlt">{file.size}</span>
                 </motion.div>
               ))}
             </div>
@@ -190,16 +190,16 @@ const HowItWorks = () => {
                   whileHover={{ x: 4 }}
                   className="flex items-center gap-2.5 rounded-sm bg-ivory-light px-3 py-2"
                 >
-                  <span className="w-5 text-center text-xs font-bold text-charcoal-lt">{row.rank}</span>
-                  <div className="flex h-6 w-6 items-center justify-center rounded-full bg-ivory-dark text-[10px] font-semibold text-charcoal-md">
+                  <span className="w-5 shrink-0 text-center text-xs font-bold text-charcoal-lt">{row.rank}</span>
+                  <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-ivory-dark text-[10px] font-semibold text-charcoal-md">
                     {row.avatar}
                   </div>
-                  <span className="flex-1 text-[13px] font-medium">{row.name}</span>
-                  <span className={`font-mono text-[13px] font-bold ${row.high ? 'text-success' : 'text-charcoal-md'}`}>
+                  <span className="min-w-0 flex-1 truncate text-[13px] font-medium">{row.name}</span>
+                  <span className={`shrink-0 font-mono text-[13px] font-bold ${row.high ? 'text-success' : 'text-charcoal-md'}`}>
                     {row.score}
                   </span>
                   {row.tag && (
-                    <span className="rounded-full bg-success-bg px-2 py-0.5 text-[10px] font-semibold text-success">
+                    <span className="shrink-0 rounded-full bg-success-bg px-2 py-0.5 text-[10px] font-semibold text-success">
                       {row.tag}
                     </span>
                   )}
