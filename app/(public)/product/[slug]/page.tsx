@@ -1,0 +1,112 @@
+import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+import { breadcrumbJsonLd, jsonLdString, SITE_URL } from '@/lib/seo';
+import ProductClient from '../_components/ProductClient';
+import { getProductPageBySlug, getProductPageSlugs } from '../_lib/registry';
+
+type Params = Promise<{ slug: string }>;
+
+const absUrl = (path: string) =>
+  path.startsWith('http') ? path : `${SITE_URL}${path.startsWith('/') ? path : `/${path}`}`;
+
+/** Only registered slugs pre-render. Unknown slugs under /product/* return 404. */
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return getProductPageSlugs().map((slug) => ({ slug }));
+}
+
+export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
+  const { slug } = await params;
+  const data = getProductPageBySlug(slug);
+  if (!data) return { title: 'Not found', robots: { index: false, follow: false } };
+  const url = `/product/${data.slug}`;
+  const ogImageUrl = absUrl(data.meta.ogImage ?? '/logo.png');
+  const ogImageAlt = data.meta.ogImageAlt ?? data.product;
+  return {
+    title: data.meta.title,
+    description: data.meta.description,
+    keywords: data.meta.keywords,
+    alternates: { canonical: url },
+    openGraph: {
+      type: 'website',
+      title: data.meta.title,
+      description: data.meta.description,
+      url,
+      siteName: 'HireSort',
+      images: [{ url: ogImageUrl, width: 1200, height: 630, alt: ogImageAlt }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: data.meta.title,
+      description: data.meta.description,
+      images: [ogImageUrl],
+    },
+    robots: { index: true, follow: true },
+  };
+}
+
+export default async function ProductPageRoute({ params }: { params: Params }) {
+  const { slug } = await params;
+  const data = getProductPageBySlug(slug);
+  if (!data) notFound();
+
+  const pageUrl = absUrl(`/product/${data.slug}`);
+  const ogImageUrl = absUrl(data.meta.ogImage ?? '/logo.png');
+
+  const crumbs = breadcrumbJsonLd([
+    { name: 'Product', path: '/product' },
+    { name: data.product },
+  ]);
+
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: data.faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.question,
+      acceptedAnswer: { '@type': 'Answer', text: f.answer.join(' ') },
+    })),
+  };
+
+  const webPageJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': pageUrl,
+    url: pageUrl,
+    name: data.meta.title,
+    description: data.meta.description,
+    inLanguage: 'en',
+    datePublished: data.publishedAt,
+    dateModified: data.updatedAt,
+    primaryImageOfPage: { '@type': 'ImageObject', url: ogImageUrl },
+    isPartOf: { '@type': 'WebSite', name: 'HireSort', url: SITE_URL },
+    about: [{ '@type': 'Thing', name: data.product }],
+    publisher: {
+      '@type': 'Organization',
+      name: 'HireSort',
+      logo: { '@type': 'ImageObject', url: absUrl('/logo.png') },
+    },
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: jsonLdString(crumbs) }}
+      />
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: jsonLdString(webPageJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: jsonLdString(faqJsonLd) }}
+      />
+      <ProductClient data={data} />
+    </>
+  );
+}
