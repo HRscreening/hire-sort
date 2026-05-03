@@ -13,6 +13,17 @@ const gtagKey = process.env.NEXT_PUBLIC_GA_ID || ''
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || 'https://hiresort.ai';
 
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const supabaseHost = supabaseUrl
+  ? (() => {
+      try {
+        return new URL(supabaseUrl).hostname;
+      } catch {
+        return null;
+      }
+    })()
+  : null;
+
 const dmSans = DM_Sans({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700'],
@@ -65,7 +76,7 @@ export const metadata: Metadata = {
       'Screen resumes in seconds, not hours. HireSort ranks candidates with explainable AI scores.',
     url: siteUrl,
     locale: 'en_US',
-    images: [{ url: '/logo.png', width: 512, height: 512, alt: 'HireSort' }],
+    images: [{ url: '/logo.png', width: 1200, height: 630, alt: 'HireSort' }],
   },
   twitter: {
     card: 'summary_large_image',
@@ -131,6 +142,12 @@ export default function RootLayout({
       className={`${dmSans.variable} ${dmMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
+        {supabaseHost && (
+          <>
+            <link rel="preconnect" href={`https://${supabaseHost}`} crossOrigin="" />
+            <link rel="dns-prefetch" href={`https://${supabaseHost}`} />
+          </>
+        )}
         <BfcacheRemount>
           <Navbar />
           <main id="main" className="flex-1">{children}</main>

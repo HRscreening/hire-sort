@@ -83,7 +83,7 @@ const Features = () => {
 
       <div className="flex flex-col gap-25">
         {/* Feature 1: Explainable AI */}
-        <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0, margin: '0px 0px -10% 0px' }} variants={rowContainer} className={featureRowClass}>
+        <article><motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0, margin: '0px 0px -10% 0px' }} variants={rowContainer} className={featureRowClass}>
           <motion.div variants={fromLeft}>
             <h3 className={featureTextHeadingClass}>Explainable AI Scoring</h3>
             <p className={featureTextCopyClass}>
@@ -150,10 +150,10 @@ const Features = () => {
               </div>
             </VisualWrap>
           </motion.div>
-        </motion.div>
+        </motion.div></article>
 
         {/* Feature 2: Bulk Processing (reverse) */}
-        <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0, margin: '0px 0px -10% 0px' }} variants={rowContainer} className={featureRowClass}>
+        <article><motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0, margin: '0px 0px -10% 0px' }} variants={rowContainer} className={featureRowClass}>
           <motion.div variants={fromRight} className="md:order-2">
             <h3 className={featureTextHeadingClass}>Bulk Processing at Scale</h3>
             <p className={featureTextCopyClass}>
@@ -202,10 +202,10 @@ const Features = () => {
               </div>
             </VisualWrap>
           </motion.div>
-        </motion.div>
+        </motion.div></article>
 
         {/* Feature 3: Contextual Search */}
-        <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0, margin: '0px 0px -10% 0px' }} variants={rowContainer} className={featureRowClass}>
+        <article><motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0, margin: '0px 0px -10% 0px' }} variants={rowContainer} className={featureRowClass}>
           <motion.div variants={fromLeft}>
             <h3 className={featureTextHeadingClass}>Contextual Search, Not Keyword Search</h3>
             <p className={featureTextCopyClass}>
@@ -306,10 +306,10 @@ const Features = () => {
               </div>
             </VisualWrap>
           </motion.div>
-        </motion.div>
+        </motion.div></article>
 
         {/* Feature 4: End-to-End Resume Management (reverse) */}
-        <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0, margin: '0px 0px -10% 0px' }} variants={rowContainer} className={featureRowClass}>
+        <article><motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0, margin: '0px 0px -10% 0px' }} variants={rowContainer} className={featureRowClass}>
           <motion.div variants={fromRight} className="md:order-2">
             <h3 className={featureTextHeadingClass}>End-to-End Resume Management</h3>
             <p className={featureTextCopyClass}>
@@ -368,10 +368,10 @@ const Features = () => {
               </div>
             </VisualWrap>
           </motion.div>
-        </motion.div>
+        </motion.div></article>
 
         {/* Feature 5: Privacy & Compliance */}
-        <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0, margin: '0px 0px -10% 0px' }} variants={rowContainer} className={featureRowClass}>
+        <article><motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0, margin: '0px 0px -10% 0px' }} variants={rowContainer} className={featureRowClass}>
           <motion.div variants={fromLeft}>
             <h3 className={featureTextHeadingClass}>Privacy and Compliance, Built In</h3>
             <p className={featureTextCopyClass}>
@@ -488,7 +488,7 @@ const Features = () => {
               </div>
             </VisualWrap>
           </motion.div>
-        </motion.div>
+        </motion.div></article>
       </div>
     </section>
   );

@@ -1,5 +1,8 @@
 import type { Metadata } from 'next';
 import { BlogListing } from './_components/BlogListing';
+import { SITE_URL } from '@/lib/seo';
+
+const ogImageUrl = `${SITE_URL}/logo.png`;
 
 export const metadata: Metadata = {
   title: 'Blog',
@@ -12,12 +15,15 @@ export const metadata: Metadata = {
       'Hiring insights and AI recruitment best practices from the HireSort team.',
     url: '/blog',
     type: 'website',
+    siteName: 'HireSort',
+    images: [{ url: ogImageUrl, width: 1200, height: 630, alt: 'HireSort blog' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'HireSort Blog',
     description:
       'Hiring insights and AI recruitment best practices from the HireSort team.',
+    images: [ogImageUrl],
   },
   keywords: [
     'HireSort blog',

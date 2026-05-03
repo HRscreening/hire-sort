@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { BlogListing } from '../../_components/BlogListing';
 import { getPaginatedPosts, POSTS_PER_PAGE } from '../../_lib/posts';
 import { prisma } from '@/lib/prisma';
+import { SITE_URL } from '@/lib/seo';
 
 type Params = Promise<{ page: string }>;
 
@@ -21,11 +22,29 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   const { page } = await params;
   const n = Number(page);
   const canonical = `/blog/page/${n}`;
+  const title = `Blog — Page ${n}`;
+  const description =
+    'Insights, guides, and updates on modern hiring, AI resume screening, and recruiter productivity from the HireSort team.';
+  const ogImageUrl = `${SITE_URL}/logo.png`;
+
   return {
-    title: `Blog — Page ${n}`,
-    description:
-      'Insights, guides, and updates on modern hiring, AI resume screening, and recruiter productivity from the HireSort team.',
+    title,
+    description,
     alternates: { canonical },
+    openGraph: {
+      type: 'website',
+      title,
+      description,
+      url: canonical,
+      siteName: 'HireSort',
+      images: [{ url: ogImageUrl, width: 1200, height: 630, alt: 'HireSort blog' }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [ogImageUrl],
+    },
     robots: { index: true, follow: true },
   };
 }

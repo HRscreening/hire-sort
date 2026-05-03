@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
 import FaqsClient from './FaqsClient';
 import { FAQS } from './_data';
-import { breadcrumbJsonLd, jsonLdString } from '@/lib/seo';
+import { breadcrumbJsonLd, jsonLdString, SITE_URL } from '@/lib/seo';
+
+const ogImageUrl = `${SITE_URL}/logo.png`;
 
 export const metadata: Metadata = {
   title: 'FAQs — HireSort',
@@ -14,12 +16,15 @@ export const metadata: Metadata = {
       'Answers to common questions about HireSort — scoring, bulk uploads, integrations, and data handling.',
     url: '/faqs',
     type: 'website',
+    siteName: 'HireSort',
+    images: [{ url: ogImageUrl, width: 1200, height: 630, alt: 'HireSort FAQs' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'HireSort FAQs',
     description:
       'Answers to common questions about HireSort — scoring, bulk uploads, integrations, and data handling.',
+    images: [ogImageUrl],
   },
 };
 

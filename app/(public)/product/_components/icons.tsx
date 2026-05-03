@@ -25,7 +25,7 @@ import {
   FileSearch,
   FileScan,
 } from 'lucide-react';
-import type { IconName } from '@/app/(public)/(core)/_lib/types';
+import type { IconName } from '@/app/(public)/product/_lib/types';
 
 const map = {
   briefcase: Briefcase,

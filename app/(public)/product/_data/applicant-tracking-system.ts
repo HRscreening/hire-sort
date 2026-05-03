@@ -9,7 +9,7 @@ export const applicantTrackingSystem: ProductPage = {
 
   meta: {
     title:
-      'Applicant Tracking System for Resume Screening & Candidate Tracking | HireSort',
+      'AI Applicant Tracking System for Fast Hiring | HireSort',
     description:
       'HireSort is a lightweight applicant tracking system for recruiters, founders, and hiring teams. Store resumes, screen candidates with AI, track stages, and reuse candidate profiles across roles.',
     keywords: [

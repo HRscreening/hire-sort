@@ -1,13 +1,18 @@
 import type { Metadata } from 'next';
+import dynamic from 'next/dynamic';
 import Hero from '@/components/home/Hero';
 import HowItWorks from '@/components/home/HowItWorks';
-import Features from '@/components/home/Features';
-import Stats from '@/components/home/Stats';
-import Pricing from '@/components/home/Pricing';
-import ContactSection from '@/components/home/ContactSection';
-import CTA from '@/components/home/CTA';
+
+// Below-the-fold sections — code-split so the initial home payload stays small.
+const Features = dynamic(() => import('@/components/home/Features'));
+const Stats = dynamic(() => import('@/components/home/Stats'));
+const Pricing = dynamic(() => import('@/components/home/Pricing'));
+const ContactSection = dynamic(() => import('@/components/home/ContactSection'));
+const CTA = dynamic(() => import('@/components/home/CTA'));
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://hiresort.ai';
+
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: {
@@ -22,12 +27,15 @@ export const metadata: Metadata = {
       'Rank resumes in seconds with explainable AI scores. Built for hiring teams.',
     url: '/',
     type: 'website',
+    siteName: 'HireSort',
+    images: [{ url: `${siteUrl}/logo.png`, width: 1200, height: 630, alt: 'HireSort' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'HireSort — AI-powered resume screening',
     description:
       'Rank resumes in seconds with explainable AI scores. Built for hiring teams.',
+    images: [`${siteUrl}/logo.png`],
   },
 };
 

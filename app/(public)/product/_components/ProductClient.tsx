@@ -11,7 +11,7 @@ import {
   pageStagger,
 } from '@/components/layout/PageHero';
 import { trackCTAClick, trackEvent } from '@/lib/google_analytics_tracker';
-import type { ProductBlock, ProductPage } from '@/app/(public)/(core)/_lib/types';
+import type { ProductBlock, ProductPage } from '@/app/(public)/product/_lib/types';
 import { Icon } from './icons';
 
 const sectionLabel =
