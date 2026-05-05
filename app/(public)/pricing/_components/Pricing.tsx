@@ -261,7 +261,7 @@ const Pricing = () => {
               '**10,000** AI resume analyses per month',
               'Bulk upload of up to **100** resumes at a time',
               'Reconfigure the scoring rubric and rescore candidates',
-              `Scale as you go — **0.05** per additional resume analysis.`,
+              `Scale as you go — **0.035** per additional resume analysis.`,
             ].map((f, i) => (
               <motion.li
                 key={f}
