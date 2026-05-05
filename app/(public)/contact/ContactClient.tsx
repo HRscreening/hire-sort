@@ -31,6 +31,26 @@ const infoLabelClass =
   'mb-1 text-[11px] font-bold uppercase tracking-[0.6px] text-charcoal-xlt';
 const infoValueClass = 'block text-[14px] font-semibold text-charcoal leading-snug';
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 12 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: pageEase },
+  },
+};
+
 const ContactClient = () => {
   const [form, setForm] = useState<FormState>(initialForm);
   const [error, setError] = useState<string | null>(null);
@@ -101,8 +121,14 @@ const ContactClient = () => {
       <section className="mx-auto w-full max-w-300 flex-1 px-6 pt-8 pb-24">
         <div className="grid items-start gap-8 md:grid-cols-[0.85fr_1.15fr]">
           {/* Info column */}
-          <aside className="flex flex-col gap-3">
-            <div className={infoCardClass}>
+          <motion.aside
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            className="flex flex-col gap-3"
+          >
+            <motion.div variants={itemVariants} className={infoCardClass}>
               <div className="flex h-9.5 w-9.5 shrink-0 items-center justify-center rounded-lg bg-[rgba(0,0,0,0.05)] text-copper">
                 <Mail size={18} strokeWidth={2.2} />
               </div>
@@ -115,9 +141,9 @@ const ContactClient = () => {
                   support@hiresort.ai
                 </a>
               </div>
-            </div>
+            </motion.div>
 
-            <div className={infoCardClass}>
+            <motion.div variants={itemVariants} className={infoCardClass}>
               <div className="flex h-9.5 w-9.5 shrink-0 items-center justify-center rounded-lg bg-[rgba(0,0,0,0.05)] text-copper">
                 <Clock size={18} strokeWidth={2.2} />
               </div>
@@ -125,9 +151,12 @@ const ContactClient = () => {
                 <div className={infoLabelClass}>Response time</div>
                 <div className={infoValueClass}>Within 24 hours, Mon&ndash;Fri</div>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="mt-1 flex items-start gap-2.5 rounded-md border border-[rgba(200,90,23,0.14)] bg-[rgba(200,90,23,0.06)] px-4 py-3.5 text-[12.5px] leading-[1.55] text-charcoal-md">
+            <motion.div
+              variants={itemVariants}
+              className="mt-1 flex items-start gap-2.5 rounded-md border border-[rgba(200,90,23,0.14)] bg-[rgba(200,90,23,0.06)] px-4 py-3.5 text-[12.5px] leading-[1.55] text-charcoal-md"
+            >
               <MessageSquare
                 size={14}
                 strokeWidth={2.5}
@@ -137,8 +166,8 @@ const ContactClient = () => {
                 Looking for product help? Most answers live in our docs &mdash; check there
                 first for the fastest path.
               </span>
-            </div>
-          </aside>
+            </motion.div>
+          </motion.aside>
 
           {/* Form column */}
           <motion.div

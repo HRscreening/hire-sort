@@ -6,7 +6,6 @@ import HowItWorks from '@/components/home/HowItWorks';
 // Below-the-fold sections — code-split so the initial home payload stays small.
 const Features = dynamic(() => import('@/components/home/Features'));
 const Stats = dynamic(() => import('@/components/home/Stats'));
-const Pricing = dynamic(() => import('@/components/home/Pricing'));
 const ContactSection = dynamic(() => import('@/components/home/ContactSection'));
 const CTA = dynamic(() => import('@/components/home/CTA'));
 
@@ -110,7 +109,6 @@ export default function Home() {
       <HowItWorks />
       <Features />
       <Stats />
-      <Pricing />
       <ContactSection />
       <CTA />
     </>

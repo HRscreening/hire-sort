@@ -7,6 +7,7 @@ import './globals.css';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import BfcacheRemount from '@/components/layout/BfcacheRemount';
+import ScrollToTop from '@/components/layout/ScrollToTop';
 
 const gtagKey = process.env.NEXT_PUBLIC_GA_ID || ''
 
@@ -152,6 +153,7 @@ export default function RootLayout({
           <Navbar />
           <main id="main" className="flex-1">{children}</main>
           <Footer />
+          <ScrollToTop />
         </BfcacheRemount>
         <script
           type="application/ld+json"

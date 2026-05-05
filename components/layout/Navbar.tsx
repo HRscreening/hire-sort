@@ -85,7 +85,7 @@ const navLinks: NavEntry[] = [
   { kind: 'link', href: '/#features', label: 'Features' },
   { kind: 'mega', key: 'product', label: 'Product', groups: productMega },
   { kind: 'mega', key: 'resources', label: 'Resources', groups: resourcesMega },
-  { kind: 'link', href: '/#pricing', label: 'Pricing' },
+  { kind: 'link', href: '/pricing', label: 'Pricing',internal: true },
   { kind: 'link', href: '/contact', label: 'Contact', internal: true },
 ];
 

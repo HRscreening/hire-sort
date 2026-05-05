@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence, type Variants } from 'framer-motion';
 import { trackCTAClick, trackEvent } from '@/lib/google_analytics_tracker';
 import Link from 'next/link';
@@ -28,20 +28,6 @@ const Check = () => (
   </svg>
 );
 
-const PriceAmount = ({ amount }: { amount: string }) => (
-  <AnimatePresence mode="wait">
-    <motion.span
-      key={amount}
-      initial={{ opacity: 0, y: 12 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -12 }}
-      transition={{ duration: 0.3, ease }}
-      className="inline-block text-[40px] font-extrabold tracking-[-1.5px] text-charcoal"
-    >
-      {amount}
-    </motion.span>
-  </AnimatePresence>
-);
 
 const cardBaseClass =
   'flex h-full flex-col rounded-xl border border-line-soft bg-white p-7 transition-all hover:shadow-lg';
@@ -57,8 +43,26 @@ const ctaButtonBase =
 const ctaPrimary = `${ctaButtonBase} border border-copper bg-copper text-white hover:bg-copper-dark`;
 const ctaSecondary = `${ctaButtonBase} border border-line bg-white text-charcoal hover:border-charcoal-xlt hover:bg-ivory-light`;
 
+const PriceAmount = ({ amount }: { amount: string }) => (
+  <AnimatePresence mode="wait">
+    <motion.span
+      key={amount}
+      initial={{ opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -12 }}
+      transition={{ duration: 0.3, ease }}
+      className="inline-block text-[40px] font-extrabold tracking-[-1.5px] text-charcoal"
+    >
+      {amount}
+    </motion.span>
+  </AnimatePresence>
+);
+
 const Pricing = () => {
   const [isYearly, setIsYearly] = useState(false);
+
+
+  
 
   const setBilling = (yearly: boolean) => {
     if (yearly !== isYearly) {
@@ -71,7 +75,7 @@ const Pricing = () => {
     trackCTAClick('plan_select', 'pricing_' + plan + '_' + (isYearly ? 'yearly' : 'monthly'));
 
   return (
-    <section id="pricing" className="mx-auto max-w-315 px-6 py-25">
+    <section id="pricing" className="mx-auto max-w-315 px-6 py-16">
       <motion.div
         initial="hidden"
         whileInView="show"
@@ -126,6 +130,18 @@ const Pricing = () => {
         >
           Save 20%
         </motion.span>
+
+        {/* <select
+          value={currency}
+          onChange={(e) => setCurrency(e.target.value as CurrencyCode)}
+          className="ml-4 rounded border border-line-soft bg-white px-2 py-1 text-[13px] font-semibold text-charcoal outline-none transition-all hover:border-charcoal-lt"
+        >
+          {Object.entries(CURRENCIES).map(([code, { label }]) => (
+            <option key={code} value={code}>
+              {label}
+            </option>
+          ))}
+        </select> */}
       </motion.div>
 
       {/* Cards */}
@@ -144,7 +160,7 @@ const Pricing = () => {
         >
           <div className={planNameClass}>Free</div>
           <div className="mb-1.5 flex items-baseline gap-1">
-            <PriceAmount amount="$0" />
+            <PriceAmount amount='$0' />
             <span className="text-sm text-charcoal-xlt">/month</span>
           </div>
           <p className={planDescClass}>
@@ -153,8 +169,8 @@ const Pricing = () => {
           <ul className="mb-7 flex flex-1 list-none flex-col gap-2.5">
             {[
               'No Credit Card required',
-              '50 resume AI analyses per month',
-              'Bulk upload of up to 10 resumes at a time',
+              '**50** resume AI analyses per month',
+              'Bulk upload of up to **10** resumes at a time',
               'End-to-end resume management',
               'Support for all major resume file formats',
               'Export feature',
@@ -168,7 +184,7 @@ const Pricing = () => {
                 className={planFeatureClass}
               >
                 <Check />
-                {f}
+                <span dangerouslySetInnerHTML={{ __html: f.replace(/\*\*(.*?)\*\*/g, '<strong class="font-bold text-charcoal">$1</strong>') }} />
               </motion.li>
             ))}
           </ul>
@@ -202,10 +218,10 @@ const Pricing = () => {
           <ul className="mb-7 flex flex-1 list-none flex-col gap-2.5">
             {[
               'Includes everything in Free',
-              '2,000 AI resume analyses per month',
-              'Bulk upload of up to 50 resumes at a time',
+              '**1,000** AI resume analyses per month',
+              'Bulk upload of up to **50** resumes at a time',
               'Priority AI processing',
-              'Scale as you go — $0.05 per additional resume analysis.',
+              `Scale as you go — **0.05** per additional resume analysis.`,
             ].map((f, i) => (
               <motion.li
                 key={f}
@@ -216,7 +232,7 @@ const Pricing = () => {
                 className={planFeatureClass}
               >
                 <Check />
-                {f}
+                <span dangerouslySetInnerHTML={{ __html: f.replace(/\*\*(.*?)\*\*/g, '<strong class="font-bold text-charcoal">$1</strong>') }} />
               </motion.li>
             ))}
           </ul>
@@ -233,7 +249,7 @@ const Pricing = () => {
         >
           <div className={planNameClass}>Pro</div>
           <div className="mb-1.5 flex items-baseline gap-1">
-            <PriceAmount amount={isYearly ? '$120' : '$150'} />
+           <PriceAmount amount={isYearly ? '$120' : '$150'} />
             <span className="text-sm text-charcoal-xlt">/month</span>
           </div>
           <p className={planDescClass}>
@@ -242,10 +258,10 @@ const Pricing = () => {
           <ul className="mb-7 flex flex-1 list-none flex-col gap-2.5">
             {[
               'Includes everything in Plus',
-              '10,000 AI resume analyses per month',
-              'Bulk upload of up to 100 resumes at a time',
+              '**10,000** AI resume analyses per month',
+              'Bulk upload of up to **100** resumes at a time',
               'Reconfigure the scoring rubric and rescore candidates',
-              'Scale as you go — $0.05 per additional resume analysis.',
+              `Scale as you go — **0.05** per additional resume analysis.`,
             ].map((f, i) => (
               <motion.li
                 key={f}
@@ -256,7 +272,7 @@ const Pricing = () => {
                 className={planFeatureClass}
               >
                 <Check />
-                {f}
+                <span dangerouslySetInnerHTML={{ __html: f.replace(/\*\*(.*?)\*\*/g, '<strong class="font-bold text-charcoal">$1</strong>') }} />
               </motion.li>
             ))}
           </ul>
@@ -273,7 +289,7 @@ const Pricing = () => {
         >
           <div className={planNameClass}>Enterprise</div>
           <div className="mb-1.5 flex items-baseline gap-1">
-            <PriceAmount amount="Custom" />
+              <PriceAmount amount="Custom" />
           </div>
           <p className={planDescClass}>
             Built for large organizations that need advanced security, customization, and dedicated support at scale.
@@ -283,7 +299,7 @@ const Pricing = () => {
               'Everything in Pro',
               'SSO & advanced security',
               'Custom AI scoring & workflows',
-              'Bulk upload 500+ resumes at a time',
+              'Bulk upload **500+** resumes at a time',
               'API & ATS integrations',
               'SLA & uptime guarantee',
               'Data residency options & compliance',
@@ -297,7 +313,7 @@ const Pricing = () => {
                 className={planFeatureClass}
               >
                 <Check />
-                {f}
+                <span dangerouslySetInnerHTML={{ __html: f.replace(/\*\*(.*?)\*\*/g, '<strong class="font-bold text-charcoal">$1</strong>') }} />
               </motion.li>
             ))}
           </ul>

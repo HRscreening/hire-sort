@@ -3,6 +3,7 @@
 import { ArrowRight } from 'lucide-react';
 import { motion, type Variants } from 'framer-motion';
 import { trackCTAClick } from '@/lib/google_analytics_tracker';
+import Link from 'next/link';
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -35,20 +36,23 @@ const CTA = () => {
       <motion.p variants={item} className="mb-9 text-[17px] leading-[1.6] text-charcoal-lt">
         Upload your first batch and see ranked results in under 90 seconds. Free to start, no credit card required.
       </motion.p>
-      <motion.a
-        href="/#pricing"
-        onClick={() => trackCTAClick('get_started', 'bottom_cta')}
+      <motion.div
         variants={item}
         whileHover={{ scale: 1.06, y: -3 }}
         whileTap={{ scale: 0.97 }}
         transition={{ type: 'spring', stiffness: 360, damping: 18 }}
-        className="inline-flex items-center justify-center gap-2 rounded-md border border-copper bg-copper px-8 py-3.5 text-[15px] font-semibold leading-none text-white shadow-[0_8px_24px_rgba(0,0,0,0.12)] no-underline transition-colors hover:bg-copper-dark"
       >
-        Get started
-        <motion.span whileHover={{ x: 4 }} className="inline-flex">
-          <ArrowRight size={16} strokeWidth={2.5} />
-        </motion.span>
-      </motion.a>
+        <Link
+          href="/pricing"
+          onClick={() => trackCTAClick('get_started', 'bottom_cta')}
+          className="inline-flex items-center justify-center gap-2 rounded-md border border-copper bg-copper px-8 py-3.5 text-[15px] font-semibold leading-none text-white shadow-[0_8px_24px_rgba(0,0,0,0.12)] no-underline transition-colors hover:bg-copper-dark"
+        >
+          Get started
+          <motion.span whileHover={{ x: 4 }} className="inline-flex">
+            <ArrowRight size={16} strokeWidth={2.5} />
+          </motion.span>
+        </Link>
+      </motion.div>
     </motion.section>
   );
 };
