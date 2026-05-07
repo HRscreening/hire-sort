@@ -89,7 +89,12 @@ const navLinks: NavEntry[] = [
   { kind: 'link', href: '/contact', label: 'Contact', internal: true },
 ];
 
-const Navbar = () => {
+type NavbarProps = {
+  isLoggedIn: boolean;
+};
+
+
+const Navbar = ({isLoggedIn}:NavbarProps) => {
   const [open, setOpen] = useState(false);
   const [activeMega, setActiveMega] = useState<string | null>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -305,7 +310,9 @@ const Navbar = () => {
               href={main_app_url+'/login'}
               className="inline-flex h-8 items-center rounded-full bg-charcoal px-4 text-[13px] font-semibold text-ivory no-underline transition-colors hover:bg-accent"
             >
-              Log in
+              {
+                isLoggedIn ? 'Dashboard' : 'Log in'
+              }
             </Link>
           </motion.div>
 

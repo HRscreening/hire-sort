@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic';
 import type { Metadata } from 'next';
-
+import { cookies } from "next/headers";
 const Pricing = dynamic(() => import('@/app/(public)/pricing/_components/Pricing'));
 
 export const revalidate = 3600;
@@ -31,5 +31,8 @@ export const metadata: Metadata = {
 
 
 export default async function PricingPage() {
-    return <Pricing />;
+    const jar = await cookies()
+    const isLoggedIn = jar.get("hs_auth")?.value === "1"
+    const plan = jar.get("hs_plan")?.value 
+    return <Pricing isLoggedIn={isLoggedIn} plan={plan} />;
 }

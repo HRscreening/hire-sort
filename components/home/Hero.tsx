@@ -243,6 +243,23 @@ const Hero = () => {
         Upload resumes, describe the role, and let AI rank your candidates with explainable scores. No more manual screening.
       </motion.p>
 
+      <motion.div variants={itemUp} className="relative z-3 mt-9 flex flex-col items-center gap-3.5">
+        <motion.a
+          href={main_app_url + '/login'}
+          target='_self'
+          onClick={() => trackCTAClick('get_started', 'hero')}
+          whileHover={{ scale: 1.04, y: -2 }}
+          whileTap={{ scale: 0.97 }}
+          transition={{ type: 'spring', stiffness: 360, damping: 18 }}
+          className="inline-flex items-center justify-center gap-2 rounded-md border border-copper bg-copper px-8 py-3.5 text-[15px] font-semibold leading-none text-white shadow-[0_8px_24px_rgba(0,0,0,0.12)] no-underline transition-colors hover:bg-copper-dark"
+        >
+          Get Started
+          <motion.span initial={{ x: 0 }} whileHover={{ x: 4 }} className="inline-flex">
+            <ArrowRight size={16} strokeWidth={2.5} />
+          </motion.span>
+        </motion.a>
+      </motion.div>
+      
       <motion.div
         variants={itemUp}
         className="relative z-3 mx-auto mt-14 w-full max-w-4xl overflow-hidden rounded-xl border border-line-soft bg-white shadow-[0_20px_60px_rgba(0,0,0,0.12)]"
@@ -262,22 +279,7 @@ const Hero = () => {
         />
       </motion.div>
 
-      <motion.div variants={itemUp} className="relative z-3 mt-9 flex flex-col items-center gap-3.5">
-        <motion.a
-          href={main_app_url + '/login'}
-          target='_self'
-          onClick={() => trackCTAClick('get_started', 'hero')}
-          whileHover={{ scale: 1.04, y: -2 }}
-          whileTap={{ scale: 0.97 }}
-          transition={{ type: 'spring', stiffness: 360, damping: 18 }}
-          className="inline-flex items-center justify-center gap-2 rounded-md border border-copper bg-copper px-8 py-3.5 text-[15px] font-semibold leading-none text-white shadow-[0_8px_24px_rgba(0,0,0,0.12)] no-underline transition-colors hover:bg-copper-dark"
-        >
-          Get Started
-          <motion.span initial={{ x: 0 }} whileHover={{ x: 4 }} className="inline-flex">
-            <ArrowRight size={16} strokeWidth={2.5} />
-          </motion.span>
-        </motion.a>
-      </motion.div>
+
 
     </motion.section>
   );
