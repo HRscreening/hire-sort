@@ -33,7 +33,7 @@ export const resumeManagement: ProductPage = {
       'HireSort helps recruiters move beyond one-time resume uploads and spreadsheet tracking. Store resumes in a central repository, view parsed candidate details, connect candidates to jobs, track hiring stages, and reuse strong profiles for future roles.',
       'Built for recruiters, founders, hiring managers, and agencies that want practical candidate management without the complexity of a full enterprise ATS.',
     ],
-    primary: { label: 'Get started for free', href: '/#pricing' },
+    primary: { label: 'Get started for free', href: '/pricing' },
     secondary: { label: 'See how it works', href: '#how-it-works' },
     supporting:
       'Stop treating every resume screening as a one-off task. Build a searchable candidate workspace that becomes more valuable with every upload.',
@@ -395,8 +395,8 @@ export const resumeManagement: ProductPage = {
     eyebrow: 'Ready to build a reusable candidate workspace?',
     title: 'Ready to make recruiting more structured?',
     body: 'Use HireSort to store resumes, screen candidates, track stages, and reuse strong profiles across future roles.',
-    primary: { label: 'Get started for free', href: '/#pricing' },
-    secondary: { label: 'View pricing', href: '/#pricing' },
+    primary: { label: 'Get started for free', href: '/pricing' },
+    secondary: { label: 'View pricing', href: '/pricing' },
   },
 
   faqs: [
@@ -474,9 +474,9 @@ export const resumeManagement: ProductPage = {
 
   internalLinks: [
     { href: '/applicant-tracking-system', label: 'Applicant Tracking System' },
-    { href: '/recruitment-software', label: 'Recruitment Software' },
-    { href: '/resume-screening-software', label: 'Resume Screening Software' },
-    { href: '/candidate-pipeline', label: 'Candidate Pipeline' },
-    { href: '/#pricing', label: 'Pricing' },
+    { href: '/product/recruitment-software', label: 'Recruitment Software' },
+    { href: '/product/resume-parser', label: 'Resume Screening Software' },
+    { href: '/product/candidate-pipeline', label: 'Candidate Pipeline' },
+    { href: '/pricing', label: 'Pricing' },
   ],
 };

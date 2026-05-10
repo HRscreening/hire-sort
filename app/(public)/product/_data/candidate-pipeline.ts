@@ -33,7 +33,7 @@ export const candidatePipeline: ProductPage = {
       'HireSort helps recruiters move from resume screening to candidate action. Build a clear pipeline, track every candidate by stage, and keep your hiring workflow organized after the shortlist is created.',
       'Instead of managing shortlisted candidates in spreadsheets, scattered notes, and inbox reminders, HireSort gives your team a simple pipeline connected to resume scores, role associations, and candidate details.',
     ],
-    primary: { label: 'Get started for free', href: '/#pricing' },
+    primary: { label: 'Get started for free', href: '/pricing' },
     secondary: { label: 'View workflow', href: '#how-it-works' },
     supporting:
       'A lightweight candidate pipeline for recruiters, founders, hiring managers, and agencies that need to move applicants from “new” to “hired” without spreadsheet chaos or heavy ATS complexity.',
@@ -327,8 +327,8 @@ export const candidatePipeline: ProductPage = {
     eyebrow: 'Ready to manage candidates after screening?',
     title: 'Focus on hiring, not tracking.',
     body: 'Use HireSort to screen resumes, review ranked shortlists, track candidate stages, and build a reusable candidate pipeline.',
-    primary: { label: 'Get started for free', href: '/#pricing' },
-    secondary: { label: 'View pricing', href: '/#pricing' },
+    primary: { label: 'Get started for free', href: '/pricing' },
+    secondary: { label: 'View pricing', href: '/pricing' },
   },
 
   faqs: [
@@ -391,11 +391,11 @@ export const candidatePipeline: ProductPage = {
   ],
 
   internalLinks: [
-    { href: '/resume-screening-software', label: 'AI Resume Screening' },
+    { href: '/product/resume-parser', label: 'AI Resume Screening' },
     { href: '/applicant-tracking-system', label: 'Applicant Tracking System' },
-    { href: '/recruitment-software', label: 'Recruitment Software' },
-    { href: '/resume-management', label: 'Resume Management' },
-    { href: '/resume-parser', label: 'Resume Parser' },
+    { href: '/product/recruitment-software', label: 'Recruitment Software' },
+    { href: '/product/resume-management', label: 'Resume Management' },
+    { href: '/product/resume-parser', label: 'Resume Parser' },
     { href: '/pricing', label: 'Pricing' },
   ],
 };

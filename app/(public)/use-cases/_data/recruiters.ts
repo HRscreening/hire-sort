@@ -32,7 +32,7 @@ export const recruiters: ProductPage = {
       'Turn large applicant pools into structured, reviewable shortlists without living in spreadsheets.',
       'HireSort helps recruiters upload resumes in bulk, screen candidates against job-specific rubrics, review evidence-backed scores, and track candidates in one lightweight recruitment workspace.',
     ],
-    primary: { label: 'Get started for free', href: '/#pricing' },
+    primary: { label: 'Get started for free', href: '/pricing' },
     secondary: { label: 'See how HireSort works', href: '#how-it-works' },
     supporting:
       'A screening-first workflow for recruiters who need to move faster, align better with hiring managers, and keep candidate records reusable across future roles.',
@@ -204,8 +204,8 @@ export const recruiters: ProductPage = {
     eyebrow: 'Ready when you are',
     title: 'Ready to screen resumes faster?',
     body: 'Use HireSort to create structured shortlists, track candidate stages, and build a reusable resume repository for future roles.',
-    primary: { label: 'Get started for free', href: '/#pricing' },
-    secondary: { label: 'View pricing', href: '/#pricing' },
+    primary: { label: 'Get started for free', href: '/pricing' },
+    secondary: { label: 'View pricing', href: '/pricing' },
   },
 
   faqs: [
@@ -256,8 +256,8 @@ export const recruiters: ProductPage = {
     { href: '/use-cases/recruitment-agencies', label: 'For Recruitment Agencies' },
     { href: '/use-cases/high-volume-hiring', label: 'High-Volume Hiring' },
     { href: '/product/applicant-tracking-system', label: 'Applicant Tracking System' },
-    { href: '/product/resume-screening-software', label: 'Resume Screening Software' },
+    { href: '/product/resume-parser', label: 'Resume Screening Software' },
     { href: '/product/resume-management', label: 'Resume Management' },
-    { href: '/#pricing', label: 'Pricing' },
+    { href: '/pricing', label: 'Pricing' },
   ],
 };

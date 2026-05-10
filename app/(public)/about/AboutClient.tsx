@@ -239,7 +239,7 @@ const AboutClient = () => {
             </p>
             <div className="flex flex-wrap items-center justify-center gap-3">
               <a
-                href="/#pricing"
+                href="/pricing"
                 onClick={() => trackCTAClick('get_started', 'about_bottom_cta')}
                 className="inline-flex items-center justify-center gap-2 rounded-md border border-copper bg-copper px-7 py-3.5 text-[14.5px] font-semibold leading-none text-white no-underline transition-colors hover:bg-copper-dark"
               >

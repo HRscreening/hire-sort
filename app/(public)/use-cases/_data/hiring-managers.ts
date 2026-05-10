@@ -30,7 +30,7 @@ export const hiringManagers: ProductPage = {
     lead: [
       'HireSort helps hiring managers turn job requirements into structured screening criteria, review ranked candidates, and understand why each resume is a strong or weak fit.',
     ],
-    primary: { label: 'Get started for free', href: '/#pricing' },
+    primary: { label: 'Get started for free', href: '/pricing' },
     secondary: { label: 'See how candidate scoring works', href: '#how-it-works' },
     supporting:
       'Define the screening bar before resumes are reviewed — and spend more time with the candidates who actually match the role.',
@@ -112,8 +112,8 @@ export const hiringManagers: ProductPage = {
     eyebrow: 'Ready when you are',
     title: 'Review better shortlists, faster',
     body: 'Use HireSort to define the screening bar, rank candidates against it, and spend more time with the applicants who actually match the role.',
-    primary: { label: 'Get started for free', href: '/#pricing' },
-    secondary: { label: 'View pricing', href: '/#pricing' },
+    primary: { label: 'Get started for free', href: '/pricing' },
+    secondary: { label: 'View pricing', href: '/pricing' },
   },
 
   faqs: [
@@ -147,9 +147,9 @@ export const hiringManagers: ProductPage = {
   internalLinks: [
     { href: '/use-cases/recruiters', label: 'For Recruiters' },
     { href: '/use-cases/founder-led-hiring', label: 'Founder-Led Hiring' },
-    { href: '/product/resume-screening-software', label: 'Resume Screening Software' },
+    { href: '/product/resume-parser', label: 'Resume Screening Software' },
     { href: '/product/applicant-tracking-system', label: 'Applicant Tracking System' },
     { href: '/product/candidate-pipeline', label: 'Candidate Pipeline' },
-    { href: '/#pricing', label: 'Pricing' },
+    { href: '/pricing', label: 'Pricing' },
   ],
 };

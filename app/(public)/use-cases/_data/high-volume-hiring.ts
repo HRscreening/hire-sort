@@ -30,7 +30,7 @@ export const highVolumeHiring: ProductPage = {
     lead: [
       'When one role attracts hundreds of applications, HireSort helps your team move from resume overload to structured, ranked candidate shortlists.',
     ],
-    primary: { label: 'Screen resumes faster', href: '/#pricing' },
+    primary: { label: 'Screen resumes faster', href: '/pricing' },
     secondary: { label: 'See the workflow', href: '#how-it-works' },
     supporting:
       'Combine AI-assisted resume screening, structured rubrics, ranked shortlists, and candidate tracking — and prioritize the right candidates first.',
@@ -123,8 +123,8 @@ export const highVolumeHiring: ProductPage = {
     eyebrow: 'Ready when you are',
     title: 'Turn resume volume into a ranked shortlist',
     body: 'Use HireSort to screen large applicant pools faster, apply consistent criteria, and move the right candidates forward with more confidence.',
-    primary: { label: 'Get started for free', href: '/#pricing' },
-    secondary: { label: 'View pricing', href: '/#pricing' },
+    primary: { label: 'Get started for free', href: '/pricing' },
+    secondary: { label: 'View pricing', href: '/pricing' },
   },
 
   faqs: [
@@ -158,9 +158,9 @@ export const highVolumeHiring: ProductPage = {
   internalLinks: [
     { href: '/use-cases/recruitment-agencies', label: 'For Recruitment Agencies' },
     { href: '/use-cases/recruiters', label: 'For Recruiters' },
-    { href: '/product/resume-screening-software', label: 'Resume Screening Software' },
+    { href: '/product/resume-parser', label: 'Resume Screening Software' },
     { href: '/product/applicant-tracking-system', label: 'Applicant Tracking System' },
     { href: '/product/candidate-pipeline', label: 'Candidate Pipeline' },
-    { href: '/#pricing', label: 'Pricing' },
+    { href: '/pricing', label: 'Pricing' },
   ],
 };

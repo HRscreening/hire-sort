@@ -30,7 +30,7 @@ export const aiResumeScreeningVsAts: CompetitorPage = {
       'An applicant tracking system helps teams manage candidates through the hiring process. AI resume screening software helps teams evaluate resumes against role requirements and create ranked shortlists.',
       'Many teams need both. But if your biggest problem is resume volume, AI screening may solve the most painful bottleneck first.',
     ],
-    primaryCta: { label: 'Get started for free', href: '/#pricing' },
+    primaryCta: { label: 'Get started for free', href: '/pricing' },
     secondaryCta: { label: 'Compare features', href: '#feature-compare' },
     supporting:
       'HireSort combines AI resume screening with lightweight applicant tracking — designed for teams that want both faster screening and structured candidate management.',
@@ -139,8 +139,8 @@ export const aiResumeScreeningVsAts: CompetitorPage = {
     eyebrow: 'Ready when you are',
     title: 'Get screening power with lightweight ATS structure',
     body: 'Use HireSort to screen resumes, rank candidates, store profiles and track stages from one workflow.',
-    primary: { label: 'Get started for free', href: '/#pricing' },
-    secondary: { label: 'View pricing', href: '/#pricing' },
+    primary: { label: 'Get started for free', href: '/pricing' },
+    secondary: { label: 'View pricing', href: '/pricing' },
   },
 
   faqs: [
@@ -183,12 +183,12 @@ export const aiResumeScreeningVsAts: CompetitorPage = {
 
   internalLinks: [
     { href: '/product/applicant-tracking-system', label: 'Applicant Tracking System' },
-    { href: '/product/resume-screening-software', label: 'Resume Screening Software' },
+    { href: '/product/resume-parser', label: 'Resume Screening Software' },
     { href: '/product/resume-management', label: 'Resume Management' },
     { href: '/product/candidate-pipeline', label: 'Candidate Pipeline' },
     { href: '/resources/compare/workable-alternative', label: 'HireSort vs Workable' },
     { href: '/resources/compare/greenhouse-alternative', label: 'HireSort vs Greenhouse' },
-    { href: '/#pricing', label: 'Pricing' },
+    { href: '/pricing', label: 'Pricing' },
   ],
 
   disclaimer:

@@ -30,7 +30,7 @@ export const founderLedHiring: ProductPage = {
     lead: [
       'HireSort helps founders define what they need, screen resumes faster, compare candidates more consistently, and track hiring stages before building a full HR team.',
     ],
-    primary: { label: 'Start hiring with structure', href: '/#pricing' },
+    primary: { label: 'Start hiring with structure', href: '/pricing' },
     secondary: { label: 'See how HireSort works', href: '#how-it-works' },
     supporting:
       'A lightweight workflow for founders hiring their first 5 to 20 employees — built for speed, clarity, and structured early hiring.',
@@ -124,8 +124,8 @@ export const founderLedHiring: ProductPage = {
     eyebrow: 'Ready when you are',
     title: 'Make your first hires with more structure',
     body: 'Use HireSort to define the hiring bar, review ranked candidates, and build a reusable candidate system before your recruiting process becomes messy.',
-    primary: { label: 'Get started for free', href: '/#pricing' },
-    secondary: { label: 'View pricing', href: '/#pricing' },
+    primary: { label: 'Get started for free', href: '/pricing' },
+    secondary: { label: 'View pricing', href: '/pricing' },
   },
 
   faqs: [
@@ -160,9 +160,9 @@ export const founderLedHiring: ProductPage = {
     { href: '/applicant-tracking-system/startups', label: 'ATS for Startups' },
     { href: '/applicant-tracking-system/smb', label: 'ATS for Small Businesses' },
     { href: '/product/applicant-tracking-system', label: 'Applicant Tracking System' },
-    { href: '/product/resume-screening-software', label: 'Resume Screening Software' },
+    { href: '/product/resume-parser', label: 'Resume Screening Software' },
     { href: '/use-cases/recruiters', label: 'For Recruiters' },
     { href: '/use-cases/hiring-managers', label: 'For Hiring Managers' },
-    { href: '/#pricing', label: 'Pricing' },
+    { href: '/pricing', label: 'Pricing' },
   ],
 };

@@ -33,7 +33,7 @@ export const atsForSmallBusinesses: ProductPage = {
       'HireSort helps small businesses move away from scattered resumes, email folders, and spreadsheet trackers into one simple applicant tracking workflow.',
       'Store resumes, screen candidates with AI, track hiring stages, and reuse strong profiles for future roles — without the complexity or cost of enterprise ATS software.',
     ],
-    primary: { label: 'Get started for free', href: '/#pricing' },
+    primary: { label: 'Get started for free', href: '/pricing' },
     secondary: { label: 'See how it works', href: '#how-it-works' },
     supporting:
       'A lightweight applicant tracking system for small teams, founders, and lean HR teams that need faster shortlisting, cleaner candidate tracking, and less manual resume work.',
@@ -240,8 +240,8 @@ export const atsForSmallBusinesses: ProductPage = {
     eyebrow: 'Ready when you are',
     title: 'Ready to replace spreadsheet hiring?',
     body: 'Use HireSort to store resumes, screen candidates with AI, track hiring stages, and build a reusable candidate database for your small business.',
-    primary: { label: 'Get started for free', href: '/#pricing' },
-    secondary: { label: 'View pricing', href: '/#pricing' },
+    primary: { label: 'Get started for free', href: '/pricing' },
+    secondary: { label: 'View pricing', href: '/pricing' },
   },
 
   faqs: [
@@ -297,8 +297,8 @@ export const atsForSmallBusinesses: ProductPage = {
     { href: '/use-cases/founder-led-hiring', label: 'Founder-Led Hiring' },
     { href: '/use-cases/recruiters', label: 'For Recruiters' },
     { href: '/product/applicant-tracking-system', label: 'Applicant Tracking System' },
-    { href: '/product/resume-screening-software', label: 'Resume Screening Software' },
+    { href: '/product/resume-parser', label: 'Resume Screening Software' },
     { href: '/product/resume-management', label: 'Resume Management' },
-    { href: '/#pricing', label: 'Pricing' },
+    { href: '/pricing', label: 'Pricing' },
   ],
 };

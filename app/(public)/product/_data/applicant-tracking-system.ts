@@ -33,7 +33,7 @@ export const applicantTrackingSystem: ProductPage = {
     lead: [
       'HireSort helps recruiters and hiring teams move from scattered resumes and spreadsheet tracking to a simple, AI-powered applicant tracking workflow. Store resumes in one place, screen candidates against job-specific rubrics, track hiring stages, and reuse candidate profiles across future roles.',
     ],
-    primary: { label: 'Get started for free', href: '/#pricing' },
+    primary: { label: 'Get started for free', href: '/pricing' },
     secondary: { label: 'See how HireSort works', href: '#how-it-works' },
     supporting:
       'A lightweight ATS for teams that need faster shortlisting, cleaner candidate tracking, and less manual resume management — without the complexity of enterprise hiring software.',
@@ -261,8 +261,8 @@ export const applicantTrackingSystem: ProductPage = {
     eyebrow: 'Ready when you are',
     title: 'Ready to replace spreadsheet-based applicant tracking?',
     body: 'Use HireSort to store resumes, screen candidates, track hiring stages, and build reusable candidate records.',
-    primary: { label: 'Get started for free', href: '/#pricing' },
-    secondary: { label: 'View pricing', href: '/#pricing' },
+    primary: { label: 'Get started for free', href: '/pricing' },
+    secondary: { label: 'View pricing', href: '/pricing' },
   },
 
   faqs: [
@@ -279,11 +279,11 @@ export const applicantTrackingSystem: ProductPage = {
   ],
 
   internalLinks: [
-    { href: '/resume-screening-software', label: 'Resume Screening Software' },
-    { href: '/resume-management', label: 'Resume Management' },
-    { href: '/candidate-pipeline', label: 'Candidate Pipeline' },
-    { href: '/recruitment-software', label: 'Recruitment Software' },
+    { href: '/product/resume-parser', label: 'Resume Screening Software' },
+    { href: '/product/resume-management', label: 'Resume Management' },
+    { href: '/product/candidate-pipeline', label: 'Candidate Pipeline' },
+    { href: '/product/recruitment-software', label: 'Recruitment Software' },
     { href: '/resources/compare/workable-alternative', label: 'Workable Alternative' },
-    { href: '/#pricing', label: 'Pricing' },
+    { href: '/pricing', label: 'Pricing' },
   ],
 };
