@@ -137,6 +137,7 @@ const CompareClient = ({ data }: Props) => {
       </section>
 
       {/* Positioning */}
+      {data.positioning && (
       <section className="bg-linear-to-b from-ivory to-ivory-medium px-6 py-20">
         <motion.div
           initial="hidden"
@@ -179,8 +180,10 @@ const CompareClient = ({ data }: Props) => {
           )}
         </motion.div>
       </section>
+      )}
 
       {/* Problem */}
+      {data.problem && (
       <section className="mx-auto max-w-300 px-6 py-20">
         <motion.div
           initial="hidden"
@@ -216,8 +219,10 @@ const CompareClient = ({ data }: Props) => {
           </motion.div>
         </motion.div>
       </section>
+      )}
 
       {/* Workflow */}
+      {data.workflow && (
       <section className="bg-linear-to-b from-ivory-medium to-ivory px-6 py-20">
         <motion.div
           initial="hidden"
@@ -258,6 +263,7 @@ const CompareClient = ({ data }: Props) => {
           </motion.ol>
         </motion.div>
       </section>
+      )}
 
       {/* Feature comparison */}
       <section id="feature-compare" className="mx-auto max-w-300 px-6 py-20">
@@ -349,6 +355,7 @@ const CompareClient = ({ data }: Props) => {
             </div>
           </motion.div>
 
+          {data.chooseCompetitor && (
           <motion.div
             variants={pageFadeUp}
             className="rounded-xl border border-line-soft bg-white p-8 shadow-card"
@@ -371,10 +378,12 @@ const CompareClient = ({ data }: Props) => {
               {data.chooseCompetitor.closing}
             </p>
           </motion.div>
+          )}
         </motion.div>
       </section>
 
       {/* Differentiator */}
+      {data.differentiator && (
       <section className="mx-auto max-w-275 px-6 py-20">
         <motion.div
           initial="hidden"
@@ -412,8 +421,10 @@ const CompareClient = ({ data }: Props) => {
           </motion.ul>
         </motion.div>
       </section>
+      )}
 
       {/* Repository */}
+      {data.repository && (
       <section className="bg-linear-to-b from-ivory-medium to-ivory px-6 py-20">
         <motion.div
           initial="hidden"
@@ -454,8 +465,10 @@ const CompareClient = ({ data }: Props) => {
           </motion.div>
         </motion.div>
       </section>
+      )}
 
       {/* Stages */}
+      {data.stages && (
       <section className="mx-auto max-w-275 px-6 py-20">
         <motion.div
           initial="hidden"
@@ -496,8 +509,10 @@ const CompareClient = ({ data }: Props) => {
           </motion.p>
         </motion.div>
       </section>
+      )}
 
       {/* Migration */}
+      {data.migration && (
       <section className="bg-linear-to-b from-ivory to-ivory-medium px-6 py-20">
         <motion.div
           initial="hidden"
@@ -541,6 +556,7 @@ const CompareClient = ({ data }: Props) => {
           </motion.p>
         </motion.div>
       </section>
+      )}
 
       {/* CTA */}
       <section className="mx-auto max-w-250 px-6 pt-20 pb-8">

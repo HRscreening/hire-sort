@@ -1,8 +1,12 @@
 import type { CompetitorPage } from './types';
 import { workableAlternative } from './workable-alternative';
+import { greenhouseAlternative } from './greenhouse-alternative';
+import { aiResumeScreeningVsAts } from './ai-resume-screening-vs-ats';
 
 const PAGES: Record<string, CompetitorPage> = {
   [workableAlternative.slug]: workableAlternative,
+  [greenhouseAlternative.slug]: greenhouseAlternative,
+  [aiResumeScreeningVsAts.slug]: aiResumeScreeningVsAts,
 };
 
 export const getComparisonSlugs = (): string[] => Object.keys(PAGES);

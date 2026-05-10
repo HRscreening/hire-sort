@@ -39,7 +39,7 @@ export type CompetitorPage = {
     rows: { area: string; competitor: string; hiresort: string }[];
   };
 
-  positioning: {
+  positioning?: {
     eyebrow: string;
     title: string;
     body: string[];
@@ -47,7 +47,7 @@ export type CompetitorPage = {
     closing?: string;
   };
 
-  problem: {
+  problem?: {
     eyebrow: string;
     title: string;
     intro: string;
@@ -55,7 +55,7 @@ export type CompetitorPage = {
     closing: string;
   };
 
-  workflow: {
+  workflow?: {
     eyebrow: string;
     title: string;
     intro?: string;
@@ -74,20 +74,20 @@ export type CompetitorPage = {
     suitableFor: string[];
   };
 
-  chooseCompetitor: {
+  chooseCompetitor?: {
     title: string;
     bullets: string[];
     closing: string;
   };
 
-  differentiator: {
+  differentiator?: {
     eyebrow: string;
     title: string;
     intro: string[];
     bullets: string[];
   };
 
-  repository: {
+  repository?: {
     eyebrow: string;
     title: string;
     intro: string;
@@ -95,7 +95,7 @@ export type CompetitorPage = {
     closing?: string;
   };
 
-  stages: {
+  stages?: {
     eyebrow: string;
     title: string;
     intro: string;
@@ -103,7 +103,7 @@ export type CompetitorPage = {
     closing: string;
   };
 
-  migration: {
+  migration?: {
     eyebrow: string;
     title: string;
     intro: string;
