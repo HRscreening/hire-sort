@@ -1,4 +1,5 @@
 import type { CompetitorPage } from './types';
+import redirectURL from '@/lib/mainsSiteRedirectUrl';
 
 export const greenhouseAlternative: CompetitorPage = {
   slug: 'greenhouse-alternative',
@@ -30,7 +31,7 @@ export const greenhouseAlternative: CompetitorPage = {
       'Greenhouse is a well-known hiring platform built for structured hiring, interviewing, candidate experience, workflow governance, reporting and onboarding. It is powerful for organizations that need a full recruiting operating system.',
       'HireSort takes a narrower approach: help teams screen resumes faster, rank candidates more consistently, and manage early-stage candidate workflows without enterprise complexity.',
     ],
-    primaryCta: { label: 'Get started for free', href: '/pricing' },
+    primaryCta: { label: 'Get started for free', href: redirectURL },
     secondaryCta: { label: 'Compare features', href: '#feature-compare' },
     supporting:
       'Greenhouse is a broad recruiting suite. HireSort is designed for teams that want a screening-first workflow: resume upload, AI scoring, ranked shortlists, reusable candidate records, and lightweight candidate tracking.',
@@ -171,7 +172,7 @@ export const greenhouseAlternative: CompetitorPage = {
     eyebrow: 'Ready when you are',
     title: 'Try a lightweight Greenhouse alternative',
     body: 'Use HireSort to screen resumes faster, create ranked shortlists and manage candidates without heavy ATS complexity.',
-    primary: { label: 'Get started for free', href: '/pricing' },
+    primary: { label: 'Get started for free', href: redirectURL },
     secondary: { label: 'View pricing', href: '/pricing' },
   },
 

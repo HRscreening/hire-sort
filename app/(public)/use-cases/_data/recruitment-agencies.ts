@@ -1,4 +1,5 @@
 import type { ProductPage } from '@/app/(public)/product/_lib/types';
+import redirectURL from '@/lib/mainsSiteRedirectUrl';
 
 export const recruitmentAgencies: ProductPage = {
   slug: 'recruitment-agencies',
@@ -30,7 +31,7 @@ export const recruitmentAgencies: ProductPage = {
     lead: [
       'HireSort helps agencies process resume batches, build reusable candidate repositories, rank candidates against client JDs, and deliver clearer shortlists faster.',
     ],
-    primary: { label: 'Get started for free', href: '/pricing' },
+    primary: { label: 'Get started for free', href: redirectURL },
     secondary: { label: 'Build your first shortlist', href: '#how-it-works' },
     supporting:
       'A screening-first workspace to evaluate candidates, reuse past resumes, and send better shortlists to clients.',
@@ -114,7 +115,7 @@ export const recruitmentAgencies: ProductPage = {
     eyebrow: 'Ready when you are',
     title: 'Deliver better client shortlists in less time',
     body: 'Use HireSort to process resume batches, rank candidates by client fit, and build a reusable candidate repository that keeps working for future roles.',
-    primary: { label: 'Get started for free', href: '/pricing' },
+    primary: { label: 'Get started for free', href: redirectURL },
     secondary: { label: 'View pricing', href: '/pricing' },
   },
 

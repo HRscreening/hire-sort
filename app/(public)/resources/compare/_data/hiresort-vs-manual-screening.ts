@@ -1,4 +1,5 @@
 import type { CompetitorPage } from './types';
+import redirectURL from '@/lib/mainsSiteRedirectUrl';
 
 export const hiresortVsManualScreening: CompetitorPage = {
   slug: 'hiresort-vs-manual-screening',
@@ -29,7 +30,7 @@ export const hiresortVsManualScreening: CompetitorPage = {
       'Manual screening works when there are only a few resumes. But for high-volume roles, it becomes slow, inconsistent and difficult to explain.',
       'HireSort helps recruiters reduce repetitive first-pass review by applying structured AI screening to every resume and presenting ranked candidates for human review.',
     ],
-    primaryCta: { label: 'Get started for free', href: '/pricing' },
+    primaryCta: { label: 'Get started for free', href: redirectURL },
     secondaryCta: { label: 'Compare features', href: '#feature-compare' },
     supporting:
       'AI should support recruiters, not replace them. HireSort is decision-support: humans still make the final hiring call.',
@@ -124,7 +125,7 @@ export const hiresortVsManualScreening: CompetitorPage = {
     eyebrow: 'Ready when you are',
     title: 'Screen resumes faster without losing control',
     body: 'Use HireSort to reduce repetitive first-pass review and create evidence-backed shortlists your team can review with confidence.',
-    primary: { label: 'Get started for free', href: '/pricing' },
+    primary: { label: 'Get started for free', href: redirectURL },
     secondary: { label: 'View pricing', href: '/pricing' },
   },
 

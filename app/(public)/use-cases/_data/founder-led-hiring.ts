@@ -1,4 +1,5 @@
 import type { ProductPage } from '@/app/(public)/product/_lib/types';
+import redirectURL from '@/lib/mainsSiteRedirectUrl';
 
 export const founderLedHiring: ProductPage = {
   slug: 'founder-led-hiring',
@@ -124,7 +125,7 @@ export const founderLedHiring: ProductPage = {
     eyebrow: 'Ready when you are',
     title: 'Make your first hires with more structure',
     body: 'Use HireSort to define the hiring bar, review ranked candidates, and build a reusable candidate system before your recruiting process becomes messy.',
-    primary: { label: 'Get started for free', href: '/pricing' },
+    primary: { label: 'Get started for free', href: redirectURL },
     secondary: { label: 'View pricing', href: '/pricing' },
   },
 

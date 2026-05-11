@@ -1,4 +1,5 @@
 import type { BestPage } from './types';
+import redirectURL from '@/lib/mainsSiteRedirectUrl';
 
 export const highVolumeHiringSoftware: BestPage = {
   slug: 'high-volume-hiring-software',
@@ -86,7 +87,7 @@ export const highVolumeHiringSoftware: BestPage = {
     eyebrow: 'Try it',
     title: 'Screen high-volume resume piles faster',
     body: 'Upload resumes, generate a role-specific rubric, and let HireSort produce ranked shortlists your team can review with confidence.',
-    primary: { label: 'Get started for free', href: '/pricing' },
+    primary: { label: 'Get started for free', href: redirectURL },
     secondary: { label: 'View pricing', href: '/pricing' },
   },
 

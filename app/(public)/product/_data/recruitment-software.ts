@@ -1,4 +1,5 @@
 import type { ProductPage } from '../_lib/types';
+import redirectURL from '@/lib/mainsSiteRedirectUrl';
 
 export const recruitmentSoftware: ProductPage = {
   slug: 'recruitment-software',
@@ -34,7 +35,7 @@ export const recruitmentSoftware: ProductPage = {
       'HireSort helps recruiters, founders, and hiring managers move from scattered resumes, manual screening, and spreadsheet tracking to a faster, more structured hiring workflow.',
       'Upload resumes, screen candidates with AI, review ranked shortlists, and track candidate progress from one simple recruitment workspace.',
     ],
-    primary: { label: 'Get started for free', href: '/pricing' },
+    primary: { label: 'Get started for free', href: redirectURL },
     secondary: { label: 'See how it works', href: '#how-it-works' },
     supporting:
       'A lightweight recruitment software platform for teams that want faster shortlisting, cleaner candidate management, and less manual hiring work — without the complexity of enterprise recruiting systems.',
@@ -254,7 +255,7 @@ export const recruitmentSoftware: ProductPage = {
     eyebrow: 'Ready when you are',
     title: 'Ready to make recruiting more structured?',
     body: 'Use HireSort to screen resumes faster, manage candidate records, track hiring stages, and build better shortlists.',
-    primary: { label: 'Get started for free', href: '/pricing' },
+    primary: { label: 'Get started for free', href: redirectURL },
     secondary: { label: 'View pricing', href: '/pricing' },
   },
 

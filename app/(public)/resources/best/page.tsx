@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { ArrowRight, Award } from 'lucide-react';
 import { breadcrumbJsonLd, jsonLdString, SITE_URL } from '@/lib/seo';
 import { getAllBestPages } from './_data';
+import redirectURL from '@/lib/mainsSiteRedirectUrl';
 
 const PAGE_PATH = '/resources/best';
 const PAGE_TITLE = 'Best Recruitment Software Guides | HireSort';
@@ -226,13 +227,13 @@ export default function BestIndexPage() {
               Explore the guides above, then try HireSort if your biggest bottleneck is resume screening, shortlisting, and candidate tracking.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-3">
-              <Link
-                href="/pricing"
+              <a
+                href={redirectURL}
                 className="inline-flex items-center justify-center gap-2 rounded-md border border-copper bg-copper px-7 py-3.5 text-[14.5px] font-semibold leading-none text-white no-underline transition-colors hover:bg-copper-dark"
               >
                 Get started for free
                 <ArrowRight size={15} strokeWidth={2.5} />
-              </Link>
+              </a>
               <Link
                 href="/pricing"
                 className="inline-flex items-center justify-center gap-2 rounded-md border border-white/20 bg-transparent px-7 py-3.5 text-[14.5px] font-semibold leading-none text-white no-underline transition-colors hover:bg-white/10"

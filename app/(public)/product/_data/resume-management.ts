@@ -1,4 +1,5 @@
 import type { ProductPage } from '../_lib/types';
+import redirectURL from '@/lib/mainsSiteRedirectUrl';
 
 export const resumeManagement: ProductPage = {
   slug: 'resume-management',
@@ -33,7 +34,7 @@ export const resumeManagement: ProductPage = {
       'HireSort helps recruiters move beyond one-time resume uploads and spreadsheet tracking. Store resumes in a central repository, view parsed candidate details, connect candidates to jobs, track hiring stages, and reuse strong profiles for future roles.',
       'Built for recruiters, founders, hiring managers, and agencies that want practical candidate management without the complexity of a full enterprise ATS.',
     ],
-    primary: { label: 'Get started for free', href: '/pricing' },
+    primary: { label: 'Get started for free', href: redirectURL },
     secondary: { label: 'See how it works', href: '#how-it-works' },
     supporting:
       'Stop treating every resume screening as a one-off task. Build a searchable candidate workspace that becomes more valuable with every upload.',
@@ -395,7 +396,7 @@ export const resumeManagement: ProductPage = {
     eyebrow: 'Ready to build a reusable candidate workspace?',
     title: 'Ready to make recruiting more structured?',
     body: 'Use HireSort to store resumes, screen candidates, track stages, and reuse strong profiles across future roles.',
-    primary: { label: 'Get started for free', href: '/pricing' },
+    primary: { label: 'Get started for free', href: redirectURL },
     secondary: { label: 'View pricing', href: '/pricing' },
   },
 

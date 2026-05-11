@@ -1,4 +1,5 @@
 import type { ProductPage } from '@/app/(public)/product/_lib/types';
+import redirectURL from '@/lib/mainsSiteRedirectUrl';
 
 export const hiringManagers: ProductPage = {
   slug: 'hiring-managers',
@@ -30,7 +31,7 @@ export const hiringManagers: ProductPage = {
     lead: [
       'HireSort helps hiring managers turn job requirements into structured screening criteria, review ranked candidates, and understand why each resume is a strong or weak fit.',
     ],
-    primary: { label: 'Get started for free', href: '/pricing' },
+    primary: { label: 'Get started for free', href: redirectURL },
     secondary: { label: 'See how candidate scoring works', href: '#how-it-works' },
     supporting:
       'Define the screening bar before resumes are reviewed — and spend more time with the candidates who actually match the role.',
@@ -112,7 +113,7 @@ export const hiringManagers: ProductPage = {
     eyebrow: 'Ready when you are',
     title: 'Review better shortlists, faster',
     body: 'Use HireSort to define the screening bar, rank candidates against it, and spend more time with the applicants who actually match the role.',
-    primary: { label: 'Get started for free', href: '/pricing' },
+    primary: { label: 'Get started for free', href: redirectURL },
     secondary: { label: 'View pricing', href: '/pricing' },
   },
 

@@ -1,4 +1,5 @@
 import type { BestPage } from './types';
+import redirectURL from '@/lib/mainsSiteRedirectUrl';
 
 export const atsForStartups: BestPage = {
   slug: 'ats-for-startups',
@@ -85,7 +86,7 @@ export const atsForStartups: BestPage = {
     eyebrow: 'Get started',
     title: 'Build your first real hiring workflow',
     body: 'Use HireSort to move from spreadsheet hiring to AI-assisted resume screening, ranked shortlists, and candidate tracking.',
-    primary: { label: 'Get started for free', href: '/pricing' },
+    primary: { label: 'Get started for free', href: redirectURL },
     secondary: { label: 'View pricing', href: '/pricing' },
   },
 

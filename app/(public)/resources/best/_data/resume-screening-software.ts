@@ -1,4 +1,5 @@
 import type { BestPage } from './types';
+import redirectURL from '@/lib/mainsSiteRedirectUrl';
 
 export const resumeScreeningSoftware: BestPage = {
   slug: 'resume-screening-software',
@@ -87,7 +88,7 @@ export const resumeScreeningSoftware: BestPage = {
     eyebrow: 'Try it',
     title: 'Turn resume review into ranked shortlists',
     body: 'Use HireSort to screen resumes against role-specific criteria and review explainable candidate rankings.',
-    primary: { label: 'Get started for free', href: '/pricing' },
+    primary: { label: 'Get started for free', href: redirectURL },
     secondary: { label: 'View pricing', href: '/pricing' },
   },
 

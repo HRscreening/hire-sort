@@ -1,4 +1,5 @@
 import type { ProductPage } from '@/app/(public)/product/_lib/types';
+import redirectURL from '@/lib/mainsSiteRedirectUrl';
 
 export const recruiters: ProductPage = {
   slug: 'recruiters',
@@ -32,7 +33,7 @@ export const recruiters: ProductPage = {
       'Turn large applicant pools into structured, reviewable shortlists without living in spreadsheets.',
       'HireSort helps recruiters upload resumes in bulk, screen candidates against job-specific rubrics, review evidence-backed scores, and track candidates in one lightweight recruitment workspace.',
     ],
-    primary: { label: 'Get started for free', href: '/pricing' },
+    primary: { label: 'Get started for free', href: redirectURL },
     secondary: { label: 'See how HireSort works', href: '#how-it-works' },
     supporting:
       'A screening-first workflow for recruiters who need to move faster, align better with hiring managers, and keep candidate records reusable across future roles.',
@@ -204,7 +205,7 @@ export const recruiters: ProductPage = {
     eyebrow: 'Ready when you are',
     title: 'Ready to screen resumes faster?',
     body: 'Use HireSort to create structured shortlists, track candidate stages, and build a reusable resume repository for future roles.',
-    primary: { label: 'Get started for free', href: '/pricing' },
+    primary: { label: 'Get started for free', href: redirectURL },
     secondary: { label: 'View pricing', href: '/pricing' },
   },
 

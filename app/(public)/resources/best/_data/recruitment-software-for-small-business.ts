@@ -1,4 +1,5 @@
 import type { BestPage } from './types';
+import redirectURL from '@/lib/mainsSiteRedirectUrl';
 
 export const recruitmentSoftwareForSmallBusiness: BestPage = {
   slug: 'recruitment-software-for-small-business',
@@ -73,7 +74,7 @@ export const recruitmentSoftwareForSmallBusiness: BestPage = {
     eyebrow: 'Try it',
     title: 'Make small-business hiring easier',
     body: 'Use HireSort to organize resumes, screen candidates faster, and replace manual spreadsheet triage with ranked shortlists.',
-    primary: { label: 'Get started for free', href: '/pricing' },
+    primary: { label: 'Get started for free', href: redirectURL },
     secondary: { label: 'View pricing', href: '/pricing' },
   },
 

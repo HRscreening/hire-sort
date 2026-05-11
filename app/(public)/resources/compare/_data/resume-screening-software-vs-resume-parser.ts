@@ -1,4 +1,5 @@
 import type { CompetitorPage } from './types';
+import redirectURL from '@/lib/mainsSiteRedirectUrl';
 
 export const resumeScreeningVsParser: CompetitorPage = {
   slug: 'resume-screening-software-vs-resume-parser',
@@ -30,7 +31,7 @@ export const resumeScreeningVsParser: CompetitorPage = {
       'Resume parsers and resume screening tools are often confused, but they solve different problems.',
       'A resume parser turns an unstructured resume into structured fields. Resume screening software uses those fields, resume text and job requirements to evaluate candidate fit.',
     ],
-    primaryCta: { label: 'Get started for free', href: '/pricing' },
+    primaryCta: { label: 'Get started for free', href: redirectURL },
     secondaryCta: { label: 'Compare features', href: '#feature-compare' },
     supporting:
       'HireSort uses parsing as one part of a larger screening workflow that scores and ranks candidates against the role.',
@@ -108,7 +109,7 @@ export const resumeScreeningVsParser: CompetitorPage = {
     eyebrow: 'Ready when you are',
     title: 'Go beyond resume parsing',
     body: 'Use HireSort to parse resumes, screen candidates, create ranked shortlists and manage candidate stages in one workflow.',
-    primary: { label: 'Get started for free', href: '/pricing' },
+    primary: { label: 'Get started for free', href: redirectURL },
     secondary: { label: 'View pricing', href: '/pricing' },
   },
 

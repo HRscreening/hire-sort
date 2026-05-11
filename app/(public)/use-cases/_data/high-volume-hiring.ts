@@ -1,4 +1,5 @@
 import type { ProductPage } from '@/app/(public)/product/_lib/types';
+import redirectURL from '@/lib/mainsSiteRedirectUrl';
 
 export const highVolumeHiring: ProductPage = {
   slug: 'high-volume-hiring',
@@ -123,7 +124,7 @@ export const highVolumeHiring: ProductPage = {
     eyebrow: 'Ready when you are',
     title: 'Turn resume volume into a ranked shortlist',
     body: 'Use HireSort to screen large applicant pools faster, apply consistent criteria, and move the right candidates forward with more confidence.',
-    primary: { label: 'Get started for free', href: '/pricing' },
+    primary: { label: 'Get started for free', href: redirectURL },
     secondary: { label: 'View pricing', href: '/pricing' },
   },
 

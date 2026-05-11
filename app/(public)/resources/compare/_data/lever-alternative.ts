@@ -1,4 +1,5 @@
 import type { CompetitorPage } from './types';
+import redirectURL from '@/lib/mainsSiteRedirectUrl';
 
 export const leverAlternative: CompetitorPage = {
   slug: 'lever-alternative',
@@ -30,7 +31,7 @@ export const leverAlternative: CompetitorPage = {
       'Lever is a broad recruiting platform built around applicant tracking, CRM, automation, analytics and integrations. For larger talent teams, that breadth can be useful.',
       'HireSort is different. It is built for teams whose immediate hiring bottleneck is not long-term talent CRM, but turning large resume volumes into clear, evidence-backed shortlists.',
     ],
-    primaryCta: { label: 'Get started for free', href: '/pricing' },
+    primaryCta: { label: 'Get started for free', href: redirectURL },
     secondaryCta: { label: 'Compare features', href: '#feature-compare' },
     supporting:
       'Lever is a mature ATS + CRM platform. HireSort is a focused screening-first workspace for teams that want JD-to-rubric-to-shortlist without a heavy implementation.',
@@ -136,7 +137,7 @@ export const leverAlternative: CompetitorPage = {
     eyebrow: 'Ready when you are',
     title: 'Try a screening-first Lever alternative',
     body: 'Use HireSort to create a job, screen resumes, rank candidates and track early-stage hiring without heavy recruiting software overhead.',
-    primary: { label: 'Get started for free', href: '/pricing' },
+    primary: { label: 'Get started for free', href: redirectURL },
     secondary: { label: 'View pricing', href: '/pricing' },
   },
 

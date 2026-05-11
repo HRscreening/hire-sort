@@ -1,4 +1,5 @@
 import type { CompetitorPage } from './types';
+import redirectURL from '@/lib/mainsSiteRedirectUrl';
 
 export const hiresortVsSpreadsheets: CompetitorPage = {
   slug: 'hiresort-vs-spreadsheets',
@@ -29,7 +30,7 @@ export const hiresortVsSpreadsheets: CompetitorPage = {
       'Spreadsheets are a common starting point for hiring. They are flexible, cheap and familiar. But once hiring volume increases, spreadsheets quickly become difficult to manage.',
       'HireSort gives teams a more structured way to screen resumes, store candidate records, track stages and build reusable shortlists.',
     ],
-    primaryCta: { label: 'Get started for free', href: '/pricing' },
+    primaryCta: { label: 'Get started for free', href: redirectURL },
     secondaryCta: { label: 'Compare features', href: '#feature-compare' },
     supporting:
       'Spreadsheets work for the first few candidates. HireSort takes over when resumes, stages and roles multiply.',
@@ -119,7 +120,7 @@ export const hiresortVsSpreadsheets: CompetitorPage = {
     eyebrow: 'Ready when you are',
     title: 'Move beyond spreadsheet hiring',
     body: 'Use HireSort to screen resumes, organize candidates and track hiring stages in one lightweight workspace.',
-    primary: { label: 'Get started for free', href: '/pricing' },
+    primary: { label: 'Get started for free', href: redirectURL },
     secondary: { label: 'View pricing', href: '/pricing' },
   },
 

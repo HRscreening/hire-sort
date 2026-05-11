@@ -1,4 +1,5 @@
 import type { ProductPage } from '../_lib/types';
+import redirectURL from '@/lib/mainsSiteRedirectUrl';
 
 export const candidatePipeline: ProductPage = {
   slug: 'candidate-pipeline',
@@ -33,7 +34,7 @@ export const candidatePipeline: ProductPage = {
       'HireSort helps recruiters move from resume screening to candidate action. Build a clear pipeline, track every candidate by stage, and keep your hiring workflow organized after the shortlist is created.',
       'Instead of managing shortlisted candidates in spreadsheets, scattered notes, and inbox reminders, HireSort gives your team a simple pipeline connected to resume scores, role associations, and candidate details.',
     ],
-    primary: { label: 'Get started for free', href: '/pricing' },
+    primary: { label: 'Get started for free', href: redirectURL },
     secondary: { label: 'View workflow', href: '#how-it-works' },
     supporting:
       'A lightweight candidate pipeline for recruiters, founders, hiring managers, and agencies that need to move applicants from “new” to “hired” without spreadsheet chaos or heavy ATS complexity.',
@@ -327,7 +328,7 @@ export const candidatePipeline: ProductPage = {
     eyebrow: 'Ready to manage candidates after screening?',
     title: 'Focus on hiring, not tracking.',
     body: 'Use HireSort to screen resumes, review ranked shortlists, track candidate stages, and build a reusable candidate pipeline.',
-    primary: { label: 'Get started for free', href: '/pricing' },
+    primary: { label: 'Get started for free', href: redirectURL },
     secondary: { label: 'View pricing', href: '/pricing' },
   },
 

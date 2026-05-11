@@ -88,7 +88,7 @@ const productMega: MegaConfig = {
     eyebrow: 'Get started',
     title: 'Try HireSort free',
     body: 'Screen resumes in seconds with AI-ranked shortlists.',
-    href: '/pricing',
+    href: main_app_url + '/',
     ctaLabel: 'Start for free',
   },
 };

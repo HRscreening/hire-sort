@@ -1,4 +1,5 @@
 import type { CompetitorPage } from './types';
+import redirectURL from '@/lib/mainsSiteRedirectUrl';
 
 export const workableAlternative: CompetitorPage = {
   slug: 'workable-alternative',
@@ -32,7 +33,7 @@ export const workableAlternative: CompetitorPage = {
       'HireSort is a lightweight applicant tracking and resume screening platform for teams that need faster shortlisting, structured candidate review, and simple resume management.',
       'If Workable feels broader than what your team needs right now, HireSort gives you a focused way to upload resumes, screen candidates with AI, review ranked shortlists, and track candidate stages in one simple workflow.',
     ],
-    primaryCta: { label: 'Get started for free', href: '/pricing' },
+    primaryCta: { label: 'Get started for free', href: redirectURL },
     secondaryCta: { label: 'Compare features', href: '#feature-compare' },
     supporting:
       'Workable is a broad hiring and HR platform. HireSort is designed for teams that want a screening-first workflow: resume upload, AI scoring, ranked shortlists, reusable candidate records, and lightweight candidate tracking.',
@@ -327,7 +328,7 @@ export const workableAlternative: CompetitorPage = {
     eyebrow: 'Ready when you are',
     title: 'Looking for a Workable alternative focused on resume screening?',
     body: 'Use HireSort to upload resumes, generate role-specific rubrics, rank candidates, and track shortlists in a lightweight candidate workspace.',
-    primary: { label: 'Get started for free', href: '/pricing' },
+    primary: { label: 'Get started for free', href: redirectURL },
     secondary: { label: 'View pricing', href: '/pricing' },
   },
 

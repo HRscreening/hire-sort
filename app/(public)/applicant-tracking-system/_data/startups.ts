@@ -1,4 +1,5 @@
 import type { ProductPage } from '@/app/(public)/product/_lib/types';
+import redirectURL from '@/lib/mainsSiteRedirectUrl';
 
 export const atsForStartups: ProductPage = {
   slug: 'startups',
@@ -33,7 +34,7 @@ export const atsForStartups: ProductPage = {
       'HireSort gives startup founders, first recruiters, and lean hiring teams a simple applicant tracking system built around the part of hiring that slows teams down first: resume screening and candidate shortlisting.',
       'Create jobs, upload resumes, screen candidates with AI, track hiring stages, and build a reusable candidate repository — without the complexity of enterprise ATS software.',
     ],
-    primary: { label: 'Get started for free', href: '/pricing' },
+    primary: { label: 'Get started for free', href: redirectURL },
     secondary: { label: 'See how it works', href: '#how-it-works' },
     supporting:
       'For startups that are growing beyond inboxes and spreadsheets, but are not ready for a heavy recruiting system.',
@@ -198,7 +199,7 @@ export const atsForStartups: ProductPage = {
     eyebrow: 'Ready when you are',
     title: 'Ready to move beyond spreadsheets?',
     body: 'Use HireSort to create jobs, screen resumes, rank candidates, track stages, and build a reusable candidate database for your startup.',
-    primary: { label: 'Get started for free', href: '/pricing' },
+    primary: { label: 'Get started for free', href: redirectURL },
     secondary: { label: 'View pricing', href: '/pricing' },
   },
 
