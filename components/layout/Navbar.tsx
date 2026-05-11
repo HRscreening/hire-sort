@@ -158,6 +158,16 @@ const resourcesMega: MegaConfig = {
         { href: '/resources/best/high-volume-hiring-software', label: 'High-volume hiring', description: 'Scale screening fast', icon: 'volume' },
       ],
     },
+    {
+      title: 'Job description templates',
+      items: [
+        { href: '/resources/job-descriptions', label: 'All JD templates', description: 'Browse every role', icon: 'doc' },
+        { href: '/resources/job-descriptions/software-engineer', label: 'Software Engineer', description: 'Engineering JD', icon: 'doc' },
+        { href: '/resources/job-descriptions/product-manager', label: 'Product Manager', description: 'PM JD template', icon: 'doc' },
+        { href: '/resources/job-descriptions/sales-executive', label: 'Sales Executive', description: 'B2B sales JD', icon: 'doc' },
+        { href: '/resources/job-descriptions/hr-executive', label: 'HR Executive', description: 'HR ops JD', icon: 'doc' },
+      ],
+    },
   ],
 };
 

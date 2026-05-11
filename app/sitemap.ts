@@ -8,6 +8,7 @@ import { getAllProductPages } from '@/app/(public)/product/_lib/registry';
 import { getAllUseCases } from '@/app/(public)/use-cases/_lib/registry';
 import { getAllAtsPages } from '@/app/(public)/applicant-tracking-system/_lib/registry';
 import { getAllBestPages } from '@/app/(public)/resources/best/_data';
+import { getAllJobDescriptions } from '@/app/(public)/resources/job-descriptions/_data';
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || 'https://hiresort.ai';
@@ -73,11 +74,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }));
 
+  const jobDescriptionRoutes: MetadataRoute.Sitemap = getAllJobDescriptions().map((p) => ({
+    url: `${siteUrl}/resources/job-descriptions/${p.slug}`,
+    lastModified: new Date(p.updatedAt),
+    changeFrequency: 'monthly',
+    priority: 0.75,
+  }));
+
   const sectionIndexRoutes: MetadataRoute.Sitemap = [
     { url: `${siteUrl}/use-cases`, lastModified: now, changeFrequency: 'weekly', priority: 0.7 },
     { url: `${siteUrl}/applicant-tracking-system`, lastModified: now, changeFrequency: 'weekly', priority: 0.75 },
     { url: `${siteUrl}/resources/compare`, lastModified: now, changeFrequency: 'weekly', priority: 0.7 },
     { url: `${siteUrl}/resources/best`, lastModified: now, changeFrequency: 'weekly', priority: 0.7 },
+    { url: `${siteUrl}/resources/job-descriptions`, lastModified: now, changeFrequency: 'weekly', priority: 0.7 },
     { url: `${siteUrl}/product`, lastModified: now, changeFrequency: 'weekly', priority: 0.85 },
   ];
 
@@ -89,6 +98,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...useCaseRoutes,
     ...atsRoutes,
     ...bestRoutes,
+    ...jobDescriptionRoutes,
     ...sectionIndexRoutes,
   ];
 }
