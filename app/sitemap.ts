@@ -9,6 +9,9 @@ import { getAllUseCases } from '@/app/(public)/use-cases/_lib/registry';
 import { getAllAtsPages } from '@/app/(public)/applicant-tracking-system/_lib/registry';
 import { getAllBestPages } from '@/app/(public)/resources/best/_data';
 import { getAllJobDescriptions } from '@/app/(public)/resources/job-descriptions/_data';
+import { getAllInterviewQuestions } from '@/app/(public)/resources/interview-questions/_data';
+import { getAllScorecards } from '@/app/(public)/resources/scorecards/_data';
+import { getAllScreeningRubrics } from '@/app/(public)/resources/screening-rubrics/_data';
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || 'https://hiresort.ai';
@@ -81,12 +84,36 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.75,
   }));
 
+  const interviewQuestionRoutes: MetadataRoute.Sitemap = getAllInterviewQuestions().map((p) => ({
+    url: `${siteUrl}/resources/interview-questions/${p.slug}`,
+    lastModified: new Date(p.updatedAt),
+    changeFrequency: 'monthly',
+    priority: 0.75,
+  }));
+
+  const scorecardRoutes: MetadataRoute.Sitemap = getAllScorecards().map((p) => ({
+    url: `${siteUrl}/resources/scorecards/${p.slug}`,
+    lastModified: new Date(p.updatedAt),
+    changeFrequency: 'monthly',
+    priority: 0.75,
+  }));
+
+  const screeningRubricRoutes: MetadataRoute.Sitemap = getAllScreeningRubrics().map((p) => ({
+    url: `${siteUrl}/resources/screening-rubrics/${p.slug}`,
+    lastModified: new Date(p.updatedAt),
+    changeFrequency: 'monthly',
+    priority: 0.75,
+  }));
+
   const sectionIndexRoutes: MetadataRoute.Sitemap = [
     { url: `${siteUrl}/use-cases`, lastModified: now, changeFrequency: 'weekly', priority: 0.7 },
     { url: `${siteUrl}/applicant-tracking-system`, lastModified: now, changeFrequency: 'weekly', priority: 0.75 },
     { url: `${siteUrl}/resources/compare`, lastModified: now, changeFrequency: 'weekly', priority: 0.7 },
     { url: `${siteUrl}/resources/best`, lastModified: now, changeFrequency: 'weekly', priority: 0.7 },
     { url: `${siteUrl}/resources/job-descriptions`, lastModified: now, changeFrequency: 'weekly', priority: 0.7 },
+    { url: `${siteUrl}/resources/interview-questions`, lastModified: now, changeFrequency: 'weekly', priority: 0.7 },
+    { url: `${siteUrl}/resources/scorecards`, lastModified: now, changeFrequency: 'weekly', priority: 0.7 },
+    { url: `${siteUrl}/resources/screening-rubrics`, lastModified: now, changeFrequency: 'weekly', priority: 0.7 },
     { url: `${siteUrl}/product`, lastModified: now, changeFrequency: 'weekly', priority: 0.85 },
   ];
 
@@ -99,6 +126,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...atsRoutes,
     ...bestRoutes,
     ...jobDescriptionRoutes,
+    ...interviewQuestionRoutes,
+    ...scorecardRoutes,
+    ...screeningRubricRoutes,
     ...sectionIndexRoutes,
   ];
 }

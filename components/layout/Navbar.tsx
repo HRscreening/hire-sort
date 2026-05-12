@@ -123,13 +123,13 @@ const useCasesMega: MegaConfig = {
 
 const resourcesMega: MegaConfig = {
   groups: [
-    {
-      title: 'Learn',
-      items: [
-        { href: '/blog', label: 'Blog', description: 'Hiring insights & guides', icon: 'blog' },
-        { href: '/about', label: 'About', description: 'Our mission & team', icon: 'about' },
-      ],
-    },
+    // {
+    //   title: 'Learn',
+    //   items: [
+    //     { href: '/blog', label: 'Blog', description: 'Hiring insights & guides', icon: 'blog' },
+    //     { href: '/about', label: 'About', description: 'Our mission & team', icon: 'about' },
+    //   ],
+    // },
     {
       title: 'Compare',
       items: [
@@ -159,13 +159,39 @@ const resourcesMega: MegaConfig = {
       ],
     },
     {
-      title: 'Job description templates',
+      title: 'Job descriptions',
       items: [
         { href: '/resources/job-descriptions', label: 'All JD templates', description: 'Browse every role', icon: 'doc' },
         { href: '/resources/job-descriptions/software-engineer', label: 'Software Engineer', description: 'Engineering JD', icon: 'doc' },
         { href: '/resources/job-descriptions/product-manager', label: 'Product Manager', description: 'PM JD template', icon: 'doc' },
         { href: '/resources/job-descriptions/sales-executive', label: 'Sales Executive', description: 'B2B sales JD', icon: 'doc' },
-        { href: '/resources/job-descriptions/hr-executive', label: 'HR Executive', description: 'HR ops JD', icon: 'doc' },
+      ],
+    },
+    {
+      title: 'Interview questions',
+      items: [
+        { href: '/resources/interview-questions', label: 'All question sets', description: 'Structured by role', icon: 'doc' },
+        { href: '/resources/interview-questions/software-engineer', label: 'Software Engineer', description: 'Coding & system design', icon: 'doc' },
+        { href: '/resources/interview-questions/product-manager', label: 'Product Manager', description: 'Product sense & strategy', icon: 'doc' },
+        { href: '/resources/interview-questions/data-scientist', label: 'Data Scientist', description: 'Stats, ML & framing', icon: 'doc' },
+      ],
+    },
+    {
+      title: 'Scorecards',
+      items: [
+        { href: '/resources/scorecards', label: 'All scorecards', description: 'Evaluate by role', icon: 'doc' },
+        { href: '/resources/scorecards/software-engineer', label: 'Software Engineer', description: 'Engineering scorecard', icon: 'doc' },
+        { href: '/resources/scorecards/sales-executive', label: 'Sales Executive', description: 'Quota & pipeline focus', icon: 'doc' },
+        { href: '/resources/scorecards/product-manager', label: 'Product Manager', description: 'Outcome-led evaluation', icon: 'doc' },
+      ],
+    },
+    {
+      title: 'Screening rubrics',
+      items: [
+        { href: '/resources/screening-rubrics', label: 'All rubrics', description: 'Screen resumes by role', icon: 'doc' },
+        { href: '/resources/screening-rubrics/software-engineer', label: 'Software Engineer', description: 'Stack & ownership signals', icon: 'doc' },
+        { href: '/resources/screening-rubrics/sales-executive', label: 'Sales Executive', description: 'Revenue & pipeline signals', icon: 'doc' },
+        { href: '/resources/screening-rubrics/data-analyst', label: 'Data Analyst', description: 'SQL & business analysis', icon: 'doc' },
       ],
     },
   ],
@@ -389,7 +415,7 @@ const Navbar = ({ isLoggedIn }: NavbarProps) => {
                           >
                             <div
                               className="grid gap-5"
-                              style={{ gridTemplateColumns: `repeat(${item.config.groups.length}, minmax(13rem, 14rem))` }}
+                              style={{ gridTemplateColumns: `repeat(${Math.min(item.config.groups.length, 4)}, minmax(13rem, 14rem))` }}
                             >
                               {item.config.groups.map((group) => (
                                 <div key={group.title}>
