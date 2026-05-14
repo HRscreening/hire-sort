@@ -5,19 +5,20 @@ export const leverAlternative: CompetitorPage = {
   slug: 'lever-alternative',
   competitor: 'Lever',
   publishedAt: '2026-05-10',
-  updatedAt: '2026-05-10',
+  updatedAt: '2026-05-14',
 
   meta: {
-    title: 'Lever Alternative for AI Resume Screening | HireSort',
+    title: 'Lever Alternatives & Competitors for 2026 | HireSort',
     description:
-      'Compare HireSort and Lever. See when a screening-first, lightweight ATS workflow may be a better fit than a full ATS + CRM platform.',
+      'Looking for a Lever alternative in 2026? HireSort is a screening-first, lightweight ATS that focuses on AI resume ranking and reusable candidate records — without Lever\'s full ATS + CRM footprint.',
     keywords: [
       'Lever alternative',
       'Lever competitor',
+      'Lever competitors',
       'Lever ATS alternative',
-      'AI resume screening software',
-      'lightweight ATS',
       'applicant tracking system alternative',
+      'lightweight ATS',
+      'AI resume screening software',
     ],
     ogImage: '/logo.png',
     ogImageAlt: 'HireSort — a screening-first Lever alternative',

@@ -110,13 +110,14 @@ export const aiResumeScreeningSoftware: BestPage = {
   ],
 
   internalLinks: [
-    { href: '/product/resume-parser', label: 'Resume Screening Software' },
+    { href: '/product/applicant-tracking-system', label: 'AI Applicant Tracking System' },
+    { href: '/product/resume-management', label: 'Resume Management Software' },
+    { href: '/product/resume-parser', label: 'Resume Parser' },
     { href: '/resources/compare/workable-alternative', label: 'HireSort vs Workable' },
     { href: '/resources/compare/greenhouse-alternative', label: 'HireSort vs Greenhouse' },
     { href: '/resources/compare/ai-resume-screening-vs-ats', label: 'AI Resume Screening vs ATS' },
     { href: '/resources/best/resume-screening-software', label: 'Best Resume Screening Software' },
     { href: '/resources/best/candidate-screening-software', label: 'Best Candidate Screening Software' },
-    { href: '/pricing', label: 'Pricing' },
   ],
 
   disclaimer:

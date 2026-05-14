@@ -5,21 +5,21 @@ export const workableAlternative: CompetitorPage = {
   slug: 'workable-alternative',
   competitor: 'Workable',
   publishedAt: '2026-05-03',
-  updatedAt: '2026-05-03',
+  updatedAt: '2026-05-14',
 
   meta: {
-    title: 'Workable Alternative for AI Resume Screening | HireSort',
+    title: 'Workable Alternatives & Competitors for 2026 | HireSort',
     description:
-      'Looking for a Workable alternative focused on AI resume screening? HireSort helps teams screen resumes, rank candidates, manage candidate stages, and build reusable candidate repositories without heavy ATS complexity.',
+      'Looking for a Workable alternative in 2026? HireSort is a lightweight ATS focused on AI resume screening, ranked shortlists, and reusable candidate repositories — without Workable\'s broader HR complexity.',
     keywords: [
       'Workable alternative',
+      'Workable alternatives',
       'Workable competitor',
+      'Workable competitors',
       'alternative to Workable',
-      'AI resume screening software',
       'lightweight ATS',
-      'resume screening software',
+      'AI resume screening software',
       'applicant tracking software',
-      'candidate tracking software',
     ],
     ogImage: '/logo.png',
     ogImageAlt: 'HireSort — a Workable alternative built for AI resume screening',

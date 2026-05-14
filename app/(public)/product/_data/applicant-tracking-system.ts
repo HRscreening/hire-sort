@@ -6,22 +6,21 @@ export const applicantTrackingSystem: ProductPage = {
   product: 'Applicant Tracking System',
   heroIcon: 'briefcase',
   publishedAt: '2026-05-03',
-  updatedAt: '2026-05-03',
+  updatedAt: '2026-05-14',
 
   meta: {
-    title:
-      'AI Applicant Tracking System for Fast Hiring | HireSort',
+    title: 'AI Applicant Tracking System (ATS) for Hiring Teams in 2026 | HireSort',
     description:
-      'HireSort is a lightweight applicant tracking system for recruiters, founders, and hiring teams. Store resumes, screen candidates with AI, track stages, and reuse candidate profiles across roles.',
+      'HireSort is an AI applicant tracking system (ATS) for recruiters, founders, and hiring teams. Screen resumes with AI, track candidate stages, and run a lightweight ATS workflow without enterprise complexity.',
     keywords: [
       'applicant tracking system',
+      'AI applicant tracking system',
+      'AI applicant tracking software',
+      'AI-powered applicant tracking system',
       'ATS software',
       'applicant tracking software',
       'lightweight ATS',
-      'AI ATS',
-      'resume management software',
-      'candidate tracking software',
-      'resume screening software',
+      'ai applicant tracking',
     ],
     ogImage: '/logo.png',
     ogImageAlt: 'HireSort — lightweight applicant tracking system',

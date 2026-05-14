@@ -106,12 +106,13 @@ export const candidateScreeningSoftware: BestPage = {
   ],
 
   internalLinks: [
-    { href: '/product/resume-parser', label: 'Resume Screening Software' },
+    { href: '/product/applicant-tracking-system', label: 'AI Applicant Tracking System' },
+    { href: '/product/resume-management', label: 'Resume Management Software' },
+    { href: '/product/candidate-pipeline', label: 'Candidate Pipeline Software' },
     { href: '/resources/best/resume-screening-software', label: 'Best Resume Screening Software' },
     { href: '/resources/best/ai-resume-screening-software', label: 'Best AI Resume Screening Software' },
     { href: '/resources/best/high-volume-hiring-software', label: 'Best High-Volume Hiring Software' },
     { href: '/resources/compare/hiresort-vs-manual-screening', label: 'HireSort vs Manual Screening' },
-    { href: '/pricing', label: 'Pricing' },
   ],
 
   disclaimer:

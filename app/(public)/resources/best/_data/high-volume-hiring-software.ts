@@ -111,10 +111,11 @@ export const highVolumeHiringSoftware: BestPage = {
   internalLinks: [
     { href: '/use-cases/high-volume-hiring', label: 'High-Volume Hiring use case' },
     { href: '/use-cases/recruitment-agencies', label: 'Recruitment Agencies' },
-    { href: '/product/resume-parser', label: 'Resume Screening Software' },
+    { href: '/product/applicant-tracking-system', label: 'AI Applicant Tracking System' },
+    { href: '/product/resume-management', label: 'Resume Management Software' },
+    { href: '/product/resume-parser', label: 'Resume Parser' },
     { href: '/resources/best/resume-screening-software', label: 'Best Resume Screening Software' },
     { href: '/resources/best/candidate-screening-software', label: 'Best Candidate Screening Software' },
-    { href: '/pricing', label: 'Pricing' },
   ],
 
   disclaimer:

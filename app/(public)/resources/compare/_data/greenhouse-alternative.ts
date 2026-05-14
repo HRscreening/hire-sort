@@ -5,19 +5,20 @@ export const greenhouseAlternative: CompetitorPage = {
   slug: 'greenhouse-alternative',
   competitor: 'Greenhouse',
   publishedAt: '2026-05-08',
-  updatedAt: '2026-05-08',
+  updatedAt: '2026-05-14',
 
   meta: {
-    title: 'Greenhouse Alternative for AI Resume Screening | HireSort',
+    title: 'Greenhouse Alternatives & Competitors for 2026 | HireSort',
     description:
-      'Compare HireSort and Greenhouse. See when a lightweight, screening-first hiring workflow may fit better than a full enterprise hiring platform.',
+      'Looking for a Greenhouse alternative in 2026? HireSort is a lightweight, screening-first ATS for teams that want AI resume ranking without the cost and complexity of a full enterprise hiring platform.',
     keywords: [
       'Greenhouse alternative',
       'Greenhouse competitor',
+      'Greenhouse competitors',
       'Greenhouse ATS alternative',
       'AI resume screening software',
-      'structured hiring software',
       'lightweight ATS',
+      'structured hiring software',
     ],
     ogImage: '/logo.png',
     ogImageAlt: 'HireSort — a lightweight Greenhouse alternative',

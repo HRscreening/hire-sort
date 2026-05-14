@@ -6,22 +6,21 @@ export const recruitmentSoftware: ProductPage = {
   product: 'Recruitment Software',
   heroIcon: 'workflow',
   publishedAt: '2026-05-03',
-  updatedAt: '2026-05-03',
+  updatedAt: '2026-05-14',
 
   meta: {
-    title:
-      'Recruitment Software for Faster Resume Screening & Candidate Tracking | HireSort',
+    title: 'Recruitment Software for Modern Hiring Teams in 2026 | HireSort',
     description:
-      'HireSort is recruitment software for growing teams that need faster resume screening, structured shortlists, candidate tracking, and reusable resume management without spreadsheet chaos.',
+      'HireSort is recruitment software for growing teams. Run a faster, more structured hiring workflow with AI-powered resume review, ranked shortlists, and lightweight candidate tracking — built for recruiters who want results, not spreadsheets.',
     keywords: [
       'recruitment software',
       'recruiting software',
       'hiring software',
       'recruitment management software',
       'AI recruitment software',
-      'candidate tracking software',
-      'resume screening software',
-      'recruiting ATS',
+      'recruitment software for startups',
+      'recruitment and hiring software',
+      'recruiting platform',
     ],
     ogImage: '/logo.png',
     ogImageAlt: 'HireSort — recruitment software for faster resume screening',
