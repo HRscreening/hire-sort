@@ -159,39 +159,12 @@ const resourcesMega: MegaConfig = {
       ],
     },
     {
-      title: 'Job descriptions',
+      title: 'Templates',
       items: [
-        { href: '/resources/job-descriptions', label: 'All JD templates', description: 'Browse every role', icon: 'doc' },
-        { href: '/resources/job-descriptions/software-engineer', label: 'Software Engineer', description: 'Engineering JD', icon: 'doc' },
-        { href: '/resources/job-descriptions/product-manager', label: 'Product Manager', description: 'PM JD template', icon: 'doc' },
-        { href: '/resources/job-descriptions/sales-executive', label: 'Sales Executive', description: 'B2B sales JD', icon: 'doc' },
-      ],
-    },
-    {
-      title: 'Interview questions',
-      items: [
-        { href: '/resources/interview-questions', label: 'All question sets', description: 'Structured by role', icon: 'doc' },
-        { href: '/resources/interview-questions/software-engineer', label: 'Software Engineer', description: 'Coding & system design', icon: 'doc' },
-        { href: '/resources/interview-questions/product-manager', label: 'Product Manager', description: 'Product sense & strategy', icon: 'doc' },
-        { href: '/resources/interview-questions/data-scientist', label: 'Data Scientist', description: 'Stats, ML & framing', icon: 'doc' },
-      ],
-    },
-    {
-      title: 'Scorecards',
-      items: [
-        { href: '/resources/scorecards', label: 'All scorecards', description: 'Evaluate by role', icon: 'doc' },
-        { href: '/resources/scorecards/software-engineer', label: 'Software Engineer', description: 'Engineering scorecard', icon: 'doc' },
-        { href: '/resources/scorecards/sales-executive', label: 'Sales Executive', description: 'Quota & pipeline focus', icon: 'doc' },
-        { href: '/resources/scorecards/product-manager', label: 'Product Manager', description: 'Outcome-led evaluation', icon: 'doc' },
-      ],
-    },
-    {
-      title: 'Screening rubrics',
-      items: [
-        { href: '/resources/screening-rubrics', label: 'All rubrics', description: 'Screen resumes by role', icon: 'doc' },
-        { href: '/resources/screening-rubrics/software-engineer', label: 'Software Engineer', description: 'Stack & ownership signals', icon: 'doc' },
-        { href: '/resources/screening-rubrics/sales-executive', label: 'Sales Executive', description: 'Revenue & pipeline signals', icon: 'doc' },
-        { href: '/resources/screening-rubrics/data-analyst', label: 'Data Analyst', description: 'SQL & business analysis', icon: 'doc' },
+        { href: '/resources/job-descriptions', label: 'Job descriptions', description: 'Browse every role', icon: 'doc' },
+        { href: '/resources/interview-questions', label: 'Interview questions', description: 'Structured by role', icon: 'users' },
+        { href: '/resources/scorecards', label: 'Scorecards', description: 'Evaluate by role', icon: 'award' },
+        { href: '/resources/screening-rubrics', label: 'Screening rubrics', description: 'Screen resumes by role', icon: 'parser' },
       ],
     },
   ],
