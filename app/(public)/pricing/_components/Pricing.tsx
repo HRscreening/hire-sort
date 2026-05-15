@@ -10,11 +10,12 @@ const main_app_url = process.env.NEXT_PUBLIC_MAIN_APP_URL || 'http://localhost:3
 
 const PLAN_SLUGS: Record<Exclude<PlanType, 'FREE'>, string> = {
   BUSINESS: 'business',
+  PLUS: 'plus',
   PRO: 'pro',
   ENTERPRISE: 'enterprise',
 };
 
-const checkoutUrl = (plan: 'BUSINESS' | 'PRO', yearly: boolean) =>
+const checkoutUrl = (plan: 'BUSINESS' | 'PLUS' | 'PRO', yearly: boolean) =>
   `${main_app_url}/checkout/${PLAN_SLUGS[plan]}?cycle=${yearly ? 'yearly' : 'monthly'}&from=pricing`;
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -70,10 +71,10 @@ const PriceAmount = ({ amount }: { amount: string }) => (
 
 type PricingProps = {
   isLoggedIn: boolean;
-  plan : PlanType ;
+  plan: PlanType;
 };
 
-const Pricing = ({isLoggedIn,plan="FREE"}:PricingProps) => {
+const Pricing = ({ isLoggedIn, plan = "FREE" }: PricingProps) => {
   const [isYearly, setIsYearly] = useState(false);
 
 
@@ -87,12 +88,12 @@ const Pricing = ({isLoggedIn,plan="FREE"}:PricingProps) => {
   const selectPlan = (plan: 'free' | 'business' | 'pro' | 'Enterprise') => () =>
     trackCTAClick('plan_select', 'pricing_' + plan + '_' + (isYearly ? 'yearly' : 'monthly'));
 
-  function handleBtnTitle(plan: PlanType,currentPlan: PlanType) {
+  function handleBtnTitle(plan: PlanType, currentPlan: PlanType) {
     if (!isLoggedIn) return 'Get started';
-   if (plan === currentPlan) {
+    if (plan === currentPlan) {
       return 'Current Plan';
     }
-    if (["PRO","BUSINESS","ENTERPRISE"].includes(currentPlan) && plan === "FREE") {
+    if (["PRO", "BUSINESS", "ENTERPRISE"].includes(currentPlan) && plan === "FREE") {
       return 'Downgrade to Free';
     }
     if (plan === "BUSINESS" && currentPlan === "PRO") {
@@ -101,16 +102,23 @@ const Pricing = ({isLoggedIn,plan="FREE"}:PricingProps) => {
     if (plan === "BUSINESS" && currentPlan === "ENTERPRISE") {
       return 'Downgrade to Business';
     }
+    if (plan === "PLUS" && currentPlan === "PRO") {
+      return 'Downgrade to Plus';
+    }
+    if (plan === "PLUS" && currentPlan === "ENTERPRISE") {
+      return 'Downgrade to Plus';
+    }
+
     if (plan === "PRO" && currentPlan === "ENTERPRISE") {
       return 'Downgrade to Pro';
     }
 
-    if (plan === "ENTERPRISE" && ["FREE","BUSINESS","PRO"].includes(currentPlan)) {
+    if (plan === "ENTERPRISE" && ["FREE", "BUSINESS", "PRO"].includes(currentPlan)) {
       return 'Contact Us';
     }
 
 
-    if (["BUSINESS","PRO","ENTERPRISE"].includes(plan) && currentPlan === "FREE") {
+    if (["BUSINESS", "PRO", "ENTERPRISE"].includes(plan) && currentPlan === "FREE") {
       return 'Upgrade Now';
     }
 
@@ -233,7 +241,7 @@ const Pricing = ({isLoggedIn,plan="FREE"}:PricingProps) => {
           </ul>
           <motion.a href={`${main_app_url}/login`} onClick={selectPlan('free')} whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }} className={ctaSecondary}>
             {
-              handleBtnTitle("FREE",plan)
+              handleBtnTitle("FREE", plan)
             }
           </motion.a>
         </motion.div>
@@ -252,7 +260,7 @@ const Pricing = ({isLoggedIn,plan="FREE"}:PricingProps) => {
           transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
           className={`${cardBaseClass} ${(!isLoggedIn || plan === 'FREE') ? `${cardFeaturedClass} ${featuredBadgeAfter}` : ''}`}
         >
-          <div className={planNameClass}>Business</div>
+          <div className={planNameClass}>Plus</div>
           <div className="mb-1.5 flex items-baseline gap-1">
             <PriceAmount amount={isYearly ? '$20' : '$25'} />
             <span className="text-sm text-charcoal-xlt">/month</span>
@@ -281,9 +289,9 @@ const Pricing = ({isLoggedIn,plan="FREE"}:PricingProps) => {
               </motion.li>
             ))}
           </ul>
-          <motion.a href={checkoutUrl('BUSINESS', isYearly)} onClick={selectPlan('business')} whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.97 }} className={(!isLoggedIn || plan === 'FREE') ? ctaPrimary : `${plan === "BUSINESS" ?  ctaPrimary : ctaSecondary}`}>
+          <motion.a href={checkoutUrl('PLUS', isYearly)} onClick={selectPlan('business')} whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.97 }} className={(!isLoggedIn || plan === 'FREE') ? ctaPrimary : `${plan === "BUSINESS" ? ctaPrimary : ctaSecondary}`}>
             {
-              handleBtnTitle("BUSINESS",plan)
+              handleBtnTitle("BUSINESS", plan)
             }
           </motion.a>
         </motion.div>
@@ -296,7 +304,7 @@ const Pricing = ({isLoggedIn,plan="FREE"}:PricingProps) => {
         >
           <div className={planNameClass}>Pro</div>
           <div className="mb-1.5 flex items-baseline gap-1">
-           <PriceAmount amount={isYearly ? '$120' : '$150'} />
+            <PriceAmount amount={isYearly ? '$120' : '$150'} />
             <span className="text-sm text-charcoal-xlt">/month</span>
           </div>
           <p className={planDescClass}>
@@ -323,8 +331,8 @@ const Pricing = ({isLoggedIn,plan="FREE"}:PricingProps) => {
               </motion.li>
             ))}
           </ul>
-          <motion.a href={checkoutUrl('PRO', isYearly)} onClick={selectPlan('pro')} whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }} className={`${plan === "PRO" ?  ctaPrimary : ctaSecondary}`}>
-           {handleBtnTitle("PRO",plan)}
+          <motion.a href={checkoutUrl('PRO', isYearly)} onClick={selectPlan('pro')} whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }} className={`${plan === "PRO" ? ctaPrimary : ctaSecondary}`}>
+            {handleBtnTitle("PRO", plan)}
           </motion.a>
         </motion.div>
 
@@ -336,7 +344,7 @@ const Pricing = ({isLoggedIn,plan="FREE"}:PricingProps) => {
         >
           <div className={planNameClass}>Enterprise</div>
           <div className="mb-1.5 flex items-baseline gap-1">
-              <PriceAmount amount="Custom" />
+            <PriceAmount amount="Custom" />
           </div>
           <p className={planDescClass}>
             Built for large organizations that need advanced security, customization, and dedicated support at scale.
@@ -365,8 +373,8 @@ const Pricing = ({isLoggedIn,plan="FREE"}:PricingProps) => {
             ))}
           </ul>
           <motion.div whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }} className="mt-auto">
-            <Link href="/contact" onClick={selectPlan('Enterprise')} className={`${plan === "ENTERPRISE" ?  ctaPrimary : ctaSecondary}`}>
-              {handleBtnTitle("ENTERPRISE",plan)}
+            <Link href="/contact" onClick={selectPlan('Enterprise')} className={`${plan === "ENTERPRISE" ? ctaPrimary : ctaSecondary}`}>
+              {handleBtnTitle("ENTERPRISE", plan)}
             </Link>
           </motion.div>
         </motion.div>
