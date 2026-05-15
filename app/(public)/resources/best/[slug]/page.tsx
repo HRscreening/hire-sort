@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { breadcrumbJsonLd, jsonLdString, SITE_URL } from '@/lib/seo';
+import Breadcrumb from '@/components/layout/Breadcrumb';
 import { getBestPageBySlug, getBestPageSlugs } from '../_data';
 import BestClient from '../_components/BestClient';
 
@@ -21,8 +22,6 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   if (!data) return { title: 'Not found', robots: { index: false, follow: false } };
 
   const url = `/resources/best/${data.slug}`;
-  const ogImageUrl = absUrl(data.meta.ogImage ?? '/logo.png');
-  const ogImageAlt = data.meta.ogImageAlt ?? data.category;
 
   return {
     title: data.meta.title,
@@ -37,13 +36,11 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
       siteName: 'HireSort',
       publishedTime: data.publishedAt,
       modifiedTime: data.updatedAt,
-      images: [{ url: ogImageUrl, width: 1200, height: 630, alt: ogImageAlt }],
     },
     twitter: {
       card: 'summary_large_image',
       title: data.meta.title,
       description: data.meta.description,
-      images: [ogImageUrl],
     },
     robots: { index: true, follow: true },
   };
@@ -57,11 +54,12 @@ export default async function BestPageRoute({ params }: { params: Params }) {
   const pageUrl = absUrl(`/resources/best/${data.slug}`);
   const ogImageUrl = absUrl(data.meta.ogImage ?? '/logo.png');
 
-  const crumbs = breadcrumbJsonLd([
+  const crumbTrail = [
     { name: 'Resources', path: '/resources' },
     { name: 'Best', path: '/resources/best' },
     { name: data.category },
-  ]);
+  ];
+  const crumbs = breadcrumbJsonLd(crumbTrail);
 
   const faqJsonLd = {
     '@context': 'https://schema.org',
@@ -110,6 +108,7 @@ export default async function BestPageRoute({ params }: { params: Params }) {
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{ __html: jsonLdString(faqJsonLd) }}
       />
+      <Breadcrumb crumbs={crumbTrail} />
       <BestClient data={data} />
     </>
   );

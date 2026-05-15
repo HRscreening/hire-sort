@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { breadcrumbJsonLd, jsonLdString, SITE_URL } from '@/lib/seo';
+import Breadcrumb from '@/components/layout/Breadcrumb';
 import ProductClient from '@/app/(public)/product/_components/ProductClient';
 import { getUseCaseBySlug, getUseCaseSlugs } from '../_lib/registry';
 
@@ -20,8 +21,6 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   const data = getUseCaseBySlug(slug);
   if (!data) return { title: 'Not found', robots: { index: false, follow: false } };
   const url = `/use-cases/${data.slug}`;
-  const ogImageUrl = absUrl(data.meta.ogImage ?? '/logo.png');
-  const ogImageAlt = data.meta.ogImageAlt ?? data.product;
   return {
     title: data.meta.title,
     description: data.meta.description,
@@ -33,13 +32,11 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
       description: data.meta.description,
       url,
       siteName: 'HireSort',
-      images: [{ url: ogImageUrl, width: 1200, height: 630, alt: ogImageAlt }],
     },
     twitter: {
       card: 'summary_large_image',
       title: data.meta.title,
       description: data.meta.description,
-      images: [ogImageUrl],
     },
     robots: { index: true, follow: true },
   };
@@ -53,10 +50,11 @@ export default async function UseCasePageRoute({ params }: { params: Params }) {
   const pageUrl = absUrl(`/use-cases/${data.slug}`);
   const ogImageUrl = absUrl(data.meta.ogImage ?? '/logo.png');
 
-  const crumbs = breadcrumbJsonLd([
+  const crumbTrail = [
     { name: 'Use cases', path: '/use-cases' },
     { name: data.product },
-  ]);
+  ];
+  const crumbs = breadcrumbJsonLd(crumbTrail);
 
   const faqJsonLd = {
     '@context': 'https://schema.org',
@@ -105,6 +103,7 @@ export default async function UseCasePageRoute({ params }: { params: Params }) {
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{ __html: jsonLdString(faqJsonLd) }}
       />
+      <Breadcrumb crumbs={crumbTrail} />
       <ProductClient data={data} />
     </>
   );

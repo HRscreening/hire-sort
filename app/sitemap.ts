@@ -18,17 +18,31 @@ const siteUrl =
 
 export const revalidate = 3600;
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const now = new Date();
+/**
+ * Stable lastModified dates for static pages. Bump the relevant date when the
+ * page's content actually changes — never use `new Date()` here, because that
+ * tells crawlers the page churns daily even when it doesn't, hurting crawl budget.
+ */
+const STATIC_PAGE_UPDATED = {
+  home: new Date('2026-05-15'),
+  about: new Date('2026-05-01'),
+  contact: new Date('2026-05-01'),
+  pricing: new Date('2026-05-01'),
+  faqs: new Date('2026-05-01'),
+  privacy: new Date('2026-01-01'),
+  terms: new Date('2026-01-01'),
+  sectionIndex: new Date('2026-05-15'),
+};
 
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticRoutes: MetadataRoute.Sitemap = [
-    { url: `${siteUrl}/`, lastModified: now, changeFrequency: 'weekly', priority: 1.0 },
-    { url: `${siteUrl}/about`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${siteUrl}/contact`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${siteUrl}/pricing`, lastModified: now, changeFrequency: 'monthly', priority: 0.5 },
-    { url: `${siteUrl}/faqs`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${siteUrl}/privacy`, lastModified: now, changeFrequency: 'yearly', priority: 0.4 },
-    { url: `${siteUrl}/terms`, lastModified: now, changeFrequency: 'yearly', priority: 0.4 },
+    { url: `${siteUrl}/`, lastModified: STATIC_PAGE_UPDATED.home, changeFrequency: 'weekly', priority: 1.0 },
+    { url: `${siteUrl}/about`, lastModified: STATIC_PAGE_UPDATED.about, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${siteUrl}/contact`, lastModified: STATIC_PAGE_UPDATED.contact, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${siteUrl}/pricing`, lastModified: STATIC_PAGE_UPDATED.pricing, changeFrequency: 'monthly', priority: 0.5 },
+    { url: `${siteUrl}/faqs`, lastModified: STATIC_PAGE_UPDATED.faqs, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${siteUrl}/privacy`, lastModified: STATIC_PAGE_UPDATED.privacy, changeFrequency: 'yearly', priority: 0.4 },
+    { url: `${siteUrl}/terms`, lastModified: STATIC_PAGE_UPDATED.terms, changeFrequency: 'yearly', priority: 0.4 },
   ];
 
   const posts = await getAllPosts();
@@ -105,16 +119,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.75,
   }));
 
+  const sectionIndex = STATIC_PAGE_UPDATED.sectionIndex;
   const sectionIndexRoutes: MetadataRoute.Sitemap = [
-    { url: `${siteUrl}/use-cases`, lastModified: now, changeFrequency: 'weekly', priority: 0.7 },
-    { url: `${siteUrl}/applicant-tracking-system`, lastModified: now, changeFrequency: 'weekly', priority: 0.75 },
-    { url: `${siteUrl}/resources/compare`, lastModified: now, changeFrequency: 'weekly', priority: 0.7 },
-    { url: `${siteUrl}/resources/best`, lastModified: now, changeFrequency: 'weekly', priority: 0.7 },
-    { url: `${siteUrl}/resources/job-descriptions`, lastModified: now, changeFrequency: 'weekly', priority: 0.7 },
-    { url: `${siteUrl}/resources/interview-questions`, lastModified: now, changeFrequency: 'weekly', priority: 0.7 },
-    { url: `${siteUrl}/resources/scorecards`, lastModified: now, changeFrequency: 'weekly', priority: 0.7 },
-    { url: `${siteUrl}/resources/screening-rubrics`, lastModified: now, changeFrequency: 'weekly', priority: 0.7 },
-    { url: `${siteUrl}/product`, lastModified: now, changeFrequency: 'weekly', priority: 0.85 },
+    { url: `${siteUrl}/use-cases`, lastModified: sectionIndex, changeFrequency: 'weekly', priority: 0.7 },
+    { url: `${siteUrl}/applicant-tracking-system`, lastModified: sectionIndex, changeFrequency: 'weekly', priority: 0.75 },
+    { url: `${siteUrl}/resources`, lastModified: sectionIndex, changeFrequency: 'weekly', priority: 0.75 },
+    { url: `${siteUrl}/resources/compare`, lastModified: sectionIndex, changeFrequency: 'weekly', priority: 0.7 },
+    { url: `${siteUrl}/resources/best`, lastModified: sectionIndex, changeFrequency: 'weekly', priority: 0.7 },
+    { url: `${siteUrl}/resources/job-descriptions`, lastModified: sectionIndex, changeFrequency: 'weekly', priority: 0.7 },
+    { url: `${siteUrl}/resources/interview-questions`, lastModified: sectionIndex, changeFrequency: 'weekly', priority: 0.7 },
+    { url: `${siteUrl}/resources/scorecards`, lastModified: sectionIndex, changeFrequency: 'weekly', priority: 0.7 },
+    { url: `${siteUrl}/resources/screening-rubrics`, lastModified: sectionIndex, changeFrequency: 'weekly', priority: 0.7 },
+    { url: `${siteUrl}/product`, lastModified: sectionIndex, changeFrequency: 'weekly', priority: 0.85 },
   ];
 
   return [

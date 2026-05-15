@@ -8,7 +8,6 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import BfcacheRemount from '@/components/layout/BfcacheRemount';
 import ScrollToTop from '@/components/layout/ScrollToTop';
-import { cookies } from "next/headers";
 
 
 const gtagKey = process.env.NEXT_PUBLIC_GA_ID || ''
@@ -136,10 +135,9 @@ const websiteJsonLd = {
   publisher: { '@type': 'Organization', name: 'HireSort' },
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  const isLoggedIn = (await cookies()).get("hs_auth")?.value === "1"
   return (
     <html
       lang="en"
@@ -153,7 +151,7 @@ export default async function RootLayout({
           </>
         )}
         <BfcacheRemount>
-          <Navbar isLoggedIn={isLoggedIn}/>
+          <Navbar />
           <main id="main" className="flex-1">{children}</main>
           <Footer />
           <ScrollToTop />

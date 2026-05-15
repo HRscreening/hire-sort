@@ -11,6 +11,7 @@ import {
   type BlogPost,
 } from '../_lib/posts';
 import { breadcrumbJsonLd, jsonLdString } from '@/lib/seo';
+import Breadcrumb from '@/components/layout/Breadcrumb';
 import { InlineCTA } from '../_components/InlineCTA';
 import { resolveCoverImage } from '../_lib/cover';
 
@@ -22,6 +23,9 @@ const absoluteCover = (cover?: string) => {
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://hiresort.ai';
 
 type Params = Promise<{ slug: string }>;
+
+export const revalidate = 3600;
+export const dynamicParams = true;
 
 /** Pre-render every post at build time for instant first paint + crawler-friendly HTML. */
 export async function generateStaticParams() {
@@ -55,20 +59,11 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
       modifiedTime: post.updatedAt ?? post.publishedAt,
       authors: [post.author.name],
       tags: post.tags,
-      images: [
-        {
-          url: absoluteCover(post.coverImage),
-          width: 1200,
-          height: 630,
-          alt: post.coverAlt,
-        },
-      ],
     },
     twitter: {
       card: 'summary_large_image',
       title: post.title,
       description: post.description,
-      images: [absoluteCover(post.coverImage)],
     },
   };
 }
@@ -166,10 +161,11 @@ export default async function BlogPostPage({ params }: { params: Params }) {
   const allPosts = await getAllPosts();
   const related = allPosts.filter((p) => p.slug !== post.slug).slice(0, 2);
 
-  const crumbs = breadcrumbJsonLd([
+  const crumbTrail = [
     { name: 'Blog', path: '/blog' },
     { name: post.title },
-  ]);
+  ];
+  const crumbs = breadcrumbJsonLd(crumbTrail);
 
   return (
     <>
@@ -178,6 +174,7 @@ export default async function BlogPostPage({ params }: { params: Params }) {
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{ __html: jsonLdString(crumbs) }}
       />
+      <Breadcrumb crumbs={crumbTrail} />
       <script
         type="application/ld+json"
         // eslint-disable-next-line react/no-danger
@@ -240,6 +237,8 @@ export default async function BlogPostPage({ params }: { params: Params }) {
               alt={post.coverAlt}
               fill
               priority
+              fetchPriority="high"
+              quality={70}
               sizes="(min-width: 1024px) 800px, 100vw"
               className="object-cover"
             />
@@ -290,6 +289,8 @@ export default async function BlogPostPage({ params }: { params: Params }) {
                       src={resolveCoverImage(p.coverImage)}
                       alt={p.coverAlt}
                       fill
+                      loading="lazy"
+                      quality={65}
                       sizes="(min-width: 1024px) 500px, (min-width: 640px) 50vw, 100vw"
                       className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                     />

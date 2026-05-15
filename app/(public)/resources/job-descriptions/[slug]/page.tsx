@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { breadcrumbJsonLd, jsonLdString, SITE_URL } from '@/lib/seo';
+import Breadcrumb from '@/components/layout/Breadcrumb';
 import { getJobDescriptionBySlug, getJobDescriptionSlugs } from '../_data';
 import JobDescriptionClient from '../_components/JobDescriptionClient';
 
@@ -57,11 +58,12 @@ export default async function JobDescriptionPage({ params }: { params: Params })
   const pageUrl = absUrl(`/resources/job-descriptions/${data.slug}`);
   const ogImageUrl = absUrl(data.meta.ogImage ?? '/logo.png');
 
-  const crumbs = breadcrumbJsonLd([
+  const crumbTrail = [
     { name: 'Resources', path: '/resources' },
     { name: 'Job Descriptions', path: '/resources/job-descriptions' },
     { name: data.role },
-  ]);
+  ];
+  const crumbs = breadcrumbJsonLd(crumbTrail);
 
   const faqJsonLd = {
     '@context': 'https://schema.org',
@@ -110,6 +112,7 @@ export default async function JobDescriptionPage({ params }: { params: Params })
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{ __html: jsonLdString(faqJsonLd) }}
       />
+      <Breadcrumb crumbs={crumbTrail} />
       <JobDescriptionClient data={data} />
     </>
   );

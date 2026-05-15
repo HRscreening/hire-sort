@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { breadcrumbJsonLd, jsonLdString, SITE_URL } from '@/lib/seo';
+import Breadcrumb from '@/components/layout/Breadcrumb';
 import { getComparisonBySlug, getComparisonSlugs } from '../_data';
 import CompareClient from '../_components/CompareClient';
 
@@ -20,8 +21,6 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
     return { title: 'Comparison not found', robots: { index: false, follow: false } };
   }
   const url = `/resources/compare/${data.slug}`;
-  const ogImageUrl = absUrl(data.meta.ogImage ?? '/logo.png');
-  const ogImageAlt = data.meta.ogImageAlt ?? `${data.competitor} alternative — HireSort`;
 
   return {
     title: data.meta.title,
@@ -36,13 +35,11 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
       siteName: 'HireSort',
       publishedTime: data.publishedAt,
       modifiedTime: data.updatedAt,
-      images: [{ url: ogImageUrl, width: 1200, height: 630, alt: ogImageAlt }],
     },
     twitter: {
       card: 'summary_large_image',
       title: data.meta.title,
       description: data.meta.description,
-      images: [ogImageUrl],
     },
     robots: { index: true, follow: true },
   };
@@ -56,11 +53,12 @@ export default async function ComparisonPage({ params }: { params: Params }) {
   const pageUrl = absUrl(`/resources/compare/${data.slug}`);
   const ogImageUrl = absUrl(data.meta.ogImage ?? '/logo.png');
 
-  const crumbs = breadcrumbJsonLd([
+  const crumbTrail = [
     { name: 'Resources', path: '/resources' },
     { name: 'Compare', path: '/resources/compare' },
     { name: data.competitor },
-  ]);
+  ];
+  const crumbs = breadcrumbJsonLd(crumbTrail);
 
   const faqJsonLd = {
     '@context': 'https://schema.org',
@@ -117,6 +115,7 @@ export default async function ComparisonPage({ params }: { params: Params }) {
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{ __html: jsonLdString(faqJsonLd) }}
       />
+      <Breadcrumb crumbs={crumbTrail} />
       <CompareClient data={data} />
     </>
   );

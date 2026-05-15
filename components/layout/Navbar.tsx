@@ -184,10 +184,6 @@ const navLinks: NavEntry[] = [
   { kind: 'link', href: '/pricing', label: 'Pricing' },
 ];
 
-type NavbarProps = {
-  isLoggedIn: boolean;
-};
-
 const isActiveTop = (entry: NavEntry, pathname: string): boolean => {
   if (entry.kind === 'link') {
     if (entry.href.startsWith('/#')) return false;
@@ -198,12 +194,19 @@ const isActiveTop = (entry: NavEntry, pathname: string): boolean => {
   );
 };
 
-const Navbar = ({ isLoggedIn }: NavbarProps) => {
+const Navbar = () => {
   const pathname = usePathname() || '/';
   const [open, setOpen] = useState(false);
   const [activeMega, setActiveMega] = useState<string | null>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    setIsLoggedIn(
+      document.cookie.split('; ').some((c) => c === 'hs_auth=1'),
+    );
+  }, []);
 
   const dashboardHref = isLoggedIn ? main_app_url : `${main_app_url}/login`;
 

@@ -1,6 +1,4 @@
-'use client';
-
-import { motion, type Variants } from 'framer-motion';
+import type { Variants } from 'framer-motion';
 import type { ReactNode } from 'react';
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -21,13 +19,10 @@ type EyebrowProps = {
 };
 
 export const Eyebrow = ({ icon, label }: EyebrowProps) => (
-  <motion.div
-    variants={fadeUp}
-    className="inline-flex items-center gap-1.5 rounded-full border border-[rgba(200,90,23,0.18)] bg-[rgba(200,90,23,0.08)] px-3 py-1.5 text-[12px] font-bold uppercase tracking-[0.6px] text-accent"
-  >
+  <div className="inline-flex items-center gap-1.5 rounded-full border border-[rgba(200,90,23,0.18)] bg-[rgba(200,90,23,0.08)] px-3 py-1.5 text-[12px] font-bold uppercase tracking-[0.6px] text-accent">
     {icon}
     <span>{label}</span>
-  </motion.div>
+  </div>
 );
 
 type PageHeroProps = {
@@ -56,31 +51,16 @@ export const PageHero = ({ icon, eyebrow, title, lead, children }: PageHeroProps
           'radial-gradient(ellipse 70% 80% at 50% 40%, black 10%, transparent 75%)',
       }}
     />
-    <motion.div
-      initial="hidden"
-      animate="show"
-      variants={stagger}
-      className="relative z-1 mx-auto max-w-180"
-    >
+    <div className="relative z-1 mx-auto max-w-180">
       <Eyebrow icon={icon} label={eyebrow} />
-      <motion.h1
-        variants={fadeUp}
-        className="my-4 text-[clamp(34px,5vw,52px)] font-extrabold leading-[1.12] tracking-[-1.5px] text-charcoal"
-      >
+      <h1 className="my-4 text-[clamp(34px,5vw,52px)] font-extrabold leading-[1.12] tracking-[-1.5px] text-charcoal">
         {title}
-      </motion.h1>
-      <motion.p
-        variants={fadeUp}
-        className="mx-auto max-w-155 text-base leading-[1.65] text-charcoal-lt"
-      >
+      </h1>
+      <p className="mx-auto max-w-155 text-base leading-[1.65] text-charcoal-lt">
         {lead}
-      </motion.p>
-      {children ? (
-        <motion.div variants={fadeUp} className="mt-6">
-          {children}
-        </motion.div>
-      ) : null}
-    </motion.div>
+      </p>
+      {children ? <div className="mt-6">{children}</div> : null}
+    </div>
   </section>
 );
 

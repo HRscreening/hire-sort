@@ -1,32 +1,5 @@
-'use client';
-
-import { motion, type Variants } from 'framer-motion';
-
-const ease = [0.22, 1, 0.36, 1] as const;
-
-const headerVariants: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease } },
-};
-
-const gridVariants: Variants = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.18, delayChildren: 0.1 } },
-};
-
-const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 40, scale: 0.96 },
-  show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.7, ease } },
-};
-
-const stepNumberSpring = { type: 'spring' as const, stiffness: 280, damping: 14 };
-
 const cardClass =
-  'rounded-xl border border-line-soft bg-linear-to-b from-ivory-light to-ivory p-7 transition-shadow';
-const cardHover = {
-  y: -8,
-  transition: { type: 'spring' as const, stiffness: 300, damping: 20 },
-};
+  'rounded-xl border border-line-soft bg-linear-to-b from-ivory-light to-ivory p-7 transition-transform hover:-translate-y-2';
 const stepNumberClass =
   'mb-5 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-linear-to-br from-copper to-copper-light text-[15px] font-bold text-white shadow-[0_4px_12px_rgba(200,90,23,0.2)]';
 const cardTitleClass = 'mb-2.5 text-[19px] font-bold tracking-[-0.3px]';
@@ -37,39 +10,19 @@ const visualWrapClass =
 const HowItWorks = () => {
   return (
     <section id="how" className="mx-auto max-w-300 px-6 pb-30 pt-10">
-      <motion.div
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.4 }}
-        variants={headerVariants}
-        className="mx-auto mb-12 max-w-150 px-6 text-center"
-      >
+      <div className="mx-auto mb-12 max-w-150 px-6 text-center">
         <h2 className="mb-3 text-[clamp(28px,4vw,40px)] font-extrabold leading-[1.15] tracking-[-1px] text-charcoal">
           Three steps to your <span className="text-accent">perfect hire</span>
         </h2>
         <p className="text-base leading-[1.6] text-charcoal-lt">
           From upload to ranked results in under 90 seconds. No setup, no training required.
         </p>
-      </motion.div>
+      </div>
 
-      <motion.div
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.2 }}
-        variants={gridVariants}
-        className="mx-auto mt-14 grid max-w-120 grid-cols-1 gap-8 md:max-w-none md:grid-cols-3"
-      >
+      <div className="mx-auto mt-14 grid max-w-120 grid-cols-1 gap-8 md:max-w-none md:grid-cols-3">
         {/* Step 1 */}
-        <motion.div variants={cardVariants} whileHover={cardHover} className={cardClass}>
-          <motion.div
-            initial={{ scale: 0, rotate: -90 }}
-            whileInView={{ scale: 1, rotate: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2, ...stepNumberSpring }}
-            className={stepNumberClass}
-          >
-            1
-          </motion.div>
+        <div className={cardClass}>
+          <div className={stepNumberClass}>1</div>
           <h3 className={cardTitleClass}>Upload Resumes</h3>
           <p className={cardCopyClass}>
             Drop a single PDF or a ZIP with hundreds. We extract text from any format instantly.
@@ -80,13 +33,9 @@ const HowItWorks = () => {
                 { name: 'sarah_chen_resume.pdf', size: '248 KB', type: 'pdf' },
                 { name: 'david_kumar_cv.pdf', size: '312 KB', type: 'pdf' },
                 { name: 'all_applicants.zip', size: '4.2 MB', type: 'zip' },
-              ].map((file, i) => (
-                <motion.div
+              ].map((file) => (
+                <div
                   key={file.name}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.4 + i * 0.12, duration: 0.5, ease }}
                   className="flex items-center gap-2.5 rounded-sm bg-ivory-light px-3 py-2 text-[13px]"
                 >
                   <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-[rgba(0,0,0,0.05)]">
@@ -104,23 +53,15 @@ const HowItWorks = () => {
                   </div>
                   <span className="min-w-0 flex-1 truncate font-medium text-charcoal">{file.name}</span>
                   <span className="shrink-0 text-xs text-charcoal-xlt">{file.size}</span>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
-        </motion.div>
+        </div>
 
         {/* Step 2 */}
-        <motion.div variants={cardVariants} whileHover={cardHover} className={cardClass}>
-          <motion.div
-            initial={{ scale: 0, rotate: -90 }}
-            whileInView={{ scale: 1, rotate: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.35, ...stepNumberSpring }}
-            className={stepNumberClass}
-          >
-            2
-          </motion.div>
+        <div className={cardClass}>
+          <div className={stepNumberClass}>2</div>
           <h3 className={cardTitleClass}>AI Analyzes</h3>
           <p className={cardCopyClass}>
             Our 5-stage pipeline extracts, parses, understands the JD, scores, and ranks every candidate.
@@ -133,43 +74,28 @@ const HowItWorks = () => {
                 { label: 'JD Analysis', width: '100%', state: 'active' },
                 { label: 'AI Scoring', width: '85%', state: 'active' },
                 { label: 'Ranking', width: '20%', state: 'pending' },
-              ].map((item, i) => (
-                <motion.div
+              ].map((item) => (
+                <div
                   key={item.label}
-                  initial={{ opacity: 0, x: -16 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.5 + i * 0.1, duration: 0.45, ease }}
                   className="flex items-center gap-2.5 text-[13px] text-charcoal-md"
                 >
                   <span className={`h-2 w-2 shrink-0 rounded-full ${item.state === 'active' ? 'bg-success' : 'bg-charcoal-xlt'}`} />
                   <span>{item.label}</span>
                   <div className="h-1 flex-1 overflow-hidden rounded-sm bg-ivory-medium">
-                    <motion.div
-                      initial={{ width: 0 }}
-                      whileInView={{ width: item.width }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.7 + i * 0.1, duration: 0.9, ease }}
+                    <div
                       className="h-full rounded-sm bg-charcoal"
+                      style={{ width: item.width }}
                     />
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
-        </motion.div>
+        </div>
 
         {/* Step 3 */}
-        <motion.div variants={cardVariants} whileHover={cardHover} className={cardClass}>
-          <motion.div
-            initial={{ scale: 0, rotate: -90 }}
-            whileInView={{ scale: 1, rotate: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.5, ...stepNumberSpring }}
-            className={stepNumberClass}
-          >
-            3
-          </motion.div>
+        <div className={cardClass}>
+          <div className={stepNumberClass}>3</div>
           <h3 className={cardTitleClass}>Ranked Results</h3>
           <p className={cardCopyClass}>
             Get a scored, ranked list with AI explanations. Share with your team instantly.
@@ -180,15 +106,10 @@ const HowItWorks = () => {
                 { rank: '#1', avatar: 'SC', name: 'Sarah Chen', score: '92%', high: true, tag: 'Best Fit' },
                 { rank: '#2', avatar: 'DK', name: 'David Kumar', score: '87%', high: true },
                 { rank: '#3', avatar: 'EM', name: 'Elena Martinez', score: '74%', high: false },
-              ].map((row, i) => (
-                <motion.div
+              ].map((row) => (
+                <div
                   key={row.rank}
-                  initial={{ opacity: 0, y: 12 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.6 + i * 0.13, duration: 0.5, ease }}
-                  whileHover={{ x: 4 }}
-                  className="flex items-center gap-2.5 rounded-sm bg-ivory-light px-3 py-2"
+                  className="flex items-center gap-2.5 rounded-sm bg-ivory-light px-3 py-2 transition-transform hover:translate-x-1"
                 >
                   <span className="w-5 shrink-0 text-center text-xs font-bold text-charcoal-lt">{row.rank}</span>
                   <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-ivory-dark text-[10px] font-semibold text-charcoal-md">
@@ -203,12 +124,12 @@ const HowItWorks = () => {
                       {row.tag}
                     </span>
                   )}
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </section>
   );
 };

@@ -217,67 +217,47 @@ const Hero = () => {
       </motion.div>
 
       {/* Badge */}
-      <motion.div
-        variants={itemUp}
-        className="relative z-3 mb-7 inline-flex items-center gap-2 rounded-full border border-[rgba(200,90,23,0.12)] bg-[rgba(0,0,0,0.05)] px-4 py-1.5 text-[13px] font-semibold text-copper"
-      >
-        <motion.span
-          animate={{ scale: [1, 1.4, 1], opacity: [1, 0.6, 1] }}
-          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-          className="h-[7px] w-[7px] rounded-full bg-copper"
-        />
+      <div className="relative z-3 mb-7 inline-flex items-center gap-2 rounded-full border border-[rgba(200,90,23,0.12)] bg-[rgba(0,0,0,0.05)] px-4 py-1.5 text-[13px] font-semibold text-copper">
+        <span className="h-[7px] w-[7px] animate-pulse rounded-full bg-copper" />
         AI-powered resume screening
-      </motion.div>
+      </div>
 
-      <motion.h1
-        variants={itemUp}
-        className="relative z-3 mx-auto mb-5 max-w-180 text-[clamp(36px,5.5vw,58px)] font-extrabold leading-[1.12] tracking-[-1.5px] text-charcoal"
-      >
+      <h1 className="relative z-3 mx-auto mb-5 max-w-180 text-[clamp(36px,5.5vw,58px)] font-extrabold leading-[1.12] tracking-[-1.5px] text-charcoal">
         Screen resumes in <span className="text-accent">seconds</span>, not hours
-      </motion.h1>
+      </h1>
 
-      <motion.p
-        variants={itemUp}
-        className="relative z-3 mx-auto mb-12 max-w-130 text-[clamp(16px,2vw,19px)] leading-[1.6] text-charcoal-lt"
-      >
+      <p className="relative z-3 mx-auto mb-12 max-w-130 text-[clamp(16px,2vw,19px)] leading-[1.6] text-charcoal-lt">
         Upload resumes, describe the role, and let AI rank your candidates with explainable scores. No more manual screening.
-      </motion.p>
+      </p>
 
-      <motion.div variants={itemUp} className="relative z-3 mt-9 flex flex-col items-center gap-3.5">
-        <motion.a
+      <div className="relative z-3 mt-9 flex flex-col items-center gap-3.5">
+        <a
           href={main_app_url + '/login'}
           target='_self'
           onClick={() => trackCTAClick('get_started', 'hero')}
-          whileHover={{ scale: 1.04, y: -2 }}
-          whileTap={{ scale: 0.97 }}
-          transition={{ type: 'spring', stiffness: 360, damping: 18 }}
-          className="inline-flex items-center justify-center gap-2 rounded-md border border-copper bg-copper px-8 py-3.5 text-[15px] font-semibold leading-none text-white shadow-[0_8px_24px_rgba(0,0,0,0.12)] no-underline transition-colors hover:bg-copper-dark"
+          className="inline-flex items-center justify-center gap-2 rounded-md border border-copper bg-copper px-8 py-3.5 text-[15px] font-semibold leading-none text-white shadow-[0_8px_24px_rgba(0,0,0,0.12)] no-underline transition-transform hover:-translate-y-0.5 hover:bg-copper-dark"
         >
           Get Started
-          <motion.span initial={{ x: 0 }} whileHover={{ x: 4 }} className="inline-flex">
-            <ArrowRight size={16} strokeWidth={2.5} />
-          </motion.span>
-        </motion.a>
-      </motion.div>
-      
-      <motion.div
-        variants={itemUp}
-        className="relative z-3 mx-auto mt-14 w-full max-w-4xl overflow-hidden rounded-xl border border-line-soft bg-white shadow-[0_20px_60px_rgba(0,0,0,0.12)]"
-      >
+          <ArrowRight size={16} strokeWidth={2.5} />
+        </a>
+      </div>
+
+      <div className="relative z-3 mx-auto mt-14 w-full max-w-4xl overflow-hidden rounded-xl border border-line-soft bg-white shadow-[0_20px_60px_rgba(0,0,0,0.12)]">
         <video
           src="/demo.mp4"
+          poster='/demo-poster.png'
           autoPlay
           muted
           loop
           playsInline
-          preload="metadata"
+          preload="none"
           disablePictureInPicture
           disableRemotePlayback
           controlsList="nodownload nofullscreen noremoteplayback"
           className="pointer-events-none block aspect-video h-auto w-full object-cover"
           style={{ filter: 'brightness(1)' }}
         />
-      </motion.div>
+      </div>
 
 
 

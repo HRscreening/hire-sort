@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { breadcrumbJsonLd, jsonLdString, SITE_URL } from '@/lib/seo';
+import Breadcrumb from '@/components/layout/Breadcrumb';
 import { getInterviewQuestionsBySlug, getInterviewQuestionsSlugs } from '../_data';
 import InterviewQuestionsClient from '../_components/InterviewQuestionsClient';
 
@@ -57,11 +58,12 @@ export default async function InterviewQuestionsRoute({ params }: { params: Para
   const pageUrl = absUrl(`/resources/interview-questions/${data.slug}`);
   const ogImageUrl = absUrl(data.meta.ogImage ?? '/logo.png');
 
-  const crumbs = breadcrumbJsonLd([
+  const crumbTrail = [
     { name: 'Resources', path: '/resources' },
     { name: 'Interview Questions', path: '/resources/interview-questions' },
     { name: data.role },
-  ]);
+  ];
+  const crumbs = breadcrumbJsonLd(crumbTrail);
 
   const faqJsonLd = {
     '@context': 'https://schema.org',
@@ -110,6 +112,7 @@ export default async function InterviewQuestionsRoute({ params }: { params: Para
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{ __html: jsonLdString(faqJsonLd) }}
       />
+      <Breadcrumb crumbs={crumbTrail} />
       <InterviewQuestionsClient data={data} />
     </>
   );
