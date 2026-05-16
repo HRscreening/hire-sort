@@ -31,8 +31,7 @@ export const resumeScreeningSoftware: BestPage = {
       'Resume screening software helps hiring teams reduce manual review time and identify stronger candidates faster. The best tools do more than parse files or search for keywords. They help recruiters understand fit, compare candidates consistently, and explain why someone should move forward.',
       'This guide compares resume screening tools across different needs: dedicated AI resume screening, enterprise talent intelligence, ATS-based screening, assessment-led evaluation, and agency-friendly recruitment software.',
     ],
-    primaryCta: { label: 'Turn resume review into ranked shortlists', href: '/pricing' },
-    secondaryCta: { label: 'View pricing', href: '/pricing' },
+    primaryCta: { label: 'Turn resume review into ranked shortlists', href: 'https://app.hiresort.ai/login' },
   },
 
   whatToLookFor: {

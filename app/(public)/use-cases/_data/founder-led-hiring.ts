@@ -31,7 +31,7 @@ export const founderLedHiring: ProductPage = {
     lead: [
       'HireSort helps founders define what they need, screen resumes faster, compare candidates more consistently, and track hiring stages before building a full HR team.',
     ],
-    primary: { label: 'Start hiring with structure', href: '/pricing' },
+    primary: { label: 'Start hiring with structure', href: 'https://app.hiresort.ai/login' },
     secondary: { label: 'See how HireSort works', href: '#how-it-works' },
     supporting:
       'A lightweight workflow for founders hiring their first 5 to 20 employees — built for speed, clarity, and structured early hiring.',

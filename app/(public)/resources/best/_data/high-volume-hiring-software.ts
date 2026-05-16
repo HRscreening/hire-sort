@@ -31,8 +31,7 @@ export const highVolumeHiringSoftware: BestPage = {
       'High-volume hiring is not simply normal hiring with more resumes. It creates a different operational problem: too many applicants, too little review time, repetitive screening, fast candidate drop-off, and pressure to keep the pipeline moving.',
       'The best high-volume hiring software depends on the type of volume. A frontline hourly employer may need mobile apply flows, text messaging, scheduling automation, and location-level analytics. A startup or agency receiving hundreds of professional resumes may need bulk resume screening, ranked shortlists, and reusable candidate records.',
     ],
-    primaryCta: { label: 'Screen high-volume resume piles faster', href: '/pricing' },
-    secondaryCta: { label: 'View pricing', href: '/pricing' },
+    primaryCta: { label: 'Screen high-volume resume piles faster', href: 'https://app.hiresort.ai/login' },
   },
 
   whatToLookFor: {

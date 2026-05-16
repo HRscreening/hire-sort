@@ -30,8 +30,7 @@ export const atsForStartups: BestPage = {
       'Startups do not need to copy enterprise recruiting workflows from day one. The best ATS for a startup is the one that helps the team move quickly, keep candidates organized, and avoid losing good applicants while hiring is still founder-led or handled by a small talent team.',
       'For many startups, the first ATS decision is not about advanced automation. It is about escaping spreadsheet chaos, reviewing applicants faster, and creating a repeatable process before hiring volume becomes unmanageable.',
     ],
-    primaryCta: { label: 'Build your first real hiring workflow', href: '/pricing' },
-    secondaryCta: { label: 'View pricing', href: '/pricing' },
+    primaryCta: { label: 'Build your first real hiring workflow', href: 'https://app.hiresort.ai/login' },
   },
 
   whatToLookFor: {

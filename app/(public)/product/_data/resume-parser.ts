@@ -34,7 +34,7 @@ export const resumeParser: ProductPage = {
       'HireSort turns uploaded resumes into structured candidate profiles, so recruiters can stop manually copying names, emails, skills, experience, and role details into spreadsheets.',
       'Upload PDF or DOCX resumes, extract key candidate information, store profiles in a reusable candidate workspace, and move directly from parsing to AI-powered screening and ranked shortlists.',
     ],
-    primary: { label: 'Parse resumes for free', href: '/pricing' },
+    primary: { label: 'Parse resumes for free', href: 'https://app.hiresort.ai/login' },
     secondary: { label: 'See how it works', href: '#how-it-works' },
     supporting:
       'A resume parser for recruiters and growing teams that need clean candidate data, faster first-pass review, and less manual resume handling.',
@@ -323,7 +323,7 @@ export const resumeParser: ProductPage = {
     eyebrow: 'Ready to automate your data entry?',
     title: 'Parse resumes. Build candidate profiles. Screen faster.',
     body: 'Use HireSort to turn resume files into structured candidate records and move from manual resume handling to AI-assisted shortlisting.',
-    primary: { label: 'Parse resumes for free', href: '/pricing' },
+    primary: { label: 'Parse resumes for free', href: 'https://app.hiresort.ai/login' },
     secondary: { label: 'View pricing', href: '/pricing' },
   },
 

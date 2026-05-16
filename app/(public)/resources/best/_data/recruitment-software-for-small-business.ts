@@ -30,8 +30,7 @@ export const recruitmentSoftwareForSmallBusiness: BestPage = {
       'Small businesses often hire with limited time, limited recruiting support, and little room for process complexity. The best recruitment software for a small business should make hiring easier immediately, not require weeks of setup.',
       'For many small businesses, the first priority is simple: keep resumes organized, identify qualified candidates faster, and track where each applicant stands.',
     ],
-    primaryCta: { label: 'Make small-business hiring easier', href: '/pricing' },
-    secondaryCta: { label: 'View pricing', href: '/pricing' },
+    primaryCta: { label: 'Make small-business hiring easier', href: 'https://app.hiresort.ai/login' },
   },
 
   whatToLookFor: {

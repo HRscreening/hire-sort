@@ -31,8 +31,7 @@ export const aiResumeScreeningSoftware: BestPage = {
       'AI resume screening software helps recruiters move faster through the first stage of hiring. But not all AI screening tools are the same. Some focus on talent intelligence, some on assessments, some on end-to-end hiring platforms, and some on lightweight resume review.',
       'The right choice depends on whether you need a dedicated resume screening workflow, a full ATS, skills assessments, high-volume automation, or enterprise talent intelligence.',
     ],
-    primaryCta: { label: 'Try screening resumes with AI', href: '/pricing' },
-    secondaryCta: { label: 'View pricing', href: '/pricing' },
+    primaryCta: { label: 'Try screening resumes with AI', href: 'https://app.hiresort.ai/login' },
   },
 
   whatToLookFor: {

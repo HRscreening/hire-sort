@@ -31,7 +31,7 @@ export const highVolumeHiring: ProductPage = {
     lead: [
       'When one role attracts hundreds of applications, HireSort helps your team move from resume overload to structured, ranked candidate shortlists.',
     ],
-    primary: { label: 'Screen resumes faster', href: '/pricing' },
+    primary: { label: 'Screen resumes faster', href: 'https://app.hiresort.ai/login' },
     secondary: { label: 'See the workflow', href: '#how-it-works' },
     supporting:
       'Combine AI-assisted resume screening, structured rubrics, ranked shortlists, and candidate tracking — and prioritize the right candidates first.',
