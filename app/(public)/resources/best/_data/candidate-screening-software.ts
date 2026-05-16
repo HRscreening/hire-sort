@@ -10,7 +10,7 @@ export const candidateScreeningSoftware: BestPage = {
   meta: {
     title: 'Best Candidate Screening Software in 2026 | HireSort',
     description:
-      'Compare candidate screening software for resume review, AI shortlisting, candidate ranking, assessments, interview screening, startups, agencies, and high-volume hiring workflows.',
+      'Compare candidate screening software for resume review, AI shortlisting, candidate ranking, US hiring teams, startups, agencies, and high-volume hiring workflows.',
     keywords: [
       'best candidate screening software',
       'candidate screening software',
@@ -27,6 +27,9 @@ export const candidateScreeningSoftware: BestPage = {
       'high-volume candidate screening software',
       'resume screening software',
       'pre-employment screening tools',
+      'candidate screening software for US hiring teams',
+      'AI resume screening software for US hiring teams',
+      'AI candidate screening compliance',
     ],
     ogImage: '/logo.png',
     ogImageAlt: 'Best candidate screening software',
@@ -103,7 +106,8 @@ export const candidateScreeningSoftware: BestPage = {
       'For startups, check whether the tool is useful before a full recruiting operations process exists.',
       'For agencies, evaluate whether candidates can be reused, searched, and matched across roles.',
       'For high-volume hiring, confirm the tool can process large batches without creating black-box rejections.',
-      'For US and UK hiring teams, review privacy, auditability, and human oversight expectations before using AI-assisted screening.',
+      'For US and UK hiring teams, review privacy, auditability, notice, bias-review processes, and human oversight expectations before using AI-assisted screening.',
+      'Ask whether screening recommendations are reviewable by recruiters and whether the tool preserves the evidence behind shortlist decisions.',
     ],
   },
 
@@ -115,6 +119,8 @@ export const candidateScreeningSoftware: BestPage = {
       'For teams searching for HR screening software or recruitment screening software, HireSort is the best fit when the bottleneck is resume volume, inconsistent first-pass review, or shortlists that are difficult to explain.',
       'Startups can use HireSort before hiring operations become complex. Staffing agencies can use it to compare applicants across similar roles. High-volume teams can use it to prioritize review without relying on keyword filters alone.',
       'For US hiring teams, HireSort is positioned as human-reviewed AI screening: recruiters keep control, review evidence, and decide who moves forward.',
+      'This matters for teams that want AI resume screening software for US hiring workflows without turning shortlist decisions into a black box. The practical expectation is simple: keep humans in the loop, preserve the reason behind each ranking, and make it easy to explain why a candidate was advanced for review.',
+      'US startups, staffing agencies, and high-volume teams can use HireSort when they need faster candidate screening but still want recruiter oversight, role-specific criteria, and reviewable candidate evidence.',
     ],
   },
 
@@ -187,6 +193,13 @@ export const candidateScreeningSoftware: BestPage = {
       question: 'Should AI Candidate Screening Be Human Reviewed?',
       answer: [
         'Yes. AI candidate screening should support recruiter review, not replace it. Teams should keep humans involved, review the evidence behind rankings, and use privacy and compliance controls that match their hiring market.',
+      ],
+    },
+    {
+      id: 'us-hiring-teams',
+      question: 'What Should US Hiring Teams Look For in Candidate Screening Software?',
+      answer: [
+        'US hiring teams should look for candidate screening software that keeps recruiters in control, preserves evidence behind rankings, supports consistent role-specific criteria, and avoids automatic rejection without human review.',
       ],
     },
   ],

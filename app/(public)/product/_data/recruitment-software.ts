@@ -11,7 +11,7 @@ export const recruitmentSoftware: ProductPage = {
   meta: {
     title: 'AI Recruitment Software for Resume Screening in 2026 | HireSort',
     description:
-      'HireSort is AI recruitment software for resume screening, candidate shortlisting, and high-volume hiring. Replace spreadsheets with explainable AI scores, ranked shortlists, and lightweight candidate tracking.',
+      'HireSort is AI recruitment software for resume screening, candidate shortlisting, US hiring teams, and high-volume hiring. Replace spreadsheets with explainable AI scores, ranked shortlists, and lightweight candidate tracking.',
     keywords: [
       'recruitment software',
       'recruiting software',
@@ -30,6 +30,9 @@ export const recruitmentSoftware: ProductPage = {
       'recruitment software for high-volume hiring',
       'recruitment software for staffing agencies',
       'recruitment software for US hiring teams',
+      'AI resume screening software for US hiring teams',
+      'US recruiting software for startups',
+      'high-volume recruiting software US',
     ],
     ogImage: '/logo.png',
     ogImageAlt: 'HireSort — recruitment software for faster resume screening',
@@ -96,6 +99,16 @@ export const recruitmentSoftware: ProductPage = {
         'HireSort is a fit when your recruiting team needs screening speed before it needs a heavy recruiting operations suite. It is especially useful for startups hiring their first teams, agencies reviewing large candidate batches, and hiring managers who need clearer shortlist recommendations.',
         'For US and UK hiring teams, the workflow is designed around human-reviewed AI screening: recruiters can review the evidence, adjust context, and decide who moves forward instead of relying on black-box automation.',
         'For high-volume hiring, HireSort helps recruiters prioritize which resumes deserve attention first, then keeps candidate records reusable for future openings.',
+      ],
+    },
+    {
+      type: 'paragraph',
+      eyebrow: 'US hiring teams',
+      title: 'AI Recruitment Software for US Hiring Teams That Need Control and Evidence.',
+      body: [
+        'US hiring teams often need more than speed from AI recruitment software. They need a workflow that keeps recruiters in control, preserves the evidence behind shortlist decisions, and makes screening criteria easy to review with hiring managers.',
+        'HireSort is built around recruiter-reviewed AI screening. Candidates are ranked against the role, but recruiters can review strengths, gaps, score breakdowns, and resume evidence before deciding who moves forward.',
+        'This makes the product useful for US startups, staffing agencies, SaaS teams, and high-volume hiring teams that want faster resume screening without creating a black-box rejection process.',
       ],
     },
     {
@@ -317,6 +330,7 @@ export const recruitmentSoftware: ProductPage = {
     { id: 'best-for', question: 'Who Is HireSort Best For?', answer: ['HireSort is best for recruiters, founders, hiring managers, small teams, and recruitment agencies that need faster resume screening and simpler candidate tracking.'] },
     { id: 'startup-agency', question: 'Is HireSort Useful for Startups and Staffing Agencies?', answer: ['Yes. Startups can use HireSort to create a structured screening workflow before buying a heavy recruiting suite. Staffing agencies can use it to review large resume batches, reuse candidate records, and produce clearer shortlist recommendations for client roles.'] },
     { id: 'us-teams', question: 'Can US Hiring Teams Use AI Recruitment Software Safely?', answer: ['US hiring teams should use AI recruitment software with human review, clear evidence, and practical oversight. HireSort is positioned as a recruiter-reviewed screening workflow, not a black-box automated rejection system.'] },
+    { id: 'us-startups-agencies', question: 'Is HireSort Useful for US Startups and Staffing Agencies?', answer: ['Yes. US startups and staffing agencies can use HireSort when the immediate hiring problem is resume volume, inconsistent first-pass review, or unclear shortlists. The workflow helps teams screen candidates faster while preserving role criteria, recruiter review, and evidence for hiring manager discussions.'] },
     { id: 'scheduling-offers', question: 'Does HireSort Include Interview Scheduling and Offer Management?', answer: ['No. Those workflows are outside the near-term scope. HireSort is focused on resume screening, candidate management, stage tracking, and shortlist creation.'] },
   ],
 

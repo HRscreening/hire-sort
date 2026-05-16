@@ -11,7 +11,7 @@ export const resumeManagement: ProductPage = {
   meta: {
     title: 'Resume & CV Management Software for Recruiters in 2026 | HireSort',
     description:
-      'HireSort is resume and CV management software for recruiters. Store resumes in one repository, build a reusable candidate database, track hiring stages, and screen profiles with AI — a faster resume management system than spreadsheets.',
+      'HireSort is resume and CV management software for recruiters and US hiring teams. Store resumes in one repository, build a reusable candidate database, track hiring stages, and screen profiles with AI — a faster resume management system than spreadsheets.',
     keywords: [
       'resume management software',
       'resume management system',
@@ -31,6 +31,9 @@ export const resumeManagement: ProductPage = {
       'resume management software for agencies',
       'resume management software for startups',
       'candidate rediscovery software',
+      'resume management software for US recruiters',
+      'US candidate database software',
+      'AI resume management for US hiring teams',
     ],
     ogImage: '/logo.png',
     ogImageAlt: 'HireSort — Resume Management Software',
@@ -96,6 +99,16 @@ export const resumeManagement: ProductPage = {
         'HireSort is useful when resumes arrive faster than the team can organize them. Startup teams can build a candidate database before they need a full ATS. Agencies can reuse candidate records across client requirements. High-volume teams can keep resumes searchable after the first screening cycle.',
         'The page is also built around CV management solution intent: store CVs, preserve screening evidence, track candidate status, and rediscover older profiles when a new role opens.',
         'For US and UK hiring teams, the practical benefit is control: recruiters can review candidate records, screening evidence, and stage history instead of relying on disconnected folders or black-box matching.',
+      ],
+    },
+    {
+      type: 'paragraph',
+      eyebrow: 'US hiring teams',
+      title: 'Resume Management for US Recruiters Who Need Reviewable Candidate Records.',
+      body: [
+        'US recruiters need resume management software that does more than store files. They need searchable candidate records, role history, screening evidence, and stage context that can be reviewed before a candidate moves forward.',
+        'HireSort keeps AI screening results attached to recruiter-managed candidate records, so teams can see the resume, parsed profile, role association, score, evidence, and hiring stage in one place.',
+        'For startups, agencies, and high-volume teams in the US, this creates a practical candidate database that supports rediscovery while keeping human review at the center of AI-assisted screening.',
       ],
     },
     {
@@ -552,6 +565,13 @@ export const resumeManagement: ProductPage = {
       question: 'How Should US Hiring Teams Manage Resumes With AI?',
       answer: [
         'US hiring teams should keep recruiters in control, preserve evidence, and review AI screening context before making decisions. HireSort keeps resume records, scores, and stages together so AI-assisted screening remains reviewable.',
+      ],
+    },
+    {
+      id: 'us-recruiters',
+      question: 'What Should US Recruiters Look For in Resume Management Software?',
+      answer: [
+        'US recruiters should look for resume management software that centralizes candidate records, preserves screening context, supports human review, and makes it easy to search and rediscover past applicants without losing role history or evidence.',
       ],
     },
     {
