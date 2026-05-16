@@ -40,8 +40,7 @@ export const candidateScreeningSoftware: BestPage = {
       'Candidate screening software helps hiring teams decide who should move forward before they spend time on interviews. The category includes resume screening tools, assessment platforms, video interview tools, conversational screening systems, and broader ATS platforms with screening features.',
       'The right tool depends on what you want to screen for: resume fit, skills, communication, availability, qualifications, fraud signals, or role-specific assessments. For resume-heavy teams, the most important job is usually turning applicant volume into ranked, explainable shortlists.',
     ],
-    primaryCta: { label: 'Screen candidates with HireSort', href: '/pricing' },
-    secondaryCta: { label: 'View pricing', href: '/pricing' },
+    primaryCta: { label: 'Screen Candidates with HireSort', href: 'https://app.hiresort.ai/login' },
   },
 
   whatToLookFor: {
@@ -124,7 +123,6 @@ export const candidateScreeningSoftware: BestPage = {
     title: 'Screen candidates before your team gets buried',
     body: 'Use HireSort to evaluate resumes against job-specific criteria and review ranked, explainable shortlists.',
     primary: { label: 'Get started for free', href: redirectURL },
-    secondary: { label: 'View pricing', href: '/pricing' },
   },
 
   faqs: [

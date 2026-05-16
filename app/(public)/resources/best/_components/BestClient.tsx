@@ -64,13 +64,15 @@ const BestClient = ({ data }: Props) => {
             {data.hero.primaryCta.label}
             <ArrowRight size={15} strokeWidth={2.5} />
           </a>
-          <a
-            href={data.hero.secondaryCta.href}
-            onClick={() => trackCTAClick('secondary_cta', heroSlot)}
-            className="inline-flex items-center justify-center gap-2 rounded-md border border-line bg-white px-7 py-3.5 text-[14.5px] font-semibold leading-none text-charcoal no-underline transition-colors hover:border-charcoal-xlt hover:bg-ivory-light"
-          >
-            {data.hero.secondaryCta.label}
-          </a>
+          {data.hero.secondaryCta && (
+            <a
+              href={data.hero.secondaryCta.href}
+              onClick={() => trackCTAClick('secondary_cta', heroSlot)}
+              className="inline-flex items-center justify-center gap-2 rounded-md border border-line bg-white px-7 py-3.5 text-[14.5px] font-semibold leading-none text-charcoal no-underline transition-colors hover:border-charcoal-xlt hover:bg-ivory-light"
+            >
+              {data.hero.secondaryCta.label}
+            </a>
+          )}
         </div>
         {data.hero.supporting && (
           <p className="mx-auto mt-6 max-w-160 text-[14px] leading-[1.65] text-charcoal-lt">
@@ -336,13 +338,15 @@ const BestClient = ({ data }: Props) => {
               {data.cta.primary.label}
               <ArrowRight size={15} strokeWidth={2.5} />
             </a>
-            <a
-              href={data.cta.secondary.href}
-              onClick={() => trackCTAClick('secondary_cta', ctaSlot)}
-              className="inline-flex items-center justify-center gap-2 rounded-md border border-white/20 bg-transparent px-7 py-3.5 text-[14.5px] font-semibold leading-none text-white no-underline transition-colors hover:bg-white/10"
-            >
-              {data.cta.secondary.label}
-            </a>
+            {data.cta.secondary && (
+              <a
+                href={data.cta.secondary.href}
+                onClick={() => trackCTAClick('secondary_cta', ctaSlot)}
+                className="inline-flex items-center justify-center gap-2 rounded-md border border-white/20 bg-transparent px-7 py-3.5 text-[14.5px] font-semibold leading-none text-white no-underline transition-colors hover:bg-white/10"
+              >
+                {data.cta.secondary.label}
+              </a>
+            )}
           </div>
         </div>
       </section>

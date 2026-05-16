@@ -47,7 +47,7 @@ export type BestPage = {
     titleSuffix?: string;
     lead: string[];
     primaryCta: Cta;
-    secondaryCta: Cta;
+    secondaryCta?: Cta;
     supporting?: string;
   };
 
@@ -76,7 +76,7 @@ export type BestPage = {
     title: string;
     body: string;
     primary: Cta;
-    secondary: Cta;
+    secondary?: Cta;
   };
 
   faqs: FaqItem[];
