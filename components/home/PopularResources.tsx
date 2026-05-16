@@ -35,6 +35,32 @@ const groups: { heading: string; links: ResourceLink[] }[] = [
     ],
   },
   {
+    heading: 'Software guides',
+    links: [
+      {
+        href: '/resources/best/candidate-screening-software',
+        eyebrow: 'Guide',
+        title: 'Best Candidate Screening Software in 2026',
+        description:
+          'How to choose candidate screening software for resume shortlisting, HR screening, assessments, and high-volume hiring.',
+      },
+      {
+        href: '/resources/best/ai-resume-screening-software',
+        eyebrow: 'Guide',
+        title: 'Best AI Resume Screening Software in 2026',
+        description:
+          'A round-up of AI resume screening tools recruiters are using to rank candidates faster.',
+      },
+      {
+        href: '/resources/best/high-volume-hiring-software',
+        eyebrow: 'Guide',
+        title: 'Best High-Volume Hiring Software in 2026',
+        description:
+          'Software for teams that need to screen large candidate pools without slowing down.',
+      },
+    ],
+  },
+  {
     heading: 'Compare',
     links: [
       {
@@ -42,7 +68,7 @@ const groups: { heading: string; links: ResourceLink[] }[] = [
         eyebrow: 'Compare',
         title: 'HireSort vs Workable',
         description:
-          'A screening-first alternative to Workable for teams that don’t need a full HR suite.',
+          'A screening-first alternative to Workable for teams that do not need a full HR suite.',
       },
       {
         href: '/resources/compare/greenhouse-alternative',
@@ -52,16 +78,16 @@ const groups: { heading: string; links: ResourceLink[] }[] = [
           'A lighter, faster Greenhouse alternative focused on AI resume ranking.',
       },
       {
-        href: '/resources/best/ai-resume-screening-software',
-        eyebrow: 'Guide',
-        title: 'Best AI Resume Screening Software in 2026',
+        href: '/resources/compare/hiresort-vs-manual-screening',
+        eyebrow: 'Compare',
+        title: 'HireSort vs Manual Resume Screening',
         description:
-          'A round-up of the resume screening tools recruiters are using this year.',
+          'Compare AI-assisted candidate screening with manual resume review workflows.',
       },
     ],
   },
   {
-    heading: 'Templates & guides',
+    heading: 'Templates & rubrics',
     links: [
       {
         href: '/resources/scorecards',
@@ -71,18 +97,18 @@ const groups: { heading: string; links: ResourceLink[] }[] = [
           'Role-ready scorecards for consistent, structured candidate evaluation.',
       },
       {
-        href: '/resources/best/candidate-screening-software',
-        eyebrow: 'Guide',
-        title: 'Best Candidate Screening Software in 2026',
-        description:
-          'How to pick screening software for resumes, assessments, and high-volume hiring.',
-      },
-      {
         href: '/resources/screening-rubrics',
         eyebrow: 'Rubric',
         title: 'Resume Screening Rubrics',
         description:
           'Weighted resume screening criteria, must-haves, and explainable scoring guidance.',
+      },
+      {
+        href: '/resources/job-descriptions',
+        eyebrow: 'Templates',
+        title: 'Job Description Templates',
+        description:
+          'Role-ready templates that help teams define requirements before candidate screening begins.',
       },
     ],
   },
@@ -103,11 +129,11 @@ const PopularResources = () => {
           Popular <span className="text-accent">resources</span>
         </h2>
         <p className="text-base leading-[1.6] text-charcoal-lt">
-          Product pages, comparisons, templates, and rubrics teams use to screen resumes faster.
+          Product pages, software guides, comparisons, templates, and rubrics teams use to screen resumes faster.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-4">
         {groups.map((group) => (
           <div key={group.heading}>
             <h3 className="mb-4 text-[13px] font-semibold uppercase tracking-[1.5px] text-charcoal-lt">
