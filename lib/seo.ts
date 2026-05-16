@@ -1,5 +1,5 @@
 export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || 'https://www.hiresort.ai';
+  process.env.NEXT_PUBLIC_SITE_URL || 'https://hiresort.ai';
 
 export type BreadcrumbCrumb = {
   /** Display name of the crumb. */

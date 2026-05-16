@@ -64,11 +64,11 @@ const groups: { heading: string; links: ResourceLink[] }[] = [
     heading: 'Templates & guides',
     links: [
       {
-        href: '/blog/candidate-scorecard-template',
+        href: '/resources/scorecards',
         eyebrow: 'Template',
-        title: 'Candidate Scorecard Template',
+        title: 'Interview Scorecard Templates',
         description:
-          'A ready-to-use scorecard for consistent, structured candidate evaluation.',
+          'Role-ready scorecards for consistent, structured candidate evaluation.',
       },
       {
         href: '/resources/best/candidate-screening-software',
@@ -78,11 +78,11 @@ const groups: { heading: string; links: ResourceLink[] }[] = [
           'How to pick screening software for resumes, assessments, and high-volume hiring.',
       },
       {
-        href: '/blog/ai-resume-screening-tool',
-        eyebrow: 'Blog',
-        title: 'What an AI Resume Screening Tool Actually Does',
+        href: '/resources/screening-rubrics',
+        eyebrow: 'Rubric',
+        title: 'Resume Screening Rubrics',
         description:
-          'A plain-English breakdown of AI shortlisting and CV ranking workflows.',
+          'Weighted resume screening criteria, must-haves, and explainable scoring guidance.',
       },
     ],
   },
@@ -103,7 +103,7 @@ const PopularResources = () => {
           Popular <span className="text-accent">resources</span>
         </h2>
         <p className="text-base leading-[1.6] text-charcoal-lt">
-          Product pages, comparisons, and templates teams use to make hiring faster.
+          Product pages, comparisons, templates, and rubrics teams use to screen resumes faster.
         </p>
       </div>
 

@@ -51,16 +51,19 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'HireSort — AI-powered resume screening',
-    template: '%s — HireSort',
+    default: 'HireSort - AI Resume Screening Software for Faster Shortlisting',
+    template: '%s - HireSort',
   },
   description:
-    'Screen resumes in seconds, not hours. HireSort ranks candidates with explainable AI scores, bulk processing, and recruiter-friendly workflows.',
+    'HireSort is AI resume screening software for recruiters and hiring teams. Rank candidates, review explainable scores, process resumes in bulk, and shortlist faster.',
   applicationName: 'HireSort',
   keywords: [
     'resume screening',
     'AI resume screening',
+    'AI resume screening software',
+    'resume screening software',
     'applicant tracking',
+    'applicant tracking system',
     'recruiting software',
     'candidate ranking',
     'bulk resume processing',
@@ -73,18 +76,18 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     siteName: 'HireSort',
-    title: 'HireSort — AI-powered resume screening',
+    title: 'HireSort - AI Resume Screening Software',
     description:
-      'Screen resumes in seconds, not hours. HireSort ranks candidates with explainable AI scores.',
+      'Rank resumes in seconds with explainable AI scores, bulk processing, and recruiter-friendly shortlists.',
     url: siteUrl,
     locale: 'en_US',
     images: [{ url: '/logo.png', width: 1200, height: 630, alt: 'HireSort' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'HireSort — AI-powered resume screening',
+    title: 'HireSort - AI Resume Screening Software',
     description:
-      'Screen resumes in seconds, not hours. Explainable AI rankings, built for hiring teams.',
+      'Rank resumes in seconds with explainable AI scores, built for hiring teams.',
     images: ['/logo.png'],
   },
   robots: {
@@ -117,7 +120,7 @@ const organizationJsonLd = {
   logo: `${siteUrl}/logo.png`,
   email: 'support@hiresort.ai',
   description:
-    'AI-powered resume screening that ranks candidates with explainable scores.',
+    'AI resume screening software that ranks candidates with explainable scores.',
   contactPoint: {
     '@type': 'ContactPoint',
     contactType: 'customer support',
@@ -158,12 +161,10 @@ export default function RootLayout({
         </BfcacheRemount>
         <script
           type="application/ld+json"
-          // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
         <script
           type="application/ld+json"
-          // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
         <SpeedInsights />

@@ -16,15 +16,15 @@ export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: {
-    absolute: 'HireSort — AI-powered resume screening that ranks candidates in seconds',
+    absolute: 'AI Resume Screening Software for Faster Candidate Shortlisting | HireSort',
   },
   description:
-    'HireSort uses AI to rank resumes in seconds with explainable scores. Upload 500 resumes at once, configure scoring rubrics, and shortlist faster — built for modern hiring teams.',
+    'HireSort is AI resume screening software that ranks candidates in seconds with explainable scores. Upload resumes in bulk, configure scoring rubrics, and shortlist faster.',
   alternates: { canonical: '/' },
   openGraph: {
-    title: 'HireSort — AI-powered resume screening',
+    title: 'AI Resume Screening Software | HireSort',
     description:
-      'Rank resumes in seconds with explainable AI scores. Built for hiring teams.',
+      'Rank candidates in seconds with explainable AI scores, bulk resume processing, and structured shortlists.',
     url: '/',
     type: 'website',
     siteName: 'HireSort',
@@ -32,9 +32,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'HireSort — AI-powered resume screening',
+    title: 'AI Resume Screening Software | HireSort',
     description:
-      'Rank resumes in seconds with explainable AI scores. Built for hiring teams.',
+      'Rank candidates in seconds with explainable AI scores, bulk resume processing, and structured shortlists.',
     images: [`${siteUrl}/logo.png`],
   },
 };
@@ -48,7 +48,7 @@ const softwareAppJsonLd = {
   operatingSystem: 'Web',
   url: siteUrl,
   description:
-    'AI-powered resume screening with explainable scoring, bulk processing, and candidate ranking for hiring teams.',
+    'AI resume screening software with explainable scoring, bulk processing, and candidate ranking for hiring teams.',
   image: `${siteUrl}/logo.png`,
   featureList: [
     'Explainable AI resume scoring',
@@ -98,13 +98,47 @@ const softwareAppJsonLd = {
   publisher: { '@type': 'Organization', name: 'HireSort' },
 };
 
+const homepageFaqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What is HireSort?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'HireSort is AI resume screening software that helps recruiters upload resumes, rank candidates, review explainable scores, and build shortlists faster.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How does HireSort rank candidates?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'HireSort compares resumes against the role requirements and scoring rubric, then produces candidate rankings with evidence, strengths, gaps, and match scores.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can HireSort process resumes in bulk?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. HireSort supports bulk resume uploads and background processing so hiring teams can screen large candidate pools without manually reviewing every file first.',
+      },
+    },
+  ],
+};
+
 export default function Home() {
   return (
     <>
       <script
         type="application/ld+json"
-        // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareAppJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(homepageFaqJsonLd) }}
       />
       <Hero />
       <HowItWorks />

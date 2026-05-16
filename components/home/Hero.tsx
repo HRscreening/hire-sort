@@ -3,7 +3,6 @@
 import { Check, ArrowRight, Briefcase, GraduationCap, MapPin } from 'lucide-react';
 import { motion, type Variants } from 'framer-motion';
 import { trackCTAClick } from '@/lib/google_analytics_tracker';
-import Link from 'next/link';
 
 const main_app_url = process.env.NEXT_PUBLIC_MAIN_APP_URL || 'http://localhost:3000';
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -11,11 +10,6 @@ const ease = [0.22, 1, 0.36, 1] as const;
 const containerVariants: Variants = {
   hidden: {},
   show: { transition: { staggerChildren: 0.07, delayChildren: 0.05 } },
-};
-
-const itemUp: Variants = {
-  hidden: { opacity: 0, y: 18 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease } },
 };
 
 const floatEnter = (x: number, y: number, delay: number): Variants => ({
@@ -219,15 +213,15 @@ const Hero = () => {
       {/* Badge */}
       <div className="relative z-3 mb-7 inline-flex items-center gap-2 rounded-full border border-[rgba(200,90,23,0.12)] bg-[rgba(0,0,0,0.05)] px-4 py-1.5 text-[13px] font-semibold text-copper">
         <span className="h-[7px] w-[7px] animate-pulse rounded-full bg-copper" />
-        AI-powered resume screening
+        AI resume screening software
       </div>
 
       <h1 className="relative z-3 mx-auto mb-5 max-w-180 text-[clamp(36px,5.5vw,58px)] font-extrabold leading-[1.12] tracking-[-1.5px] text-charcoal">
-        Screen resumes in <span className="text-accent">seconds</span>, not hours
+        AI resume screening that ranks candidates in <span className="text-accent">seconds</span>
       </h1>
 
       <p className="relative z-3 mx-auto mb-12 max-w-130 text-[clamp(16px,2vw,19px)] leading-[1.6] text-charcoal-lt">
-        Upload resumes, describe the role, and let AI rank your candidates with explainable scores. No more manual screening.
+        Upload resumes in bulk, describe the role, and let HireSort rank candidates with explainable AI scores, strengths, gaps, and shortlist-ready insights.
       </p>
 
       <div className="relative z-3 mt-9 flex flex-col items-center gap-3.5">

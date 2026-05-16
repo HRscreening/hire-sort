@@ -74,10 +74,10 @@ const Features = () => {
         className="mx-auto mb-12 max-w-150 text-center"
       >
         <h2 className="mb-3 text-[clamp(28px,4vw,40px)] font-extrabold leading-[1.15] tracking-[-1px] text-charcoal">
-          Built for <span className="text-accent">real hiring</span> workflows
+          Resume screening features for <span className="text-accent">real hiring</span> workflows
         </h2>
         <p className="text-base leading-[1.6] text-charcoal-lt">
-          Every feature designed to save you time and help you find the right people.
+          Every feature is designed to help recruiters screen resumes faster, rank candidates consistently, and find the right people.
         </p>
       </motion.div>
 
@@ -85,7 +85,7 @@ const Features = () => {
         {/* Feature 1: Explainable AI */}
         <article><motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0, margin: '0px 0px -10% 0px' }} variants={rowContainer} className={featureRowClass}>
           <motion.div variants={fromLeft}>
-            <h3 className={featureTextHeadingClass}>Explainable AI Scoring</h3>
+            <h3 className={featureTextHeadingClass}>Explainable AI Resume Scoring</h3>
             <p className={featureTextCopyClass}>
               No black boxes. Every candidate score comes with a detailed breakdown of strengths, gaps, and how they match the job description.
             </p>

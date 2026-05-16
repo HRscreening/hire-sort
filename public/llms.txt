@@ -1,0 +1,21 @@
+# HireSort
+
+HireSort is AI resume screening software for recruiters, hiring managers, founders, and high-volume hiring teams.
+
+Key pages:
+- Homepage: https://hiresort.ai/
+- Product suite: https://hiresort.ai/product
+- AI applicant tracking system: https://hiresort.ai/product/applicant-tracking-system
+- Resume screening resources: https://hiresort.ai/resources
+- AI resume screening software guide: https://hiresort.ai/resources/best/ai-resume-screening-software
+- Candidate screening software guide: https://hiresort.ai/resources/best/candidate-screening-software
+- Comparisons: https://hiresort.ai/resources/compare
+- Pricing: https://hiresort.ai/pricing
+
+Core topics:
+- AI resume screening
+- Resume screening software
+- Candidate ranking
+- Bulk resume processing
+- Applicant tracking systems
+- Structured hiring workflows
