@@ -21,7 +21,12 @@ const BestClient = ({ data }: Props) => {
   const [openFaq, setOpenFaq] = useState<string | null>(data.faqs[0]?.id ?? null);
   const heroSlot = `best_${data.slug}_hero`;
   const ctaSlot = `best_${data.slug}_bottom_cta`;
+  const heroPrimaryCta = data.hero.primaryCta ?? {
+    label: 'Get Started with HireSort',
+    href: 'https://app.hiresort.ai/login',
+  };
   const heroSecondaryCta = data.hero.secondaryCta ?? null;
+  const bottomPrimaryCta = data.cta.primary ?? heroPrimaryCta;
   const bottomSecondaryCta = data.cta.secondary ?? null;
 
   const toggleFaq = (id: string) => {
@@ -59,11 +64,11 @@ const BestClient = ({ data }: Props) => {
       >
         <div className="flex flex-wrap items-center justify-center gap-3">
           <a
-            href={data.hero.primaryCta.href}
+            href={heroPrimaryCta.href}
             onClick={() => trackCTAClick('primary_cta', heroSlot)}
             className="inline-flex items-center justify-center gap-2 rounded-md border border-copper bg-copper px-7 py-3.5 text-[14.5px] font-semibold leading-none text-white no-underline transition-colors hover:bg-copper-dark"
           >
-            {data.hero.primaryCta.label}
+            {heroPrimaryCta.label}
             <ArrowRight size={15} strokeWidth={2.5} />
           </a>
           {heroSecondaryCta ? (
@@ -333,11 +338,11 @@ const BestClient = ({ data }: Props) => {
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3">
             <a
-              href={data.cta.primary.href}
+              href={bottomPrimaryCta.href}
               onClick={() => trackCTAClick('primary_cta', ctaSlot)}
               className="inline-flex items-center justify-center gap-2 rounded-md border border-copper bg-copper px-7 py-3.5 text-[14.5px] font-semibold leading-none text-white no-underline transition-colors hover:bg-copper-dark"
             >
-              {data.cta.primary.label}
+              {bottomPrimaryCta.label}
               <ArrowRight size={15} strokeWidth={2.5} />
             </a>
             {bottomSecondaryCta ? (
