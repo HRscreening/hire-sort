@@ -1,7 +1,6 @@
 import 'dotenv/config';
 import { promises as fs } from 'node:fs';
 import path from 'node:path';
-import { PrismaClient } from '../lib/generated/prisma/client';
 import { blogPostInputSchema } from '../lib/blog-schema';
 import {prisma} from "@/lib/prisma";
 
@@ -39,7 +38,21 @@ async function main() {
     const data = parsed.data;
     await prisma.blogPost.upsert({
       where: { slug: data.slug },
-      update: {},
+      update: {
+        title: data.title,
+        subtitle: data.subtitle || null,
+        description: data.description,
+        keywords: data.keywords,
+        author: data.author,
+        publishedAt: new Date(data.publishedAt),
+        readingTime: data.readingTime,
+        coverImage: data.coverImage,
+        coverAlt: data.coverAlt || null,
+        category: data.category || null,
+        tags: data.tags,
+        body: data.body,
+        published: data.published,
+      },
       create: {
         slug: data.slug,
         title: data.title,

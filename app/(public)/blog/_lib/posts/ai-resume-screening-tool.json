@@ -1,0 +1,182 @@
+{
+  "slug": "ai-resume-screening-tool",
+  "title": "What an AI Resume Screening Tool Does and When to Use One",
+  "subtitle": "A practical guide to AI resume screening tools, CV shortlisting, candidate ranking, and human-reviewed hiring workflows.",
+  "description": "Learn what an AI resume screening tool does, how it ranks candidates, when to use one, and how recruiters can keep humans in control.",
+  "keywords": [
+    "AI resume screening tool",
+    "AI resume screening software",
+    "CV shortlisting tool",
+    "resume shortlisting software",
+    "candidate ranking software",
+    "automated resume screening"
+  ],
+  "author": {
+    "name": "HireSort Team",
+    "role": "Product & Research"
+  },
+  "publishedAt": "2026-05-16",
+  "updatedAt": "2026-05-16",
+  "readingTime": "9 min read",
+  "coverImage": "/blog1.jpeg",
+  "coverAlt": "AI resume screening tool ranking candidates into a structured shortlist.",
+  "category": "AI screening",
+  "tags": [
+    "AI resume screening",
+    "CV shortlisting",
+    "Candidate ranking",
+    "Recruiting software"
+  ],
+  "body": [
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "What is an AI resume screening tool?"
+    },
+    {
+      "type": "paragraph",
+      "text": "An AI resume screening tool helps recruiters evaluate resumes faster by comparing candidate profiles against a job description or screening rubric. Instead of manually opening every resume from scratch, recruiters can review ranked candidates, match scores, strengths, gaps, and evidence."
+    },
+    {
+      "type": "paragraph",
+      "text": "The best tools do not simply search for keywords. They help recruiters understand whether a candidate appears relevant for the role and why."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "What does an AI resume screening tool actually do?"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Parses resumes into structured candidate information.",
+        "Reads the job description or role requirements.",
+        "Creates or applies a screening rubric.",
+        "Compares each resume against the role criteria.",
+        "Ranks candidates by likely fit.",
+        "Highlights strengths, missing requirements, and possible risks.",
+        "Shows evidence from the resume so recruiters can review the score.",
+        "Helps build a shortlist for hiring manager review."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "AI resume screening vs keyword matching"
+    },
+    {
+      "type": "paragraph",
+      "text": "Keyword matching checks whether certain words appear in a resume. AI resume screening should go further. It should look at context, related experience, seniority, role relevance, and evidence of impact."
+    },
+    {
+      "type": "paragraph",
+      "text": "For example, a keyword filter might miss a candidate who has relevant cloud infrastructure experience but does not use the exact phrase from the job description. A stronger AI resume screening workflow should identify related evidence and make the match explainable."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "When should you use an AI resume screening tool?"
+    },
+    {
+      "type": "list",
+      "items": [
+        "You receive more resumes than recruiters can review quickly.",
+        "Hiring managers complain that shortlists are inconsistent.",
+        "Recruiters spend too much time on first-pass resume review.",
+        "You need to compare candidates against the same criteria.",
+        "You want evidence-based shortlists instead of vague impressions.",
+        "You want to keep past candidates searchable and reusable."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "What AI resume screening should not do"
+    },
+    {
+      "type": "paragraph",
+      "text": "AI should not make final hiring decisions on its own. It should not reject candidates without review, hide scoring logic, or pretend that a resume contains the full picture of a person. The safest workflow keeps recruiters and hiring managers in control."
+    },
+    {
+      "type": "callout",
+      "title": "Human-reviewed AI screening is the safer default",
+      "text": "Use AI to reduce repetitive first-pass work, then let humans review the evidence, calibrate the rubric, and decide who moves forward."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "How a CV shortlisting tool fits into the workflow"
+    },
+    {
+      "type": "paragraph",
+      "text": "A CV shortlisting tool is useful when recruiters need to move from a large applicant pool to a smaller reviewable list. The tool should help identify candidates who meet the role requirements, but it should also explain why they were shortlisted."
+    },
+    {
+      "type": "paragraph",
+      "text": "The output should be a ranked shortlist, not a black-box decision. Recruiters should be able to open each candidate, review the resume evidence, and decide whether the score makes sense."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "What to look for in AI resume screening software"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Rubric-based screening tied to the job description.",
+        "Explainable candidate scores with evidence.",
+        "Bulk resume upload and processing.",
+        "Editable criteria so recruiters can calibrate the screen.",
+        "Candidate ranking and shortlist review.",
+        "Resume parsing and structured candidate records.",
+        "Human override and final decision control.",
+        "Internal links between screening results, candidate records, and pipeline stages."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "How HireSort approaches AI resume screening"
+    },
+    {
+      "type": "paragraph",
+      "text": "HireSort is built around the resume screening bottleneck. Recruiters upload resumes, define the role, review a structured rubric, and get ranked candidates with explainable scores. The goal is to help teams shortlist faster without removing human judgment."
+    },
+    {
+      "type": "paragraph",
+      "text": "HireSort also connects screening to candidate management, so resumes can become reusable candidate records instead of one-off files."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "FAQ: Is AI resume screening accurate?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Accuracy depends on the quality of the job criteria, resume data, and review workflow. AI screening is most useful when it is rubric-based, explainable, and reviewed by recruiters."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "FAQ: Can AI shortlist candidates automatically?"
+    },
+    {
+      "type": "paragraph",
+      "text": "AI can help produce a ranked shortlist, but recruiters should review the evidence before making decisions. Human oversight is especially important for fairness, context, and final judgment."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "FAQ: What is the difference between an AI resume screening tool and an ATS?"
+    },
+    {
+      "type": "paragraph",
+      "text": "An ATS manages applications and hiring stages. An AI resume screening tool focuses on evaluating resumes and ranking candidates. Some teams use both together; HireSort focuses on screening-first candidate management."
+    },
+    {
+      "type": "callout",
+      "title": "Want to try AI resume screening?",
+      "text": "HireSort helps teams screen resumes in bulk, rank candidates with explainable AI scores, and build shortlists that hiring managers can review with confidence."
+    }
+  ]
+}

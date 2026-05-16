@@ -1,0 +1,174 @@
+{
+  "slug": "candidate-scorecard-template",
+  "title": "Recruiter Scorecard Template for Structured Candidate Evaluation",
+  "subtitle": "A practical candidate scorecard template recruiters and hiring managers can use to compare candidates consistently.",
+  "description": "Use this recruiter scorecard template to evaluate candidates with consistent criteria, interview notes, resume screening signals, and hiring recommendations.",
+  "keywords": [
+    "recruiter scorecard template",
+    "candidate scorecard template",
+    "candidate evaluation scorecard",
+    "interview scorecard template",
+    "hiring scorecard",
+    "candidate screening scorecard"
+  ],
+  "author": {
+    "name": "HireSort Team",
+    "role": "Product & Research"
+  },
+  "publishedAt": "2026-05-16",
+  "updatedAt": "2026-05-16",
+  "readingTime": "8 min read",
+  "coverImage": "/blog2.jpeg",
+  "coverAlt": "Recruiter reviewing a candidate scorecard template with structured evaluation criteria.",
+  "category": "Templates",
+  "tags": [
+    "Scorecards",
+    "Candidate evaluation",
+    "Recruiting templates",
+    "Structured hiring"
+  ],
+  "body": [
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "What is a recruiter scorecard?"
+    },
+    {
+      "type": "paragraph",
+      "text": "A recruiter scorecard is a structured evaluation template used to compare candidates against the same role-specific criteria. Instead of relying on memory, gut feel, or scattered interview notes, recruiters and hiring managers score each candidate on the evidence that matters for the job."
+    },
+    {
+      "type": "paragraph",
+      "text": "A good candidate scorecard makes hiring decisions easier to explain. It gives the team a shared language for resume screening, interviews, strengths, gaps, risks, and final recommendations."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Candidate scorecard template"
+    },
+    {
+      "type": "paragraph",
+      "text": "Use this scorecard structure as a starting point for recruiter screens, resume review, interview debriefs, or hiring manager calibration."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Candidate name: record the candidate and role being evaluated.",
+        "Role fit score: rate overall match from 1 to 5 or 1 to 10.",
+        "Must-have skills: list the non-negotiable skills and score each one.",
+        "Relevant experience: evaluate whether the candidate has solved similar problems before.",
+        "Evidence from resume or interview: capture specific proof, not vague impressions.",
+        "Strengths: summarize why the candidate may succeed in the role.",
+        "Gaps or risks: note missing requirements, unclear experience, or areas to probe.",
+        "Recommendation: move forward, hold, reject, or needs hiring manager review.",
+        "Next step: assign interview, test, follow-up question, or decision owner."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Example candidate scorecard table"
+    },
+    {
+      "type": "paragraph",
+      "text": "For a software engineer role, your scorecard might include backend experience, system design, coding depth, cloud infrastructure, communication, and evidence of ownership. Each criterion should have a score, notes, and evidence from the resume or interview."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Backend engineering experience: 4/5 - built APIs and services in production.",
+        "System design: 3/5 - some architecture ownership, needs deeper interview validation.",
+        "Cloud infrastructure: 4/5 - AWS, containers, deployment exposure.",
+        "Communication: 5/5 - clear explanations and strong written resume evidence.",
+        "Overall recommendation: move to technical interview."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "How to score candidates consistently"
+    },
+    {
+      "type": "paragraph",
+      "text": "The most common mistake is using the same generic scorecard for every role. A recruiter scorecard should be adapted to the job description. Start with the actual role requirements, identify the must-haves, then define what strong, average, and weak evidence looks like for each criterion."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Use 5 to 7 criteria instead of trying to score everything.",
+        "Separate must-have requirements from nice-to-have signals.",
+        "Ask reviewers to quote evidence from the resume or interview.",
+        "Avoid scoring personality traits unless they are tied to job behavior.",
+        "Review the scorecard with the hiring manager before screening begins."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Resume screening scorecard vs interview scorecard"
+    },
+    {
+      "type": "paragraph",
+      "text": "A resume screening scorecard helps decide who should move forward before interviews. It should focus on role relevance, experience, skills, progression, and obvious gaps. An interview scorecard goes deeper into problem solving, communication, collaboration, and role-specific exercises."
+    },
+    {
+      "type": "paragraph",
+      "text": "The two scorecards should connect. If the resume screen flags a gap, the interview scorecard should include a question or exercise that validates it."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "What is a good candidate score?"
+    },
+    {
+      "type": "paragraph",
+      "text": "A good candidate score is not just a high number. It is a score backed by evidence. A candidate with a 9/10 score should have clear proof against the most important criteria, while a candidate with a lower score may still be worth reviewing if the gaps are explainable or the role is flexible."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "How HireSort helps with candidate scorecards"
+    },
+    {
+      "type": "paragraph",
+      "text": "HireSort turns job descriptions into role-specific screening rubrics, scores resumes against those criteria, and shows strengths, gaps, and evidence for each candidate. That gives recruiters a structured starting point before the hiring manager review."
+    },
+    {
+      "type": "callout",
+      "title": "Use AI scoring as the first draft, not the final decision",
+      "text": "HireSort can help create a more consistent candidate scorecard by applying the same rubric across every resume. Recruiters and hiring managers should still review the evidence, adjust context, and make the final decision."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "FAQ: What should be included in a recruiter scorecard?"
+    },
+    {
+      "type": "paragraph",
+      "text": "A recruiter scorecard should include role requirements, must-have skills, evidence notes, strengths, gaps, overall score, recommendation, and next step."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "FAQ: How do you score candidates?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Score candidates against role-specific criteria using a consistent scale. The score should be supported by resume evidence, interview answers, work samples, or assessment results."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "FAQ: Should recruiters and hiring managers use the same scorecard?"
+    },
+    {
+      "type": "paragraph",
+      "text": "They should use connected scorecards. Recruiters can score first-pass resume fit, while hiring managers can score deeper role capability during interviews."
+    },
+    {
+      "type": "callout",
+      "title": "Want faster candidate evaluation?",
+      "text": "HireSort helps teams screen resumes with structured scorecards, explainable AI scores, and ranked shortlists so recruiters can compare candidates more consistently."
+    }
+  ]
+}
