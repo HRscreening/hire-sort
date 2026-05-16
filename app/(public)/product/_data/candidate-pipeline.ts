@@ -184,7 +184,7 @@ export const candidatePipeline: ProductPage = {
       title: 'Make the pipeline match your hiring process.',
       body: [
         'Different teams use different hiring stages. A startup may only need New, Shortlisted, Interview, Offer, and Hired. A recruitment agency may need Client Submitted, Client Review, Interview Scheduled, Selected, Rejected, and On Hold.',
-        '**HireSort lets users customize one default funnel for their workspace by allowing them to:**',
+        'HireSort lets users customize one default funnel for their workspace by allowing them to:',
         '• Rename stage labels',
         '• Add a new stage',
         '• Remove unused stages',
@@ -198,7 +198,7 @@ export const candidatePipeline: ProductPage = {
       title: 'Keep screening context attached to every candidate.',
       body: [
         'A candidate pipeline is more useful when it does not sit separately from screening. HireSort keeps the candidate’s stage connected to the resume, role, JD association, screening score, and shortlist rank.',
-        '**Recruiters can answer practical questions faster:**',
+        'Recruiters can answer practical questions faster:',
         '• Who are the top-scoring candidates still in New stage?',
         '• Which shortlisted candidates have not moved to Round 1?',
         '• Which candidates scored highly but were placed On Hold?',

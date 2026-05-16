@@ -647,10 +647,10 @@ const FormattedParagraphBody = ({ lines }: { lines: string[] }) => {
 
   lines.forEach((line) => {
     const trimmedLine = line.trim();
-    const labelMatch = trimmedLine.match(/^\*\*(.+?)\*\*:?\s*$/);
-    const bulletMatch = trimmedLine.match(/^•\s*(.+)$/);
+    const labelMatch = trimmedLine.match(/^(?:\*\*)?(.+?):(?:\*\*)?\s*$/);
+    const bulletMatch = trimmedLine.match(/^(?:•|-)\s*(.+)$/);
 
-    if (labelMatch) {
+    if (labelMatch && trimmedLine.length < 90) {
       flushList();
       blocks.push(
         <h3

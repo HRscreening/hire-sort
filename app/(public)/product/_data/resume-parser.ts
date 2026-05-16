@@ -203,7 +203,7 @@ export const resumeParser: ProductPage = {
       title: 'From parsed resume to ranked shortlist.',
       body: [
         'Parsing alone does not tell you who to interview. HireSort connects parsing with AI resume screening, so candidate data can be evaluated against the actual job requirements.',
-        '**The workflow is simple:**',
+        'The workflow is simple:',
         '• Create a job and generate a role-specific scoring rubric',
         '• Upload resumes in bulk',
         '• Parse candidate details and resume text',
@@ -218,7 +218,7 @@ export const resumeParser: ProductPage = {
       title: 'Build a reusable resume database.',
       body: [
         'Every parsed resume can become part of a central candidate repository. Instead of treating every upload as a one-time screening event, HireSort helps teams build a reusable candidate workspace.',
-        '**Recruiters can use this repository to:**',
+        'Recruiters can use this repository to:',
         '• View all uploaded resumes in one place',
         '• Search resumes by candidate name',
         '• Filter candidates by role or JD',
@@ -306,7 +306,7 @@ export const resumeParser: ProductPage = {
       title: 'Designed to support review, not replace judgment.',
       body: [
         'Resume parsing can improve speed and structure, but hiring teams should still review important candidate information before making final decisions.',
-        '**Trust principles:**',
+        'Trust principles:',
         '• Parsed candidate information remains reviewable by recruiters',
         '• AI screening provides explanations and evidence, not just scores',
         '• Human reviewers stay in control of hiring decisions',
