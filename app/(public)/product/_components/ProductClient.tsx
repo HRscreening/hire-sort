@@ -618,14 +618,67 @@ const ParagraphBlock = ({ b }: { b: Extract<ProductBlock, { type: 'paragraph' }>
       </motion.h2>
     )}
     <motion.div variants={pageFadeUp} className="flex flex-col gap-3">
-      {b.body.map((p, i) => (
-        <p key={i} className="text-[15px] leading-[1.7] text-charcoal-lt">
-          {p}
-        </p>
-      ))}
+      <FormattedParagraphBody lines={b.body} />
     </motion.div>
   </motion.div>
 );
+
+const FormattedParagraphBody = ({ lines }: { lines: string[] }) => {
+  const blocks: React.ReactNode[] = [];
+  let listItems: string[] = [];
+
+  const flushList = () => {
+    if (!listItems.length) return;
+
+    blocks.push(
+      <ul key={`list-${blocks.length}`} className="my-1 flex list-none flex-col gap-2 p-0">
+        {listItems.map((item) => (
+          <li
+            key={item}
+            className="relative pl-5 text-[14.5px] leading-[1.65] text-charcoal-lt before:absolute before:left-0 before:top-2.5 before:h-1.5 before:w-1.5 before:rounded-full before:bg-[rgba(200,90,23,0.65)] before:content-['']"
+          >
+            {item}
+          </li>
+        ))}
+      </ul>,
+    );
+    listItems = [];
+  };
+
+  lines.forEach((line) => {
+    const trimmedLine = line.trim();
+    const labelMatch = trimmedLine.match(/^\*\*(.+?)\*\*:?\s*$/);
+    const bulletMatch = trimmedLine.match(/^•\s*(.+)$/);
+
+    if (labelMatch) {
+      flushList();
+      blocks.push(
+        <h3
+          key={`label-${blocks.length}`}
+          className="mt-3 text-[15px] font-bold leading-[1.4] text-charcoal"
+        >
+          {labelMatch[1]}
+        </h3>,
+      );
+      return;
+    }
+
+    if (bulletMatch) {
+      listItems.push(bulletMatch[1]);
+      return;
+    }
+
+    flushList();
+    blocks.push(
+      <p key={`paragraph-${blocks.length}`} className="text-[15px] leading-[1.7] text-charcoal-lt">
+        {line}
+      </p>,
+    );
+  });
+
+  flushList();
+  return <>{blocks}</>;
+};
 
 const RenderBlock = ({ b }: { b: ProductBlock }) => {
   switch (b.type) {
