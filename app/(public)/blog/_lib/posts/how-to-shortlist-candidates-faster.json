@@ -1,0 +1,212 @@
+{
+  "slug": "how-to-shortlist-candidates-faster",
+  "title": "How to Shortlist Candidates Faster Without Missing Strong Fits",
+  "subtitle": "A practical guide to candidate shortlisting, resume evidence, scoring rubrics, AI-assisted ranking, and hiring manager handoff.",
+  "description": "Learn how to shortlist candidates faster with clear criteria, resume evidence, scoring rubrics, AI-assisted ranking, and hiring manager handoff.",
+  "keywords": [
+    "how to shortlist candidates faster",
+    "candidate shortlisting",
+    "resume shortlisting",
+    "shortlist candidates",
+    "candidate ranking",
+    "resume shortlisting software",
+    "AI candidate ranking",
+    "hiring shortlist"
+  ],
+  "author": {
+    "name": "HireSort Team",
+    "role": "Product & Research"
+  },
+  "publishedAt": "2026-05-16",
+  "updatedAt": "2026-05-16",
+  "readingTime": "8 min read",
+  "coverImage": "/blog/blog1.jpeg",
+  "coverAlt": "Recruiter reviewing ranked candidates and shortlist criteria in hiring software.",
+  "category": "Hiring workflows",
+  "tags": [
+    "Candidate shortlisting",
+    "Resume screening",
+    "Candidate ranking",
+    "AI screening"
+  ],
+  "body": [
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Why candidate shortlisting takes too long"
+    },
+    {
+      "type": "paragraph",
+      "text": "Candidate shortlisting slows down when recruiters have too many resumes, unclear must-have criteria, and no shared definition of what a strong fit looks like. Without structure, every reviewer scans resumes differently and the hiring manager receives a shortlist that is hard to compare."
+    },
+    {
+      "type": "paragraph",
+      "text": "The goal is not just to shortlist candidates faster. The goal is to build a shortlist that is quick to review, easy to explain, and based on evidence from the resume rather than guesswork."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Step 1: agree on shortlist criteria before resume review"
+    },
+    {
+      "type": "paragraph",
+      "text": "The fastest shortlisting workflow starts before screening begins. Recruiters and hiring managers should identify the few role requirements that actually decide whether a candidate should move forward."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Must-have skills the candidate needs from day one.",
+        "Relevant experience that proves the candidate can handle the role.",
+        "Seniority signals such as ownership, scope, and decision-making.",
+        "Nice-to-have skills that should support the decision but not block a strong candidate.",
+        "Follow-up questions for unclear but promising resumes."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Step 2: screen for resume evidence, not keywords alone"
+    },
+    {
+      "type": "paragraph",
+      "text": "Resume shortlisting becomes more accurate when reviewers look for proof. A keyword can show familiarity, but evidence shows whether the candidate has applied the skill in a context close to the job."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Look for outcomes, not just responsibilities.",
+        "Check whether the candidate used the skill in a recent or relevant role.",
+        "Compare the candidate's scope with the role's expected scope.",
+        "Flag missing information for follow-up instead of making silent assumptions.",
+        "Capture the evidence that explains why a candidate was shortlisted."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Step 3: use a simple candidate scoring rubric"
+    },
+    {
+      "type": "paragraph",
+      "text": "A scoring rubric helps teams compare candidates against the same bar. It also makes candidate ranking easier because each resume is evaluated against agreed criteria rather than a fresh opinion each time."
+    },
+    {
+      "type": "list",
+      "items": [
+        "5 = strong evidence for a must-have requirement.",
+        "4 = good evidence with one minor gap or follow-up question.",
+        "3 = partial evidence that needs hiring manager review.",
+        "2 = weak evidence for a key requirement.",
+        "1 = missing evidence for a must-have requirement."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Step 4: rank candidates into shortlist tiers"
+    },
+    {
+      "type": "paragraph",
+      "text": "Candidate ranking is most useful when it creates clear review tiers. Instead of sending a long unstructured list to the hiring manager, group candidates by action."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Priority shortlist: strong evidence across the most important criteria.",
+        "Review shortlist: promising candidates with one or two points to validate.",
+        "Hold: relevant profiles that are not the best immediate fit.",
+        "Reject: candidates missing non-negotiable requirements.",
+        "Rediscover later: strong candidates who may fit a future role."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Step 5: hand off candidates with reasons, not just names"
+    },
+    {
+      "type": "paragraph",
+      "text": "A useful shortlist tells the hiring manager why each candidate is included. The handoff should include the candidate score, strongest evidence, biggest gap, and recommended next step."
+    },
+    {
+      "type": "paragraph",
+      "text": "This is where many shortlists lose time. If the hiring manager has to reopen every resume to understand the recommendation, the shortlist is only partly finished."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Where AI-assisted ranking helps"
+    },
+    {
+      "type": "paragraph",
+      "text": "AI-assisted ranking helps when it applies the same rubric across every resume and shows the evidence behind each score. It can reduce repetitive screening work, surface strong candidates faster, and keep human reviewers focused on judgment and calibration."
+    },
+    {
+      "type": "paragraph",
+      "text": "The safest workflow keeps recruiters in control. AI can rank and organize candidates, but recruiters should review the evidence before moving anyone forward."
+    },
+    {
+      "type": "linkList",
+      "title": "Related resources for faster shortlisting",
+      "links": [
+        {
+          "href": "/product/recruitment-software",
+          "label": "AI Recruitment Software",
+          "description": "See how HireSort connects resume screening, candidate ranking, and lightweight pipeline management."
+        },
+        {
+          "href": "/resources/best/candidate-screening-software",
+          "label": "Best Candidate Screening Software",
+          "description": "Compare software options for structured candidate screening and shortlisting."
+        },
+        {
+          "href": "/blog/resume-screening-checklist",
+          "label": "Resume Screening Checklist",
+          "description": "Use a checklist before ranking candidates into a shortlist."
+        },
+        {
+          "href": "/blog/ai-resume-screening-tool",
+          "label": "AI Resume Screening Tool",
+          "description": "Learn how AI screening tools rank candidates with recruiter review."
+        },
+        {
+          "href": "/resources/compare/ai-resume-screening-vs-ats",
+          "label": "AI Resume Screening vs ATS",
+          "description": "Understand when screening software, an ATS, or both make sense."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "FAQ: How do you shortlist candidates faster?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Shortlist candidates faster by agreeing on must-have criteria first, screening for resume evidence, scoring candidates with a simple rubric, ranking candidates into review tiers, and giving hiring managers a clear reason for every recommendation."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "FAQ: What criteria should be used for candidate shortlisting?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Candidate shortlisting criteria should include must-have skills, role-relevant experience, seniority fit, evidence of impact, domain context, and risks or gaps that need follow-up."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "FAQ: Can AI rank candidates automatically?"
+    },
+    {
+      "type": "paragraph",
+      "text": "AI can help rank candidates, but recruiters should review the evidence and make the final decision. Automated ranking is most useful when it is explainable and tied to a role-specific rubric."
+    },
+    {
+      "type": "callout",
+      "title": "Want to shortlist candidates faster?",
+      "text": "HireSort helps teams turn resumes into ranked, evidence-backed shortlists so recruiters can review candidates faster and hand off clearer recommendations."
+    }
+  ]
+}

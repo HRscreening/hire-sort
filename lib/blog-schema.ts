@@ -15,6 +15,19 @@ export const blogBlockSchema = z.discriminatedUnion('type', [
     items: z.array(z.string().min(1)).min(1),
   }),
   z.object({
+    type: z.literal('linkList'),
+    title: z.string().optional(),
+    links: z
+      .array(
+        z.object({
+          href: z.string().min(1),
+          label: z.string().min(1),
+          description: z.string().optional(),
+        }),
+      )
+      .min(1),
+  }),
+  z.object({
     type: z.literal('callout'),
     title: z.string().optional(),
     text: z.string().min(1),

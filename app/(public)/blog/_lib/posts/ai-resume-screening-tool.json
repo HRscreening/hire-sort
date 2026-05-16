@@ -174,6 +174,37 @@
       "text": "An ATS manages applications and hiring stages. An AI resume screening tool focuses on evaluating resumes and ranking candidates. Some teams use both together; HireSort focuses on screening-first candidate management."
     },
     {
+      "type": "linkList",
+      "title": "Related AI resume screening resources",
+      "links": [
+        {
+          "href": "/blog/resume-screening-checklist",
+          "label": "Resume Screening Checklist",
+          "description": "Use a structured checklist before applying AI ranking."
+        },
+        {
+          "href": "/blog/how-to-shortlist-candidates-faster",
+          "label": "How to Shortlist Candidates Faster",
+          "description": "Create clearer candidate ranking and handoff workflows."
+        },
+        {
+          "href": "/resources/compare/ai-resume-screening-vs-ats",
+          "label": "AI Resume Screening vs ATS",
+          "description": "Compare screening software with traditional applicant tracking systems."
+        },
+        {
+          "href": "/resources/best/ai-resume-screening-software",
+          "label": "Best AI Resume Screening Software",
+          "description": "Review options for AI-assisted resume screening."
+        },
+        {
+          "href": "/product/recruitment-software",
+          "label": "AI Recruitment Software",
+          "description": "See how HireSort connects screening and candidate management."
+        }
+      ]
+    },
+    {
       "type": "callout",
       "title": "Want to try AI resume screening?",
       "text": "HireSort helps teams screen resumes in bulk, rank candidates with explainable AI scores, and build shortlists that hiring managers can review with confidence."

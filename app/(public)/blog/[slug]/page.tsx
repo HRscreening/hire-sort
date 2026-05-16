@@ -109,6 +109,36 @@ const Block = ({ block, slug }: { block: BlogBlock; slug: string }) => {
       </ul>
     );
   }
+  if (block.type === 'linkList') {
+    return (
+      <aside className="my-10 rounded-xl border border-line-soft bg-white p-6 shadow-soft">
+        {block.title && (
+          <h3 className="mb-4 text-[17px] font-bold tracking-[-0.3px] text-charcoal">
+            {block.title}
+          </h3>
+        )}
+        <ul className="grid list-none gap-3 p-0 sm:grid-cols-2">
+          {block.links.map((link) => (
+            <li key={link.href}>
+              <Link
+                href={link.href}
+                className="group block h-full rounded-lg border border-line-soft bg-ivory-light px-4 py-3 no-underline transition-colors hover:border-accent hover:bg-white"
+              >
+                <span className="text-[14px] font-bold text-accent group-hover:underline">
+                  {link.label}
+                </span>
+                {link.description && (
+                  <span className="mt-1 block text-[12.5px] leading-[1.5] text-charcoal-lt">
+                    {link.description}
+                  </span>
+                )}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </aside>
+    );
+  }
   return (
     <aside className="my-10 rounded-xl border border-[rgba(200,90,23,0.16)] bg-[rgba(200,90,23,0.05)] px-6 py-6">
       {block.title && (
@@ -171,13 +201,11 @@ export default async function BlogPostPage({ params }: { params: Params }) {
     <>
       <script
         type="application/ld+json"
-        // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{ __html: jsonLdString(crumbs) }}
       />
       <Breadcrumb crumbs={crumbTrail} />
       <script
         type="application/ld+json"
-        // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{ __html: jsonLdString(buildJsonLd(post)) }}
       />
 

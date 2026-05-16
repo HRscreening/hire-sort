@@ -216,6 +216,32 @@
       "text": "Resume screening can be assisted by automation, but final decisions should stay human-reviewed. AI is best used to organize evidence, rank candidates, and reduce repetitive first-pass work."
     },
     {
+      "type": "linkList",
+      "title": "Related resume screening resources",
+      "links": [
+        {
+          "href": "/blog/how-to-shortlist-candidates-faster",
+          "label": "How to Shortlist Candidates Faster",
+          "description": "Turn a resume screening checklist into a ranked candidate shortlist."
+        },
+        {
+          "href": "/blog/ai-resume-screening-tool",
+          "label": "AI Resume Screening Tool",
+          "description": "Understand how AI can support first-pass resume review."
+        },
+        {
+          "href": "/resources/best/candidate-screening-software",
+          "label": "Best Candidate Screening Software",
+          "description": "Compare tools for candidate screening and shortlisting."
+        },
+        {
+          "href": "/product/recruitment-software",
+          "label": "AI Recruitment Software",
+          "description": "See how HireSort connects screening, ranking, and candidate management."
+        }
+      ]
+    },
+    {
       "type": "callout",
       "title": "Want to apply a checklist to every resume?",
       "text": "HireSort helps teams screen resumes with role-specific rubrics, explainable AI scoring, and ranked shortlists so recruiters can review candidates faster and more consistently."

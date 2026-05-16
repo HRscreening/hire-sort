@@ -166,6 +166,32 @@
       "text": "They should use connected scorecards. Recruiters can score first-pass resume fit, while hiring managers can score deeper role capability during interviews."
     },
     {
+      "type": "linkList",
+      "title": "Related candidate evaluation resources",
+      "links": [
+        {
+          "href": "/blog/resume-screening-checklist",
+          "label": "Resume Screening Checklist",
+          "description": "Screen resumes consistently before filling out candidate scorecards."
+        },
+        {
+          "href": "/blog/how-to-shortlist-candidates-faster",
+          "label": "How to Shortlist Candidates Faster",
+          "description": "Use scoring criteria to create better candidate shortlists."
+        },
+        {
+          "href": "/resources/best/candidate-screening-software",
+          "label": "Best Candidate Screening Software",
+          "description": "Compare software for screening, scorecards, and shortlisting."
+        },
+        {
+          "href": "/product/recruitment-software",
+          "label": "AI Recruitment Software",
+          "description": "See how HireSort supports structured candidate evaluation."
+        }
+      ]
+    },
+    {
       "type": "callout",
       "title": "Want faster candidate evaluation?",
       "text": "HireSort helps teams screen resumes with structured scorecards, explainable AI scores, and ranked shortlists so recruiters can compare candidates more consistently."
