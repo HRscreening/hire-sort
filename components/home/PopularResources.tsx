@@ -58,6 +58,13 @@ const groups: { heading: string; links: ResourceLink[] }[] = [
         description:
           'Software for teams that need to screen large candidate pools without slowing down.',
       },
+      {
+        href: '/blog/how-to-shortlist-candidates-faster',
+        eyebrow: 'Guide',
+        title: 'How to Shortlist Candidates Faster',
+        description:
+          'A practical shortlisting workflow for ranking resumes, using evidence, and handing off finalists.',
+      },
     ],
   },
   {
@@ -84,6 +91,13 @@ const groups: { heading: string; links: ResourceLink[] }[] = [
         description:
           'Compare AI-assisted candidate screening with manual resume review workflows.',
       },
+      {
+        href: '/resources/compare/ai-resume-screening-vs-ats',
+        eyebrow: 'Compare',
+        title: 'AI Resume Screening vs ATS',
+        description:
+          'Understand when teams need ATS tracking, AI screening, or both in the same workflow.',
+      },
     ],
   },
   {
@@ -109,6 +123,13 @@ const groups: { heading: string; links: ResourceLink[] }[] = [
         title: 'Job Description Templates',
         description:
           'Role-ready templates that help teams define requirements before candidate screening begins.',
+      },
+      {
+        href: '/blog/resume-screening-checklist',
+        eyebrow: 'Checklist',
+        title: 'Resume Screening Checklist',
+        description:
+          'A step-by-step checklist for consistent resume review and shortlist decisions.',
       },
     ],
   },

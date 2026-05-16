@@ -148,9 +148,11 @@ export const hiringManagers: ProductPage = {
   internalLinks: [
     { href: '/use-cases/recruiters', label: 'For Recruiters' },
     { href: '/use-cases/founder-led-hiring', label: 'Founder-Led Hiring' },
-    { href: '/product/resume-parser', label: 'Resume Screening Software' },
-    { href: '/product/applicant-tracking-system', label: 'Applicant Tracking System' },
+    { href: '/product/recruitment-software', label: 'Recruitment Software' },
+    { href: '/resources/best/candidate-screening-software', label: 'Candidate Screening Software' },
+    { href: '/resources/scorecards', label: 'Candidate Scorecard Templates' },
+    { href: '/resources/screening-rubrics', label: 'Screening Rubrics' },
+    { href: '/blog/resume-screening-checklist', label: 'Resume Screening Checklist' },
     { href: '/product/candidate-pipeline', label: 'Candidate Pipeline' },
-    { href: '/pricing', label: 'Pricing' },
   ],
 };

@@ -159,11 +159,12 @@ export const founderLedHiring: ProductPage = {
 
   internalLinks: [
     { href: '/applicant-tracking-system/startups', label: 'ATS for Startups' },
-    { href: '/applicant-tracking-system/smb', label: 'ATS for Small Businesses' },
-    { href: '/product/applicant-tracking-system', label: 'Applicant Tracking System' },
-    { href: '/product/resume-parser', label: 'Resume Screening Software' },
+    { href: '/product/recruitment-software', label: 'Recruitment Software' },
+    { href: '/product/resume-management', label: 'Resume Management Software' },
+    { href: '/resources/best/candidate-screening-software', label: 'Candidate Screening Software' },
+    { href: '/resources/best/ats-for-startups', label: 'Best ATS for Startups' },
+    { href: '/blog/how-to-shortlist-candidates-faster', label: 'How to Shortlist Candidates Faster' },
     { href: '/use-cases/recruiters', label: 'For Recruiters' },
     { href: '/use-cases/hiring-managers', label: 'For Hiring Managers' },
-    { href: '/pricing', label: 'Pricing' },
   ],
 };

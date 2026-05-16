@@ -150,9 +150,10 @@ export const recruitmentAgencies: ProductPage = {
   internalLinks: [
     { href: '/use-cases/high-volume-hiring', label: 'High-Volume Hiring' },
     { href: '/use-cases/recruiters', label: 'For Recruiters' },
-    { href: '/product/resume-parser', label: 'Resume Screening Software' },
-    { href: '/product/applicant-tracking-system', label: 'Applicant Tracking System' },
-    { href: '/product/resume-management', label: 'Resume Management' },
-    { href: '/pricing', label: 'Pricing' },
+    { href: '/product/recruitment-software', label: 'Recruitment Software' },
+    { href: '/product/resume-management', label: 'Resume Management Software' },
+    { href: '/resources/best/candidate-screening-software', label: 'Candidate Screening Software' },
+    { href: '/resources/best/ai-resume-screening-software', label: 'AI Resume Screening Software' },
+    { href: '/blog/how-to-shortlist-candidates-faster', label: 'How to Shortlist Candidates Faster' },
   ],
 };

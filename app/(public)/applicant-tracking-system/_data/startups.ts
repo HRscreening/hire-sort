@@ -246,8 +246,10 @@ export const atsForStartups: ProductPage = {
     { href: '/use-cases/founder-led-hiring', label: 'Founder-Led Hiring' },
     { href: '/use-cases/recruiters', label: 'For Recruiters' },
     { href: '/use-cases/hiring-managers', label: 'For Hiring Managers' },
-    { href: '/product/applicant-tracking-system', label: 'Applicant Tracking System' },
-    { href: '/product/resume-parser', label: 'Resume Screening Software' },
-    { href: '/pricing', label: 'Pricing' },
+    { href: '/product/recruitment-software', label: 'Recruitment Software' },
+    { href: '/product/resume-management', label: 'Resume Management Software' },
+    { href: '/resources/best/ats-for-startups', label: 'Best ATS for Startups' },
+    { href: '/resources/best/candidate-screening-software', label: 'Candidate Screening Software' },
+    { href: '/blog/how-to-shortlist-candidates-faster', label: 'How to Shortlist Candidates Faster' },
   ],
 };
