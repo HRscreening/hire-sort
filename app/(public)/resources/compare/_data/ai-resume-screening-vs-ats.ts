@@ -34,15 +34,15 @@ export const aiResumeScreeningVsAts: CompetitorPage = {
       'An applicant tracking system helps teams manage candidates through the hiring process. AI resume screening software helps teams evaluate resumes against role requirements and create ranked shortlists.',
       'Many teams need both. But if your biggest problem is resume volume, AI screening may solve the most painful bottleneck first.',
     ],
-    primaryCta: { label: 'Get started for free', href: redirectURL },
-    secondaryCta: { label: 'Compare features', href: '#feature-compare' },
+    primaryCta: { label: 'Get Started for Free', href: redirectURL },
+    secondaryCta: { label: 'Compare Features', href: '#feature-compare' },
     supporting:
       'HireSort combines AI resume screening with lightweight applicant tracking — designed for teams comparing ATS vs resume screening software and looking for faster candidate shortlisting.',
   },
 
   problem: {
     eyebrow: 'Decision guide',
-    title: 'Do you need an ATS, AI resume screening software, or both?',
+    title: 'Do You Need an ATS, AI Resume Screening Software, or Both?',
     intro:
       'Teams searching for AI resume screening vs ATS are usually trying to solve one of two problems: managing the recruiting process or creating better shortlists from a large applicant pool. Traditional ATS software organizes applications, while AI resume screening software evaluates candidates against role requirements.',
     bullets: [
@@ -56,7 +56,7 @@ export const aiResumeScreeningVsAts: CompetitorPage = {
   },
 
   quickCompare: {
-    heading: 'AI resume screening vs ATS at a glance',
+    heading: 'AI Resume Screening vs ATS at a Glance',
     rows: [
       {
         area: 'Candidate storage',
@@ -98,7 +98,7 @@ export const aiResumeScreeningVsAts: CompetitorPage = {
 
   positioning: {
     eyebrow: 'Where HireSort fits',
-    title: 'AI resume screening and ATS software solve different problems',
+    title: 'AI Resume Screening and ATS Software Solve Different Problems',
     body: [
       'A traditional ATS stores candidates and applications, tracks them across stages, supports job posting, and helps teams collaborate around interviews and decisions. Some include reporting, permissions, integrations and onboarding workflows.',
       'AI resume screening software does something different: it reads resumes at scale, evaluates candidates against job-specific criteria, produces candidate scores and rankings, highlights strengths and gaps with evidence, and helps recruiters decide who to review first.',
@@ -108,7 +108,7 @@ export const aiResumeScreeningVsAts: CompetitorPage = {
   },
 
   featureCompare: {
-    heading: 'Compare ATS, AI resume screening, and HireSort',
+    heading: 'Compare ATS, AI Resume Screening, and HireSort',
     rows: [
       { need: 'Centralize candidate applications', competitor: 'Core capability', hiresort: 'Central resume repository' },
       { need: 'Track candidate stages', competitor: 'Core capability', hiresort: 'Lightweight stage tracking' },
@@ -123,7 +123,7 @@ export const aiResumeScreeningVsAts: CompetitorPage = {
   },
 
   chooseHiresort: {
-    title: 'When you need HireSort',
+    title: 'When You Need HireSort',
     bullets: [
       'You receive too many resumes to review manually',
       'Your shortlists vary depending on who screens the candidates',
@@ -133,7 +133,7 @@ export const aiResumeScreeningVsAts: CompetitorPage = {
       'You want enough applicant tracking to manage candidates without a heavy ATS',
       'You are comparing ATS vs resume screening software and need candidate shortlisting first',
     ],
-    suitableForTitle: 'Especially suitable for',
+    suitableForTitle: 'Especially Suitable For',
     suitableFor: [
       'Startup recruiters',
       'Founders doing early hiring',
@@ -144,7 +144,7 @@ export const aiResumeScreeningVsAts: CompetitorPage = {
   },
 
   chooseCompetitor: {
-    title: 'When you need a full ATS',
+    title: 'When You Need a Full ATS',
     bullets: [
       'You manage many roles and interview stages across a large organization',
       'You need candidate communication, scheduling, approvals or offer workflows',
@@ -157,58 +157,58 @@ export const aiResumeScreeningVsAts: CompetitorPage = {
 
   cta: {
     eyebrow: 'Ready when you are',
-    title: 'Get screening power with lightweight ATS structure',
+    title: 'Get Screening Power With Lightweight ATS Structure',
     body: 'Use HireSort to screen resumes, rank candidates, store profiles and track stages from one workflow.',
-    primary: { label: 'Get started for free', href: redirectURL },
-    secondary: { label: 'View pricing', href: '/pricing' },
+    primary: { label: 'Get Started for Free', href: redirectURL },
+    secondary: { label: 'View Pricing', href: '/pricing' },
   },
 
   faqs: [
     {
       id: 'need-ats-or-screening',
-      question: 'Do I need an ATS or resume screening software?',
+      question: 'Do I Need an ATS or Resume Screening Software?',
       answer: [
         'You need an ATS when your main challenge is managing applications, stages, communication and recruiting operations. You need resume screening software when your main challenge is reviewing resumes, scoring candidates, and building ranked shortlists faster. Many teams eventually use both.',
       ],
     },
     {
       id: 'ats-or-screening',
-      question: 'Is HireSort an ATS or AI resume screening software?',
+      question: 'Is HireSort an ATS or AI Resume Screening Software?',
       answer: [
         'HireSort is best described as AI resume screening plus lightweight applicant tracking. It is screening-first, but also supports candidate repository and stage-tracking workflows.',
       ],
     },
     {
       id: 'replace-ats',
-      question: 'Can AI screening replace ATS?',
+      question: 'Can AI Screening Replace ATS?',
       answer: [
         'Usually not for large recruiting teams. AI screening helps evaluate resumes and rank candidates, while an ATS manages broader hiring workflows. For startups and lean teams, screening-first software with lightweight tracking may cover the early workflow before a full ATS is needed.',
       ],
     },
     {
       id: 'startups-first',
-      question: 'When should startups use AI screening first?',
+      question: 'When Should Startups Use AI Screening First?',
       answer: [
         'Startups should use AI screening first when the immediate problem is too many resumes, slow first-pass review, inconsistent shortlists, or founder-led hiring without a dedicated recruiting operation. A full ATS may come later when the pipeline and coordination needs become more complex.',
       ],
     },
     {
       id: 'ai-ats',
-      question: 'What is an AI ATS?',
+      question: 'What Is an AI ATS?',
       answer: [
         'An AI ATS usually refers to applicant tracking software that includes automation or AI features such as resume parsing, candidate matching, screening assistance, or outreach support. Buyers should check whether the AI features actually produce explainable candidate shortlists or simply add automation around a traditional ATS workflow.',
       ],
     },
     {
       id: 'when-need-ats',
-      question: 'When does a team need an ATS?',
+      question: 'When Does a Team Need an ATS?',
       answer: [
         'Teams typically need an ATS when they manage many roles and interview stages, need candidate communication, scheduling, approvals or offer workflows, require detailed permissions or integrations, or need a full recruiting operations platform.',
       ],
     },
     {
       id: 'when-need-screening',
-      question: 'When does a team need AI resume screening?',
+      question: 'When Does a Team Need AI Resume Screening?',
       answer: [
         'AI resume screening helps when teams receive too many resumes to review manually, when shortlists vary by reviewer, when hiring managers want clearer reasoning, when keyword filters are missing strong candidates, or when first-pass review is too slow.',
       ],

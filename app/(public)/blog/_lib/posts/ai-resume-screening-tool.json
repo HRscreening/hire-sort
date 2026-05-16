@@ -31,7 +31,7 @@
     {
       "type": "heading",
       "level": 2,
-      "text": "What is an AI resume screening tool?"
+      "text": "What Is an AI Resume Screening Tool?"
     },
     {
       "type": "paragraph",
@@ -44,7 +44,7 @@
     {
       "type": "heading",
       "level": 2,
-      "text": "What does an AI resume screening tool actually do?"
+      "text": "What Does an AI Resume Screening Tool Actually Do?"
     },
     {
       "type": "list",
@@ -62,7 +62,7 @@
     {
       "type": "heading",
       "level": 2,
-      "text": "AI resume screening vs keyword matching"
+      "text": "AI Resume Screening vs. Keyword Matching"
     },
     {
       "type": "paragraph",
@@ -75,7 +75,7 @@
     {
       "type": "heading",
       "level": 2,
-      "text": "When should you use an AI resume screening tool?"
+      "text": "When Should You Use an AI Resume Screening Tool?"
     },
     {
       "type": "list",
@@ -91,7 +91,7 @@
     {
       "type": "heading",
       "level": 2,
-      "text": "What AI resume screening should not do"
+      "text": "What AI Resume Screening Should Not Do"
     },
     {
       "type": "paragraph",
@@ -99,13 +99,13 @@
     },
     {
       "type": "callout",
-      "title": "Human-reviewed AI screening is the safer default",
+      "title": "Human-Reviewed AI Screening Is the Safer Default",
       "text": "Use AI to reduce repetitive first-pass work, then let humans review the evidence, calibrate the rubric, and decide who moves forward."
     },
     {
       "type": "heading",
       "level": 2,
-      "text": "How a CV shortlisting tool fits into the workflow"
+      "text": "How a CV Shortlisting Tool Fits Into the Workflow"
     },
     {
       "type": "paragraph",
@@ -118,7 +118,7 @@
     {
       "type": "heading",
       "level": 2,
-      "text": "What to look for in AI resume screening software"
+      "text": "What to Look for in AI Resume Screening Software"
     },
     {
       "type": "list",
@@ -136,7 +136,7 @@
     {
       "type": "heading",
       "level": 2,
-      "text": "How HireSort approaches AI resume screening"
+      "text": "How HireSort Approaches AI Resume Screening"
     },
     {
       "type": "paragraph",
@@ -149,7 +149,7 @@
     {
       "type": "heading",
       "level": 2,
-      "text": "FAQ: Is AI resume screening accurate?"
+      "text": "FAQ: Is AI Resume Screening Accurate?"
     },
     {
       "type": "paragraph",
@@ -158,7 +158,7 @@
     {
       "type": "heading",
       "level": 2,
-      "text": "FAQ: Can AI shortlist candidates automatically?"
+      "text": "FAQ: Can AI Shortlist Candidates Automatically?"
     },
     {
       "type": "paragraph",
@@ -167,7 +167,7 @@
     {
       "type": "heading",
       "level": 2,
-      "text": "FAQ: What is the difference between an AI resume screening tool and an ATS?"
+      "text": "FAQ: What Is the Difference Between an AI Resume Screening Tool and an ATS?"
     },
     {
       "type": "paragraph",
@@ -175,7 +175,7 @@
     },
     {
       "type": "linkList",
-      "title": "Related AI resume screening resources",
+      "title": "Related AI Resume Screening Resources",
       "links": [
         {
           "href": "/blog/resume-screening-checklist",
@@ -206,7 +206,7 @@
     },
     {
       "type": "callout",
-      "title": "Want to try AI resume screening?",
+      "title": "Want to Try AI Resume Screening?",
       "text": "HireSort helps teams screen resumes in bulk, rank candidates with explainable AI scores, and build shortlists that hiring managers can review with confidence."
     }
   ]
