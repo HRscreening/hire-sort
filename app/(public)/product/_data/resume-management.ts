@@ -25,6 +25,12 @@ export const resumeManagement: ProductPage = {
       'resume database software',
       'candidate database software',
       'cv shortlisting tool',
+      'candidate resume database',
+      'recruiter resume database',
+      'resume repository software',
+      'resume management software for agencies',
+      'resume management software for startups',
+      'candidate rediscovery software',
     ],
     ogImage: '/logo.png',
     ogImageAlt: 'HireSort — Resume Management Software',
@@ -48,7 +54,7 @@ export const resumeManagement: ProductPage = {
     {
       type: 'problem',
       eyebrow: 'The problem',
-      title: 'Recruiters should not have to restart from zero for every role.',
+      title: 'Recruiters Should Not Have to Restart From Zero for Every Role.',
       intro:
         'Most recruiting workflows lose value after each screening. A recruiter uploads resumes for one job, reviews them once, and then the profiles often disappear into folders, spreadsheets, old email threads, or disconnected ATS exports. That creates avoidable problems:',
       bullets: [
@@ -66,7 +72,7 @@ export const resumeManagement: ProductPage = {
     {
       type: 'positioning',
       eyebrow: 'AI + Management',
-      title: 'AI resume screening + lightweight resume management.',
+      title: 'AI Resume Screening + Lightweight Resume Management.',
       body: [
         'HireSort is not just a JD-to-score workflow. It is evolving into a lightweight candidate workspace where recruiters can store resumes, search candidate records, associate candidates with roles, track hiring stages, and reuse profiles across future screenings.',
         'The goal is simple: make HireSort useful before, during, and after AI screening.',
@@ -76,16 +82,26 @@ export const resumeManagement: ProductPage = {
     {
       type: 'paragraph',
       eyebrow: 'Search intent',
-      title: 'A resume management system for CV storage, shortlisting, and reuse.',
+      title: 'A Resume Management System for CV Storage, Shortlisting, and Reuse.',
       body: [
         'Teams searching for resume management software often need more than file storage. They need a CV management solution that can organize resumes, connect candidates to roles, preserve screening context, and make past applicants searchable again.',
         'HireSort combines resume management with AI screening so recruiters can store candidate records, review match scores, shortlist faster, and reuse strong profiles when a similar role opens later.',
       ],
     },
     {
+      type: 'paragraph',
+      eyebrow: 'Who it is for',
+      title: 'Resume Management Software for Recruiters, Agencies, Startups, and High-Volume Teams.',
+      body: [
+        'HireSort is useful when resumes arrive faster than the team can organize them. Startup teams can build a candidate database before they need a full ATS. Agencies can reuse candidate records across client requirements. High-volume teams can keep resumes searchable after the first screening cycle.',
+        'The page is also built around CV management solution intent: store CVs, preserve screening evidence, track candidate status, and rediscover older profiles when a new role opens.',
+        'For US and UK hiring teams, the practical benefit is control: recruiters can review candidate records, screening evidence, and stage history instead of relying on disconnected folders or black-box matching.',
+      ],
+    },
+    {
       type: 'workflow',
       eyebrow: 'How it works',
-      title: 'From resume upload to reusable candidate database.',
+      title: 'From Resume Upload to Reusable Candidate Database.',
       steps: [
         {
           n: '01',
@@ -127,7 +143,7 @@ export const resumeManagement: ProductPage = {
     {
       type: 'features',
       eyebrow: 'Core features',
-      title: 'Everything you need to manage resumes after upload.',
+      title: 'Everything You Need to Manage Resumes After Upload.',
       items: [
         {
           icon: 'database',
@@ -174,7 +190,7 @@ export const resumeManagement: ProductPage = {
     {
       type: 'fieldList',
       eyebrow: 'Central repository',
-      title: 'A single place for every resume your team uploads.',
+      title: 'A Single Place for Every Resume Your Team Uploads.',
       intro:
         'The central repository is the foundation of HireSort Resume Management. Instead of keeping resumes trapped inside individual jobs, HireSort gives recruiters one place to view and manage candidate records.',
       cardLabel: 'Candidate record',
@@ -198,7 +214,7 @@ export const resumeManagement: ProductPage = {
     {
       type: 'comparison',
       eyebrow: 'Stage tracking',
-      title: 'Know what happened after screening.',
+      title: 'Know What Happened After Screening.',
       columns: ['Default stage', 'Use case'],
       rows: [
         ['New', 'Candidate has entered the system'],
@@ -215,7 +231,7 @@ export const resumeManagement: ProductPage = {
     {
       type: 'paragraph',
       eyebrow: 'Detail view',
-      title: 'A complete candidate view in one place.',
+      title: 'A Complete Candidate View in One Place.',
       body: [
         'The candidate detail page is the main management screen for recruiters. It brings together the resume, parsed profile, job association, score, and stage in a single view.',
         '• Resume preview or file access',
@@ -229,7 +245,7 @@ export const resumeManagement: ProductPage = {
     {
       type: 'paragraph',
       eyebrow: 'Search and Filtering',
-      title: 'Find the right candidates faster.',
+      title: 'Find the Right Candidates Faster.',
       body: [
         'As the repository grows, recruiters need quick ways to find relevant profiles. HireSort should support simple search and filtering in the free version and more advanced search in the paid version.',
         '**MVP search and filters:**',
@@ -249,7 +265,7 @@ export const resumeManagement: ProductPage = {
     {
       type: 'paragraph',
       eyebrow: 'Advanced Workflows',
-      title: 'When your recruiting operation needs more structure.',
+      title: 'When Your Recruiting Operation Needs More Structure.',
       body: [
         'As teams grow, recruiters need more than a simple list of resumes. The expanded HireSort Resume Management workflow adds deeper organization, collaboration, and operational control.',
         '**Advanced repository:**',
@@ -274,7 +290,7 @@ export const resumeManagement: ProductPage = {
     {
       type: 'useCases',
       eyebrow: 'Use cases',
-      title: 'Built for recruiters who want candidate continuity.',
+      title: 'Built for Recruiters Who Want Candidate Continuity.',
       items: [
         {
           icon: 'building',
@@ -297,6 +313,16 @@ export const resumeManagement: ProductPage = {
           body: 'Maintain a searchable database of candidates and reuse profiles across client roles.',
         },
         {
+          icon: 'search',
+          title: 'For high-volume hiring',
+          body: 'Keep large resume batches searchable so strong applicants can be rediscovered later.',
+        },
+        {
+          icon: 'users',
+          title: 'For US hiring teams',
+          body: 'Review resume evidence, candidate status, and screening context in one recruiter-controlled workspace.',
+        },
+        {
           icon: 'users',
           title: 'For small teams',
           body: 'Keep candidate tracking simple while still adding structure, search, and AI screening.',
@@ -306,8 +332,8 @@ export const resumeManagement: ProductPage = {
     {
       type: 'comparison',
       eyebrow: 'Comparison',
-      title: 'HireSort vs spreadsheets and full ATS platforms.',
-      columns: ['Capability', 'Spreadsheets', 'Full ATS', 'HireSort Resume Management'],
+      title: 'HireSort vs Folders, Spreadsheets, and Full ATS Platforms.',
+      columns: ['Capability', 'Folders / Spreadsheets', 'Full ATS', 'HireSort Resume Management'],
       accentColIndex: 3,
       rows: [
         ['Central resume repository', 'Manual and messy', 'Yes', 'Yes'],
@@ -316,14 +342,30 @@ export const resumeManagement: ProductPage = {
         ['Role-specific scoring', 'Manual', 'Varies', 'Rubric-based'],
         ['Candidate stage tracking', 'Manual', 'Yes', 'Simple dropdown-based tracking'],
         ['Resume reuse across roles', 'Difficult', 'Usually yes', 'Core workflow'],
+        ['Candidate rediscovery', 'Manual search', 'Usually available', 'Searchable candidate records with screening context'],
+        ['Screening evidence', 'Not preserved', 'Varies', 'Connected to candidate records'],
         ['Setup complexity', 'Low but unstructured', 'Often high', 'Lightweight'],
         ['Best fit', 'Very early hiring', 'Mature hiring teams', 'Screening-first recruiting teams'],
       ],
     },
     {
+      type: 'comparison',
+      eyebrow: 'Use-case fit',
+      title: 'Which Resume Management Workflow Fits Your Team?',
+      columns: ['Team type', 'Resume management problem', 'What to prioritize', 'Where HireSort fits'],
+      accentColIndex: 3,
+      rows: [
+        ['Startup recruiting', 'Resumes are spread across email, folders, and spreadsheets', 'Simple candidate database and reusable records', 'Lightweight resume repository plus screening context'],
+        ['Recruitment agency', 'Candidates need to be reused across many client roles', 'Search, role association, and candidate rediscovery', 'Reusable candidate records tied to jobs and scores'],
+        ['High-volume hiring', 'Large batches become impossible to revisit later', 'Bulk organization and fast filtering', 'Central repository with stage, score, and role filters'],
+        ['Hiring manager-led process', 'Managers lack context on why candidates were saved or rejected', 'Shared candidate view and stage history', 'Candidate detail pages with resume, score, role, and status'],
+        ['US hiring team', 'AI workflows need recruiter control and reviewable context', 'Human oversight and preserved evidence', 'AI screening results stored next to recruiter-managed candidate records'],
+      ],
+    },
+    {
       type: 'why',
       eyebrow: 'Why HireSort',
-      title: 'Why resume management should sit next to AI screening.',
+      title: 'Why Resume Management Should Sit Next to AI Screening.',
       items: [
         {
           title: 'Recruiters get value before screening',
@@ -350,7 +392,7 @@ export const resumeManagement: ProductPage = {
     {
       type: 'plansSplit',
       eyebrow: 'Plans',
-      title: 'Useful for solo recruiters. More powerful for teams.',
+      title: 'Useful for Solo Recruiters. More Powerful for Teams.',
       free: {
         label: 'Free / MVP',
         heading: 'Core resume management.',
@@ -383,7 +425,7 @@ export const resumeManagement: ProductPage = {
     {
       type: 'scope',
       eyebrow: 'Scope clarity',
-      title: 'What it is — and what it is not.',
+      title: 'What It Is — and What It Is Not.',
       inLabel: 'Focused on',
       inItems: [
         'Resume storage',
@@ -416,70 +458,70 @@ export const resumeManagement: ProductPage = {
   faqs: [
     {
       id: 'what-is',
-      question: 'What is resume management software?',
+      question: 'What Is Resume Management Software?',
       answer: [
         'Resume management software helps recruiters store, organize, search, and reuse resumes across hiring workflows. It gives teams a structured candidate database instead of scattered files and spreadsheets.',
       ],
     },
     {
       id: 'how-different',
-      question: 'How is HireSort Resume Management different from resume screening?',
+      question: 'How Is HireSort Resume Management Different From Resume Screening?',
       answer: [
         'Resume screening evaluates candidates for a specific role. Resume management stores candidate records so they can be searched, tracked, and reused across multiple roles over time.',
       ],
     },
     {
       id: 'cv-management-solution',
-      question: 'What is a CV management solution?',
+      question: 'What Is a CV Management Solution?',
       answer: [
         'A CV management solution helps recruiters store, search, organize, and reuse CVs or resumes. HireSort adds AI screening context so each candidate record can include role fit, scores, evidence, and stage history.',
       ],
     },
     {
       id: 'resume-database',
-      question: 'Can HireSort work as resume database software?',
+      question: 'Can HireSort Work as Resume Database Software?',
       answer: [
         'Yes. HireSort is designed to turn uploaded resumes into structured candidate records that can be searched, associated with jobs, tracked through stages, and reused for future openings.',
       ],
     },
     {
       id: 'repository',
-      question: 'Does HireSort create a central resume repository?',
+      question: 'Does HireSort Create a Central Resume Repository?',
       answer: [
         'Yes. Every uploaded resume can be added to a central repository with parsed candidate information, role association, score, stage, and date added.',
       ],
     },
     {
       id: 'reuse',
-      question: 'Can I reuse a candidate for another job?',
+      question: 'Can I Reuse a Candidate for Another Job?',
       answer: [
         'Yes. HireSort is designed to let recruiters attach or map an existing resume to a new job role and run a new screening workflow.',
       ],
     },
     {
       id: 'stages',
-      question: 'Can I track candidate stages?',
+      question: 'Can I Track Candidate Stages?',
       answer: [
         'Yes. HireSort supports manual stage tracking using stages such as New, Shortlisted, Round 1, Offer Made, Hired, Rejected, and On Hold.',
       ],
     },
     {
       id: 'customization',
-      question: 'Can I customize the hiring funnel?',
+      question: 'Can I Customize the Hiring Funnel?',
       answer: [
         'Yes. The MVP includes basic funnel customization, including renaming, adding, removing, and reordering stages.',
       ],
     },
     {
       id: 'kanban',
-      question: 'Does HireSort include Kanban boards?',
+      question: 'Does HireSort Include Kanban Boards?',
       answer: [
         'Kanban boards are planned for the expanded paid workflow. The MVP stays simple with a table or list view and dropdown-based stage movement.',
       ],
     },
     {
       id: 'export',
-      question: 'Can I export candidate data?',
+      question: 'Can I Export Candidate Data?',
       answer: [
         'CSV export is planned as part of the paid workflow, along with saved filters, talent pools, notes, comments, advanced search, and custom columns.',
       ],
@@ -492,8 +534,29 @@ export const resumeManagement: ProductPage = {
       ],
     },
     {
+      id: 'candidate-rediscovery',
+      question: 'What Is Candidate Rediscovery?',
+      answer: [
+        'Candidate rediscovery means finding and reusing past applicants when a new role opens. A resume management system helps by keeping candidate records searchable with role history, stage, score, and screening context.',
+      ],
+    },
+    {
+      id: 'agencies-startups',
+      question: 'Is Resume Management Software Useful for Agencies and Startups?',
+      answer: [
+        'Yes. Agencies can reuse candidates across client roles, while startups can create a lightweight candidate database before they need a full ATS. Both teams benefit from searchable resumes and preserved screening context.',
+      ],
+    },
+    {
+      id: 'us-hiring-teams',
+      question: 'How Should US Hiring Teams Manage Resumes With AI?',
+      answer: [
+        'US hiring teams should keep recruiters in control, preserve evidence, and review AI screening context before making decisions. HireSort keeps resume records, scores, and stages together so AI-assisted screening remains reviewable.',
+      ],
+    },
+    {
       id: 'who-for',
-      question: 'Who should use HireSort Resume Management?',
+      question: 'Who Should Use HireSort Resume Management?',
       answer: [
         'HireSort is best for recruiters, founders, hiring managers, agencies, and small teams that need a simple way to organize resumes, screen candidates, and track early hiring stages.',
       ],
@@ -501,10 +564,16 @@ export const resumeManagement: ProductPage = {
   ],
 
   internalLinks: [
-    { href: '/applicant-tracking-system', label: 'Applicant Tracking System' },
+    { href: '/product/applicant-tracking-system', label: 'Applicant Tracking System' },
     { href: '/product/recruitment-software', label: 'Recruitment Software' },
     { href: '/resources/best/candidate-screening-software', label: 'Candidate Screening Software' },
     { href: '/resources/best/ai-resume-screening-software', label: 'AI Resume Screening Software' },
+    { href: '/resources/best/resume-screening-software', label: 'Best Resume Screening Software' },
+    { href: '/resources/compare/ai-resume-screening-vs-ats', label: 'AI Resume Screening vs ATS' },
+    { href: '/blog/resume-screening-checklist', label: 'Resume Screening Checklist' },
+    { href: '/blog/how-to-shortlist-candidates-faster', label: 'How to Shortlist Candidates Faster' },
+    { href: '/blog/ai-resume-screening-tool', label: 'AI Resume Screening Tool' },
+    { href: '/blog/candidate-scorecard-template', label: 'Candidate Scorecard Template' },
     { href: '/product/resume-parser', label: 'Resume Screening Software' },
     { href: '/product/candidate-pipeline', label: 'Candidate Pipeline' },
     { href: '/pricing', label: 'Pricing' },
