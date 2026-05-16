@@ -25,6 +25,11 @@ export const recruitmentSoftware: ProductPage = {
       'recruitment screening software',
       'hiring manager software',
       'high-volume hiring software',
+      'AI recruitment software for resume screening',
+      'candidate shortlisting software',
+      'recruitment software for high-volume hiring',
+      'recruitment software for staffing agencies',
+      'recruitment software for US hiring teams',
     ],
     ogImage: '/logo.png',
     ogImageAlt: 'HireSort — recruitment software for faster resume screening',
@@ -48,7 +53,7 @@ export const recruitmentSoftware: ProductPage = {
     {
       type: 'problem',
       eyebrow: 'The problem',
-      title: 'Hiring slows down when everything lives in different places.',
+      title: 'Hiring Slows Down When Everything Lives in Different Places.',
       intro:
         'Recruiting often starts simply: resumes in email, candidate notes in spreadsheets, job descriptions in docs, and hiring feedback in chats. That works until hiring volume increases. Then teams start facing the same problems:',
       bullets: [
@@ -66,7 +71,7 @@ export const recruitmentSoftware: ProductPage = {
     {
       type: 'positioning',
       eyebrow: 'Positioning',
-      title: 'Recruitment software built around the first real hiring bottleneck: screening resumes.',
+      title: 'Recruitment Software Built Around the First Real Hiring Bottleneck: Screening Resumes.',
       body: [
         'Many recruitment tools focus on the entire hiring process: job posting, sourcing, scheduling, messaging, approvals, offers, onboarding, and reporting.',
         'HireSort focuses on the part where many teams struggle first:',
@@ -76,7 +81,7 @@ export const recruitmentSoftware: ProductPage = {
     {
       type: 'paragraph',
       eyebrow: 'Search intent',
-      title: 'For teams searching for candidate screening software, not another bloated HR suite.',
+      title: 'For Teams Searching for Candidate Screening Software, Not Another Bloated HR Suite.',
       body: [
         'Many teams looking for recruitment software are really trying to solve a narrower problem: too many applicants, too many resumes, and no consistent way to decide who should be reviewed first.',
         'HireSort is built for that workflow. It helps hiring teams screen resumes, rank candidates, explain why someone is a fit, and move shortlisted candidates into a lightweight pipeline.',
@@ -84,9 +89,19 @@ export const recruitmentSoftware: ProductPage = {
       ],
     },
     {
+      type: 'paragraph',
+      eyebrow: 'Who it is for',
+      title: 'AI Recruitment Software for Lean Teams, Agencies, and High-Volume Hiring.',
+      body: [
+        'HireSort is a fit when your recruiting team needs screening speed before it needs a heavy recruiting operations suite. It is especially useful for startups hiring their first teams, agencies reviewing large candidate batches, and hiring managers who need clearer shortlist recommendations.',
+        'For US and UK hiring teams, the workflow is designed around human-reviewed AI screening: recruiters can review the evidence, adjust context, and decide who moves forward instead of relying on black-box automation.',
+        'For high-volume hiring, HireSort helps recruiters prioritize which resumes deserve attention first, then keeps candidate records reusable for future openings.',
+      ],
+    },
+    {
       type: 'workflow',
       eyebrow: 'How it works',
-      title: 'From job description to shortlist in a simple workflow.',
+      title: 'From Job Description to Shortlist in a Simple Workflow.',
       intro:
         'Create job → Generate rubric → Upload resumes → AI screens candidates → Review shortlist → Track stages → Reuse resumes',
       steps: [
@@ -102,7 +117,7 @@ export const recruitmentSoftware: ProductPage = {
     {
       type: 'features',
       eyebrow: 'Features',
-      title: 'Everything growing teams need to organize early-stage hiring.',
+      title: 'Everything Growing Teams Need to Organize Early-Stage Hiring.',
       items: [
         { icon: 'sparkles', title: 'AI resume screening', body: 'Screen candidates against job-specific criteria instead of manually reading every resume from scratch.' },
         { icon: 'clipboardCheck', title: 'Rubric-first evaluation', body: 'Create structured hiring criteria from the job description and apply the same standard across every candidate.' },
@@ -119,7 +134,7 @@ export const recruitmentSoftware: ProductPage = {
     {
       type: 'fieldList',
       eyebrow: 'Candidate management',
-      title: 'Build a reusable candidate database.',
+      title: 'Build a Reusable Candidate Database.',
       intro:
         'HireSort is designed to help recruiters manage resumes beyond a single screening workflow. Every uploaded resume can become a reusable candidate record with:',
       cardLabel: 'Candidate record',
@@ -142,7 +157,7 @@ export const recruitmentSoftware: ProductPage = {
     {
       type: 'fieldList',
       eyebrow: 'Collaboration',
-      title: 'Help recruiters and hiring managers align faster.',
+      title: 'Help Recruiters and Hiring Managers Align Faster.',
       intro:
         'Hiring slows down when recruiters and hiring managers evaluate candidates differently. HireSort makes the process more structured by giving both sides a shared view of:',
       cardLabel: 'Shared context',
@@ -161,19 +176,20 @@ export const recruitmentSoftware: ProductPage = {
     {
       type: 'useCases',
       eyebrow: 'Use cases',
-      title: 'Built for practical recruiting workflows.',
+      title: 'Built for Practical Recruiting Workflows.',
       items: [
         { icon: 'users', title: 'For recruiters', body: 'Reduce manual screening time and create stronger shortlists for hiring managers.' },
         { icon: 'building', title: 'For founders', body: 'Move beyond inbox-based hiring and create a structured process for your first few roles.' },
         { icon: 'clipboardCheck', title: 'For hiring managers', body: 'Define what good looks like and review candidates scored against your actual criteria.' },
         { icon: 'handCoins', title: 'For recruitment agencies', body: 'Process high-volume resume batches and reuse strong candidates across multiple client requirements.' },
         { icon: 'rocket', title: 'For small teams', body: 'Get the core structure of recruitment software without heavy setup, complex workflows, or enterprise overhead.' },
+        { icon: 'search', title: 'For US hiring teams', body: 'Use AI-assisted resume screening with recruiter review, evidence, and audit-friendly shortlist context.' },
       ],
     },
     {
       type: 'comparison',
       eyebrow: 'Comparison',
-      title: 'HireSort vs spreadsheets, email, and traditional recruitment software.',
+      title: 'HireSort vs Spreadsheets, Email, and Traditional Recruitment Software.',
       columns: ['Capability', 'Spreadsheets / Email', 'Traditional Recruitment Software', 'HireSort'],
       accentColIndex: 3,
       rows: [
@@ -184,13 +200,29 @@ export const recruitmentSoftware: ProductPage = {
         ['Candidate reuse', 'Difficult', 'Usually available', 'Core repository workflow'],
         ['Screening explanations', 'No', 'Limited', 'Evidence-based scoring'],
         ['Setup effort', 'Low but messy', 'Often higher', 'Lightweight'],
+        ['Best first use case', 'Ad hoc tracking', 'Full recruiting operations', 'AI resume screening and candidate shortlisting'],
+        ['Human review', 'Manual and inconsistent', 'Depends on workflow design', 'Recruiter-reviewed AI scores and resume evidence'],
         ['Best fit', 'Very early hiring', 'Mature hiring teams', 'Growing teams that need faster screening and cleaner candidate management'],
+      ],
+    },
+    {
+      type: 'comparison',
+      eyebrow: 'Use-case fit',
+      title: 'Which Recruitment Software Workflow Fits Your Team?',
+      columns: ['Team type', 'Primary pain', 'What to prioritize', 'Where HireSort fits'],
+      accentColIndex: 3,
+      rows: [
+        ['Startup hiring team', 'Founders and managers screen resumes manually', 'Fast setup, clear shortlists, low overhead', 'AI screening plus lightweight tracking before a full ATS is needed'],
+        ['Recruitment agency', 'Large candidate batches across client roles', 'Reusable candidate records and ranked review order', 'Resume repository, candidate reuse, and evidence-backed recommendations'],
+        ['High-volume hiring team', 'Too many applicants for manual review', 'Bulk resume screening and shortlist prioritization', 'Role-specific scoring and ranked candidates for faster review'],
+        ['Hiring manager-led process', 'Shortlists are inconsistent or hard to explain', 'Shared criteria and clear evidence', 'Rubric-first screening with strengths, gaps, and score context'],
+        ['US hiring team', 'AI needs reviewability and practical controls', 'Human oversight, evidence, and privacy expectations', 'Human-reviewed AI screening rather than automated rejection'],
       ],
     },
     {
       type: 'why',
       eyebrow: 'Why HireSort',
-      title: 'Why teams choose HireSort recruitment software.',
+      title: 'Why Teams Choose HireSort Recruitment Software.',
       items: [
         { title: 'Faster shortlisting', body: 'Move from hours of resume review to structured candidate rankings.' },
         { title: 'Better hiring consistency', body: 'Use the same role-specific rubric for every candidate.' },
@@ -203,7 +235,7 @@ export const recruitmentSoftware: ProductPage = {
     {
       type: 'plansSplit',
       eyebrow: 'Plans',
-      title: 'Useful from day one. More powerful as your hiring grows.',
+      title: 'Useful From Day One. More Powerful as Your Hiring Grows.',
       free: {
         label: 'Free / MVP',
         heading: 'Practical day-to-day recruiting.',
@@ -241,7 +273,7 @@ export const recruitmentSoftware: ProductPage = {
     {
       type: 'scope',
       eyebrow: 'Scope clarity',
-      title: 'Recruitment software focused on screening and candidate management.',
+      title: 'Recruitment Software Focused on Screening and Candidate Management.',
       inLabel: 'Focused on',
       inItems: [
         'Resume screening',
@@ -273,24 +305,32 @@ export const recruitmentSoftware: ProductPage = {
   },
 
   faqs: [
-    { id: 'what-is', question: 'What is recruitment software?', answer: ['Recruitment software helps hiring teams manage parts of the hiring process, such as collecting resumes, tracking candidates, screening applications, managing shortlists, and coordinating hiring decisions.'] },
-    { id: 'ai-recruitment-software', question: 'What is AI recruitment software for resume screening?', answer: ['AI recruitment software for resume screening uses AI to compare resumes against a role, identify stronger-fit candidates, explain scoring decisions, and help recruiters build shortlists faster.'] },
-    { id: 'candidate-screening-software', question: 'Is HireSort candidate screening software?', answer: ['Yes. HireSort is candidate screening software focused on the resume review stage. It helps teams screen applicants, rank candidates, review evidence, and move shortlisted profiles into a lightweight hiring pipeline.'] },
-    { id: 'high-volume', question: 'Can HireSort support high-volume hiring?', answer: ['Yes. HireSort is designed for bulk resume uploads and ranked shortlists, which makes it useful for high-volume hiring workflows where recruiters need to review many applicants quickly.'] },
-    { id: 'how-different', question: 'How is HireSort different from traditional recruitment software?', answer: ['HireSort is focused on AI resume screening and lightweight candidate management. Instead of trying to manage every hiring workflow, it helps teams solve the first major bottleneck: turning resumes into structured shortlists.'] },
+    { id: 'what-is', question: 'What Is Recruitment Software?', answer: ['Recruitment software helps hiring teams manage parts of the hiring process, such as collecting resumes, tracking candidates, screening applications, managing shortlists, and coordinating hiring decisions.'] },
+    { id: 'ai-recruitment-software', question: 'What Is AI Recruitment Software for Resume Screening?', answer: ['AI recruitment software for resume screening uses AI to compare resumes against a role, identify stronger-fit candidates, explain scoring decisions, and help recruiters build shortlists faster.'] },
+    { id: 'candidate-screening-software', question: 'Is HireSort Candidate Screening Software?', answer: ['Yes. HireSort is candidate screening software focused on the resume review stage. It helps teams screen applicants, rank candidates, review evidence, and move shortlisted profiles into a lightweight hiring pipeline.'] },
+    { id: 'high-volume', question: 'Can HireSort Support High-Volume Hiring?', answer: ['Yes. HireSort is designed for bulk resume uploads and ranked shortlists, which makes it useful for high-volume hiring workflows where recruiters need to review many applicants quickly.'] },
+    { id: 'how-different', question: 'How Is HireSort Different From Traditional Recruitment Software?', answer: ['HireSort is focused on AI resume screening and lightweight candidate management. Instead of trying to manage every hiring workflow, it helps teams solve the first major bottleneck: turning resumes into structured shortlists.'] },
     { id: 'is-ats', question: 'Is HireSort an ATS?', answer: ['HireSort can act as a lightweight ATS for teams that need resume management, candidate tracking, and screening-first workflows. It is not currently positioned as a full enterprise ATS.'] },
-    { id: 'ai-screening', question: 'Does HireSort support AI resume screening?', answer: ['Yes. HireSort screens resumes against job-specific rubrics and produces ranked shortlists with score breakdowns and explanations.'] },
-    { id: 'replace-spreadsheets', question: 'Can HireSort replace spreadsheets?', answer: ['Yes. HireSort is designed to reduce dependence on spreadsheets by giving teams a central place to store resumes, view candidate data, track stages, and reuse candidate records.'] },
-    { id: 'reuse-candidates', question: 'Can I reuse candidates for future roles?', answer: ['Yes. HireSort’s resume management layer is designed to store candidates in a central repository so they can be mapped to future jobs and screened again.'] },
-    { id: 'best-for', question: 'Who is HireSort best for?', answer: ['HireSort is best for recruiters, founders, hiring managers, small teams, and recruitment agencies that need faster resume screening and simpler candidate tracking.'] },
-    { id: 'scheduling-offers', question: 'Does HireSort include interview scheduling and offer management?', answer: ['No. Those workflows are outside the near-term scope. HireSort is focused on resume screening, candidate management, stage tracking, and shortlist creation.'] },
+    { id: 'ai-screening', question: 'Does HireSort Support AI Resume Screening?', answer: ['Yes. HireSort screens resumes against job-specific rubrics and produces ranked shortlists with score breakdowns and explanations.'] },
+    { id: 'replace-spreadsheets', question: 'Can HireSort Replace Spreadsheets?', answer: ['Yes. HireSort is designed to reduce dependence on spreadsheets by giving teams a central place to store resumes, view candidate data, track stages, and reuse candidate records.'] },
+    { id: 'reuse-candidates', question: 'Can I Reuse Candidates for Future Roles?', answer: ['Yes. HireSort’s resume management layer is designed to store candidates in a central repository so they can be mapped to future jobs and screened again.'] },
+    { id: 'best-for', question: 'Who Is HireSort Best For?', answer: ['HireSort is best for recruiters, founders, hiring managers, small teams, and recruitment agencies that need faster resume screening and simpler candidate tracking.'] },
+    { id: 'startup-agency', question: 'Is HireSort Useful for Startups and Staffing Agencies?', answer: ['Yes. Startups can use HireSort to create a structured screening workflow before buying a heavy recruiting suite. Staffing agencies can use it to review large resume batches, reuse candidate records, and produce clearer shortlist recommendations for client roles.'] },
+    { id: 'us-teams', question: 'Can US Hiring Teams Use AI Recruitment Software Safely?', answer: ['US hiring teams should use AI recruitment software with human review, clear evidence, and practical oversight. HireSort is positioned as a recruiter-reviewed screening workflow, not a black-box automated rejection system.'] },
+    { id: 'scheduling-offers', question: 'Does HireSort Include Interview Scheduling and Offer Management?', answer: ['No. Those workflows are outside the near-term scope. HireSort is focused on resume screening, candidate management, stage tracking, and shortlist creation.'] },
   ],
 
   internalLinks: [
-    { href: '/applicant-tracking-system', label: 'Applicant Tracking System' },
+    { href: '/product/applicant-tracking-system', label: 'Applicant Tracking System' },
     { href: '/resources/best/candidate-screening-software', label: 'Best Candidate Screening Software' },
     { href: '/resources/best/high-volume-hiring-software', label: 'High-Volume Hiring Software' },
+    { href: '/resources/best/ai-resume-screening-software', label: 'Best AI Resume Screening Software' },
     { href: '/resources/compare/hiresort-vs-manual-screening', label: 'HireSort vs Manual Screening' },
+    { href: '/resources/compare/ai-resume-screening-vs-ats', label: 'AI Resume Screening vs ATS' },
+    { href: '/blog/resume-screening-checklist', label: 'Resume Screening Checklist' },
+    { href: '/blog/how-to-shortlist-candidates-faster', label: 'How to Shortlist Candidates Faster' },
+    { href: '/blog/ai-resume-screening-tool', label: 'AI Resume Screening Tool' },
+    { href: '/blog/candidate-scorecard-template', label: 'Candidate Scorecard Template' },
     { href: '/product/resume-parser', label: 'Resume Screening Software' },
     { href: '/product/resume-management', label: 'Resume Management' },
     { href: '/product/candidate-pipeline', label: 'Candidate Pipeline' },
