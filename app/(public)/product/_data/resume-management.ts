@@ -6,7 +6,7 @@ export const resumeManagement: ProductPage = {
   product: 'Resume Management',
   heroIcon: 'database',
   publishedAt: '2026-05-03',
-  updatedAt: '2026-05-14',
+  updatedAt: '2026-05-16',
 
   meta: {
     title: 'Resume & CV Management Software for Recruiters in 2026 | HireSort',
@@ -22,6 +22,9 @@ export const resumeManagement: ProductPage = {
       'candidate management software',
       'recruiting database',
       'AI resume management',
+      'resume database software',
+      'candidate database software',
+      'cv shortlisting tool',
     ],
     ogImage: '/logo.png',
     ogImageAlt: 'HireSort — Resume Management Software',
@@ -69,6 +72,15 @@ export const resumeManagement: ProductPage = {
         'The goal is simple: make HireSort useful before, during, and after AI screening.',
       ],
       flow: ['Upload resumes', 'Build repository', 'Screen with AI', 'Track stages', 'Reuse candidates'],
+    },
+    {
+      type: 'paragraph',
+      eyebrow: 'Search intent',
+      title: 'A resume management system for CV storage, shortlisting, and reuse.',
+      body: [
+        'Teams searching for resume management software often need more than file storage. They need a CV management solution that can organize resumes, connect candidates to roles, preserve screening context, and make past applicants searchable again.',
+        'HireSort combines resume management with AI screening so recruiters can store candidate records, review match scores, shortlist faster, and reuse strong profiles when a similar role opens later.',
+      ],
     },
     {
       type: 'workflow',
@@ -417,6 +429,20 @@ export const resumeManagement: ProductPage = {
       ],
     },
     {
+      id: 'cv-management-solution',
+      question: 'What is a CV management solution?',
+      answer: [
+        'A CV management solution helps recruiters store, search, organize, and reuse CVs or resumes. HireSort adds AI screening context so each candidate record can include role fit, scores, evidence, and stage history.',
+      ],
+    },
+    {
+      id: 'resume-database',
+      question: 'Can HireSort work as resume database software?',
+      answer: [
+        'Yes. HireSort is designed to turn uploaded resumes into structured candidate records that can be searched, associated with jobs, tracked through stages, and reused for future openings.',
+      ],
+    },
+    {
       id: 'repository',
       question: 'Does HireSort create a central resume repository?',
       answer: [
@@ -477,6 +503,8 @@ export const resumeManagement: ProductPage = {
   internalLinks: [
     { href: '/applicant-tracking-system', label: 'Applicant Tracking System' },
     { href: '/product/recruitment-software', label: 'Recruitment Software' },
+    { href: '/resources/best/candidate-screening-software', label: 'Candidate Screening Software' },
+    { href: '/resources/best/ai-resume-screening-software', label: 'AI Resume Screening Software' },
     { href: '/product/resume-parser', label: 'Resume Screening Software' },
     { href: '/product/candidate-pipeline', label: 'Candidate Pipeline' },
     { href: '/pricing', label: 'Pricing' },

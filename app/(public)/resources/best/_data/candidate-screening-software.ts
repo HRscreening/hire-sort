@@ -5,7 +5,7 @@ export const candidateScreeningSoftware: BestPage = {
   slug: 'candidate-screening-software',
   category: 'Candidate screening software',
   publishedAt: '2026-05-10',
-  updatedAt: '2026-05-10',
+  updatedAt: '2026-05-16',
 
   meta: {
     title: 'Best Candidate Screening Software in 2026 | HireSort',
@@ -16,6 +16,10 @@ export const candidateScreeningSoftware: BestPage = {
       'candidate screening software',
       'applicant screening software',
       'AI candidate screening',
+      'hr screening software',
+      'recruitment screening software',
+      'intelligent applicant screening software',
+      'resume shortlist software',
       'resume screening software',
       'pre-employment screening tools',
     ],
@@ -69,14 +73,16 @@ export const candidateScreeningSoftware: BestPage = {
       'Check whether the tool explains its recommendations or only returns a score.',
       'Look for human review controls so recruiters can override or adjust decisions.',
       'Evaluate how screening results flow into candidate tracking and follow-up.',
+      'For resume-heavy roles, prioritize explainable candidate ranking and shortlist review over generic keyword filters.',
     ],
   },
 
   positioning: {
     eyebrow: 'Where HireSort fits',
-    title: 'A candidate screening tool for the resume review stage',
+    title: 'A candidate screening tool for the resume review and shortlisting stage',
     body: [
       'HireSort is a candidate screening tool for the resume review stage. It is strongest when recruiters need to evaluate many resumes against a specific JD and produce a structured shortlist that hiring managers can trust.',
+      'For teams searching for HR screening software or recruitment screening software, HireSort is the best fit when the bottleneck is resume volume, inconsistent first-pass review, or shortlists that are difficult to explain.',
     ],
   },
 
@@ -103,10 +109,32 @@ export const candidateScreeningSoftware: BestPage = {
         'Resume screening is one type of candidate screening. Candidate screening can also include assessments, video interviews, qualification questions, and background checks.',
       ],
     },
+    {
+      id: 'hr-screening-software',
+      question: 'What is HR screening software used for?',
+      answer: [
+        'HR screening software helps recruiting teams evaluate applicants before interviews. It can screen resumes, run assessments, ask qualification questions, rank candidates, and help recruiters decide who should move forward.',
+      ],
+    },
+    {
+      id: 'recruitment-screening-software',
+      question: 'What is the difference between recruitment screening software and an ATS?',
+      answer: [
+        'Recruitment screening software focuses on evaluating and shortlisting candidates. An ATS usually manages a broader hiring workflow such as applications, stages, communication, scheduling, and reporting. Some teams use both together.',
+      ],
+    },
+    {
+      id: 'resume-shortlist',
+      question: 'Can candidate screening software create a resume shortlist?',
+      answer: [
+        'Yes. Resume-focused candidate screening software like HireSort can rank applicants against a job description, surface evidence, and help recruiters build a shortlist for hiring manager review.',
+      ],
+    },
   ],
 
   internalLinks: [
     { href: '/product/applicant-tracking-system', label: 'AI Applicant Tracking System' },
+    { href: '/product/recruitment-software', label: 'AI Recruitment Software' },
     { href: '/product/resume-management', label: 'Resume Management Software' },
     { href: '/product/candidate-pipeline', label: 'Candidate Pipeline Software' },
     { href: '/resources/best/resume-screening-software', label: 'Best Resume Screening Software' },
