@@ -2,6 +2,7 @@ import type { NextConfig } from "next";
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseHost = supabaseUrl ? new URL(supabaseUrl).hostname : null;
+const isProd = process.env.NODE_ENV === 'production';
 
 const securityHeaders = [
   { key: 'Strict-Transport-Security', value: 'max-age=63072000; includeSubDomains; preload' },
@@ -36,26 +37,33 @@ const nextConfig: NextConfig = {
       : [],
   },
   async headers() {
-    return [
+    const headers = [
       {
         source: '/:path*',
         headers: securityHeaders,
       },
-      {
-        // Hashed Next build assets are immutable.
-        source: '/_next/static/:path*',
-        headers: [
-          { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
-        ],
-      },
-      {
-        // Optimized images served by next/image.
-        source: '/_next/image(.*)',
-        headers: [
-          { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
-        ],
-      },
     ];
+
+    if (isProd) {
+      headers.push(
+        {
+          // Hashed Next build assets are immutable.
+          source: '/_next/static/:path*',
+          headers: [
+            { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
+          ],
+        },
+        {
+          // Optimized images served by next/image.
+          source: '/_next/image(.*)',
+          headers: [
+            { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
+          ],
+        },
+      );
+    }
+
+    return headers;
   },
 };
 
