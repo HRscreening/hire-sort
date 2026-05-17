@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { BlogListing } from '../../_components/BlogListing';
-import { getPaginatedPosts, POSTS_PER_PAGE } from '../../_lib/posts';
-import { prisma } from '@/lib/prisma';
+import { getAllPosts, getPaginatedPosts, POSTS_PER_PAGE } from '../../_lib/posts';
 import { SITE_URL } from '@/lib/seo';
 
 type Params = Promise<{ page: string }>;
@@ -10,8 +9,8 @@ type Params = Promise<{ page: string }>;
 export const revalidate = 3600;
 
 export async function generateStaticParams() {
-  const total = await prisma.blogPost.count({ where: { published: true } });
-  const totalPages = Math.max(1, Math.ceil(total / POSTS_PER_PAGE));
+  const posts = await getAllPosts();
+  const totalPages = Math.max(1, Math.ceil(posts.length / POSTS_PER_PAGE));
   // Page 1 is served by /blog, so generate 2..N here.
   return Array.from({ length: Math.max(0, totalPages - 1) }, (_, i) => ({
     page: String(i + 2),

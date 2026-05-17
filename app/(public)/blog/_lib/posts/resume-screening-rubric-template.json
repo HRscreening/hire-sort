@@ -1,0 +1,137 @@
+{
+  "slug": "resume-screening-rubric-template",
+  "title": "Resume Screening Rubric Template: How to Score Candidates Consistently",
+  "subtitle": "A reusable rubric structure for evaluating resumes fairly before the interview stage.",
+  "description": "Use this resume screening rubric template to evaluate candidates consistently before interviews begin.",
+  "keywords": [
+    "resume screening rubric template",
+    "resume screening criteria",
+    "hiring rubric template",
+    "resume evaluation rubric",
+    "candidate screening rubric"
+  ],
+  "author": {
+    "name": "HireSort Team",
+    "role": "Product & Research"
+  },
+  "publishedAt": "2026-04-27",
+  "updatedAt": "2026-04-28",
+  "readingTime": "4 min read",
+  "coverImage": null,
+  "coverAlt": "Illustration for the HireSort blog article titled Resume Screening Rubric Template: How to Score Candidates Consistently, showing recruiters using AI-assisted resume screening and structured candidate shortlists.",
+  "category": "Hiring templates",
+  "tags": [
+    "Resume rubric",
+    "Hiring templates",
+    "Structured screening",
+    "Recruiting"
+  ],
+  "body": [
+    {
+      "type": "paragraph",
+      "text": "A resume screening rubric is a scoring framework used to evaluate candidates before interviews. It converts a job description into clear evaluation criteria so that every resume is reviewed against the same standard."
+    },
+    {
+      "type": "paragraph",
+      "text": "This is especially useful when hiring teams are dealing with large applicant pools. Without a rubric, recruiters may rely on memory, intuition, or keyword matching. With a rubric, they can review candidates more consistently and explain why a candidate was shortlisted."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Resume screening rubric template"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Technical Skills & Expertise: Suggested weight — 35-45%; What to evaluate — Required tools, skills, certifications, domain knowledge, and role-specific capabilities.",
+        "Experience & Impact: Suggested weight — 35-45%; What to evaluate — Relevant roles, years of experience, outcomes, projects, metrics, and ownership.",
+        "Qualifications & Role Fit: Suggested weight — 10-25%; What to evaluate — Education, seniority, industry fit, communication, location, and working style."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "How to customize the rubric"
+    },
+    {
+      "type": "paragraph",
+      "text": "The right weights depend on the role. For a technical role, skills and experience may carry most of the weight. For an entry-level role, potential, education, and project work may matter more. For a senior business role, domain fit and impact may deserve heavier weighting."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Use higher weights for deal-breaker criteria.",
+        "Use lower weights for nice-to-have skills.",
+        "Separate must-have skills from preferred skills.",
+        "Avoid scoring too many categories; it slows the process.",
+        "Keep the rubric aligned with the actual job description."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Example rubric: customer success manager"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Customer Success Skills: Weight — 40%; Subcriteria — Account management, onboarding, retention, stakeholder communication, CRM usage.",
+        "Experience & Impact: Weight — 40%; Subcriteria — Renewal ownership, churn reduction, expansion revenue, customer portfolio size.",
+        "Role Fit: Weight — 20%; Subcriteria — SaaS exposure, buyer persona fit, communication quality, seniority alignment."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Scoring scale"
+    },
+    {
+      "type": "list",
+      "items": [
+        "1-3: Weak fit or little evidence.",
+        "4-6: Partial fit; may need deeper review.",
+        "7-8: Strong fit with clear evidence.",
+        "9-10: Exceptional fit with strong, role-specific evidence."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Common rubric mistakes"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Using vague criteria such as \"good profile\" or \"strong background.\"",
+        "Giving every criterion equal weight even when some are more important.",
+        "Confusing years of experience with quality of experience.",
+        "Overvaluing keywords without checking project context.",
+        "Changing the rubric after seeing candidates you like."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "How HireSort helps"
+    },
+    {
+      "type": "paragraph",
+      "text": "HireSort creates a rubric from the job description and lets recruiters adjust weights and subcriteria before uploading resumes. The same rubric is then applied across candidates, producing ranked results with explanations and evidence. This gives teams the structure of a screening rubric without the manual spreadsheet effort."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Final takeaway"
+    },
+    {
+      "type": "paragraph",
+      "text": "A resume screening rubric makes shortlisting more consistent and easier to defend. Create the rubric before reviewing resumes, keep it tied to the job description, and use it to focus human attention on the candidates who best match the role."
+    },
+    {
+      "type": "callout",
+      "title": "Try HireSort",
+      "text": "Paste your job description into HireSort and generate a custom screening rubric in seconds."
+    }
+  ],
+  "published": true
+}

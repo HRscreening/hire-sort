@@ -1,0 +1,134 @@
+{
+  "slug": "how-to-read-resumes-faster",
+  "title": "How to Read Resumes Faster Without Sacrificing Accuracy",
+  "subtitle": "A structured resume review workflow for screening faster while keeping the quality bar high.",
+  "description": "Learn a practical resume review workflow that helps recruiters screen faster while improving consistency and accuracy.",
+  "keywords": [
+    "how to read resumes faster",
+    "how to screen resumes faster",
+    "resume review process",
+    "fast resume screening",
+    "resume screening checklist"
+  ],
+  "author": {
+    "name": "HireSort Team",
+    "role": "Product & Research"
+  },
+  "publishedAt": "2026-04-27",
+  "updatedAt": "2026-04-28",
+  "readingTime": "4 min read",
+  "coverImage": null,
+  "coverAlt": "Illustration for the HireSort blog article titled How to Read Resumes Faster Without Sacrificing Accuracy, showing recruiters using AI-assisted resume screening and structured candidate shortlists.",
+  "category": "Hiring workflows",
+  "tags": [
+    "Resume screening",
+    "Recruiter productivity",
+    "Hiring workflows",
+    "Best practices"
+  ],
+  "body": [
+    {
+      "type": "paragraph",
+      "text": "Reading resumes faster is not about rushing. It is about removing randomness from the review process. The slowest recruiters read every resume from scratch. The fastest recruiters use a clear role rubric, scan for evidence, and compare candidates against the same criteria."
+    },
+    {
+      "type": "paragraph",
+      "text": "The goal is not to spend less attention on candidates. The goal is to spend the right attention on the right candidates."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Start with a screening rubric"
+    },
+    {
+      "type": "paragraph",
+      "text": "Before opening resumes, write down what you are actually screening for. A good rubric usually has three categories: required skills, relevant experience, and role fit. For example, a backend engineering role may require Python, APIs, databases, distributed systems, and ownership of production systems. A sales role may require outbound experience, quota ownership, CRM discipline, and communication quality."
+    },
+    {
+      "type": "paragraph",
+      "text": "Without a rubric, every resume becomes a subjective judgment. With a rubric, each resume is evaluated against the same standard."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Use a two-pass review process"
+    },
+    {
+      "type": "paragraph",
+      "text": "The first pass should identify whether the candidate is worth deeper review. The second pass should compare qualified candidates against one another."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Pass 1: Check mandatory fit. Look for deal-breakers such as required experience, location, work authorization, technical skill, or role seniority.",
+        "Pass 2: Score qualified candidates. Review impact, depth, relevance, progression, and evidence of outcomes."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "This prevents you from spending five minutes on a resume that fails a non-negotiable requirement, while still giving strong candidates a fair review."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Look for evidence, not keywords"
+    },
+    {
+      "type": "paragraph",
+      "text": "Keywords are useful signals, but they are not proof. A candidate can mention 'Python' without having built anything meaningful in Python. Another candidate may describe backend systems, APIs, and data pipelines without repeating the exact keyword in the job description. Accuracy comes from reading for evidence."
+    },
+    {
+      "type": "paragraph",
+      "text": "Ask questions such as: What did the candidate build? What scale did they handle? What metrics improved? What ownership did they show? What tools did they use in context?"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Create a shortlist threshold"
+    },
+    {
+      "type": "paragraph",
+      "text": "Before screening begins, decide what score or quality bar qualifies a candidate for the next step. For example, you may decide that candidates below 60 out of 100 are not reviewed further unless they have a special signal. This keeps the process consistent and prevents later confusion."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Use AI for the first structured review"
+    },
+    {
+      "type": "paragraph",
+      "text": "AI resume screening is useful when it applies the same rubric across every resume. HireSort lets teams generate a rubric from the job description, edit the criteria, upload resumes, and review ranked results with score breakdowns. This means recruiters can start with a structured shortlist instead of an unfiltered pile."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Resume review checklist"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Basic fit: Role, seniority, location, availability, compensation range if available.",
+        "Skills: Required tools, technologies, domain knowledge, certifications.",
+        "Experience: Years, role relevance, industry exposure, project depth.",
+        "Impact: Metrics, outcomes, revenue, efficiency, scale, ownership.",
+        "Progression: Growth in responsibility, promotions, leadership scope.",
+        "Risks: Frequent unexplained changes, unclear responsibilities, missing must-haves."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Final takeaway"
+    },
+    {
+      "type": "paragraph",
+      "text": "To read resumes faster, do not rely on memory or instinct alone. Define the criteria, apply a two-pass review, look for evidence, and use AI to make the first filter consistent. Speed and accuracy improve together when the process is structured."
+    },
+    {
+      "type": "callout",
+      "title": "Try HireSort",
+      "text": "Use HireSort to apply a structured screening rubric across every resume."
+    }
+  ],
+  "published": true
+}

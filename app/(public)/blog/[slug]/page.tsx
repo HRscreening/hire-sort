@@ -10,6 +10,8 @@ import {
   type BlogBlock,
   type BlogPost,
 } from '../_lib/posts';
+import { getAllProductPages } from '@/app/(public)/product/_lib/registry';
+import { getAllUseCases } from '@/app/(public)/use-cases/_lib/registry';
 import { breadcrumbJsonLd, jsonLdString } from '@/lib/seo';
 import Breadcrumb from '@/components/layout/Breadcrumb';
 import { InlineCTA } from '../_components/InlineCTA';
@@ -75,6 +77,135 @@ const formatDate = (iso: string) =>
     day: 'numeric',
   });
 
+const INLINE_LINK_RE = /\[([^\]]+)\]\(([^)]+)\)/g;
+
+const renderInline = (text: string): React.ReactNode => {
+  const nodes: React.ReactNode[] = [];
+  let last = 0;
+  let key = 0;
+  let m: RegExpExecArray | null;
+  INLINE_LINK_RE.lastIndex = 0;
+  while ((m = INLINE_LINK_RE.exec(text)) !== null) {
+    if (m.index > last) nodes.push(text.slice(last, m.index));
+    const [, label, href] = m;
+    const internal = href.startsWith('/');
+    nodes.push(
+      internal ? (
+        <Link
+          key={key++}
+          href={href}
+          className="text-accent underline decoration-[rgba(200,90,23,0.4)] underline-offset-2 hover:decoration-accent"
+        >
+          {label}
+        </Link>
+      ) : (
+        <a
+          key={key++}
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-accent underline decoration-[rgba(200,90,23,0.4)] underline-offset-2 hover:decoration-accent"
+        >
+          {label}
+        </a>
+      ),
+    );
+    last = m.index + m[0].length;
+  }
+  if (last < text.length) nodes.push(text.slice(last));
+  return nodes.length === 1 ? nodes[0] : nodes;
+};
+
+type ExternalLink = { href: string; label: string; description: string };
+
+const getRelatedExternalLinks = (
+  post: BlogPost,
+  limit: number,
+): ExternalLink[] => {
+  const haystack = [
+    ...post.keywords,
+    ...post.tags,
+    post.category,
+    post.title,
+  ]
+    .filter(Boolean)
+    .map((s) => s.toLowerCase());
+
+  const score = (keywords: string[], name: string) => {
+    const tokens = [...keywords, name].map((s) => s.toLowerCase());
+    let s = 0;
+    for (const t of tokens) {
+      for (const h of haystack) {
+        if (t && (h.includes(t) || t.includes(h))) s += 1;
+      }
+    }
+    return s;
+  };
+
+  const candidates: (ExternalLink & { score: number })[] = [
+    ...getAllProductPages().map((p) => ({
+      href: `/product/${p.slug}`,
+      label: p.product,
+      description: p.meta.description,
+      score: score(p.meta.keywords, p.product),
+    })),
+    ...getAllUseCases().map((p) => ({
+      href: `/use-cases/${p.slug}`,
+      label: p.product,
+      description: p.meta.description,
+      score: score(p.meta.keywords, p.product),
+    })),
+  ];
+
+  candidates.sort((a, b) => b.score - a.score);
+  const top = candidates.filter((c) => c.score > 0).slice(0, limit);
+
+  // Fallback to curated defaults if nothing matched.
+  if (top.length === 0) {
+    return [
+      {
+        href: '/product/applicant-tracking-system',
+        label: 'Applicant Tracking System',
+        description: 'Track, screen, and shortlist candidates in one workspace.',
+      },
+      {
+        href: '/use-cases/founder-led-hiring',
+        label: 'Founder-led hiring',
+        description: 'A lightweight hiring workflow for early-stage teams.',
+      },
+      {
+        href: '/resources',
+        label: 'Hiring resources',
+        description: 'Templates, rubrics, scorecards, and guides.',
+      },
+    ].slice(0, limit);
+  }
+
+  return top.map(({ href, label, description }) => ({ href, label, description }));
+};
+
+const getRelatedPosts = (
+  current: BlogPost,
+  all: BlogPost[],
+  limit: number,
+): BlogPost[] => {
+  const others = all.filter((p) => p.slug !== current.slug);
+  const scored = others.map((p) => {
+    const sharedTags = p.tags.filter((t) => current.tags.includes(t)).length;
+    const sameCategory =
+      p.category && current.category && p.category === current.category ? 1 : 0;
+    return { post: p, score: sharedTags * 2 + sameCategory };
+  });
+  scored.sort((a, b) => {
+    if (b.score !== a.score) return b.score - a.score;
+    return (
+      new Date(b.post.publishedAt).getTime() -
+      new Date(a.post.publishedAt).getTime()
+    );
+  });
+  return scored.slice(0, limit).map((s) => s.post);
+};
+
 const Block = ({ block, slug }: { block: BlogBlock; slug: string }) => {
   if (block.type === 'heading') {
     if (block.level === 2) {
@@ -92,7 +223,9 @@ const Block = ({ block, slug }: { block: BlogBlock; slug: string }) => {
   }
   if (block.type === 'paragraph') {
     return (
-      <p className="my-4 text-[16px] leading-[1.8] text-charcoal-md">{block.text}</p>
+      <p className="my-4 text-[16px] leading-[1.8] text-charcoal-md">
+        {renderInline(block.text)}
+      </p>
     );
   }
   if (block.type === 'list') {
@@ -103,7 +236,7 @@ const Block = ({ block, slug }: { block: BlogBlock; slug: string }) => {
             key={i}
             className="relative pl-5 text-[15.5px] leading-[1.7] text-charcoal-md before:absolute before:left-0 before:top-3 before:h-1.25 before:w-1.25 before:rounded-full before:bg-[rgba(200,90,23,0.6)] before:content-['']"
           >
-            {item}
+            {renderInline(item)}
           </li>
         ))}
       </ul>
@@ -189,7 +322,8 @@ export default async function BlogPostPage({ params }: { params: Params }) {
   if (!post) notFound();
 
   const allPosts = await getAllPosts();
-  const related = allPosts.filter((p) => p.slug !== post.slug).slice(0, 2);
+  const related = getRelatedPosts(post, allPosts, 3);
+  const externalLinks = getRelatedExternalLinks(post, 3);
 
   const crumbTrail = [
     { name: 'Blog', path: '/blog' },
@@ -279,6 +413,58 @@ export default async function BlogPostPage({ params }: { params: Params }) {
             <Block key={i} block={block} slug={post.slug} />
           ))}
         </div>
+
+        {/* Explore HireSort — cross-links to product / use-cases */}
+        {externalLinks.length > 0 && (
+          <aside className="my-10 rounded-xl border border-line-soft bg-white p-6 shadow-soft">
+            <h3 className="mb-4 text-[17px] font-bold tracking-[-0.3px] text-charcoal">
+              Explore HireSort
+            </h3>
+            <ul className="grid list-none gap-3 p-0 sm:grid-cols-2">
+              {externalLinks.map((l) => (
+                <li key={l.href}>
+                  <Link
+                    href={l.href}
+                    className="group block h-full rounded-lg border border-line-soft bg-ivory-light px-4 py-3 no-underline transition-colors hover:border-accent hover:bg-white"
+                  >
+                    <span className="text-[14px] font-bold text-accent group-hover:underline">
+                      {l.label}
+                    </span>
+                    <span className="mt-1 block text-[12.5px] leading-[1.5] text-charcoal-lt">
+                      {l.description}
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </aside>
+        )}
+
+        {/* Read next — auto-derived cross-links */}
+        {related.length > 0 && (
+          <aside className="my-10 rounded-xl border border-line-soft bg-white p-6 shadow-soft">
+            <h3 className="mb-4 text-[17px] font-bold tracking-[-0.3px] text-charcoal">
+              Read next
+            </h3>
+            <ul className="grid list-none gap-3 p-0 sm:grid-cols-2">
+              {related.map((p) => (
+                <li key={p.slug}>
+                  <Link
+                    href={`/blog/${p.slug}`}
+                    className="group block h-full rounded-lg border border-line-soft bg-ivory-light px-4 py-3 no-underline transition-colors hover:border-accent hover:bg-white"
+                  >
+                    <span className="text-[14px] font-bold text-accent group-hover:underline">
+                      {p.title}
+                    </span>
+                    <span className="mt-1 block text-[12.5px] leading-[1.5] text-charcoal-lt">
+                      {p.subtitle || p.description}
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </aside>
+        )}
 
         {/* Tags */}
         {post.tags.length > 0 && (
