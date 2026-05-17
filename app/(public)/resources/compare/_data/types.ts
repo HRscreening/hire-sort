@@ -123,5 +123,7 @@ export type CompetitorPage = {
 
   internalLinks: { href: string; label: string }[];
 
+  externalReferences?: { href: string; label: string; description: string }[];
+
   disclaimer: string;
 };

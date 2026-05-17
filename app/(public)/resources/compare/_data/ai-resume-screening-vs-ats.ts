@@ -5,7 +5,7 @@ export const aiResumeScreeningVsAts: CompetitorPage = {
   slug: 'ai-resume-screening-vs-ats',
   competitor: 'Traditional ATS',
   publishedAt: '2026-05-08',
-  updatedAt: '2026-05-16',
+  updatedAt: '2026-05-17',
 
   meta: {
     title: 'AI Resume Screening vs ATS: What Is the Difference? | HireSort',
@@ -228,6 +228,33 @@ export const aiResumeScreeningVsAts: CompetitorPage = {
     { href: '/resources/compare/workable-alternative', label: 'HireSort vs Workable' },
     { href: '/resources/compare/greenhouse-alternative', label: 'HireSort vs Greenhouse' },
     { href: '/pricing', label: 'Pricing' },
+  ],
+
+  externalReferences: [
+    {
+      href: 'https://business.linkedin.com/hire/resources/future-of-recruiting',
+      label: 'LinkedIn Future of Recruiting 2025',
+      description:
+        'Recruiting trend report on AI adoption, recruiter efficiency, quality of hire, and skills-based hiring.',
+    },
+    {
+      href: 'https://www.gartner.com/en/newsroom/press-releases/2025-07-31-gartner-survey-shows-just-26-percent-of-job-applicants-trust-ai-will-fairly-evaluate-them',
+      label: 'Gartner applicant trust in AI survey',
+      description:
+        'Research on candidate trust, AI-assisted applications, and why human oversight matters in AI hiring workflows.',
+    },
+    {
+      href: 'https://www.greenhouse.com/pricing',
+      label: 'Greenhouse pricing and ATS plan details',
+      description:
+        'Official Greenhouse plan page showing ATS features such as structured hiring, scheduling, reporting, sourcing, and CRM.',
+    },
+    {
+      href: 'https://www.ashbyhq.com/pricing',
+      label: 'Ashby pricing and recruiting platform details',
+      description:
+        'Official Ashby pricing page showing all-in-one recruiting, analytics, scheduling, and ATS-oriented workflows.',
+    },
   ],
 
   disclaimer:

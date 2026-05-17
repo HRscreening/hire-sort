@@ -488,6 +488,36 @@ const CompareClient = ({ data }: Props) => {
         </div>
       </section>
 
+      {/* External references */}
+      {data.externalReferences && data.externalReferences.length > 0 && (
+        <section className="mx-auto max-w-275 px-6 pb-16">
+          <div className="rounded-xl border border-line-soft bg-ivory-light p-6 shadow-soft">
+            <div className="mb-3 text-[12px] font-bold uppercase tracking-[0.6px] text-charcoal-xlt">
+              Sources and further reading
+            </div>
+            <ul className="grid list-none gap-3 p-0 md:grid-cols-2">
+              {data.externalReferences.map((reference) => (
+                <li key={reference.href}>
+                  <a
+                    href={reference.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group block rounded-lg border border-line-soft bg-white p-4 no-underline transition-shadow hover:shadow-soft"
+                  >
+                    <span className="block text-[14px] font-semibold text-accent group-hover:underline">
+                      {reference.label}
+                    </span>
+                    <span className="mt-1 block text-[13px] leading-[1.55] text-charcoal-lt">
+                      {reference.description}
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
+
       {/* Disclaimer */}
       <aside
         aria-label="Trademark and informational disclaimer"
