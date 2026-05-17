@@ -109,35 +109,35 @@ export const aiResumeScreeningVsAts: CompetitorPage = {
 
   evidence: {
     eyebrow: 'Market context',
-    title: 'Why the ATS vs AI Screening Distinction Matters',
+    title: 'How to Decide Between an ATS and AI Resume Screening',
     intro:
-      'The best choice depends on whether your team needs full recruiting operations or a faster, more explainable screening layer. These external references show why both sides of the decision matter.',
+      'The right choice depends on the bottleneck in your hiring process. If your team is losing time before candidates are even shortlisted, AI resume screening is often the most practical place to start. If your team is already coordinating many roles, interview panels, approvals, and reports, a fuller ATS may matter more.',
     items: [
       {
-        title: 'Recruiting teams are evaluating AI more seriously',
+        title: 'AI is becoming part of modern recruiting workflows',
         body:
-          'LinkedIn’s Future of Recruiting report tracks AI, recruiter efficiency, quality of hire, and skills-based hiring as central talent acquisition themes, which is why AI screening and AI ATS searches are becoming more common.',
+          'LinkedIn reports that 37% of organizations are now actively integrating or experimenting with Gen AI tools in recruiting, up from 27% a year earlier. For teams that want to keep pace without rebuilding their entire hiring stack, resume screening is a focused starting point: it helps recruiters review more applicants, spot stronger matches earlier, and create shortlists with less manual effort.',
         href: 'https://business.linkedin.com/hire/resources/future-of-recruiting',
         label: 'LinkedIn Future of Recruiting 2025',
       },
       {
-        title: 'Candidate trust still depends on human oversight',
+        title: 'AI screening needs to be explainable, not invisible',
         body:
-          'Gartner reported that only 26% of job applicants trust AI to fairly evaluate them, which reinforces the need for explainable screening, transparent criteria, and recruiter review rather than black-box automation.',
+          'Gartner found that only 26% of job applicants trust AI to fairly evaluate them. That does not mean teams should avoid AI; it means AI should support human review with clear criteria, visible evidence, and recruiter control. A useful screening tool should explain why someone was ranked highly, not simply output a score.',
         href: 'https://www.gartner.com/en/newsroom/press-releases/2025-07-31-gartner-survey-shows-just-26-percent-of-job-applicants-trust-ai-will-fairly-evaluate-them',
         label: 'Gartner applicant trust in AI survey',
       },
       {
-        title: 'Traditional ATS platforms cover broader operations',
+        title: 'A full ATS is strongest when process coordination is the problem',
         body:
-          'Greenhouse’s public plan page highlights ATS capabilities such as structured hiring, interview scheduling, reporting, sourcing, and CRM. Those are useful when the problem is full recruiting process management.',
+          'Platforms such as Greenhouse package ATS capabilities with structured hiring, interview scheduling, reporting, sourcing, CRM, and broader recruiting operations. That is valuable when hiring is already complex across many teams and stages. But if the core pain is still first-pass resume review, a full ATS can organize the pipeline without solving the shortlisting bottleneck.',
         href: 'https://www.greenhouse.com/pricing',
         label: 'Greenhouse pricing and ATS plan details',
       },
       {
-        title: 'All-in-one recruiting suites go beyond screening',
+        title: 'Lean teams may need screening power before a larger suite',
         body:
-          'Ashby positions its platform around end-to-end recruiting workflows including ATS, scheduling, analytics, and sourcing. That is a different buying decision from choosing a focused resume screening and candidate shortlisting layer.',
+          'All-in-one recruiting suites such as Ashby can cover ATS, scheduling, analytics, and sourcing in one system. That may be the right decision later. For startups, agencies, and small recruiting teams, the first measurable improvement may be simpler: turn a pile of resumes into an evidence-backed shortlist, then track those candidates in a lightweight workflow.',
         href: 'https://www.ashbyhq.com/pricing',
         label: 'Ashby pricing and recruiting platform details',
       },
