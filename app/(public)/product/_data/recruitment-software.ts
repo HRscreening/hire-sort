@@ -115,9 +115,9 @@ export const recruitmentSoftware: ProductPage = {
         {
           title: 'The business case is speed and better shortlists',
           body:
-            'Among HR teams using AI for recruiting, SHRM found that 89% report time savings or efficiency gains, 36% report lower recruiting, interviewing, or hiring costs, and 24% report better top-candidate identification. Recruitment software should therefore improve both speed and shortlist quality.',
-          href: 'https://www.shrm.org/topics-tools/research/2025-talent-trends/ai-in-hr',
-          label: 'SHRM 2025 Talent Trends: AI in HR',
+            'iCIMS reports that 24% of AI adopters save more than five hours per week, and that employers are using AI more for screening and matching than for final hiring decisions. That is the right role for recruitment software: reduce first-pass workload, then keep humans responsible for the final judgment.',
+          href: 'https://www.icims.com/company/newsroom/augustinsights2025/',
+          label: 'iCIMS August 2025 Workforce Report',
         },
         {
           title: 'Human review still matters',
