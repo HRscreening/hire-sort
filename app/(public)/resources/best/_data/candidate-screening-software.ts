@@ -5,7 +5,7 @@ export const candidateScreeningSoftware: BestPage = {
   slug: 'candidate-screening-software',
   category: 'Candidate screening software',
   publishedAt: '2026-05-10',
-  updatedAt: '2026-05-16',
+  updatedAt: '2026-05-17',
 
   meta: {
     title: 'Best Candidate Screening Software in 2026 | HireSort',
@@ -74,6 +74,43 @@ export const candidateScreeningSoftware: BestPage = {
       ['ATS screening features', 'Teams wanting screening inside a full hiring system', 'Use scorecards, filters, knockout questions, and pipeline stages'],
       ['Candidate ranking software', 'Recruiters who need a clear review order', 'Group candidates into priority, review, hold, and reject tiers'],
       ['Agency screening workflows', 'Staffing teams managing many similar roles', 'Reuse candidate records and compare applicants across openings'],
+    ],
+  },
+
+  evidence: {
+    eyebrow: 'Market context',
+    title: 'Why Candidate Screening Software Matters Now',
+    intro:
+      'Candidate screening software is not just another recruiting tool. It sits at the point where applicant volume, AI adoption, candidate trust, and recruiter workload all collide. The best tools help teams move faster without hiding the reasons behind shortlist decisions.',
+    items: [
+      {
+        title: 'AI is already being used in recruiting',
+        body:
+          'SHRM reports that 51% of organizations using AI in HR apply it to recruiting, and 44% use AI for resume screening. That means screening is no longer an experimental use case; it is one of the first recruiting workflows teams are trying to improve with AI.',
+        href: 'https://www.shrm.org/topics-tools/research/2025-talent-trends/ai-in-hr',
+        label: 'SHRM 2025 Talent Trends: AI in HR',
+      },
+      {
+        title: 'The business case is speed, cost, and better focus',
+        body:
+          'Among HR teams using AI for recruiting, SHRM found that 89% report time savings or efficiency gains, 36% report lower recruiting, interviewing, or hiring costs, and 24% say AI improved their ability to identify top candidates. For resume-heavy teams, the practical goal is simple: spend less time sorting and more time reviewing the right people.',
+        href: 'https://www.shrm.org/topics-tools/research/2025-talent-trends/ai-in-hr',
+        label: 'SHRM 2025 Talent Trends: AI in HR',
+      },
+      {
+        title: 'Teams are adopting AI, but the workflow still needs to be controlled',
+        body:
+          'LinkedIn reports that 37% of organizations are actively integrating or experimenting with Gen AI tools in recruiting, up from 27% a year earlier. Candidate screening is a focused way to start: use AI to organize evidence and prioritize review, while recruiters still decide who moves forward.',
+        href: 'https://business.linkedin.com/hire/resources/future-of-recruiting',
+        label: 'LinkedIn Future of Recruiting 2025',
+      },
+      {
+        title: 'Candidate trust depends on explainability',
+        body:
+          'Gartner found that only 26% of job applicants trust AI to fairly evaluate them. That is why candidate screening software should not feel like a black box. It should show role-specific criteria, resume evidence, strengths, gaps, and allow human review before decisions are made.',
+        href: 'https://www.gartner.com/en/newsroom/press-releases/2025-07-31-gartner-survey-shows-just-26-percent-of-job-applicants-trust-ai-will-fairly-evaluate-them',
+        label: 'Gartner applicant trust in AI survey',
+      },
     ],
   },
 
@@ -218,6 +255,33 @@ export const candidateScreeningSoftware: BestPage = {
     { href: '/blog/how-to-shortlist-candidates-faster', label: 'How to Shortlist Candidates Faster' },
     { href: '/blog/ai-resume-screening-tool', label: 'AI Resume Screening Tool' },
     { href: '/blog/candidate-scorecard-template', label: 'Candidate Scorecard Template' },
+  ],
+
+  externalReferences: [
+    {
+      href: 'https://www.shrm.org/topics-tools/research/2025-talent-trends/ai-in-hr',
+      label: 'SHRM 2025 Talent Trends: AI in HR',
+      description:
+        'Research on HR AI adoption, recruiting use cases, resume screening, time savings, cost reduction, and top-candidate identification.',
+    },
+    {
+      href: 'https://business.linkedin.com/hire/resources/future-of-recruiting',
+      label: 'LinkedIn Future of Recruiting 2025',
+      description:
+        'Recruiting trend report covering Gen AI adoption, recruiter efficiency, quality of hire, and skills-based hiring.',
+    },
+    {
+      href: 'https://www.gartner.com/en/newsroom/press-releases/2025-07-31-gartner-survey-shows-just-26-percent-of-job-applicants-trust-ai-will-fairly-evaluate-them',
+      label: 'Gartner applicant trust in AI survey',
+      description:
+        'Survey on applicant trust in AI evaluation and why transparent, human-reviewed hiring workflows matter.',
+    },
+    {
+      href: 'https://www.hirevue.com/platform/assessment-software',
+      label: 'HireVue assessment software',
+      description:
+        'Example of assessment-led candidate screening that goes beyond resume review into skills tests, simulations, and interview workflows.',
+    },
   ],
 
   disclaimer:

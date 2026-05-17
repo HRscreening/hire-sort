@@ -68,6 +68,14 @@ export type BestPage = {
   /** Optional decision / comparison framework table. */
   framework?: FrameworkTable;
 
+  /** Optional evidence-backed market context with outbound sources. */
+  evidence?: {
+    eyebrow?: string;
+    title: string;
+    intro: string;
+    items: { title: string; body: string; href: string; label: string }[];
+  };
+
   /** Optional ordered list of considerations or how-to-choose steps. */
   howToChoose?: ListSection;
 
@@ -82,6 +90,8 @@ export type BestPage = {
   faqs: FaqItem[];
 
   internalLinks: { href: string; label: string }[];
+
+  externalReferences?: { href: string; label: string; description: string }[];
 
   disclaimer?: string;
 };

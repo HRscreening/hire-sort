@@ -276,6 +276,53 @@ const BestClient = ({ data }: Props) => {
         </section>
       )}
 
+      {data.evidence && (
+        <section className="mx-auto max-w-300 px-6 py-20">
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.15 }}
+            variants={pageStagger}
+          >
+            <motion.div variants={pageFadeUp} className="mx-auto mb-10 max-w-190 text-center">
+              {data.evidence.eyebrow && (
+                <span className={sectionLabel}>{data.evidence.eyebrow}</span>
+              )}
+              <h2 className="mb-3 text-[clamp(26px,3.6vw,34px)] font-extrabold leading-[1.2] tracking-[-0.8px] text-charcoal">
+                {data.evidence.title}
+              </h2>
+              <p className="text-[15px] leading-[1.7] text-charcoal-lt">
+                {data.evidence.intro}
+              </p>
+            </motion.div>
+
+            <motion.div variants={pageFadeUp} className="grid gap-4 md:grid-cols-2">
+              {data.evidence.items.map((item) => (
+                <article
+                  key={item.href + item.title}
+                  className="rounded-xl border border-line-soft bg-white p-6 shadow-soft"
+                >
+                  <h3 className="mb-2 text-[17px] font-bold tracking-[-0.3px] text-charcoal">
+                    {item.title}
+                  </h3>
+                  <p className="mb-3 text-[14px] leading-[1.7] text-charcoal-lt">
+                    {item.body}
+                  </p>
+                  <a
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[13.5px] font-semibold text-accent no-underline hover:underline"
+                  >
+                    Source: {item.label}
+                  </a>
+                </article>
+              ))}
+            </motion.div>
+          </motion.div>
+        </section>
+      )}
+
       {data.howToChoose && (
         <section className="mx-auto max-w-300 px-6 py-20">
           <motion.div
@@ -422,6 +469,35 @@ const BestClient = ({ data }: Props) => {
                       className="ml-auto text-charcoal-lt transition group-hover:translate-x-0.5 group-hover:text-accent"
                     />
                   </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
+
+      {data.externalReferences && data.externalReferences.length > 0 && (
+        <section className="mx-auto max-w-300 px-6 py-16">
+          <div className="rounded-xl border border-line-soft bg-ivory-light p-6 shadow-soft">
+            <div className="mb-3 text-[12px] font-bold uppercase tracking-[0.6px] text-charcoal-xlt">
+              Sources and further reading
+            </div>
+            <ul className="grid list-none gap-3 p-0 md:grid-cols-2">
+              {data.externalReferences.map((reference) => (
+                <li key={reference.href}>
+                  <a
+                    href={reference.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group block rounded-lg border border-line-soft bg-white p-4 no-underline transition-shadow hover:shadow-soft"
+                  >
+                    <span className="block text-[14px] font-semibold text-accent group-hover:underline">
+                      {reference.label}
+                    </span>
+                    <span className="mt-1 block text-[13px] leading-[1.55] text-charcoal-lt">
+                      {reference.description}
+                    </span>
+                  </a>
                 </li>
               ))}
             </ul>
