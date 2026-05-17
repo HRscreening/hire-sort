@@ -87,35 +87,35 @@ export const aiResumeScreeningSoftware: BestPage = {
     eyebrow: 'Market context',
     title: 'Why AI Resume Screening Is Often the First AI Recruiting Workflow',
     intro:
-      'AI resume screening is one of the clearest places to apply AI in recruiting because the pain is specific: too many resumes, too little reviewer time, and inconsistent first-pass decisions. The useful question is not whether AI can replace recruiters. It is whether AI can help recruiters find the right candidates faster while keeping the decision reviewable.',
+      'AI resume screening is one of the clearest places to apply AI in recruiting because the pain is specific: too many resumes, too little reviewer time, and inconsistent first-pass decisions. The useful question is not whether AI can replace recruiters. It is whether AI can help recruiters create a better review order while keeping the decision explainable.',
     items: [
       {
-        title: 'Resume screening is already a common AI use case in HR',
+        title: 'Resume screening is a focused, employer-recognized AI use case',
         body:
-          'SHRM reports that 51% of organizations using AI in HR apply it to recruiting, and 44% use AI for resume screening. That makes resume screening one of the most practical starting points for teams that want to introduce AI without replacing the full recruiting process.',
-        href: 'https://www.shrm.org/topics-tools/research/2025-talent-trends/ai-in-hr',
-        label: 'SHRM 2025 Talent Trends: AI in HR',
+          'Indeed describes AI resume screening as a way to identify high-quality candidates and move them forward more efficiently. That is why resume screening is a practical first AI workflow: the problem is narrow, the input is clear, and the output is easy for recruiters to review.',
+        href: 'https://www.indeed.com/hire/c/info/ai-resume-screening',
+        label: 'Indeed guide to AI resume screening',
       },
       {
-        title: 'The buyer value is faster review, not novelty',
+        title: 'The value is faster shortlisting, not AI for its own sake',
         body:
-          'Among HR teams using AI for recruiting, SHRM found that 89% report time savings or efficiency gains, 36% report lower recruiting, interviewing, or hiring costs, and 24% report better top-candidate identification. For resume-heavy teams, those gains come from ranking applicants earlier and giving recruiters a clearer review order.',
-        href: 'https://www.shrm.org/topics-tools/research/2025-talent-trends/ai-in-hr',
-        label: 'SHRM 2025 Talent Trends: AI in HR',
+          'Workable’s AI Screening Assistant documentation is a useful example of where the market is moving: AI is being used to review candidate profiles and recommend a first shortlist. For buyers, the important test is whether that shortlist is easy to understand, adjust, and defend.',
+        href: 'https://help.workable.com/hc/en-us/articles/23685011706775-Using-the-Screening-Assistant-AI-powered',
+        label: 'Workable AI Screening Assistant documentation',
       },
       {
-        title: 'AI adoption is rising, so teams need a controlled way to start',
+        title: 'AI recruiting language is growing, but buyers need specific use cases',
         body:
-          'LinkedIn reports that 37% of organizations are actively integrating or experimenting with Gen AI tools in recruiting, up from 27% a year earlier. A focused AI resume screening workflow lets teams keep up with the market while limiting the scope to one measurable problem: first-pass resume review.',
-        href: 'https://business.linkedin.com/hire/resources/future-of-recruiting',
-        label: 'LinkedIn Future of Recruiting 2025',
+          'Indeed Hiring Lab found that AI-related job postings often use broad AI language, while AI recruiting tools are only one emerging category. That is a useful reminder for hiring teams: do not buy a vague AI promise. Choose a specific workflow, such as resume screening, candidate ranking, or interview scheduling.',
+        href: 'https://www.hiringlab.org/2025/10/28/how-employers-are-talking-about-ai-in-job-postings/',
+        label: 'Indeed Hiring Lab on AI in job postings',
       },
       {
-        title: 'Explainability matters because candidates may not trust black-box AI',
+        title: 'Responsible AI still needs transparency and recruiter control',
         body:
-          'Gartner found that only 26% of job applicants trust AI to fairly evaluate them. AI resume screening software should therefore show the criteria, resume evidence, strengths, and gaps behind each ranking, while recruiters keep control of final decisions.',
-        href: 'https://www.gartner.com/en/newsroom/press-releases/2025-07-31-gartner-survey-shows-just-26-percent-of-job-applicants-trust-ai-will-fairly-evaluate-them',
-        label: 'Gartner applicant trust in AI survey',
+          'The World Economic Forum argues that AI hiring benefits depend on careful risk management, governance, transparency, and job relevance. For AI resume screening software, that means rankings should be grounded in role criteria and resume evidence, not hidden model output.',
+        href: 'https://www.weforum.org/stories/2025/09/ai-powered-recruitment-inclusion-transparency/',
+        label: 'World Economic Forum on responsible AI recruitment',
       },
     ],
   },
@@ -160,22 +160,22 @@ export const aiResumeScreeningSoftware: BestPage = {
 
   externalReferences: [
     {
-      href: 'https://www.shrm.org/topics-tools/research/2025-talent-trends/ai-in-hr',
-      label: 'SHRM 2025 Talent Trends: AI in HR',
+      href: 'https://www.indeed.com/hire/c/info/ai-resume-screening',
+      label: 'Indeed guide to AI resume screening',
       description:
-        'Research on HR AI adoption, recruiting use cases, resume screening, time savings, cost reduction, and top-candidate identification.',
+        'Employer-facing guide to AI resume screening, including speed, candidate experience, benefits, and risks.',
     },
     {
-      href: 'https://business.linkedin.com/hire/resources/future-of-recruiting',
-      label: 'LinkedIn Future of Recruiting 2025',
+      href: 'https://www.hiringlab.org/2025/10/28/how-employers-are-talking-about-ai-in-job-postings/',
+      label: 'Indeed Hiring Lab on AI in job postings',
       description:
-        'Recruiting trend report covering Gen AI adoption, recruiter efficiency, quality of hire, and skills-based hiring.',
+        'Analysis of how employers mention AI in job postings, including emerging AI recruiting tool language.',
     },
     {
-      href: 'https://www.gartner.com/en/newsroom/press-releases/2025-07-31-gartner-survey-shows-just-26-percent-of-job-applicants-trust-ai-will-fairly-evaluate-them',
-      label: 'Gartner applicant trust in AI survey',
+      href: 'https://www.weforum.org/stories/2025/09/ai-powered-recruitment-inclusion-transparency/',
+      label: 'World Economic Forum on responsible AI recruitment',
       description:
-        'Survey on applicant trust in AI evaluation and why transparent, human-reviewed screening workflows matter.',
+        'Discussion of AI-powered recruitment, transparency, job relevance, governance, and responsible hiring automation.',
     },
     {
       href: 'https://help.workable.com/hc/en-us/articles/23685011706775-Using-the-Screening-Assistant-AI-powered',
