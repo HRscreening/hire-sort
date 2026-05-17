@@ -8,6 +8,7 @@ export type FaqItem = {
 
 export type ToolRow = {
   tool: string;
+  href?: string;
   bestFit: string;
   whyItMayWork: string;
   watchOut: string;
