@@ -131,6 +131,47 @@ const PositioningBlock = ({ b }: { b: Extract<ProductBlock, { type: 'positioning
   </motion.div>
 );
 
+const EvidenceBlock = ({ b }: { b: Extract<ProductBlock, { type: 'evidence' }> }) => (
+  <motion.div
+    initial="hidden"
+    whileInView="show"
+    viewport={{ once: true, amount: 0.2 }}
+    variants={pageStagger}
+    className="mx-auto max-w-275"
+  >
+    <motion.div variants={pageFadeUp} className="mb-10 max-w-210">
+      {b.eyebrow && <span className={sectionLabel}>{b.eyebrow}</span>}
+      <h2 className="mb-4 text-[clamp(26px,3.6vw,34px)] font-extrabold leading-[1.2] tracking-[-0.8px] text-charcoal">
+        {b.title}
+      </h2>
+      <p className="text-[15px] leading-[1.75] text-charcoal-lt">{b.intro}</p>
+    </motion.div>
+    <motion.div variants={pageStagger} className="grid gap-4 md:grid-cols-2">
+      {b.items.map((item) => (
+        <motion.article
+          key={item.title}
+          variants={pageFadeUp}
+          className="rounded-xl border border-line-soft bg-white p-6 shadow-soft"
+        >
+          <h3 className="mb-3 text-[17px] font-extrabold leading-[1.3] tracking-[-0.3px] text-charcoal">
+            {item.title}
+          </h3>
+          <p className="mb-4 text-[14px] leading-[1.7] text-charcoal-lt">{item.body}</p>
+          <a
+            href={item.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-[13px] font-bold text-accent no-underline hover:underline"
+          >
+            Source: {item.label}
+            <ArrowRight size={13} strokeWidth={2.4} />
+          </a>
+        </motion.article>
+      ))}
+    </motion.div>
+  </motion.div>
+);
+
 const WorkflowBlock = ({ b }: { b: Extract<ProductBlock, { type: 'workflow' }> }) => (
   <>
     <motion.div
@@ -686,6 +727,8 @@ const RenderBlock = ({ b }: { b: ProductBlock }) => {
       return <ProblemBlock b={b} />;
     case 'positioning':
       return <PositioningBlock b={b} />;
+    case 'evidence':
+      return <EvidenceBlock b={b} />;
     case 'workflow':
       return <WorkflowBlock b={b} />;
     case 'features':

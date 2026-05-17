@@ -62,6 +62,18 @@ export type ProductBlock =
       closing?: string;
     }
   | {
+      type: 'evidence';
+      eyebrow?: string;
+      title: string;
+      intro: string;
+      items: {
+        title: string;
+        body: string;
+        href: string;
+        label: string;
+      }[];
+    }
+  | {
       type: 'workflow';
       eyebrow?: string;
       title: string;

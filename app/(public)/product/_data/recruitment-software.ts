@@ -6,7 +6,7 @@ export const recruitmentSoftware: ProductPage = {
   product: 'Recruitment Software',
   heroIcon: 'workflow',
   publishedAt: '2026-05-03',
-  updatedAt: '2026-05-16',
+  updatedAt: '2026-05-17',
 
   meta: {
     title: 'AI Recruitment Software for Resume Screening in 2026 | HireSort',
@@ -89,6 +89,43 @@ export const recruitmentSoftware: ProductPage = {
         'Many teams looking for recruitment software are really trying to solve a narrower problem: too many applicants, too many resumes, and no consistent way to decide who should be reviewed first.',
         'HireSort is built for that workflow. It helps hiring teams screen resumes, rank candidates, explain why someone is a fit, and move shortlisted candidates into a lightweight pipeline.',
         'That makes it useful for lean recruiting teams, hiring managers, startups, and agencies that need candidate screening software before they need a full enterprise HR system.',
+      ],
+    },
+    {
+      type: 'evidence',
+      eyebrow: 'Market context',
+      title: 'Why Recruitment Software Needs Screening Built In.',
+      intro:
+        'Recruitment software used to mean tracking applicants after they entered the process. For lean teams, the bigger bottleneck is often earlier: deciding which resumes deserve attention first. That is why modern recruitment software should connect candidate management with explainable AI screening.',
+      items: [
+        {
+          title: 'AI is moving into recruiting workflows',
+          body:
+            'LinkedIn reports that 37% of organizations are actively integrating or experimenting with Gen AI tools in recruiting, up from 27% a year earlier. For teams choosing recruitment software now, the question is less whether AI will enter the workflow and more where it should help first.',
+          href: 'https://business.linkedin.com/hire/resources/future-of-recruiting',
+          label: 'LinkedIn Future of Recruiting 2025',
+        },
+        {
+          title: 'Resume screening is one of the practical starting points',
+          body:
+            'SHRM reports that 51% of organizations using AI in HR apply it to recruiting, and 44% use AI for resume screening. That supports a focused product strategy: use AI to structure first-pass review before adding heavier recruiting operations.',
+          href: 'https://www.shrm.org/topics-tools/research/2025-talent-trends/ai-in-hr',
+          label: 'SHRM 2025 Talent Trends: AI in HR',
+        },
+        {
+          title: 'The business case is speed and better shortlists',
+          body:
+            'Among HR teams using AI for recruiting, SHRM found that 89% report time savings or efficiency gains, 36% report lower recruiting, interviewing, or hiring costs, and 24% report better top-candidate identification. Recruitment software should therefore improve both speed and shortlist quality.',
+          href: 'https://www.shrm.org/topics-tools/research/2025-talent-trends/ai-in-hr',
+          label: 'SHRM 2025 Talent Trends: AI in HR',
+        },
+        {
+          title: 'Human review still matters',
+          body:
+            'Gartner found that only 26% of job applicants trust AI to fairly evaluate them. A stronger recruitment workflow keeps recruiters in control, preserves resume evidence, and makes shortlist decisions easy to explain to hiring managers.',
+          href: 'https://www.gartner.com/en/newsroom/press-releases/2025-07-31-gartner-survey-shows-just-26-percent-of-job-applicants-trust-ai-will-fairly-evaluate-them',
+          label: 'Gartner applicant trust in AI survey',
+        },
       ],
     },
     {
