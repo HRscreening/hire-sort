@@ -104,11 +104,11 @@ export const aiResumeScreeningSoftware: BestPage = {
         label: 'Workable AI Screening Assistant documentation',
       },
       {
-        title: 'AI recruiting language is growing, but buyers need specific use cases',
+        title: 'AI adoption is rising, so teams need a controlled way to start',
         body:
-          'Indeed Hiring Lab found that AI-related job postings often use broad AI language, while AI recruiting tools are only one emerging category. That is a useful reminder for hiring teams: do not buy a vague AI promise. Choose a specific workflow, such as resume screening, candidate ranking, or interview scheduling.',
-        href: 'https://www.hiringlab.org/2025/10/28/how-employers-are-talking-about-ai-in-job-postings/',
-        label: 'Indeed Hiring Lab on AI in job postings',
+          'LinkedIn reports that 37% of organizations are actively integrating or experimenting with Gen AI tools in recruiting, up from 27% a year earlier. A focused AI resume screening workflow lets teams keep up with the market while limiting the scope to one measurable problem: first-pass resume review.',
+        href: 'https://business.linkedin.com/hire/resources/future-of-recruiting',
+        label: 'LinkedIn Future of Recruiting 2025',
       },
       {
         title: 'Responsible AI still needs transparency and recruiter control',
@@ -166,10 +166,10 @@ export const aiResumeScreeningSoftware: BestPage = {
         'Employer-facing guide to AI resume screening, including speed, candidate experience, benefits, and risks.',
     },
     {
-      href: 'https://www.hiringlab.org/2025/10/28/how-employers-are-talking-about-ai-in-job-postings/',
-      label: 'Indeed Hiring Lab on AI in job postings',
+      href: 'https://business.linkedin.com/hire/resources/future-of-recruiting',
+      label: 'LinkedIn Future of Recruiting 2025',
       description:
-        'Analysis of how employers mention AI in job postings, including emerging AI recruiting tool language.',
+        'Recruiting trend report covering Gen AI adoption, recruiter efficiency, quality of hire, and skills-based hiring.',
     },
     {
       href: 'https://www.weforum.org/stories/2025/09/ai-powered-recruitment-inclusion-transparency/',
