@@ -1,0 +1,146 @@
+{
+  "slug": "how-founders-should-hire-first-10-employees",
+  "title": "How Founders Should Hire Their First 10 Employees Without an HR Team",
+  "subtitle": "A founder-friendly hiring playbook for building an early team without overcomplicating the process.",
+  "description": "A practical founder hiring guide for building the first 10-person team without a dedicated HR or recruiting function.",
+  "keywords": [
+    "how founders should hire first employees",
+    "startup hiring process",
+    "hire first 10 employees",
+    "founder hiring guide",
+    "startup recruiting without HR"
+  ],
+  "author": {
+    "name": "HireSort Team",
+    "role": "Product & Research"
+  },
+  "publishedAt": "2026-04-27",
+  "updatedAt": "2026-04-28",
+  "readingTime": "4 min read",
+  "coverImage": null,
+  "coverAlt": "Illustration for the HireSort blog article titled How Founders Should Hire Their First 10 Employees Without an HR Team, showing recruiters using AI-assisted resume screening and structured candidate shortlists.",
+  "category": "Founder hiring",
+  "tags": [
+    "Founder hiring",
+    "Startup hiring",
+    "Early team",
+    "Recruiting"
+  ],
+  "body": [
+    {
+      "type": "paragraph",
+      "text": "Hiring the first 10 employees is one of the most important jobs a founder will do. These hires define the product velocity, culture, customer experience, and operating rhythm of the company. But most founders do not have an HR team at this stage. They are hiring while also selling, fundraising, building, and managing operations."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Start with role clarity"
+    },
+    {
+      "type": "paragraph",
+      "text": "Do not start with a generic job description. Start with the work that must get done in the next 6 to 12 months. Early hires need to solve real constraints, not fill corporate job titles."
+    },
+    {
+      "type": "list",
+      "items": [
+        "What outcome should this person own?",
+        "What skills are non-negotiable?",
+        "What can be learned on the job?",
+        "What level of ambiguity can the role tolerate?",
+        "What would success look like after 90 days?"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Write a focused job description"
+    },
+    {
+      "type": "paragraph",
+      "text": "A strong startup JD is direct. It explains what the person will build, own, or improve. It avoids long lists of unrealistic requirements. It also clearly states the stage of the company, the expected ownership, and the type of person who will thrive."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Use a screening rubric before reading resumes"
+    },
+    {
+      "type": "paragraph",
+      "text": "Founders often read resumes emotionally. A candidate from a known company may seem strong. A candidate with a non-traditional background may be overlooked. A rubric protects against this. It forces the founder to decide what matters before seeing the candidate pool."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Role skills: Example weight — 40%; What to evaluate — Can the candidate do the core work?",
+        "Execution evidence: Example weight — 30%; What to evaluate — Have they shipped, sold, operated, or built with ownership?",
+        "Startup fit: Example weight — 20%; What to evaluate — Can they work with ambiguity, urgency, and limited structure?",
+        "Communication: Example weight — 10%; What to evaluate — Can they write, explain, and collaborate clearly?"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Do not interview everyone"
+    },
+    {
+      "type": "paragraph",
+      "text": "Founder time is expensive. Do not use interviews as the first filter. Use resume screening, short written questions, work samples, or structured phone screens before deeper interviews. The goal is to spend founder time only on candidates who have already passed a clear first bar."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Build a simple hiring pipeline"
+    },
+    {
+      "type": "list",
+      "items": [
+        "New: candidate applied or was sourced.",
+        "Screened: resume reviewed against the rubric.",
+        "Shortlisted: candidate looks worth a conversation.",
+        "Round 1: first conversation or recruiter screen.",
+        "Work sample: task, case, technical review, or trial project.",
+        "Founder round: final alignment on ownership, culture, and expectations.",
+        "Offer: compensation, start date, and role details shared."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Use tools only where they reduce founder load"
+    },
+    {
+      "type": "paragraph",
+      "text": "The right tool should reduce the number of decisions a founder has to make manually. HireSort helps with the resume screening step by turning a job description into a rubric and ranking candidates with evidence-based explanations. This lets founders review the strongest profiles first instead of opening every resume one by one."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "What to prioritize in the first 10 hires"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Ownership over pedigree: early hires must be able to take responsibility without constant direction.",
+        "Learning speed over perfect experience: the company will change quickly.",
+        "Communication over polish: unclear communication becomes expensive in small teams.",
+        "Proof of execution over claims: look for shipped products, closed deals, solved problems, or measurable outcomes.",
+        "Culture contribution over culture fit: hire people who raise the operating bar."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Final takeaway"
+    },
+    {
+      "type": "paragraph",
+      "text": "Founders should not try to recreate a corporate hiring process for the first 10 employees. Keep the process simple: define the role, create a rubric, screen consistently, interview selectively, and move fast on strong candidates. A lightweight AI screening tool like HireSort can help founders save time while making early hiring decisions more structured."
+    },
+    {
+      "type": "callout",
+      "title": "Try HireSort",
+      "text": "Use HireSort to screen early applicants faster and build a structured shortlist."
+    }
+  ],
+  "published": true
+}

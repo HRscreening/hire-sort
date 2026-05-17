@@ -1,0 +1,131 @@
+{
+  "slug": "how-to-screen-sales-executive-resumes",
+  "title": "How to Screen Sales Executive Resumes",
+  "subtitle": "A practical guide to identifying sales candidates with the right quota ownership, pipeline discipline, and outcomes.",
+  "description": "Learn how to screen sales executive resumes using quota ownership, outbound experience, CRM discipline, industry fit, and measurable outcomes.",
+  "keywords": [
+    "how to screen sales executive resumes",
+    "sales resume screening",
+    "sales candidate scorecard",
+    "sales hiring rubric",
+    "screen sales resumes"
+  ],
+  "author": {
+    "name": "HireSort Team",
+    "role": "Product & Research"
+  },
+  "publishedAt": "2026-04-27",
+  "updatedAt": "2026-04-28",
+  "readingTime": "4 min read",
+  "coverImage": null,
+  "coverAlt": "Illustration for the HireSort blog article titled How to Screen Sales Executive Resumes, showing recruiters using AI-assisted resume screening and structured candidate shortlists.",
+  "category": "Role-based screening",
+  "tags": [
+    "Sales hiring",
+    "Role-based screening",
+    "Candidate scorecards",
+    "Recruiting"
+  ],
+  "body": [
+    {
+      "type": "paragraph",
+      "text": "Sales resumes can look impressive even when the candidate may not be right for your role. Many candidates mention revenue growth, client relationships, lead generation, or CRM usage. The challenge is to separate surface-level claims from evidence of real selling ability."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Define the sales role clearly"
+    },
+    {
+      "type": "paragraph",
+      "text": "A sales executive role can mean different things across companies. Before screening resumes, define whether the role is inbound or outbound, B2B or B2C, transactional or enterprise, field sales or inside sales, hunting or farming, individual contributor or team lead."
+    },
+    {
+      "type": "paragraph",
+      "text": "The screening criteria should change based on this context. A SaaS outbound sales role should prioritize prospecting, cold outreach, discovery, pipeline generation, CRM discipline, and quota ownership. A relationship-led enterprise sales role should also evaluate stakeholder management, long sales cycles, negotiation, and account planning."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Core criteria for sales resume screening"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Quota ownership: Clear targets, quota attainment, revenue responsibility, or achievement percentages.",
+        "Pipeline generation: Outbound calls, emails, LinkedIn outreach, lead qualification, prospecting volume.",
+        "Conversion ability: Movement from lead to meeting to proposal to closure.",
+        "CRM discipline: Experience using CRM tools and maintaining pipeline hygiene.",
+        "Industry fit: Experience selling to similar buyers, ticket sizes, or sales cycles.",
+        "Communication quality: Clear resume, customer-facing roles, presentations, demos, negotiation."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Signals of a strong sales candidate"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Numbers: quota attainment, revenue generated, deal size, pipeline created, conversion rates.",
+        "Ownership: managed a territory, book of accounts, market segment, or customer portfolio.",
+        "Buyer context: sold to similar customer personas or industries.",
+        "Sales motion: experience with the same motion you need, such as outbound SaaS, channel sales, field sales, or enterprise sales.",
+        "Tools and process: CRM usage, sales engagement platforms, reporting, forecasting, and structured follow-up."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Red flags to watch for"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Vague statements like \"responsible for sales growth\" without numbers or context.",
+        "Only relationship management experience when the role requires hunting.",
+        "No quota, target, or revenue ownership for a quota-carrying role.",
+        "Frequent role changes with no clear progression or achievement story.",
+        "Claims of leadership without team size, scope, or outcomes."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Example sales executive scorecard"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Sales Skills & Process: Weight — 35%; Questions to ask — Can the candidate prospect, qualify, pitch, negotiate, and close?",
+        "Experience & Outcomes: Weight — 45%; Questions to ask — Have they owned targets and delivered measurable results?",
+        "Role Fit: Weight — 20%; Questions to ask — Do they match the industry, buyer persona, sales cycle, and seniority?"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "How AI can help sales screening"
+    },
+    {
+      "type": "paragraph",
+      "text": "AI screening can help recruiters compare sales candidates more consistently. HireSort can generate a rubric from the job description and score candidates against sales-specific criteria. Instead of manually searching for revenue numbers across every resume, recruiters can start with a ranked shortlist and review the evidence behind each score."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Final takeaway"
+    },
+    {
+      "type": "paragraph",
+      "text": "The best sales resumes show proof: targets, revenue, pipeline, customer segments, and deal ownership. Screen for the sales motion you need, not just generic sales experience. A structured scorecard makes the shortlist faster and more accurate."
+    },
+    {
+      "type": "callout",
+      "title": "Try HireSort",
+      "text": "Generate a sales executive screening rubric in HireSort and identify stronger candidates faster."
+    }
+  ],
+  "published": true
+}

@@ -38,41 +38,7 @@ const POSTS_DIR = path.join(
   'posts',
 );
 
-type DbBlogPost = {
-  slug: string;
-  title: string;
-  subtitle: string | null;
-  description: string;
-  keywords: string[];
-  author: unknown;
-  publishedAt: Date;
-  updatedAt: Date;
-  readingTime: string;
-  coverImage: string | null;
-  coverAlt: string | null;
-  category: string | null;
-  tags: string[];
-  body: unknown;
-};
-
-const toBlogPost = (row: DbBlogPost): BlogPost => ({
-  slug: row.slug,
-  title: row.title,
-  subtitle: row.subtitle ?? '',
-  description: row.description,
-  keywords: row.keywords,
-  author: row.author as BlogAuthor,
-  publishedAt: row.publishedAt.toISOString(),
-  updatedAt: row.updatedAt.toISOString(),
-  readingTime: row.readingTime,
-  coverImage: row.coverImage ?? undefined,
-  coverAlt: row.coverAlt ?? '',
-  category: row.category ?? '',
-  tags: row.tags,
-  body: row.body as BlogBlock[],
-});
-
-const toJsonBlogPost = (post: BlogPostInput): BlogPost => ({
+const toBlogPost = (post: BlogPostInput): BlogPost => ({
   slug: post.slug,
   title: post.title,
   subtitle: post.subtitle ?? '',
@@ -89,21 +55,16 @@ const toJsonBlogPost = (post: BlogPostInput): BlogPost => ({
   body: post.body,
 });
 
-const shouldUseJsonPosts = () => !process.env.DATABASE_URL;
+let cachedPosts: Promise<BlogPost[]> | null = null;
 
-const getPrisma = async () => {
-  const { prisma } = await import('@/lib/prisma');
-  return prisma;
-};
-
-const getJsonPosts = async (): Promise<BlogPost[]> => {
+const loadPosts = async (): Promise<BlogPost[]> => {
   const files = await fs.readdir(POSTS_DIR);
   const posts = await Promise.all(
     files
       .filter((file) => file.endsWith('.json'))
       .map(async (file) => {
         const raw = await fs.readFile(path.join(POSTS_DIR, file), 'utf-8');
-        return toJsonBlogPost(blogPostInputSchema.parse(JSON.parse(raw)));
+        return toBlogPost(blogPostInputSchema.parse(JSON.parse(raw)));
       }),
   );
 
@@ -115,38 +76,23 @@ const getJsonPosts = async (): Promise<BlogPost[]> => {
     );
 };
 
+const getPosts = (): Promise<BlogPost[]> => {
+  if (!cachedPosts) cachedPosts = loadPosts();
+  return cachedPosts;
+};
+
 export async function getAllPosts(): Promise<BlogPost[]> {
-  if (shouldUseJsonPosts()) return getJsonPosts();
-  const prisma = await getPrisma();
-  const rows = await prisma.blogPost.findMany({
-    where: { published: true },
-    orderBy: { publishedAt: 'desc' },
-  });
-  return rows.map(toBlogPost);
+  return getPosts();
 }
 
 export async function getPostSlugs(): Promise<string[]> {
-  if (shouldUseJsonPosts()) {
-    const posts = await getJsonPosts();
-    return posts.map((post) => post.slug);
-  }
-  const prisma = await getPrisma();
-  const rows = await prisma.blogPost.findMany({
-    where: { published: true },
-    select: { slug: true },
-  });
-  return rows.map((r: { slug: string }) => r.slug);
+  const posts = await getPosts();
+  return posts.map((post) => post.slug);
 }
 
 export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
-  if (shouldUseJsonPosts()) {
-    const posts = await getJsonPosts();
-    return posts.find((post) => post.slug === slug) ?? null;
-  }
-  const prisma = await getPrisma();
-  const row = await prisma.blogPost.findUnique({ where: { slug } });
-  if (!row || !row.published) return null;
-  return toBlogPost(row);
+  const posts = await getPosts();
+  return posts.find((post) => post.slug === slug) ?? null;
 }
 
 export async function getPaginatedPosts(page: number): Promise<{
@@ -156,33 +102,14 @@ export async function getPaginatedPosts(page: number): Promise<{
   page: number;
 }> {
   const safePage = Math.max(1, Math.floor(page));
-  if (shouldUseJsonPosts()) {
-    const allPosts = await getJsonPosts();
-    const total = allPosts.length;
-    const posts = allPosts.slice(
-      (safePage - 1) * POSTS_PER_PAGE,
-      safePage * POSTS_PER_PAGE,
-    );
-    return {
-      posts,
-      total,
-      totalPages: Math.max(1, Math.ceil(total / POSTS_PER_PAGE)),
-      page: safePage,
-    };
-  }
-
-  const prisma = await getPrisma();
-  const [total, rows] = await Promise.all([
-    prisma.blogPost.count({ where: { published: true } }),
-    prisma.blogPost.findMany({
-      where: { published: true },
-      orderBy: { publishedAt: 'desc' },
-      skip: (safePage - 1) * POSTS_PER_PAGE,
-      take: POSTS_PER_PAGE,
-    }),
-  ]);
+  const allPosts = await getPosts();
+  const total = allPosts.length;
+  const posts = allPosts.slice(
+    (safePage - 1) * POSTS_PER_PAGE,
+    safePage * POSTS_PER_PAGE,
+  );
   return {
-    posts: rows.map(toBlogPost),
+    posts,
     total,
     totalPages: Math.max(1, Math.ceil(total / POSTS_PER_PAGE)),
     page: safePage,

@@ -1,0 +1,130 @@
+{
+  "slug": "how-to-screen-software-engineer-resumes",
+  "title": "How to Screen Software Engineer Resumes",
+  "subtitle": "A role-specific guide to evaluating engineering resumes using skills, project depth, and production experience.",
+  "description": "A practical guide to screening software engineer resumes using technical skills, project depth, production experience, and role-fit signals.",
+  "keywords": [
+    "how to screen software engineer resumes",
+    "software engineer resume screening",
+    "developer resume screening",
+    "engineering candidate scorecard"
+  ],
+  "author": {
+    "name": "HireSort Team",
+    "role": "Product & Research"
+  },
+  "publishedAt": "2026-04-27",
+  "updatedAt": "2026-04-28",
+  "readingTime": "4 min read",
+  "coverImage": null,
+  "coverAlt": "Illustration for the HireSort blog article titled How to Screen Software Engineer Resumes, showing recruiters using AI-assisted resume screening and structured candidate shortlists.",
+  "category": "Role-based screening",
+  "tags": [
+    "Software engineering hiring",
+    "Role-based screening",
+    "Candidate scorecards",
+    "Technical recruiting"
+  ],
+  "body": [
+    {
+      "type": "paragraph",
+      "text": "Screening software engineer resumes is difficult because good engineers do not all write resumes in the same way. Some list every technology they have touched. Others describe systems and outcomes but use fewer keywords. A strong screening process must look beyond tool names and evaluate evidence of real engineering depth."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Start with the role type"
+    },
+    {
+      "type": "paragraph",
+      "text": "Not every software engineer role needs the same criteria. A backend engineer, frontend engineer, full-stack engineer, DevOps engineer, data engineer, and mobile engineer should not be screened with the same rubric. Before reviewing resumes, define the role type, seniority level, required stack, and expected ownership."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Backend: APIs, databases, architecture, scalability, system design, cloud services.",
+        "Frontend: React or similar frameworks, UI quality, state management, performance, accessibility.",
+        "Full-stack: ability to ship across frontend, backend, database, and deployment layers.",
+        "DevOps: CI/CD, cloud infrastructure, monitoring, containers, reliability.",
+        "Data engineering: pipelines, SQL, orchestration, data quality, warehousing, distributed processing."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Core criteria for software engineer screening"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Technical skills: Used required technologies in real projects, not only listed them as keywords.",
+        "Project depth: Built or owned meaningful systems, features, platforms, or services.",
+        "Production experience: Worked on deployed systems, debugging, monitoring, scale, uptime, or performance.",
+        "Problem solving: Solved technical constraints, improved architecture, reduced latency, optimized costs.",
+        "Collaboration: Worked with product, design, QA, DevOps, or business teams.",
+        "Ownership: Owned modules, services, releases, or technical decisions."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Signals of strong engineering resumes"
+    },
+    {
+      "type": "paragraph",
+      "text": "Strong resumes usually include specific examples. Look for phrases like 'designed and deployed,' 'reduced latency by,' 'owned backend services,' 'migrated architecture,' 'built APIs,' 'improved test coverage,' or 'handled production incidents.' Metrics are especially valuable because they show impact, not just participation."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Red flags to watch for"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Long technology lists with no project context.",
+        "Unclear ownership, such as only saying \"worked on\" without explaining contribution.",
+        "No evidence of deployed or production-level work for mid/senior roles.",
+        "Mismatched seniority, such as a senior title but only minor task execution.",
+        "Resume focused only on coursework for an experienced role."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Example software engineer scorecard"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Technical Skills & Expertise: Weight — 40%; Questions to ask — Does the candidate have the required stack and engineering fundamentals?",
+        "Experience & Impact: Weight — 40%; Questions to ask — Have they built, shipped, scaled, or improved relevant systems?",
+        "Qualifications & Role Fit: Weight — 20%; Questions to ask — Do they match the seniority, domain, ownership, and working style needed?"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "How AI can help"
+    },
+    {
+      "type": "paragraph",
+      "text": "AI can help screen software engineer resumes when the criteria are explicit. HireSort generates a role-specific rubric from the job description and scores each resume against that rubric. This allows hiring teams to compare candidates on technical skills, experience, impact, and fit without relying only on keyword filters."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Final takeaway"
+    },
+    {
+      "type": "paragraph",
+      "text": "To screen software engineer resumes well, do not ask only 'does this resume mention the stack?' Ask 'has this candidate used the stack to solve problems similar to ours?' The best screening process combines technical criteria, evidence of impact, and structured scoring."
+    },
+    {
+      "type": "callout",
+      "title": "Try HireSort",
+      "text": "Generate a software engineer screening rubric in HireSort and rank resumes faster."
+    }
+  ],
+  "published": true
+}
