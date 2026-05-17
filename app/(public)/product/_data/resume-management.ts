@@ -6,7 +6,7 @@ export const resumeManagement: ProductPage = {
   product: 'Resume Management',
   heroIcon: 'database',
   publishedAt: '2026-05-03',
-  updatedAt: '2026-05-16',
+  updatedAt: '2026-05-17',
 
   meta: {
     title: 'Resume & CV Management Software for Recruiters in 2026 | HireSort',
@@ -89,6 +89,43 @@ export const resumeManagement: ProductPage = {
       body: [
         'Teams searching for resume management software often need more than file storage. They need a CV management solution that can organize resumes, connect candidates to roles, preserve screening context, and make past applicants searchable again.',
         'HireSort combines resume management with AI screening so recruiters can store candidate records, review match scores, shortlist faster, and reuse strong profiles when a similar role opens later.',
+      ],
+    },
+    {
+      type: 'evidence',
+      eyebrow: 'Market context',
+      title: 'Why Resume Management Should Support Candidate Rediscovery.',
+      intro:
+        'A resume management system should do more than store files. The real value appears when recruiters can search past applicants, understand where they came from, see prior screening context, and quickly decide whether an existing candidate should be considered for a new role.',
+      items: [
+        {
+          title: 'Past applicants can become an active talent pool',
+          body:
+            'Greenhouse describes talent rediscovery as a way to filter and search prospects and past applicants for current roles. That is the practical shift resume management software needs to support: old resumes should not sit as static records; they should become searchable candidates for future openings.',
+          href: 'https://support.greenhouse.io/hc/en-us/articles/30184390692379-Talent-Rediscovery',
+          label: 'Greenhouse Talent Rediscovery',
+        },
+        {
+          title: 'Rediscovery can be faster than starting from scratch',
+          body:
+            'SeekOut positions rediscovering applicants as up to five times faster than sourcing from scratch because the candidates already exist in the system and carry useful application history. For recruiters, that makes resume reuse a direct productivity workflow, not just a database feature.',
+          href: 'https://www.seekout.com/capabilities/rediscover-applicants/',
+          label: 'SeekOut Rediscover Applicants',
+        },
+        {
+          title: 'Search quality improves when history stays attached',
+          body:
+            'Gem explains that AI rediscovery can surface past applicants, CRM prospects, and net-new prospects in one search result, while showing past applications, interview scorecards, and related history. Resume management becomes more useful when candidate context stays connected to the profile.',
+          href: 'https://help.gem.com/external/gem-ai-rediscovery-overview-getting-started',
+          label: 'Gem AI Rediscovery overview',
+        },
+        {
+          title: 'Structured profiles matter more than file storage',
+          body:
+            'SeekOut describes talent rediscovery as using AI to resurface candidates who previously applied but were not hired. That requires structured profiles, search, and matching context. A folder of PDFs is storage; a resume management system should help recruiters find and reuse the right people.',
+          href: 'https://help.seekout.com/help/What-is-Talent-Rediscovery',
+          label: 'SeekOut Talent Rediscovery explainer',
+        },
       ],
     },
     {
