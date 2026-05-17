@@ -100,11 +100,48 @@ export const aiResumeScreeningVsAts: CompetitorPage = {
     eyebrow: 'Where HireSort fits',
     title: 'AI Resume Screening and ATS Software Solve Different Problems',
     body: [
-      'A traditional ATS stores candidates and applications, tracks them across stages, supports job posting, and helps teams collaborate around interviews and decisions. Some include reporting, permissions, integrations and onboarding workflows.',
-      'AI resume screening software does something different: it reads resumes at scale, evaluates candidates against job-specific criteria, produces candidate scores and rankings, highlights strengths and gaps with evidence, and helps recruiters decide who to review first.',
+      'A traditional ATS stores candidates and applications, tracks them across stages, supports job posting, and helps teams collaborate around interviews and decisions. Full recruiting platforms often extend into scheduling, sourcing, CRM, analytics, permissions, integrations, and onboarding workflows.',
+      'AI resume screening software does something different: it reads resumes at scale, evaluates candidates against job-specific criteria, produces candidate scores and rankings, highlights strengths and gaps with evidence, and helps recruiters decide who to review first. That distinction matters because AI adoption is rising, but hiring teams still need explainability and human control.',
     ],
     closing:
       'HireSort combines AI resume screening with lightweight applicant tracking. It is designed to help teams create jobs, screen resumes, rank candidates, manage a resume repository and track stages in a simple workflow.',
+  },
+
+  evidence: {
+    eyebrow: 'Market context',
+    title: 'Why the ATS vs AI Screening Distinction Matters',
+    intro:
+      'The best choice depends on whether your team needs full recruiting operations or a faster, more explainable screening layer. These external references show why both sides of the decision matter.',
+    items: [
+      {
+        title: 'Recruiting teams are evaluating AI more seriously',
+        body:
+          'LinkedIn’s Future of Recruiting report tracks AI, recruiter efficiency, quality of hire, and skills-based hiring as central talent acquisition themes, which is why AI screening and AI ATS searches are becoming more common.',
+        href: 'https://business.linkedin.com/hire/resources/future-of-recruiting',
+        label: 'LinkedIn Future of Recruiting 2025',
+      },
+      {
+        title: 'Candidate trust still depends on human oversight',
+        body:
+          'Gartner reported that only 26% of job applicants trust AI to fairly evaluate them, which reinforces the need for explainable screening, transparent criteria, and recruiter review rather than black-box automation.',
+        href: 'https://www.gartner.com/en/newsroom/press-releases/2025-07-31-gartner-survey-shows-just-26-percent-of-job-applicants-trust-ai-will-fairly-evaluate-them',
+        label: 'Gartner applicant trust in AI survey',
+      },
+      {
+        title: 'Traditional ATS platforms cover broader operations',
+        body:
+          'Greenhouse’s public plan page highlights ATS capabilities such as structured hiring, interview scheduling, reporting, sourcing, and CRM. Those are useful when the problem is full recruiting process management.',
+        href: 'https://www.greenhouse.com/pricing',
+        label: 'Greenhouse pricing and ATS plan details',
+      },
+      {
+        title: 'All-in-one recruiting suites go beyond screening',
+        body:
+          'Ashby positions its platform around end-to-end recruiting workflows including ATS, scheduling, analytics, and sourcing. That is a different buying decision from choosing a focused resume screening and candidate shortlisting layer.',
+        href: 'https://www.ashbyhq.com/pricing',
+        label: 'Ashby pricing and recruiting platform details',
+      },
+    ],
   },
 
   featureCompare: {

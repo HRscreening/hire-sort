@@ -166,6 +166,44 @@ const CompareClient = ({ data }: Props) => {
         </section>
       )}
 
+      {/* Evidence */}
+      {data.evidence && (
+        <section className="mx-auto max-w-300 px-6 py-20">
+          <div className="mx-auto mb-10 max-w-180 text-center">
+            <span className={sectionLabel}>{data.evidence.eyebrow}</span>
+            <h2 className="mb-3 text-[clamp(26px,3.6vw,34px)] font-extrabold leading-[1.2] tracking-[-0.8px] text-charcoal">
+              {data.evidence.title}
+            </h2>
+            <p className="text-[15px] leading-[1.7] text-charcoal-lt">
+              {data.evidence.intro}
+            </p>
+          </div>
+          <div className="grid gap-4 md:grid-cols-2">
+            {data.evidence.items.map((item) => (
+              <article
+                key={item.href}
+                className="rounded-xl border border-line-soft bg-white p-6 shadow-soft"
+              >
+                <h3 className="mb-2 text-[17px] font-bold tracking-[-0.3px] text-charcoal">
+                  {item.title}
+                </h3>
+                <p className="mb-3 text-[14px] leading-[1.7] text-charcoal-lt">
+                  {item.body}
+                </p>
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[13.5px] font-semibold text-accent no-underline hover:underline"
+                >
+                  Source: {item.label}
+                </a>
+              </article>
+            ))}
+          </div>
+        </section>
+      )}
+
       {/* Workflow */}
       {data.workflow && (
         <section className="bg-linear-to-b from-ivory-medium to-ivory px-6 py-20">

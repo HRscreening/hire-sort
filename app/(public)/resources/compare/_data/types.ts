@@ -55,6 +55,13 @@ export type CompetitorPage = {
     closing: string;
   };
 
+  evidence?: {
+    eyebrow: string;
+    title: string;
+    intro: string;
+    items: { title: string; body: string; href: string; label: string }[];
+  };
+
   workflow?: {
     eyebrow: string;
     title: string;
