@@ -5,7 +5,7 @@ export const hiresortVsSpreadsheets: CompetitorPage = {
   slug: 'hiresort-vs-spreadsheets',
   competitor: 'Spreadsheets',
   publishedAt: '2026-05-10',
-  updatedAt: '2026-05-10',
+  updatedAt: '2026-05-17',
 
   meta: {
     title: 'HireSort vs Spreadsheets for Candidate Tracking | HireSort',
@@ -52,13 +52,50 @@ export const hiresortVsSpreadsheets: CompetitorPage = {
 
   positioning: {
     eyebrow: 'Where spreadsheets fit',
-    title: 'Where spreadsheets work — and where they break',
+    title: 'Where spreadsheets work and where they break',
     body: [
       'Spreadsheets are fine for very early hiring with a few candidates, one-off roles where tracking complexity is low, simple lists that do not require scoring or evidence, and as a temporary tracker before formalizing the process.',
       'They break when resume files are stored separately from candidate rows, scores and notes are inconsistent across reviewers, candidate stage updates are easy to miss, old candidates are difficult to reuse, hiring managers cannot see why candidates were shortlisted, and multiple versions of the same tracker create confusion.',
     ],
     closing:
       'Once any of those failure modes set in, a structured candidate workspace usually saves more time than it costs to adopt.',
+  },
+
+  evidence: {
+    eyebrow: 'Market context',
+    title: 'Why Candidate Tracking Spreadsheets Stop Working as Hiring Gets Serious',
+    intro:
+      'Spreadsheets are excellent general-purpose tools, which is why many teams start there. The problem is not the spreadsheet itself; the problem is using a flexible grid as the source of truth for resumes, reviewer notes, shortlist decisions, and stage movement once hiring volume grows.',
+    items: [
+      {
+        title: 'Spreadsheets are strong collaboration tools, not purpose-built hiring systems',
+        body:
+          'Google Sheets emphasizes real-time collaboration, sharing, and spreadsheet editing from anywhere. That makes it useful for simple hiring lists, but it still leaves resume evidence, screening criteria, and stage history for the team to design and maintain manually.',
+        href: 'https://workspace.google.com/products/sheets/',
+        label: 'Google Sheets product overview',
+      },
+      {
+        title: 'Excel can support shared tracking, but process structure is still manual',
+        body:
+          'Microsoft documents co-authoring for Excel workbooks, which helps multiple people work in the same file. For recruiting, the missing layer is not collaboration alone; it is consistent candidate screening, searchable resume records, and clear shortlist reasoning.',
+        href: 'https://support.microsoft.com/en-us/office/collaborate-on-excel-workbooks-at-the-same-time-with-co-authoring-7152aa8b-b791-414c-a3bb-3024e46fb104',
+        label: 'Microsoft Excel co-authoring',
+      },
+      {
+        title: 'Spreadsheet-style tracking is common in recruiting, especially early on',
+        body:
+          'SHRM provides an applicant flow log spreadsheet, which shows why spreadsheet tracking is a familiar starting point for recruiting administration. It can document activity, but it does not replace a screening workflow when resumes and roles multiply.',
+        href: 'https://www.shrm.org/topics-tools/tools/forms/applicant-flow-log-spreadsheet',
+        label: 'SHRM applicant flow log spreadsheet',
+      },
+      {
+        title: 'ATS workflows are built to organize hiring from end to end',
+        body:
+          'SHRM describes applicant tracking systems as tools that help recruiting teams streamline job posting, application screening, candidate communication, and related hiring steps. That is the line where a spreadsheet tracker starts becoming a constraint rather than a shortcut.',
+        href: 'https://www.shrm.org/in/topics-tools/news/blogs/applicant-tracking-system--ats---streamline-and-organize-the-hir',
+        label: 'SHRM on applicant tracking systems',
+      },
+    ],
   },
 
   workflow: {
@@ -149,14 +186,44 @@ export const hiresortVsSpreadsheets: CompetitorPage = {
   ],
 
   internalLinks: [
-    { href: '/product/applicant-tracking-system', label: 'Applicant Tracking System' },
-    { href: '/product/resume-management', label: 'Resume Management' },
-    { href: '/product/candidate-pipeline', label: 'Candidate Pipeline' },
+    { href: '/product/applicant-tracking-system', label: 'AI Applicant Tracking System' },
+    { href: '/product/recruitment-software', label: 'AI Recruitment Software' },
+    { href: '/product/resume-management', label: 'Resume Management Software' },
+    { href: '/product/candidate-pipeline', label: 'Candidate Pipeline Software' },
+    { href: '/product/resume-parser', label: 'Resume Parser' },
     { href: '/resources/compare/hiresort-vs-manual-screening', label: 'HireSort vs Manual Screening' },
+    { href: '/resources/compare/ai-resume-screening-vs-ats', label: 'AI Resume Screening vs ATS' },
+    { href: '/resources/compare/resume-screening-software-vs-resume-parser', label: 'Resume Screening Software vs Resume Parser' },
     { href: '/resources/best/recruitment-software-for-small-business', label: 'Best Recruitment Software for Small Business' },
-    { href: '/pricing', label: 'Pricing' },
+    { href: '/resources/best/candidate-screening-software', label: 'Best Candidate Screening Software' },
+    { href: '/resources/best/resume-screening-software', label: 'Best Resume Screening Software' },
+    { href: '/blog/resume-screening-checklist', label: 'Resume Screening Checklist' },
+    { href: '/blog/how-to-shortlist-candidates-faster', label: 'How to Shortlist Candidates Faster' },
+  ],
+
+  externalReferences: [
+    {
+      href: 'https://workspace.google.com/products/sheets/',
+      label: 'Google Sheets product overview',
+      description: 'Reference for spreadsheet collaboration and sharing strengths.',
+    },
+    {
+      href: 'https://support.microsoft.com/en-us/office/collaborate-on-excel-workbooks-at-the-same-time-with-co-authoring-7152aa8b-b791-414c-a3bb-3024e46fb104',
+      label: 'Microsoft Excel co-authoring',
+      description: 'Reference for shared workbook collaboration in Excel.',
+    },
+    {
+      href: 'https://www.shrm.org/topics-tools/tools/forms/applicant-flow-log-spreadsheet',
+      label: 'SHRM applicant flow log spreadsheet',
+      description: 'Example of spreadsheet-based recruiting administration.',
+    },
+    {
+      href: 'https://www.shrm.org/in/topics-tools/news/blogs/applicant-tracking-system--ats---streamline-and-organize-the-hir',
+      label: 'SHRM on applicant tracking systems',
+      description: 'Background on ATS workflows for organizing recruiting activity.',
+    },
   ],
 
   disclaimer:
-    'This comparison page is for informational purposes only and reflects HireSort’s own product positioning. Feature availability may change over time.',
+    "This comparison page is for informational purposes only and reflects HireSort's own product positioning. Feature availability may change over time.",
 };

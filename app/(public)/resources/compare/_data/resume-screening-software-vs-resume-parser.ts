@@ -5,7 +5,7 @@ export const resumeScreeningVsParser: CompetitorPage = {
   slug: 'resume-screening-software-vs-resume-parser',
   competitor: 'Resume Parser',
   publishedAt: '2026-05-10',
-  updatedAt: '2026-05-10',
+  updatedAt: '2026-05-19',
 
   meta: {
     title: 'Resume Screening Software vs Resume Parser | HireSort',
@@ -60,6 +60,43 @@ export const resumeScreeningVsParser: CompetitorPage = {
     ],
     closing:
       'HireSort uses resume parsing as one part of a larger screening workflow. It extracts key candidate information, then evaluates resumes against a job-specific rubric and creates ranked shortlists.',
+  },
+
+  evidence: {
+    eyebrow: 'Market context',
+    title: 'Why Parsing and Screening Should Not Be Treated as the Same Job',
+    intro:
+      'Resume parsing is an important infrastructure layer, but it is not the same as candidate evaluation. A parser helps software understand what is inside a resume. Screening software helps hiring teams decide whether that resume matches the role.',
+    items: [
+      {
+        title: 'Resume parsers turn resume text into structured data',
+        body:
+          'Textkernel describes parsing as extracting, classifying, and enriching data from resumes and job postings. That is valuable for searchable candidate records, but it does not by itself answer whether a candidate should move forward.',
+        href: 'https://www.textkernel.com/products-solutions/parser/',
+        label: 'Textkernel resume parser',
+      },
+      {
+        title: 'Parsers often feed ATS, CRM, and hiring workflows',
+        body:
+          'Daxtra positions resume parsing as a way to convert resumes and jobs into structured data for ATS, CRM, job board, or other workflow integrations. In other words, parsing prepares the data layer; screening still needs role-specific evaluation.',
+        href: 'https://www.daxtra.com/products/resume-parsing-software/',
+        label: 'Daxtra resume parsing software',
+      },
+      {
+        title: 'Parsing can enrich candidate records at scale',
+        body:
+          'RChilli describes its parser as identifying and enriching resume data using skills and job-profile taxonomies. That can make candidate databases easier to search, but hiring teams still need scoring criteria and shortlist reasoning.',
+        href: 'https://docs.rchilli.com/kc/internal/c_RChilli_resume_parser',
+        label: 'RChilli resume parser documentation',
+      },
+      {
+        title: 'Screening decisions need oversight and clear criteria',
+        body:
+          'The EEOC explains that employment tests and selection procedures should be understood for their effectiveness, limitations, job relevance, and administration. That is why screening software should make criteria visible instead of treating extracted resume fields as the final decision.',
+        href: 'https://www.eeoc.gov/laws/guidance/employment-tests-and-selection-procedures',
+        label: 'EEOC selection procedure guidance',
+      },
+    ],
   },
 
   featureCompare: {
@@ -138,14 +175,45 @@ export const resumeScreeningVsParser: CompetitorPage = {
   ],
 
   internalLinks: [
-    { href: '/product/resume-parser', label: 'Resume Screening Software' },
-    { href: '/product/resume-management', label: 'Resume Management' },
+    { href: '/product/resume-parser', label: 'Resume Parser' },
+    { href: '/product/resume-management', label: 'Resume Management Software' },
+    { href: '/product/recruitment-software', label: 'AI Recruitment Software' },
+    { href: '/product/applicant-tracking-system', label: 'AI Applicant Tracking System' },
+    { href: '/product/candidate-pipeline', label: 'Candidate Pipeline Software' },
     { href: '/resources/compare/hiresort-vs-manual-screening', label: 'HireSort vs Manual Screening' },
+    { href: '/resources/compare/hiresort-vs-spreadsheets', label: 'HireSort vs Spreadsheets' },
+    { href: '/resources/compare/ai-resume-screening-vs-ats', label: 'AI Resume Screening vs ATS' },
+    { href: '/resources/best/candidate-screening-software', label: 'Best Candidate Screening Software' },
     { href: '/resources/best/resume-screening-software', label: 'Best Resume Screening Software' },
     { href: '/resources/best/ai-resume-screening-software', label: 'Best AI Resume Screening Software' },
-    { href: '/pricing', label: 'Pricing' },
+    { href: '/blog/resume-screening-checklist', label: 'Resume Screening Checklist' },
+    { href: '/blog/how-to-shortlist-candidates-faster', label: 'How to Shortlist Candidates Faster' },
+    { href: '/blog/ai-resume-screening-tool', label: 'AI Resume Screening Tool' },
+  ],
+
+  externalReferences: [
+    {
+      href: 'https://www.textkernel.com/products-solutions/parser/',
+      label: 'Textkernel resume parser',
+      description: 'Reference for resume and job parsing as structured data extraction.',
+    },
+    {
+      href: 'https://www.daxtra.com/products/resume-parsing-software/',
+      label: 'Daxtra resume parsing software',
+      description: 'Reference for parser integrations into ATS, CRM, job board, and workflow systems.',
+    },
+    {
+      href: 'https://docs.rchilli.com/kc/internal/c_RChilli_resume_parser',
+      label: 'RChilli resume parser documentation',
+      description: 'Reference for resume data identification, enrichment, skills, and job-profile taxonomies.',
+    },
+    {
+      href: 'https://www.eeoc.gov/laws/guidance/employment-tests-and-selection-procedures',
+      label: 'EEOC selection procedure guidance',
+      description: 'Guidance on selection procedures, limitations, job relevance, and administration.',
+    },
   ],
 
   disclaimer:
-    'This comparison page is for informational purposes only and reflects HireSort’s own product positioning. Feature availability across resume parser and screening tools may change over time.',
+    "This comparison page is for informational purposes only and reflects HireSort's own product positioning. Feature availability across resume parser and screening tools may change over time.",
 };

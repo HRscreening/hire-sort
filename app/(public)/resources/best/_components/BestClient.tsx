@@ -171,6 +171,7 @@ const BestClient = ({ data }: Props) => {
                         row.href.startsWith('/') ? (
                           <Link
                             href={row.href}
+                            aria-label={`Visit ${row.tool}`}
                             className={row.tool === 'HireSort' ? 'text-accent no-underline hover:underline' : 'text-charcoal no-underline hover:text-accent hover:underline'}
                           >
                             {row.tool}
@@ -180,6 +181,7 @@ const BestClient = ({ data }: Props) => {
                             href={row.href}
                             target="_blank"
                             rel="noopener noreferrer"
+                            aria-label={`Visit ${row.tool}`}
                             className="text-charcoal no-underline hover:text-accent hover:underline"
                           >
                             {row.tool}

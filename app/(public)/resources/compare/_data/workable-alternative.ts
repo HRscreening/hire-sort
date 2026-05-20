@@ -5,12 +5,12 @@ export const workableAlternative: CompetitorPage = {
   slug: 'workable-alternative',
   competitor: 'Workable',
   publishedAt: '2026-05-03',
-  updatedAt: '2026-05-14',
+  updatedAt: '2026-05-19',
 
   meta: {
     title: 'Workable Alternatives & Competitors for 2026 | HireSort',
     description:
-      'Looking for a Workable alternative in 2026? HireSort is a lightweight ATS focused on AI resume screening, ranked shortlists, and reusable candidate repositories — without Workable\'s broader HR complexity.',
+      "Looking for a Workable alternative in 2026? HireSort is a lightweight ATS focused on AI resume screening, ranked shortlists, and reusable candidate repositories without Workable's broader HR complexity.",
     keywords: [
       'Workable alternative',
       'Workable alternatives',
@@ -22,7 +22,7 @@ export const workableAlternative: CompetitorPage = {
       'applicant tracking software',
     ],
     ogImage: '/logo.png',
-    ogImageAlt: 'HireSort — a Workable alternative built for AI resume screening',
+    ogImageAlt: 'HireSort - a Workable alternative built for AI resume screening',
   },
 
   hero: {
@@ -87,17 +87,17 @@ export const workableAlternative: CompetitorPage = {
       {
         area: 'Interview scheduling',
         competitor: 'Available in Workable',
-        hiresort: 'Not part of HireSort’s near-term scope',
+        hiresort: "Not part of HireSort's near-term scope",
       },
       {
         area: 'Offer management',
         competitor: 'Available in Workable',
-        hiresort: 'Not part of HireSort’s near-term scope',
+        hiresort: "Not part of HireSort's near-term scope",
       },
       {
         area: 'Onboarding / HR workflows',
         competitor: 'Available in Workable',
-        hiresort: 'Not part of HireSort’s near-term scope',
+        hiresort: "Not part of HireSort's near-term scope",
       },
       {
         area: 'Best reason to choose',
@@ -112,10 +112,10 @@ export const workableAlternative: CompetitorPage = {
     eyebrow: 'Positioning',
     title: 'When HireSort may be the better Workable alternative',
     body: [
-      'HireSort is a better fit if your biggest hiring bottleneck is not the entire recruiting process — it is the first-pass screening stage.',
+      'HireSort is a better fit if your biggest hiring bottleneck is not the entire recruiting process - it is the first-pass screening stage.',
       'Many teams do not immediately need a full hiring suite with sourcing, scheduling, approvals, offer management, onboarding, and HR workflows. They need a faster way to answer a simpler question:',
     ],
-    quote: '“Out of all these resumes, who should we speak to first — and why?”',
+    quote: 'Out of all these resumes, who should we speak to first and why?',
     closing:
       'HireSort focuses on that moment. It helps your team move from resume volume to structured shortlists using AI-assisted screening, role-specific rubrics, explainable scores, and reusable candidate records.',
   },
@@ -129,7 +129,7 @@ export const workableAlternative: CompetitorPage = {
       'Too many resumes to review manually',
       'Candidates tracked in spreadsheets',
       'No consistent screening criteria',
-      'Hiring managers disagreeing on what “good” means',
+      'Hiring managers disagreeing on what "good" means',
       'Good candidates getting lost across roles',
       'Past resumes not being reused effectively',
       'Recruiters spending hours before they even reach interviews',
@@ -138,11 +138,48 @@ export const workableAlternative: CompetitorPage = {
       'If your team is still trying to build a consistent first-pass screening workflow, a broad ATS may feel like more system than you need. HireSort keeps the workflow focused: upload resumes, generate a role-specific rubric, screen candidates, review ranked results, and track what happens next.',
   },
 
+  evidence: {
+    eyebrow: 'Market context',
+    title: 'When a Workable Alternative Should Be Narrower, Not Just Cheaper',
+    intro:
+      'Workable is a broad hiring platform, so the right alternative depends on the workflow you actually need. If the bottleneck is job distribution, sourcing, scheduling, or HR workflows, a full recruiting suite makes sense. If the bottleneck is first-pass resume review, a screening-first tool can be easier to adopt.',
+    items: [
+      {
+        title: 'Workable covers a broad recruiting workflow',
+        body:
+          'Workable describes its platform around job advertising, sourcing, candidate management, interview kits, scheduling, offer letters, reporting, and broader HR workflows. That breadth is useful when the whole hiring process needs one operating system.',
+        href: 'https://www.workable.com/features',
+        label: 'Workable recruiting features',
+      },
+      {
+        title: 'Workable also positions AI across the wider hiring process',
+        body:
+          'Workable describes AI recruiting features for sourcing, job descriptions, screening, interviews, and workflow support. Teams should decide whether they need AI across the whole process or mainly need AI help ranking resumes and building shortlists.',
+        href: 'https://www.workable.com/workable-ai',
+        label: 'Workable AI recruiting features',
+      },
+      {
+        title: 'A full platform may be unnecessary for a screening-first problem',
+        body:
+          'Workable pricing is packaged around broader recruiting and HR functionality. That can be the right investment for mature workflows, but lean teams may want a more focused tool if resume screening is the immediate pain.',
+        href: 'https://www.workable.com/pricing',
+        label: 'Workable pricing',
+      },
+      {
+        title: 'AI screening still needs clear criteria and human review',
+        body:
+          'The EEOC explains that employment tests and selection procedures should be understood for their job relevance, effectiveness, limitations, and administration. A focused screening workflow should make criteria and evidence visible instead of hiding decisions inside automation.',
+        href: 'https://www.eeoc.gov/laws/guidance/employment-tests-and-selection-procedures',
+        label: 'EEOC selection procedure guidance',
+      },
+    ],
+  },
+
   workflow: {
     eyebrow: 'How HireSort works',
     title: 'A simpler workflow for screening-first hiring',
     intro:
-      'Create job → Generate rubric → Upload resumes → AI screens candidates → Review ranked shortlist → Track candidate stages → Reuse resumes later',
+      'Create job -> Generate rubric -> Upload resumes -> AI screens candidates -> Review ranked shortlist -> Track candidate stages -> Reuse resumes later',
     steps: [
       {
         n: '01',
@@ -379,14 +416,14 @@ export const workableAlternative: CompetitorPage = {
       id: 'scheduling',
       question: 'Does HireSort support interview scheduling?',
       answer: [
-        'No. Interview scheduling is not part of HireSort’s near-term scope. HireSort focuses on screening, ranking, repository, and basic candidate tracking.',
+        "No. Interview scheduling is not part of HireSort's near-term scope. HireSort focuses on screening, ranking, repository, and basic candidate tracking.",
       ],
     },
     {
       id: 'offers-onboarding',
       question: 'Does HireSort support offer letters and onboarding?',
       answer: [
-        'No. Offer workflows and onboarding are not part of HireSort’s near-term scope. Teams that need those workflows may prefer a broader platform.',
+        "No. Offer workflows and onboarding are not part of HireSort's near-term scope. Teams that need those workflows may prefer a broader platform.",
       ],
     },
     {
@@ -406,15 +443,46 @@ export const workableAlternative: CompetitorPage = {
   ],
 
   internalLinks: [
-    { href: '/product/applicant-tracking-system', label: 'Applicant Tracking System' },
-    { href: '/product/resume-parser', label: 'Resume Screening Software' },
-    { href: '/product/resume-management', label: 'Resume Management' },
-    { href: '/product/candidate-pipeline', label: 'Candidate Pipeline' },
+    { href: '/product/recruitment-software', label: 'AI Recruitment Software' },
+    { href: '/product/applicant-tracking-system', label: 'AI Applicant Tracking System' },
+    { href: '/product/resume-parser', label: 'Resume Parser' },
+    { href: '/product/resume-management', label: 'Resume Management Software' },
+    { href: '/product/candidate-pipeline', label: 'Candidate Pipeline Software' },
     { href: '/resources/compare/hiresort-vs-spreadsheets', label: 'HireSort vs Spreadsheets' },
+    { href: '/resources/compare/hiresort-vs-manual-screening', label: 'HireSort vs Manual Screening' },
+    { href: '/resources/compare/ai-resume-screening-vs-ats', label: 'AI Resume Screening vs ATS' },
+    { href: '/resources/compare/resume-screening-software-vs-resume-parser', label: 'Resume Screening Software vs Resume Parser' },
+    { href: '/resources/best/candidate-screening-software', label: 'Best Candidate Screening Software' },
+    { href: '/resources/best/resume-screening-software', label: 'Best Resume Screening Software' },
     { href: '/resources/best/ai-resume-screening-software', label: 'Best AI Resume Screening Software' },
-    { href: '/pricing', label: 'Pricing' },
+    { href: '/blog/resume-screening-checklist', label: 'Resume Screening Checklist' },
+    { href: '/blog/how-to-shortlist-candidates-faster', label: 'How to Shortlist Candidates Faster' },
+    { href: '/blog/ai-resume-screening-tool', label: 'AI Resume Screening Tool' },
+  ],
+
+  externalReferences: [
+    {
+      href: 'https://www.workable.com/features',
+      label: 'Workable recruiting features',
+      description: 'Official Workable feature overview for job advertising, sourcing, ATS workflows, reporting, and HR tools.',
+    },
+    {
+      href: 'https://www.workable.com/workable-ai',
+      label: 'Workable AI recruiting features',
+      description: 'Official Workable overview of AI recruiting functionality across the hiring workflow.',
+    },
+    {
+      href: 'https://www.workable.com/pricing',
+      label: 'Workable pricing',
+      description: 'Official Workable pricing page for understanding broader platform packaging.',
+    },
+    {
+      href: 'https://www.eeoc.gov/laws/guidance/employment-tests-and-selection-procedures',
+      label: 'EEOC selection procedure guidance',
+      description: 'Guidance on selection procedures, limitations, job relevance, and administration.',
+    },
   ],
 
   disclaimer:
-    'Workable is a trademark of its respective owner. This comparison page is for informational purposes only and is based on publicly available information and HireSort’s own product positioning. Feature availability may change over time. Buyers should verify current product capabilities before making a purchase decision.',
+    "Workable is a trademark of its respective owner. This comparison page is for informational purposes only and is based on publicly available information and HireSort's own product positioning. Feature availability may change over time. Buyers should verify current product capabilities before making a purchase decision.",
 };
