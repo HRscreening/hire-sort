@@ -11,6 +11,14 @@ import {
 } from '@/components/layout/PageHero';
 import { trackCTAClick, trackEvent } from '@/lib/google_analytics_tracker';
 import type { BestPage } from '../_data/types';
+import AuthorByline from './blocks/AuthorByline';
+import TableOfContents from './blocks/TableOfContents';
+import Methodology from './blocks/Methodology';
+import ComparisonMatrix from './blocks/ComparisonMatrix';
+import ToolDeepDives from './blocks/ToolDeepDives';
+import ProseSections from './blocks/ProseSection';
+import StatBlocks from './blocks/StatBlocks';
+import Regulation from './blocks/Regulation';
 
 const sectionLabel =
   'mb-3 inline-block text-[12px] font-bold uppercase tracking-[0.8px] text-accent';
@@ -87,6 +95,19 @@ const BestClient = ({ data }: Props) => {
           </p>
         )}
       </PageHero>
+
+      {data.authors && data.authors.length > 0 && (
+        <AuthorByline
+          authors={data.authors}
+          publishedAt={data.publishedAt}
+          updatedAt={data.updatedAt}
+          readingTimeMinutes={data.readingTimeMinutes}
+        />
+      )}
+
+      {data.tableOfContents && (
+        <TableOfContents config={data.tableOfContents} proseSections={data.proseSections} />
+      )}
 
       {data.whatToLookFor && (
         <section className="mx-auto max-w-300 px-6 pt-8 pb-16">
@@ -203,6 +224,20 @@ const BestClient = ({ data }: Props) => {
           </motion.div>
         </motion.div>
       </section>
+
+      {data.methodology && <Methodology data={data.methodology} />}
+
+      {data.comparisonMatrix && <ComparisonMatrix data={data.comparisonMatrix} />}
+
+      {data.toolDeepDives && data.toolDeepDives.length > 0 && (
+        <ToolDeepDives items={data.toolDeepDives} />
+      )}
+
+      {data.proseSections && data.proseSections.length > 0 && (
+        <ProseSections sections={data.proseSections} />
+      )}
+
+      {data.stats && data.stats.length > 0 && <StatBlocks blocks={data.stats} />}
 
       {data.positioning && (
         <section className="mx-auto max-w-300 px-6 py-20">
@@ -342,6 +377,8 @@ const BestClient = ({ data }: Props) => {
           </motion.div>
         </section>
       )}
+
+      {data.regulation && <Regulation data={data.regulation} />}
 
       {data.howToChoose && (
         <section className="mx-auto max-w-300 px-6 py-20">
