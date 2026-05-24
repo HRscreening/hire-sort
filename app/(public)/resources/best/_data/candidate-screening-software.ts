@@ -165,7 +165,7 @@ export const candidateScreeningSoftware: BestPage = {
     eyebrow: 'Try it',
     title: 'Screen candidates before your team gets buried',
     body: 'Use HireSort to evaluate resumes against job-specific criteria and review ranked, explainable shortlists.',
-    primary: { label: 'Get started for free', href: redirectURL },
+    primary: { label: 'Screen resumes for free', href: redirectURL },
   },
 
   faqs: [

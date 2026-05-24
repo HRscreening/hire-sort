@@ -231,7 +231,7 @@ const Hero = () => {
           onClick={() => trackCTAClick('get_started', 'hero')}
           className="inline-flex items-center justify-center gap-2 rounded-md border border-copper bg-copper px-8 py-3.5 text-[15px] font-semibold leading-none text-white shadow-[0_8px_24px_rgba(0,0,0,0.12)] no-underline transition-transform hover:-translate-y-0.5 hover:bg-copper-dark"
         >
-          Get Started
+          Screen resumes for free
           <ArrowRight size={16} strokeWidth={2.5} />
         </a>
       </div>

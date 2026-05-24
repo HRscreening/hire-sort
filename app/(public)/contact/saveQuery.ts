@@ -11,7 +11,7 @@ export type FormState = {
 export async function saveQuery(data: FormState) {
 
     const backendUrl = process.env.APP_BACKEND_URL || "http://localhost:8000";
-    const response = await fetch(`${backendUrl}/api/contact`, {
+    const response = await fetch(`${backendUrl}/api/contact/`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -20,6 +20,7 @@ export async function saveQuery(data: FormState) {
     });
 
     if (!response.ok) {
+        console.log("Failed to save query:", response.statusText,`Response body:`, await response.text());
         throw new Error("Failed to save query");
     }
     return await response.json();
