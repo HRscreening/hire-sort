@@ -37,6 +37,15 @@ const nextConfig: NextConfig = {
         ]
       : [],
   },
+  async redirects() {
+    return [
+      {
+        source: '/blog/best-ai-resume-screening-software',
+        destination: '/resources/best/ai-resume-screening-software',
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     const headers = [
       {
