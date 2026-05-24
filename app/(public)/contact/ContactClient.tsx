@@ -9,9 +9,9 @@ import {
   CheckCircle2,
 } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { supabase } from '@/lib/supabase_client';
 import { PageHero, pageEase, pageFadeUp } from '@/components/layout/PageHero';
 import { trackFormSubmit } from '@/lib/google_analytics_tracker';
+import { saveQuery } from './saveQuery';
 
 type FormState = {
   name: string;
@@ -19,6 +19,8 @@ type FormState = {
   location: string;
   query: string;
 };
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://hiresort.ai';
 
 const initialForm: FormState = { name: '', email: '', location: '', query: '' };
 
@@ -79,15 +81,13 @@ const ContactClient = () => {
     try {
       setError(null);
       setLoading(true);
-      const { error: supabaseError } = await supabase.from('contact_us').insert([
-        {
-          full_name: form.name,
-          email: form.email,
-          location: form.location,
-          query: form.query,
-        },
-      ]);
-      if (supabaseError) throw supabaseError;
+      const data = {
+        full_name: form.name,
+        email: form.email,
+        location: form.location,
+        query: form.query,
+      };
+      await saveQuery(data);
       setSubmitted(true);
       trackFormSubmit('contact', true);
     } catch (err) {
@@ -149,7 +149,7 @@ const ContactClient = () => {
               </div>
               <div>
                 <div className={infoLabelClass}>Response time</div>
-                <div className={infoValueClass}>Within 24 hours, Mon&ndash;Fri</div>
+                <div className={infoValueClass}>Within 24 hours, Mon&ndash;Sun</div>
               </div>
             </motion.div>
 
@@ -163,7 +163,11 @@ const ContactClient = () => {
                 className="mt-0.5 shrink-0 text-accent"
               />
               <span>
-                Looking for product help? Most answers live in our docs &mdash; check there
+                Looking for
+                <a href={siteUrl + "/product/resume-management"} target="_blank" rel="noopener noreferrer" className="mx-1 font-semibold text-accent underline transition-colors hover:text-accent-dark">
+                product help?
+                  </a> 
+                 Most answers live in our docs &mdash; check there
                 first for the fastest path.
               </span>
             </motion.div>
