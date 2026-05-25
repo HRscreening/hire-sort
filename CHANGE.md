@@ -373,3 +373,111 @@ upgrade-insecure-requests
 - **CSP violations in browser console.** Vercel Analytics / Speed Insights / GA load extra scripts in prod that might not appear in local dev. If anything is blocked, the fix is to add the offending host to the relevant CSP directive. (Or temporarily switch the header key to `Content-Security-Policy-Report-Only` for a few days of observation — say the word and I'll add that.)
 - **Bing Webmaster Tools.** Within ~24h, Bing should show the IndexNow key file as verified. The `npm run indexnow:ping` script can be re-run anytime to re-notify.
 - **GSC "Page indexing" report.** The www→non-www `Page with redirect` entries are normal and will stay there permanently — they're not the kind of issue that resolves with a code change.
+
+---
+
+## 2026-05-26 — Change #5: Spec-compliant `/llms.txt` + new `/llms-full.txt`, dynamically generated
+
+**Files added:**
+- `lib/llms.ts` — server-only builder shared by both routes.
+- `app/llms.txt/route.ts` — dynamic Route Handler.
+- `app/llms-full.txt/route.ts` — dynamic Route Handler.
+
+**File removed:**
+- `public/llms.txt` — the old static file (would otherwise shadow the dynamic route).
+
+**Audit reference:** High #7 — current `llms.txt` was below spec and covered only 8 URLs out of 90+ indexable pages; no `llms-full.txt` existed.
+
+### Before
+- `public/llms.txt` was a flat plain-text file with custom (not llmstxt.org-spec) formatting: no H1 → blockquote intro, no markdown link syntax (`[Title](URL): description`), no per-section grouping per the spec.
+- The file listed 8 hand-picked URLs (home, product index, ATS, resources, two best-of guides, compare hub, pricing). Sitemap had 80+ URLs covering `/blog/*`, `/resources/best/*` (6 pages), `/resources/compare/*` (7 pages), `/resources/job-descriptions/*` (10 pages), `/resources/interview-questions/*` (11 pages), `/resources/scorecards/*` (9 pages), `/resources/screening-rubrics/*` (10 pages), `/use-cases/*` (5 pages), `/applicant-tracking-system/*` (2 pages), `/product/*` (5 pages). AI crawlers following `llms.txt` as the authoritative content map were missing the entire programmatic content surface.
+- No `llms-full.txt` companion, so AI models had to fetch individual pages to get content beyond the 8 short labels in `llms.txt`.
+- Static file in `public/` meant the document drifted out of sync with the sitemap every time content was added.
+
+### After
+
+**`/llms.txt`** — spec-compliant per llmstxt.org, dynamically generated:
+
+```
+# HireSort
+
+> [blockquote summary, 1 sentence]
+
+[intro paragraph]
+
+- [HireSort homepage](url): description
+
+## Product
+- [page title](url): meta description
+...
+
+## Applicant Tracking System
+...
+
+## Use Cases
+...
+
+## Buyer Guides (Best Of)
+...
+
+## Comparisons
+...
+
+## Job Description Templates
+...
+
+## Interview Question Templates
+...
+
+## Scorecard Templates
+...
+
+## Screening Rubric Templates
+...
+
+## Blog
+...
+
+## Optional
+- [Pricing](url): ...
+- [About HireSort](url): ...
+...
+```
+
+Local verification: **1 H1, 1 blockquote, 11 H2 sections, 83 link entries** — full coverage of every page enumerated in `app/sitemap.ts`.
+
+**`/llms-full.txt`** — long-form companion. Same section structure, but each entry expands to `### Title / URL: ... / [substantive summary]`. Summary combines `meta.description` + `hero.lead` paragraphs (for content pages) or `description` + `subtitle` (for blog posts), collapsed to single-line whitespace. Output: 440 lines, ~5,700 words, ~46 KB — within the size range AI models comfortably ingest in one fetch.
+
+**Static Optional / Reference section** — hand-crafted summaries for the six non-data pages (`/pricing`, `/about`, `/contact`, `/faqs`, `/privacy`, `/terms`). Sits in a small `staticOptional` array in `lib/llms.ts`. Spec-marked `## Optional` in `llms.txt` (crawlers can skip), bundled into `## Reference` in `llms-full.txt` (full summaries included).
+
+### Why dynamic instead of static
+
+The site has ~90 indexable pages today, growing weekly as new job descriptions, interview question sets, comparison pages, and blog posts ship. A static `public/llms.txt` would drift every release. Dynamic generation:
+- Reads the same `getAll*` registry functions that `app/sitemap.ts` uses. New entries to those registries flow into `llms.txt` automatically with zero manual maintenance.
+- Lets us emit substantially different short-form (`llms.txt`) vs long-form (`llms-full.txt`) without duplicating data.
+- Cached at the edge: `revalidate = 3600` + `Cache-Control: public, s-maxage=3600, stale-while-revalidate=86400` so the runtime cost is one regeneration per hour per Vercel region, not per request.
+
+### Why this route layout works
+
+Both routes live at `app/<filename>/route.ts` — `app/llms.txt/route.ts` and `app/llms-full.txt/route.ts`. Next.js accepts dots in route segment names, so this maps cleanly to `/llms.txt` and `/llms-full.txt`. The static `public/llms.txt` had to be deleted first because `public/` files take precedence over Route Handlers; otherwise both URLs work as expected.
+
+### Why permissive duck-typing in the extractor
+
+The 7 different page types (product, use-case, ATS, best-of, comparison, job-description, interview-questions, scorecards, screening-rubrics) all share the shape `{ slug, meta: { title, description }, hero: { lead?: string[] } }` even though their TypeScript types differ. A `GenericPage` adapter in `lib/llms.ts` accepts any of them via optional chaining without forcing a shared interface. The blog post type is structurally different (top-level `title`, `description`, `subtitle`, `body[]`) so it has its own `fromBlogPost` adapter.
+
+### Scope kept narrow
+- **No data file changes.** All page registries are untouched; the builder only reads from them.
+- **No new fields on `BestPage` or any other type.** The existing `meta.description` and `hero.lead` fields supply everything.
+- **No content authored.** Summaries are derived mechanically from existing metadata. The handful of hard-coded short summaries in `staticOptional` cover pages without `_data.ts` registries (privacy/terms have `_data.ts` but the format isn't worth integrating right now).
+- **No CI / build-hook integration.** Cache invalidation is time-based (`revalidate = 3600`). If you want immediate refresh after a content push, the existing `npm run indexnow:ping` (Change #4c) implicitly does it because IndexNow notifies search engines and the dynamic route picks up the new content on next hit. A `revalidatePath('/llms.txt')` call on publish would tighten that loop further — separate change.
+
+### Verification
+- `npx tsc --noEmit` — clean.
+- `GET /llms.txt` → HTTP 200, `Content-Type: text/plain; charset=utf-8`, all security headers (CSP from Change #4 included).
+- `GET /llms.txt` body — 1 H1, 1 blockquote, 11 H2 sections, 83 link entries. Each link follows `- [Title](URL): description` markdown convention.
+- `GET /llms-full.txt` → 200, 5,667 words / 46 KB. Each entry has Title + URL + multi-sentence summary.
+- Regression sweep: `/`, `/pricing`, `/resources/best/ai-resume-screening-software`, `/robots.txt`, `/sitemap.xml` all still return 200.
+
+### What to watch for after deploy
+- **First request latency.** The Route Handler reads from 10 in-memory registries on cold start. Vercel's edge cache will warm it after the first hit per region; the `stale-while-revalidate` directive prevents users from waiting on regeneration after that.
+- **AI crawler discovery.** ChatGPT Search, Perplexity, Claude, and Bing Copilot all read `llms.txt` when crawling a site. Expect the citations-and-mentions surface for HireSort across those platforms to broaden over the next 2–4 weeks once they re-crawl.
