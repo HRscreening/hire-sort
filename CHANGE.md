@@ -272,3 +272,104 @@ The Article JSON-LD opt-in (rather than auto-emit) means authors must intentiona
   - Present: `BreadcrumbList`, `WebPage`, `FAQPage`, `Organization`, `WebSite`, `ContactPoint`, `ImageObject` (and sub-types: `Question`, `Answer`, `Thing`, `ListItem`).
   - Absent: `Article` — correctly suppressed because `schema.emitArticleJsonLd` is not set in the data.
 - Visual smoke-test: existing pages render identically — no extra spacing, no empty sections, no console errors after Turbopack cache cleared.
+
+---
+
+## 2026-05-26 — Change #4: Small-fixes batch (CSP, robots agents, IndexNow, canonical non-fix)
+
+Single commit batching four small-but-distinct improvements from the audit's High and Critical lists. Pure additions / config changes — no UI or behavior change.
+
+### 4a. Content-Security-Policy header (Critical #2 from audit)
+
+**File:** `next.config.ts`
+
+**Before:** Site shipped HSTS, X-Content-Type-Options, X-Frame-Options, Referrer-Policy, and Permissions-Policy — but no `Content-Security-Policy`. For a SaaS handling hiring data this is a real XSS attack surface and an emerging Google trust signal.
+
+**After:** Added a permissive baseline CSP via `securityHeaders` in `next.config.ts`:
+
+```
+default-src 'self';
+script-src 'self' 'unsafe-inline' 'unsafe-eval'
+  https://www.googletagmanager.com
+  https://www.google-analytics.com
+  https://va.vercel-scripts.com
+  https://vercel.live;
+style-src 'self' 'unsafe-inline';
+img-src 'self' data: blob: https:;
+font-src 'self' data:;
+connect-src 'self'
+  https://<supabase-host>   (dynamic from NEXT_PUBLIC_SUPABASE_URL)
+  https://www.google-analytics.com
+  https://vitals.vercel-insights.com
+  https://va.vercel-scripts.com;
+frame-ancestors 'none';
+form-action 'self';
+base-uri 'self';
+object-src 'none';
+upgrade-insecure-requests
+```
+
+**Why permissive (`'unsafe-inline'`, `'unsafe-eval'`):** Next.js inlines hydration data and route info scripts. Tailwind v4 emits inline styles via `<style>` blocks. `'unsafe-eval'` is needed by some Vercel preview / live-reload scripts and certain analytics paths. A nonce-based CSP is the right end state — but requires touching every inline script emission point and is a separate refactor. This permissive baseline closes the audit Critical-tier gap immediately and is still meaningfully stronger than no CSP at all (object-src 'none', frame-ancestors 'none', base-uri 'self', upgrade-insecure-requests are all defensive).
+
+**Dynamic Supabase host:** The connect-src reads from `NEXT_PUBLIC_SUPABASE_URL` at build time. If env var is missing, falls back to wildcard `https://*.supabase.co`. Prevents hard-coding a single instance URL.
+
+### 4b. Explicit per-agent robots.txt rules (High #8 from audit)
+
+**File:** `app/robots.ts`
+
+**Before:** Single catch-all rule `User-Agent: * / Allow: / / Disallow: /api/`. Every AI crawler was implicitly allowed through the wildcard, but no explicit signal of intent.
+
+**After:** Catch-all preserved; 15 explicit per-agent rules added (each Allow: /, Disallow: /api/) covering:
+
+- **OpenAI:** GPTBot, OAI-SearchBot, ChatGPT-User
+- **Anthropic:** ClaudeBot, Claude-User, Claude-SearchBot, anthropic-ai (legacy name)
+- **Perplexity:** PerplexityBot, Perplexity-User
+- **Google AI:** Google-Extended (controls Bard/Gemini training; does **not** affect Google Search ranking)
+- **Apple AI:** Applebot-Extended (Apple Intelligence)
+- **Other:** CCBot (Common Crawl — many open-weights models), Bytespider (ByteDance), Amazonbot
+
+**Why all-allow instead of selectively blocking training crawlers:** HireSort is selling AI software. Being represented in foundation-model training rounds and appearing in AI Overviews / ChatGPT / Perplexity citations is part of the GEO marketing strategy. The audit suggested blocking CCBot and anthropic-ai as "training-only" — for a privacy-sensitive product that recommendation would apply, but for HireSort's commercial position the upside of being indexed by these crawlers outweighs the downside. The explicit Allow signals intent to each crawler and is the SEO best practice over relying on the `*` wildcard.
+
+### 4c. IndexNow protocol implementation (High #9 from audit)
+
+**Files added:**
+- `public/1296c215069702826079c3cc23ef3a47.txt` — IndexNow key verification file. Content is the key itself (per IndexNow spec).
+- `scripts/indexnow-ping.mjs` — standalone Node script that POSTs URLs to `https://api.indexnow.org/IndexNow`.
+
+**File modified:**
+- `package.json` — added `indexnow:ping` npm script.
+
+**Before:** No IndexNow integration. Bing, Yandex, Naver, Seznam, and Yep relied entirely on default crawl scheduling — for a content site updating weekly that means recency signals lag the actual publish event by days.
+
+**After:**
+- IndexNow key `1296c215069702826079c3cc23ef3a47` generated via Node `crypto.randomBytes(16)`. Verification file hosted at `https://hiresort.ai/1296c215069702826079c3cc23ef3a47.txt`. No registration with any search engine required — IndexNow is a key-self-hosting protocol.
+- `scripts/indexnow-ping.mjs` defaults to fetching every URL from the live sitemap and submitting the batch to IndexNow. Can also accept explicit URLs as CLI args (`node scripts/indexnow-ping.mjs https://hiresort.ai/blog/foo`). Supports preview deploys via `SITE_URL` env var. Batches into 9,000-URL chunks (spec allows 10,000 per request).
+- Run manually after publishing content: `npm run indexnow:ping`. Future wiring into the Vercel deploy hook is straightforward — that's deferred to a separate change to keep this batch tight.
+
+**Why not auto-ping on every build:** Some deploys touch only code or config and don't change indexable URLs. Running the ping unconditionally on every deploy would burn ping requests on no-ops. Manual or content-publish-triggered invocation is cleaner.
+
+### 4d. Homepage canonical trailing slash (High #4 from audit — deliberate non-fix)
+
+**Investigation:**
+- Audit said: "served URL is `https://hiresort.ai/`; canonical reads `https://hiresort.ai` (no slash)".
+- Initial attempted fix: explicitly set `canonical: \`${siteUrl}/\`` in `app/page.tsx` to force the trailing slash.
+- Result: **Next.js 16 normalizes the metadata canonical URL regardless of input.** The rendered HTML still emitted `<link rel="canonical" href="http://localhost:3001"/>` — no trailing slash.
+
+**Why this is OK:** RFC 3986 defines `scheme://authority` (empty path) and `scheme://authority/` (path = `/`) as equivalent URIs. Google's URL Inspection tool, GSC, and every major SEO crawler treat them identically. The audit's diagnosis ("strings differ") was technically correct but the SEO consequence is zero.
+
+**Action taken:** Reverted the no-op `app/page.tsx` change to keep code idiomatic (`canonical: '/'` is the Next.js convention) and documented the rationale here. If at some point we discover a real-world third-party tool that gets confused by the difference, the fix is to bypass Next.js metadata for the homepage canonical and emit the `<link>` tag manually in a server component — but adding that complexity for an RFC-equivalent URL form would be premature.
+
+### Verification (all four sub-changes)
+
+- `npx tsc --noEmit` — clean.
+- `GET /` → 200, with the new CSP header in the response. All other security headers preserved.
+- `GET /pricing` → 200.
+- All 6 `/resources/best/*` guide pages → 200, render identically.
+- `GET /robots.txt` → returns all 15 per-agent rules plus the wildcard catch-all, `Host:` directive, `Sitemap:` link — correctly formatted.
+- `GET /1296c215069702826079c3cc23ef3a47.txt` → 200, returns the key string.
+- No CSP violations in browser console during smoke navigation (recommended manual re-check on Vercel preview where Vercel Analytics + Speed Insights run in production mode).
+
+### What to watch for after deploy
+- **CSP violations in browser console.** Vercel Analytics / Speed Insights / GA load extra scripts in prod that might not appear in local dev. If anything is blocked, the fix is to add the offending host to the relevant CSP directive. (Or temporarily switch the header key to `Content-Security-Policy-Report-Only` for a few days of observation — say the word and I'll add that.)
+- **Bing Webmaster Tools.** Within ~24h, Bing should show the IndexNow key file as verified. The `npm run indexnow:ping` script can be re-run anytime to re-notify.
+- **GSC "Page indexing" report.** The www→non-www `Page with redirect` entries are normal and will stay there permanently — they're not the kind of issue that resolves with a code change.
