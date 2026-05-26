@@ -61,15 +61,20 @@ export default async function BestPageRoute({ params }: { params: Params }) {
   ];
   const crumbs = breadcrumbJsonLd(crumbTrail);
 
-  const faqJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: data.faqs.map((f) => ({
-      '@type': 'Question',
-      name: f.question,
-      acceptedAnswer: { '@type': 'Answer', text: f.answer.join(' ') },
-    })),
-  };
+  const emitFaq = data.schema?.emitFaqPageJsonLd !== false && data.faqs.length > 0;
+  const emitArticle = data.schema?.emitArticleJsonLd === true;
+
+  const faqJsonLd = emitFaq
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: data.faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.question,
+          acceptedAnswer: { '@type': 'Answer', text: f.answer.join(' ') },
+        })),
+      }
+    : null;
 
   const webPageJsonLd = {
     '@context': 'https://schema.org',
@@ -91,6 +96,39 @@ export default async function BestPageRoute({ params }: { params: Params }) {
     },
   };
 
+  // Article JSON-LD is opt-in via data.schema.emitArticleJsonLd. Authors are
+  // strictly optional; without them we omit the `author` field rather than
+  // fabricate one.
+  const articleJsonLd = emitArticle
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: data.meta.title,
+        description: data.meta.description,
+        image: ogImageUrl,
+        datePublished: data.publishedAt,
+        dateModified: data.updatedAt,
+        mainEntityOfPage: { '@type': 'WebPage', '@id': pageUrl },
+        publisher: {
+          '@type': 'Organization',
+          name: 'HireSort',
+          logo: { '@type': 'ImageObject', url: absUrl('/logo.png') },
+        },
+        ...(data.authors && data.authors.length > 0
+          ? {
+              author: data.authors.map((a) => ({
+                '@type': 'Person',
+                name: a.name,
+                jobTitle: a.role,
+                description: a.bio,
+                ...(a.linkedinUrl ? { url: a.linkedinUrl } : {}),
+                ...(a.avatarUrl ? { image: a.avatarUrl } : {}),
+              })),
+            }
+          : {}),
+      }
+    : null;
+
   return (
     <>
       <script
@@ -103,11 +141,20 @@ export default async function BestPageRoute({ params }: { params: Params }) {
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{ __html: jsonLdString(webPageJsonLd) }}
       />
-      <script
-        type="application/ld+json"
-        // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={{ __html: jsonLdString(faqJsonLd) }}
-      />
+      {faqJsonLd && (
+        <script
+          type="application/ld+json"
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{ __html: jsonLdString(faqJsonLd) }}
+        />
+      )}
+      {articleJsonLd && (
+        <script
+          type="application/ld+json"
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{ __html: jsonLdString(articleJsonLd) }}
+        />
+      )}
       <Breadcrumb crumbs={crumbTrail} />
       <BestClient data={data} />
     </>

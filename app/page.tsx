@@ -16,13 +16,13 @@ export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: {
-    absolute: 'AI Resume Screening Software for Faster Candidate Shortlisting | HireSort',
+    absolute: 'HireSort: AI Resume Screening Built for Speed and Compliance',
   },
   description:
     'HireSort is AI resume screening software that ranks candidates in seconds with explainable scores. Upload resumes in bulk, configure scoring rubrics, and shortlist faster.',
   alternates: { canonical: '/' },
   openGraph: {
-    title: 'AI Resume Screening Software | HireSort',
+    title: 'HireSort: AI Resume Screening Built for Speed and Compliance',
     description:
       'Rank candidates in seconds with explainable AI scores, bulk resume processing, and structured shortlists.',
     url: '/',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AI Resume Screening Software | HireSort',
+    title: 'HireSort: AI Resume Screening Built for Speed and Compliance',
     description:
       'Rank candidates in seconds with explainable AI scores, bulk resume processing, and structured shortlists.',
     images: [`${siteUrl}/logo.png`],
