@@ -240,6 +240,8 @@ const Hero = () => {
         <video
           src="/demo.mp4"
           poster='/demo-poster.png'
+          title="HireSort AI resume screening product demo"
+          aria-label="HireSort AI resume screening product demo: bulk resume upload, candidate ranking, and explainable match scores"
           autoPlay
           muted
           loop
