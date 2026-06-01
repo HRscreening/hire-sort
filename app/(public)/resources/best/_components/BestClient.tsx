@@ -109,6 +109,81 @@ const BestClient = ({ data }: Props) => {
         <TableOfContents config={data.tableOfContents} proseSections={data.proseSections} />
       )}
 
+      {data.quickRecommendations && (
+        <section className="mx-auto max-w-300 px-6 pt-8 pb-16">
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.15 }}
+            variants={pageStagger}
+          >
+            <motion.div variants={pageFadeUp} className="mx-auto mb-8 max-w-190 text-center">
+              {data.quickRecommendations.eyebrow && (
+                <span className={sectionLabel}>{data.quickRecommendations.eyebrow}</span>
+              )}
+              <h2 className="text-[clamp(24px,3.2vw,32px)] font-extrabold leading-[1.2] tracking-[-0.6px] text-charcoal">
+                {data.quickRecommendations.title}
+              </h2>
+              {data.quickRecommendations.intro && (
+                <p className="mt-3 text-[15px] leading-[1.7] text-charcoal-md">
+                  {data.quickRecommendations.intro}
+                </p>
+              )}
+            </motion.div>
+
+            <motion.div
+              variants={pageFadeUp}
+              className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
+            >
+              {data.quickRecommendations.cards.map((card) => {
+                const content = (
+                  <>
+                    <span className="mb-3 block text-[11px] font-bold uppercase tracking-[0.8px] text-accent">
+                      {card.label}
+                    </span>
+                    <span className="block text-[18px] font-extrabold tracking-[-0.4px] text-charcoal">
+                      {card.tool}
+                    </span>
+                    <span className="mt-2 block text-[13.5px] leading-[1.6] text-charcoal-md">
+                      {card.description}
+                    </span>
+                  </>
+                );
+
+                return card.href ? (
+                  card.href.startsWith('/') ? (
+                    <Link
+                      key={`${card.label}-${card.tool}`}
+                      href={card.href}
+                      className="block rounded-xl border border-line-soft bg-white p-5 no-underline shadow-soft transition hover:border-accent hover:shadow-card"
+                    >
+                      {content}
+                    </Link>
+                  ) : (
+                    <a
+                      key={`${card.label}-${card.tool}`}
+                      href={card.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block rounded-xl border border-line-soft bg-white p-5 no-underline shadow-soft transition hover:border-accent hover:shadow-card"
+                    >
+                      {content}
+                    </a>
+                  )
+                ) : (
+                  <article
+                    key={`${card.label}-${card.tool}`}
+                    className="rounded-xl border border-line-soft bg-white p-5 shadow-soft"
+                  >
+                    {content}
+                  </article>
+                );
+              })}
+            </motion.div>
+          </motion.div>
+        </section>
+      )}
+
       {data.whatToLookFor && (
         <section className="mx-auto max-w-300 px-6 pt-8 pb-16">
           <motion.div

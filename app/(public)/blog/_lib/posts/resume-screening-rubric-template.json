@@ -1,8 +1,8 @@
 {
   "slug": "resume-screening-rubric-template",
-  "title": "Resume Screening Rubric Template: How to Score Candidates Consistently",
-  "subtitle": "A reusable rubric structure for evaluating resumes fairly before the interview stage.",
-  "description": "Use this resume screening rubric template to evaluate candidates consistently before interviews begin.",
+  "title": "Resume Screening Rubric Template | Score Candidates Consistently",
+  "subtitle": "A reusable rubric template for scoring resumes fairly before interviews, with criteria, weights, evidence notes, and recommendations.",
+  "description": "Use this resume screening rubric template to score candidates fairly before interviews. Includes criteria, weights, scoring scale, and common mistakes.",
   "keywords": [
     "resume screening rubric template",
     "resume screening criteria",
@@ -15,7 +15,7 @@
     "role": "Product & Research"
   },
   "publishedAt": "2026-04-27",
-  "updatedAt": "2026-04-28",
+  "updatedAt": "2026-06-01",
   "readingTime": "4 min read",
   "coverImage": null,
   "coverAlt": "Illustration for the HireSort blog article titled Resume Screening Rubric Template: How to Score Candidates Consistently, showing recruiters using AI-assisted resume screening and structured candidate shortlists.",
@@ -29,23 +29,25 @@
   "body": [
     {
       "type": "paragraph",
-      "text": "A resume screening rubric is a scoring framework used to evaluate candidates before interviews. It converts a job description into clear evaluation criteria so that every resume is reviewed against the same standard."
+      "text": "A resume screening rubric template gives recruiters a repeatable way to score candidates before interviews. It turns the job description into weighted criteria, evidence notes, and a clear recommendation instead of relying on keywords or gut feel."
     },
     {
       "type": "paragraph",
-      "text": "This is especially useful when hiring teams are dealing with large applicant pools. Without a rubric, recruiters may rely on memory, intuition, or keyword matching. With a rubric, they can review candidates more consistently and explain why a candidate was shortlisted."
+      "text": "Copy the template below, adjust the weights with the hiring manager, and use the same scale for every candidate in the role."
     },
     {
       "type": "heading",
       "level": 2,
-      "text": "Resume screening rubric template"
+      "text": "Resume Screening Rubric Template"
     },
     {
       "type": "list",
       "items": [
-        "Technical Skills & Expertise: Suggested weight — 35-45%; What to evaluate — Required tools, skills, certifications, domain knowledge, and role-specific capabilities.",
-        "Experience & Impact: Suggested weight — 35-45%; What to evaluate — Relevant roles, years of experience, outcomes, projects, metrics, and ownership.",
-        "Qualifications & Role Fit: Suggested weight — 10-25%; What to evaluate — Education, seniority, industry fit, communication, location, and working style."
+        "Technical skills and expertise: suggested weight 35-45%; evaluate required tools, certifications, domain knowledge, and role-specific capabilities.",
+        "Experience and impact: suggested weight 35-45%; evaluate relevant roles, projects, outcomes, metrics, and ownership.",
+        "Qualifications and role fit: suggested weight 10-25%; evaluate education, seniority, industry fit, communication, location, and working style.",
+        "Evidence notes: capture the resume lines, achievements, or projects that justify the score.",
+        "Recommendation: move forward, hold, reject, or needs hiring manager review."
       ]
     },
     {
@@ -75,9 +77,9 @@
     {
       "type": "list",
       "items": [
-        "Customer Success Skills: Weight — 40%; Subcriteria — Account management, onboarding, retention, stakeholder communication, CRM usage.",
-        "Experience & Impact: Weight — 40%; Subcriteria — Renewal ownership, churn reduction, expansion revenue, customer portfolio size.",
-        "Role Fit: Weight — 20%; Subcriteria — SaaS exposure, buyer persona fit, communication quality, seniority alignment."
+        "Customer success skills: weight 40%; subcriteria include account management, onboarding, retention, stakeholder communication, and CRM usage.",
+        "Experience and impact: weight 40%; subcriteria include renewal ownership, churn reduction, expansion revenue, and customer portfolio size.",
+        "Role fit: weight 20%; subcriteria include SaaS exposure, buyer persona fit, communication quality, and seniority alignment."
       ]
     },
     {

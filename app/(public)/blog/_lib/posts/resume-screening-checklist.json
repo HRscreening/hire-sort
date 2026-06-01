@@ -1,8 +1,8 @@
 {
   "slug": "resume-screening-checklist",
-  "title": "Resume Screening Checklist for Faster, More Consistent Shortlists",
-  "subtitle": "A practical resume screening checklist recruiters can use to review candidates faster without lowering the hiring bar.",
-  "description": "Use this resume screening checklist to review candidates consistently, define must-have criteria, spot resume evidence, and build stronger shortlists faster.",
+  "title": "Resume Screening Checklist for Recruiters | Faster Shortlisting",
+  "subtitle": "A practical checklist recruiters can use before and during resume review to define must-haves, avoid inconsistent screening, and build stronger shortlists.",
+  "description": "Use this resume screening checklist to review candidates consistently, spot must-have skills, avoid bias, and build better shortlists faster.",
   "keywords": [
     "resume screening checklist",
     "CV screening checklist",
@@ -17,7 +17,7 @@
     "role": "Product & Research"
   },
   "publishedAt": "2026-05-16",
-  "updatedAt": "2026-05-16",
+  "updatedAt": "2026-06-01",
   "readingTime": "8 min read",
   "coverImage": "/blog/blog2.jpeg",
   "coverAlt": "Recruiter using a resume screening checklist to review candidates and build a shortlist.",
@@ -29,6 +29,31 @@
     "Shortlisting"
   ],
   "body": [
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Resume Screening Checklist for Recruiters"
+    },
+    {
+      "type": "paragraph",
+      "text": "Use this checklist before you open the first resume and while reviewing every candidate. It helps you screen faster without changing the bar from one applicant to the next."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Confirm must-have skills before screening begins.",
+        "Separate required criteria from preferred keywords.",
+        "Define red flags and follow-up questions.",
+        "Use the same criteria for every candidate.",
+        "Record evidence instead of gut feel.",
+        "Decide whether each candidate should move forward, be held, or be rejected."
+      ]
+    },
+    {
+      "type": "callout",
+      "title": "Turn the Checklist Into a Shortlist",
+      "text": "The strongest checklist is tied to a scorecard. HireSort can apply role-specific criteria across resumes and surface evidence so recruiters can review shortlists faster."
+    },
     {
       "type": "heading",
       "level": 2,
@@ -45,7 +70,7 @@
     {
       "type": "heading",
       "level": 2,
-      "text": "Resume Screening Checklist"
+      "text": "Complete Resume Screening Checklist"
     },
     {
       "type": "list",

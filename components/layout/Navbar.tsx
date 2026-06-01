@@ -203,9 +203,11 @@ const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    setIsLoggedIn(
-      document.cookie.split('; ').some((c) => c === 'hs_auth=1'),
-    );
+    const checkAuthCookie = () => {
+      setIsLoggedIn(document.cookie.split('; ').some((c) => c === 'hs_auth=1'));
+    };
+
+    queueMicrotask(checkAuthCookie);
   }, []);
 
   const dashboardHref = isLoggedIn ? main_app_url : `${main_app_url}/login`;
