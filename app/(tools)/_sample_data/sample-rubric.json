@@ -1,0 +1,138 @@
+{
+    "domain": "Business Analysis",
+    "source": "AI",
+    "categories": [
+        {
+            "name": "Technical Skills & Expertise",
+            "weight": 40,
+            "subcategories": [
+                {
+                    "name": "Business Analysis Methodologies & Documentation",
+                    "weight": 5,
+                    "description": "Strong understanding and experience in Business Analysis methodologies, requirement gathering techniques, and preparing functional documentation such as BRDs, FRDs, user stories, use cases, process flows, and functional specifications.",
+                    "is_non_negotiable": true,
+                    "is_external_context": false
+                },
+                {
+                    "name": "Healthcare & Enterprise IT Systems Knowledge",
+                    "weight": 5,
+                    "description": "Direct experience working on Hospital Information Management System (HIMS), Radiology Information System (RIS), Picture Archiving and Communication System (PACS), Student Management System (SMS), ERP solutions, or other Healthcare IT applications.",
+                    "is_non_negotiable": true,
+                    "is_external_context": false
+                },
+                {
+                    "name": "SDLC & Agile/Scrum Understanding",
+                    "weight": 4,
+                    "description": "Good understanding of Software Development Life Cycle (SDLC), Agile/Scrum methodologies, and implementation lifecycle processes.",
+                    "is_non_negotiable": false,
+                    "is_external_context": false
+                },
+                {
+                    "name": "Data Analysis & Reporting Tools",
+                    "weight": 3,
+                    "description": "Proficiency in Microsoft Excel, reporting, and presentation tools to analyze operational and business data, generate reports, dashboards, and actionable insights.",
+                    "is_non_negotiable": false,
+                    "is_external_context": false
+                },
+                {
+                    "name": "Requirement Categorization & Solution Design",
+                    "weight": 3,
+                    "description": "Ability to distinguish between requirements that necessitate new product development versus those addressable through existing product configuration or workflow changes.",
+                    "is_non_negotiable": false,
+                    "is_external_context": false
+                }
+            ]
+        },
+        {
+            "name": "Experience & Impact",
+            "weight": 35,
+            "subcategories": [
+                {
+                    "name": "Relevant Business Analysis Experience",
+                    "weight": 4,
+                    "description": "2–6 years of relevant experience in Business Analysis, Functional Consulting, Product Coordination, or Healthcare IT projects.",
+                    "is_non_negotiable": false,
+                    "is_external_context": false
+                },
+                {
+                    "name": "Project Delivery & Implementation",
+                    "weight": 4,
+                    "description": "Demonstrated experience in ensuring successful and timely project delivery, supporting implementation and enhancement of business applications, and tracking project progress, milestones, and risks.",
+                    "is_non_negotiable": false,
+                    "is_external_context": false
+                },
+                {
+                    "name": "Client & Stakeholder Engagement",
+                    "weight": 4,
+                    "description": "Experience collaborating with business stakeholders, clients, and internal teams, conducting client demos, user training, and stakeholder discussions, and gathering requirements directly from end-users.",
+                    "is_non_negotiable": false,
+                    "is_external_context": false
+                },
+                {
+                    "name": "Career Progression & Trajectory",
+                    "weight": 3,
+                    "description": "Evaluates the candidate's career velocity, growth, and increasing scope of responsibility, indicating drive and potential for impact in project delivery and stakeholder management.",
+                    "is_non_negotiable": false,
+                    "is_external_context": true
+                },
+                {
+                    "name": "Healthcare Workflow & Operations Understanding",
+                    "weight": 2,
+                    "description": "Understanding of healthcare workflows, hospital operations, and general enterprise business processes.",
+                    "is_non_negotiable": false,
+                    "is_external_context": false
+                },
+                {
+                    "name": "Government Stakeholder Experience",
+                    "weight": 1,
+                    "description": "Prior experience working with Government stakeholders at their premises.",
+                    "is_non_negotiable": false,
+                    "is_external_context": false
+                }
+            ]
+        },
+        {
+            "name": "Qualifications & Role Fit",
+            "weight": 25,
+            "subcategories": [
+                {
+                    "name": "Analytical & Problem-Solving Skills",
+                    "weight": 4,
+                    "description": "Strong analytical thinking, problem-solving, and critical thinking abilities to understand business workflows and translate them into functional solutions.",
+                    "is_non_negotiable": false,
+                    "is_external_context": false
+                },
+                {
+                    "name": "Communication & Presentation Skills",
+                    "weight": 4,
+                    "description": "Strong communication, presentation, and client interaction skills for effective collaboration, training, and stakeholder discussions.",
+                    "is_non_negotiable": false,
+                    "is_external_context": false
+                },
+                {
+                    "name": "Stakeholder Management & Cross-functional Coordination",
+                    "weight": 3,
+                    "description": "Ability to manage multiple stakeholders, coordinate effectively across cross-functional teams (product, implementation, QA, technical), and work in dynamic project environments.",
+                    "is_non_negotiable": false,
+                    "is_external_context": false
+                },
+                {
+                    "name": "Client-Site Work & Adaptability",
+                    "weight": 3,
+                    "description": "Willingness and ability to be stationed at client locations during critical implementation phases to work closely with end-users and adapt to dynamic project environments.",
+                    "is_non_negotiable": false,
+                    "is_external_context": false
+                },
+                {
+                    "name": "Bachelor's Degree",
+                    "weight": 2,
+                    "description": "Bachelor's degree in business administration, Computer Science, IT, Engineering, Healthcare Management, or a related field.",
+                    "is_non_negotiable": false,
+                    "is_external_context": false
+                }
+            ]
+        }
+    ],
+    "seniority_level": "Mid-Level",
+    "threshold_score": 70
+}
