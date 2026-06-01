@@ -2,6 +2,10 @@ import type { NextConfig } from "next";
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseHost = supabaseUrl ? new URL(supabaseUrl).hostname : null;
+// Demo tool calls the backend directly from the browser (per-IP rate limiting),
+// so its origin must be allowed in connect-src.
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+const apiOrigin = apiUrl ? new URL(apiUrl).origin : null;
 const isProd = process.env.NODE_ENV === 'production';
 
 // Content Security Policy. Permissive baseline that accommodates Next.js'
@@ -25,15 +29,30 @@ const cspDirectives = {
   'connect-src': [
     "'self'",
     ...(supabaseHost ? [`https://${supabaseHost}`] : ['https://*.supabase.co']),
+    ...(apiOrigin ? [apiOrigin] : []),
     'https://www.google-analytics.com',
     'https://vitals.vercel-insights.com',
     'https://va.vercel-scripts.com',
   ],
-  'frame-ancestors': ["'none'"],
+  // Sources we're allowed to embed in an <iframe>. Covers the same-origin
+  // sample PDF previews plus the JD/résumé PDFs the demo API serves from
+  // Supabase storage (jd_url/resume_url). Without this, iframe src falls back
+  // to default-src 'self' and the Supabase PDFs are blocked.
+  //
+  // Note: these PDFs live in the *demo API's* Supabase project, which is a
+  // different host than NEXT_PUBLIC_SUPABASE_URL (the frontend's own project),
+  // so we can't pin an exact host from env here — allow the Supabase wildcard.
+  'frame-src': ["'self'", 'blob:', 'https://*.supabase.co'],
+  // 'self' (not 'none') so same-origin pages can embed our own assets — e.g.
+  // the sample PDF previews shown in an <iframe>. Still blocks third-party
+  // framing, matching X-Frame-Options: SAMEORIGIN below.
+  'frame-ancestors': ["'self'"],
   'form-action': ["'self'"],
   'base-uri': ["'self'"],
   'object-src': ["'none'"],
-  'upgrade-insecure-requests': [],
+  // Only upgrade in production — in dev this would rewrite a plaintext local
+  // backend call (http://localhost:8000) to https and break it.
+  ...(isProd ? { 'upgrade-insecure-requests': [] } : {}),
 };
 
 const cspValue = Object.entries(cspDirectives)

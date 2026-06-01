@@ -4,10 +4,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/next';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import './globals.css';
-import Navbar from '@/components/layout/Navbar';
-import Footer from '@/components/layout/Footer';
 import BfcacheRemount from '@/components/layout/BfcacheRemount';
-import ScrollToTop from '@/components/layout/ScrollToTop';
 
 
 const gtagKey = process.env.NEXT_PUBLIC_GA_ID || ''
@@ -154,12 +151,7 @@ export default function RootLayout({
             <link rel="dns-prefetch" href={`https://${supabaseHost}`} />
           </>
         )}
-        <BfcacheRemount>
-          <Navbar />
-          <main id="main" className="flex-1">{children}</main>
-          <Footer />
-          <ScrollToTop />
-        </BfcacheRemount>
+        <BfcacheRemount>{children}</BfcacheRemount>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
