@@ -32,6 +32,7 @@ const STATIC_PAGE_UPDATED = {
   privacy: new Date('2026-01-01'),
   terms: new Date('2026-01-01'),
   sectionIndex: new Date('2026-05-15'),
+  tools: new Date('2026-06-03'),
 };
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -122,6 +123,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const sectionIndex = STATIC_PAGE_UPDATED.sectionIndex;
   const sectionIndexRoutes: MetadataRoute.Sitemap = [
     { url: `${siteUrl}/use-cases`, lastModified: sectionIndex, changeFrequency: 'weekly', priority: 0.7 },
+    { url: `${siteUrl}/free-tools`, lastModified: STATIC_PAGE_UPDATED.tools, changeFrequency: 'weekly', priority: 0.7 },
     { url: `${siteUrl}/applicant-tracking-system`, lastModified: sectionIndex, changeFrequency: 'weekly', priority: 0.75 },
     { url: `${siteUrl}/resources`, lastModified: sectionIndex, changeFrequency: 'weekly', priority: 0.75 },
     { url: `${siteUrl}/resources/compare`, lastModified: sectionIndex, changeFrequency: 'weekly', priority: 0.7 },
@@ -131,6 +133,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${siteUrl}/resources/scorecards`, lastModified: sectionIndex, changeFrequency: 'weekly', priority: 0.7 },
     { url: `${siteUrl}/resources/screening-rubrics`, lastModified: sectionIndex, changeFrequency: 'weekly', priority: 0.7 },
     { url: `${siteUrl}/product`, lastModified: sectionIndex, changeFrequency: 'weekly', priority: 0.85 },
+  ];
+
+  // Only the live screening tool is indexable. The demo (/demo), sample result
+  // (/sample) and per-session result pages are noindex → intentionally excluded.
+  const toolRoutes: MetadataRoute.Sitemap = [
+    { url: `${siteUrl}/tools/screening`, lastModified: STATIC_PAGE_UPDATED.tools, changeFrequency: 'monthly', priority: 0.8 },
   ];
 
   return [
@@ -146,5 +154,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...scorecardRoutes,
     ...screeningRubricRoutes,
     ...sectionIndexRoutes,
+    ...toolRoutes,
   ];
 }

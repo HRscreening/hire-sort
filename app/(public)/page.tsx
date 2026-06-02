@@ -98,6 +98,26 @@ const softwareAppJsonLd = {
   publisher: { '@type': 'Organization', name: 'HireSort' },
 };
 
+const heroVideoJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'VideoObject',
+  name: 'HireSort AI resume screening product demo',
+  description:
+    'Walkthrough of HireSort: bulk resume upload, AI-driven candidate ranking with explainable match scores, and shortlist-ready insights for recruiters.',
+  thumbnailUrl: [`${siteUrl}/demo-poster.png`],
+  contentUrl: `${siteUrl}/demo.mp4`,
+  uploadDate: '2026-05-04',
+  duration: 'PT30S',
+  embedUrl: siteUrl,
+  publisher: {
+    '@type': 'Organization',
+    name: 'HireSort',
+    logo: { '@type': 'ImageObject', url: `${siteUrl}/logo.png` },
+  },
+  isFamilyFriendly: true,
+  inLanguage: 'en',
+};
+
 const homepageFaqJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
@@ -135,6 +155,10 @@ export default function Home() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareAppJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(heroVideoJsonLd) }}
       />
       <script
         type="application/ld+json"

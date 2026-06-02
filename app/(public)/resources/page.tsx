@@ -9,6 +9,7 @@ import {
   Library,
   MessageSquare,
   SlidersHorizontal,
+  Wrench,
 } from 'lucide-react';
 import { PageHero } from '@/components/layout/PageHero';
 import { breadcrumbJsonLd, jsonLdString, SITE_URL } from '@/lib/seo';
@@ -64,6 +65,15 @@ type ResourceCard = {
 };
 
 const cards: ResourceCard[] = [
+  {
+    href: '/free-tools',
+    eyebrow: 'Free tools',
+    title: 'Free hiring tools',
+    description:
+      'Hands-on tools you can use right now — score a resume against a job description, build a screening rubric, and more. Free, explainable, no signup.',
+    highlights: ['Resume screening', 'Rubric generator', 'No signup'],
+    icon: <Wrench size={22} strokeWidth={2.2} />,
+  },
   {
     href: '/resources/best',
     eyebrow: 'Software guides',
