@@ -9,7 +9,7 @@ import type { Rubric, ScoredResume } from "../types";
 // onto one IP). Point this at the public API host.
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
-// Scoring runs JD extraction + rubric build + résumé scoring in one request, so
+// Scoring runs JD extraction + rubric build + resume scoring in one request, so
 // it can legitimately take a while. Give it a long ceiling before we give up,
 // rather than leaning on whatever default the browser/proxy happens to apply.
 const SCORE_TIMEOUT_MS = 120_000;
@@ -31,13 +31,13 @@ export type ToolHeaderNames = {
 export type ToolConfig = {
   /** Stable identity for the tool (e.g. "demo" / "screening"). */
   key: string;
-  /** POST endpoint that builds the rubric + scores the résumé in one call. */
+  /** POST endpoint that builds the rubric + scores the resume in one call. */
   scoreEndpoint: string;
   /** GET endpoint base for re-fetching a session by id (no trailing slash). */
   sessionEndpoint: string;
   /** Route prefix the result page lives under, e.g. "/demo" or "/tools/screening". */
   resultBase: string;
-  /** Whether the built-in sample JD/résumé shortcuts are offered. */
+  /** Whether the built-in sample JD/resume shortcuts are offered. */
   allowSample: boolean;
   /** Response header names this tool's API populates. */
   headers: ToolHeaderNames;
@@ -69,7 +69,7 @@ export const SCREENING_CONFIG: ToolConfig = {
   },
 };
 
-/** Public URLs of the JD/résumé used. Optional and possibly partial (see API guide). */
+/** Public URLs of the JD/resume used. Optional and possibly partial (see API guide). */
 export type DemoUrls = { jd_url?: string; resume_url?: string } | null;
 
 export type SessionPayload = {
@@ -182,7 +182,7 @@ export type ToolApi = ReturnType<typeof createToolApi>;
 export function createToolApi(config: ToolConfig) {
   /**
    * POST <scoreEndpoint> — build a rubric (or reuse the sample one, for the demo)
-   * and score a résumé against it, in one call. Sample sides are selected via the
+   * and score a resume against it, in one call. Sample sides are selected via the
    * `is_sample_*` query flags; the matching form field must then be omitted. For an
    * uploaded JD send exactly one of `jdFile`/`jdText`. Counts against the per-IP
    * budget on a successful 200 only. Let the browser set the multipart boundary —
@@ -203,7 +203,7 @@ export function createToolApi(config: ToolConfig) {
     const qs = params.toString();
 
     const fd = new FormData();
-    // Omit `resume_file` when the sample résumé is requested; otherwise it's required.
+    // Omit `resume_file` when the sample resume is requested; otherwise it's required.
     if (!isSampleResume && args.resumeFile) fd.append("resume_file", args.resumeFile);
     // Omit `jd_file`/`jd_text` when the sample JD is requested; otherwise send one.
     if (!isSampleJd) {
@@ -306,7 +306,7 @@ export function createToolApi(config: ToolConfig) {
 
 const ERROR_MESSAGES: Record<DemoErrorCode, string> = {
   TOOL_SESSION_ATTEMPT_LIMIT_REACHED: "You've used your free try for now.",
-  DEMO_INPUT_INVALID: "Please provide both a job description and a résumé.",
+  DEMO_INPUT_INVALID: "Please provide both a job description and a resume.",
   NO_VALID_RESUMES: "That file isn't supported. Upload a PDF or DOCX under 20 MB.",
   RESUME_PARSE_ERROR: "We couldn't read any text from that file. Try a text-based PDF or DOCX.",
   JD_EXTRACTION_FAILED: "That job description is too short. Add more detail and try again.",
@@ -350,14 +350,14 @@ export function formatResetTime(iso: string | null): string | null {
 }
 
 /**
- * Scoring a résumé on its own needs a JD, which the atomic score flow never
+ * Scoring a resume on its own needs a JD, which the atomic score flow never
  * persists. Sessions are always created pre-scored, so this is only hit via a
  * stale/expired session link — guide the visitor to start over.
  */
 export async function scoreResume(_sessionId: string, _file: File): Promise<ScoredResume> {
   throw new DemoApiError(
     "SESSION_NOT_FOUND",
-    "We couldn't find the job description for this session. Start over to score a résumé.",
+    "We couldn't find the job description for this session. Start over to score a resume.",
     { status: 404 },
   );
 }

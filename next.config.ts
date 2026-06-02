@@ -35,7 +35,7 @@ const cspDirectives = {
     'https://va.vercel-scripts.com',
   ],
   // Sources we're allowed to embed in an <iframe>. Covers the same-origin
-  // sample PDF previews plus the JD/résumé PDFs the demo API serves from
+  // sample PDF previews plus the JD/resume PDFs the demo API serves from
   // Supabase storage (jd_url/resume_url). Without this, iframe src falls back
   // to default-src 'self' and the Supabase PDFs are blocked.
   //

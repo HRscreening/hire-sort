@@ -34,16 +34,16 @@ const VIEW_OPTIONS: {
   },
   {
     key: "resume",
-    label: "Résumé",
-    title: "Résumé",
-    subtitle: "The candidate’s submitted résumé.",
+    label: "resume",
+    title: "resume",
+    subtitle: "The candidate’s submitted resume.",
     icon: FileText,
   },
   {
     key: "analysis",
     label: "Candidate analysis",
     title: "Candidate Score",
-    subtitle: "Live analysis from the résumé.",
+    subtitle: "Live analysis from the resume.",
     icon: BarChart3,
   },
 ];
@@ -166,7 +166,7 @@ function Panel({
         {view === "resume" && (
           <iframe
             src={resumeUrl}
-            title="Résumé"
+            title="resume"
             className="w-full flex-1 min-h-[70vh] bg-ivory"
           />
         )}

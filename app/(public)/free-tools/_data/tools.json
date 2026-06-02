@@ -1,0 +1,116 @@
+{
+  "tools": [
+    {
+      "slug": "resume-screening",
+      "name": "Resume Screening Tool",
+      "eyebrow": "Free tool",
+      "icon": "scan-search",
+      "status": "live",
+      "tagline": "Score a resume against any job description in seconds — with reasons you can read.",
+      "description": "Paste or upload a job description and a resume, and HireSort builds a screening rubric on the fly, then grades the resume against it. You get an overall fit score, a criterion-by-criterion breakdown, and a plain-English explanation for every point — no black box, no guessing. It's the same explainable engine that powers HireSort, available free with no signup.",
+      "whenToUse": [
+        "You have a single resume and want a fast, structured read before an interview.",
+        "You want to see how AI screening scores a candidate before rolling it out to your team.",
+        "You need an objective second opinion to sanity-check a gut-feel shortlist decision.",
+        "You're hiring solo and don't have a recruiter or ATS to lean on."
+      ],
+      "features": [
+        "Auto-generated rubric from the JD",
+        "Explainable, criterion-level scoring",
+        "Works with PDF or DOCX",
+        "No signup required"
+      ],
+      "tags": ["Explainable", "PDF & DOCX", "No signup"],
+      "cta": { "label": "Screen a resume", "href": "/tools/screening" },
+      "secondaryCta": { "label": "Try the interactive demo", "href": "/demo" },
+      "keywords": [
+        "free resume screening tool",
+        "ai resume screener",
+        "resume scoring tool",
+        "resume vs job description checker"
+      ],
+      "related": [
+        { "label": "Resume screening rubrics", "href": "/resources/screening-rubrics", "note": "Ready-made weighted criteria by role" },
+        { "label": "Resume screening checklist", "href": "/blog/resume-screening-checklist", "note": "What to look for, step by step" },
+        { "label": "AI resume screening tool guide", "href": "/blog/ai-resume-screening-tool", "note": "How AI screening actually works" },
+        { "label": "Best AI resume screening software", "href": "/resources/best/ai-resume-screening-software", "note": "Compare the top tools" },
+        { "label": "Resume parser", "href": "/product/resume-parser", "note": "Extract structured data from resumes" }
+      ]
+    },
+    {
+      "slug": "generate-rubric",
+      "name": "Rubric Generator",
+      "eyebrow": "Coming soon",
+      "icon": "sliders",
+      "status": "coming-soon",
+      "tagline": "Turn a job description into a weighted, ready-to-score screening rubric.",
+      "description": "Drop in a job description and the Rubric Generator drafts a structured screening rubric for you — must-have requirements, weighted criteria, and clear scoring bands — so every resume and every interviewer is judged against the same bar. Edit it, export it, and reuse it across the whole pipeline. Launching soon; in the meantime, our role-based rubric templates cover the most common positions.",
+      "whenToUse": [
+        "You're standing up a structured hiring process and need a defensible scoring framework.",
+        "You want every reviewer evaluating candidates against the same weighted criteria.",
+        "You're tired of writing rubrics from scratch for each new role.",
+        "You need an audit-friendly, explainable basis for screening decisions."
+      ],
+      "features": [
+        "Weighted, role-specific criteria",
+        "Must-have vs. nice-to-have flags",
+        "Clear scoring bands",
+        "Editable and reusable"
+      ],
+      "tags": ["Weighted criteria", "Scoring bands", "Reusable"],
+      "cta": { "label": "Browse rubric templates", "href": "/resources/screening-rubrics" },
+      "secondaryCta": { "label": "See an example scorecard", "href": "/resources/scorecards" },
+      "keywords": [
+        "rubric generator",
+        "screening rubric template",
+        "hiring rubric maker",
+        "candidate scoring rubric"
+      ],
+      "related": [
+        { "label": "Screening rubric templates", "href": "/resources/screening-rubrics", "note": "By role, ready to copy" },
+        { "label": "Interview scorecards", "href": "/resources/scorecards", "note": "Turn notes into comparable signals" },
+        { "label": "Rubric template guide", "href": "/blog/resume-screening-rubric-template", "note": "How to build one that holds up" },
+        { "label": "Candidate scorecard template", "href": "/blog/candidate-scorecard-template", "note": "Structured interview evaluation" },
+        { "label": "Interview questions by role", "href": "/resources/interview-questions", "note": "Pair criteria with the right questions" }
+      ]
+    },
+    {
+      "slug": "job-description-generator",
+      "name": "Job Description Generator",
+      "eyebrow": "Coming soon",
+      "icon": "file-text",
+      "category": "Job descriptions",
+      "status": "coming-soon",
+      "tagline": "Turn a role and a few details into a clear, structured job description — written by AI.",
+      "description": "Give the Job Description Generator a role title and a few specifics — seniority, must-have skills, team, and location — and it drafts a complete, well-structured job description you can publish or refine. Consistent sections, inclusive language, and the right level of detail every time, so you spend minutes instead of hours on every new opening. Launching soon; in the meantime, our role-based JD templates cover the most common positions.",
+      "whenToUse": [
+        "You're opening a new role and need a polished JD fast.",
+        "You want consistent structure and tone across every job posting.",
+        "You're starting from a blank page and want a strong first draft.",
+        "You need a JD that maps cleanly to a screening rubric later."
+      ],
+      "features": [
+        "Role-aware, structured drafts",
+        "Inclusive, consistent language",
+        "Editable and ready to post",
+        "Pairs with screening rubrics"
+      ],
+      "tags": ["Role-aware", "Inclusive", "Ready to post"],
+      "cta": { "label": "Browse JD templates", "href": "/resources/job-descriptions" },
+      "secondaryCta": { "label": "See interview questions", "href": "/resources/interview-questions" },
+      "keywords": [
+        "job description generator",
+        "ai job description writer",
+        "jd generator",
+        "free job description template"
+      ],
+      "related": [
+        { "label": "Job description templates", "href": "/resources/job-descriptions", "note": "Role-ready JDs to copy and customize" },
+        { "label": "Interview questions by role", "href": "/resources/interview-questions", "note": "Pair the JD with the right questions" },
+        { "label": "Screening rubrics", "href": "/resources/screening-rubrics", "note": "Turn the JD into weighted criteria" },
+        { "label": "Recruitment software", "href": "/product/recruitment-software", "note": "The full HireSort platform" },
+        { "label": "Hiring blog", "href": "/blog", "note": "Guides on writing better JDs" }
+      ]
+    }
+  ]
+}

@@ -1,12 +1,11 @@
 "use client";
 
-import { AnimatePresence, motion, type Variants } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import {
   ArrowRight,
   Check,
   FileText,
   Lock,
-  ScanLine,
   Sparkles,
   Upload,
   Wand2,
@@ -16,6 +15,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import LoadingScreen from "@/components/tools/LoadingScreen";
 import {
   createToolApi,
   type CreateSessionInput,
@@ -28,18 +28,9 @@ const ease = [0.22, 1, 0.36, 1] as const;
 
 const MAIN_APP_URL = process.env.NEXT_PUBLIC_MAIN_APP_URL || "https://app.hiresort.ai";
 
-const LOADING_PHASES = [
-  { icon: ScanLine, label: "Reading job description" },
-  { icon: Sparkles, label: "Extracting requirements" },
-  { icon: Wand2, label: "Building your rubric" },
-] as const;
-
-const SUBMIT_DELAY_MS = 2600;
-
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 10 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.45, ease } },
-};
+// Mocked latency floor so the loading screen always gets one satisfying cycle even
+// on the fast path. The real call usually exceeds it; LoadingScreen owns the rest.
+const SUBMIT_DELAY_MS = 3200;
 
 type SourceMode = "upload" | "sample" | null;
 type PdfKind = "jd" | "resume";
@@ -47,7 +38,7 @@ type LockedFeature = "ai" | "paste";
 
 const SAMPLE_PDF: Record<PdfKind, { src: string; title: string }> = {
   jd: { src: "/sample/sample_jd.pdf", title: "Sample job description" },
-  resume: { src: "/sample/sample_resume.pdf", title: "Sample résumé" },
+  resume: { src: "/sample/sample_resume.pdf", title: "Sample resume" },
 };
 
 type UploadFlowProps = {
@@ -99,7 +90,6 @@ export default function UploadFlow({ config }: UploadFlowProps) {
           ? { isSampleSelected: true }
           : { isSampleSelected: false, file: resumeFile! };
 
-      // Mocked latency floor so the loading screen always reads as deliberate.
       const [{ session_id }] = await Promise.all([
         api.createSession({ jd, resume }),
         new Promise((r) => setTimeout(r, SUBMIT_DELAY_MS)),
@@ -122,19 +112,24 @@ export default function UploadFlow({ config }: UploadFlowProps) {
     <div className="md:h-screen w-full flex flex-col md:overflow-hidden bg-ivory">
       {/* Steps header */}
       <header className="shrink-0 sticky top-0 z-20 bg-ivory-light/85 backdrop-blur-md border-b border-line">
-        <div className="mx-auto w-full max-w-6xl px-4 sm:px-8 h-16 flex items-center justify-between gap-4">
-          <Link href="/" className="inline-flex items-center gap-2.5 shrink-0 group">
-            <div className="h-8 w-8 rounded-lg overflow-hidden bg-copper">
-              <Image src="/logo.png" alt="HireSort" width={32} height={32} className="h-full w-full object-cover" />
-            </div>
-            <span className="text-base font-bold tracking-tight text-charcoal">HireSort</span>
+        <div className="mx-auto w-full max-w-6xl px-4 sm:px-8 h-16 grid grid-cols-[auto_1fr_auto] items-center gap-3 sm:gap-4">
+          <Link href="/" aria-label="HireSort — home" className="inline-flex items-center gap-2.5 shrink-0 text-charcoal no-underline justify-self-start">
+            <Image src="/logo.png" alt="" width={28} height={28} priority sizes="28px" />
+            <span className="text-[19px] font-bold tracking-[-0.4px]">HireSort</span>
           </Link>
 
-          <div className="flex items-center gap-1.5 sm:gap-2">
+          <div className="flex items-center justify-center gap-1.5 sm:gap-2 justify-self-center">
             <StepPill index={1} label="Job description" active done={jdReady} />
             <div className={`h-0.5 w-5 sm:w-10 rounded-full transition-colors ${jdReady ? "bg-success/40" : "bg-line"}`} />
-            <StepPill index={2} label="Résumé" active={jdReady} done={resumeReady} />
+            <StepPill index={2} label="resume" active={jdReady} done={resumeReady} />
           </div>
+
+          <a
+            href={`${MAIN_APP_URL}/login`}
+            className="inline-flex h-8 items-center rounded-full bg-charcoal px-4 text-[13px] font-semibold text-ivory no-underline transition-colors hover:bg-accent shrink-0 justify-self-end"
+          >
+            Log in
+          </a>
         </div>
       </header>
 
@@ -142,7 +137,7 @@ export default function UploadFlow({ config }: UploadFlowProps) {
       <div className="flex-1 md:min-h-0 flex flex-col md:flex-row md:overflow-hidden">
         {/* Step 1 — JD */}
         <section className="flex flex-col md:flex-1 md:min-h-0 md:overflow-y-auto border-b md:border-b-0 md:border-r border-line">
-          <div className="mx-auto w-full max-w-xl px-5 sm:px-8 py-8 sm:py-10">
+          <div className="mx-auto w-full max-w-xl px-5 sm:px-8 py-6 sm:py-8 md:my-auto">
             <PanelHeading
               eyebrow="Step 1 · Job description"
               title="Start with the role"
@@ -177,7 +172,7 @@ export default function UploadFlow({ config }: UploadFlowProps) {
             />
 
             {/* Locked, login-gated features */}
-            <div className="mt-5">
+            <div className="mt-4">
               <p className="text-[11px] font-semibold uppercase tracking-wider text-charcoal-xlt mb-2">
                 More ways to start
               </p>
@@ -199,25 +194,20 @@ export default function UploadFlow({ config }: UploadFlowProps) {
           </div>
         </section>
 
-        {/* Step 2 — Résumé */}
+        {/* Step 2 — resume */}
         <section className="relative flex flex-col md:flex-1 md:min-h-0 md:overflow-y-auto bg-ivory-light">
-          <div className="mx-auto w-full max-w-xl px-5 sm:px-8 py-8 sm:py-10">
+          <div className="mx-auto w-full max-w-xl px-5 sm:px-8 py-6 sm:py-8 md:my-auto">
             <PanelHeading
-              eyebrow="Step 2 · Résumé"
+              eyebrow="Step 2 · resume"
               title="Add a candidate"
               subtitle={
                 allowSample
-                  ? "Upload a résumé or use our sample. We’ll score it against the rubric."
-                  : "Upload a résumé. We’ll score it against the rubric."
+                  ? "Upload a resume or use our sample. We’ll score it against the rubric."
+                  : "Upload a resume. We’ll score it against the rubric."
               }
             />
 
-            {!jdReady && (
-              <div className="mb-4 flex items-center gap-2 rounded-xl border border-line bg-ivory-medium px-3.5 py-2.5 text-xs text-charcoal-lt">
-                <Lock className="h-3.5 w-3.5 shrink-0" />
-                Add a job description first to unlock résumé scoring.
-              </div>
-            )}
+         
 
             <div
               aria-disabled={!jdReady}
@@ -227,9 +217,9 @@ export default function UploadFlow({ config }: UploadFlowProps) {
                 mode={resumeMode}
                 file={resumeFile}
                 showSample={allowSample}
-                uploadLabel="Upload résumé"
+                uploadLabel="Upload resume"
                 uploadHint="PDF, DOCX"
-                sampleTitle="Use sample résumé"
+                sampleTitle="Use sample resume"
                 sampleHint="Example candidate"
                 onSelectUpload={(f) => {
                   setResumeMode("upload");
@@ -246,6 +236,13 @@ export default function UploadFlow({ config }: UploadFlowProps) {
                 onViewSample={() => setPdfPreview("resume")}
               />
             </div>
+
+               {!jdReady && (
+              <div className="my-4 flex items-center gap-2 rounded-xl border border-line bg-ivory-medium px-3.5 py-2.5 text-xs text-charcoal-lt">
+                <Lock className="h-3.5 w-3.5 shrink-0" />
+                Add a job description first to unlock resume scoring.
+              </div>
+            )}
           </div>
         </section>
       </div>
@@ -292,7 +289,7 @@ export default function UploadFlow({ config }: UploadFlowProps) {
         <div className="mx-auto w-full max-w-6xl px-4 sm:px-8 h-20 flex items-center justify-between gap-4">
           <div className="min-w-0 flex flex-wrap items-center gap-2">
             <SummaryChip label="JD" mode={jdMode} fileName={jdFile?.name} />
-            <SummaryChip label="Résumé" mode={resumeMode} fileName={resumeFile?.name} locked={!jdReady} />
+            <SummaryChip label="resume" mode={resumeMode} fileName={resumeFile?.name} locked={!jdReady} />
           </div>
           <motion.button
             type="button"
@@ -323,7 +320,7 @@ function PanelHeading({
   subtitle: string;
 }) {
   return (
-    <div className="mb-6">
+    <div className="mb-5">
       <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-accent/10 text-accent text-[11px] font-semibold uppercase tracking-wider mb-2.5">
         <span className="h-1.5 w-1.5 rounded-full bg-accent" />
         {eyebrow}
@@ -457,7 +454,7 @@ function SourceBox({
   const sampleActive = mode === "sample";
 
   return (
-    <div className="rounded-2xl border-2 border-line bg-white p-3 sm:p-4 space-y-3 shadow-soft">
+    <div className="rounded-2xl border-2 border-line bg-white p-3 space-y-2.5 shadow-soft">
       {/* Sub-box A — upload */}
       <motion.div
         onDragOver={(e) => {
@@ -473,7 +470,7 @@ function SourceBox({
           backgroundColor: dragOver ? "rgba(200,90,23,0.06)" : uploadActive ? "#faf9f6" : "#ffffff",
         }}
         transition={{ duration: 0.18, ease }}
-        className="cursor-pointer rounded-xl border-2 border-dashed p-5 text-center min-h-36 flex items-center justify-center"
+        className="cursor-pointer rounded-xl border-2 border-dashed p-4 sm:p-6 text-center min-h-32 md:min-h-40 flex items-center justify-center"
       >
         <input
           ref={inputRef}
@@ -524,13 +521,13 @@ function SourceBox({
               exit={{ opacity: 0 }}
               transition={{ duration: 0.18 }}
             >
-              <div className="mx-auto h-11 w-11 rounded-2xl bg-copper flex items-center justify-center mb-2.5 shadow-md">
-                <Upload className="h-4 w-4 text-white" />
+              <div className="mx-auto h-11 w-11 md:h-12 md:w-12 rounded-2xl bg-copper flex items-center justify-center mb-2 md:mb-3 shadow-md">
+                <Upload className="h-4 w-4 md:h-5 md:w-5 text-white" />
               </div>
-              <p className="text-sm font-semibold text-charcoal">
+              <p className="text-sm md:text-base font-semibold text-charcoal">
                 {dragOver ? "Release to upload" : uploadLabel}
               </p>
-              <p className="text-xs text-charcoal-lt mt-1">
+              <p className="text-xs md:text-sm text-charcoal-lt mt-1">
                 Drag &amp; drop or <span className="text-accent font-medium">browse</span> · {uploadHint}
               </p>
             </motion.div>
@@ -551,7 +548,7 @@ function SourceBox({
             type="button"
             onClick={onSelectSample}
             disabled={sampleDisabled}
-            className={`w-full text-left rounded-xl border-2 p-4 transition-colors ${
+            className={`w-full text-left rounded-xl border-2 p-3.5 transition-colors ${
               sampleDisabled
                 ? "border-line bg-ivory-medium opacity-60 cursor-not-allowed"
                 : sampleActive
@@ -640,7 +637,7 @@ function LockedRow({
       <button
         type="button"
         onClick={onClick}
-        className="w-full flex items-center gap-3 rounded-xl border border-line bg-ivory-medium px-4 py-3 text-left cursor-not-allowed"
+        className="w-full flex items-center gap-3 rounded-xl border border-line bg-ivory-medium px-4 py-2.5 text-left cursor-not-allowed"
       >
         <span className="h-8 w-8 rounded-lg bg-line text-charcoal-xlt flex items-center justify-center shrink-0">
           {icon}
@@ -726,110 +723,5 @@ function PdfDialog({ kind, onClose }: { kind: PdfKind | null; onClose: () => voi
         </motion.div>
       )}
     </AnimatePresence>
-  );
-}
-
-function LoadingScreen() {
-  const [phaseIdx, setPhaseIdx] = useState(0);
-  const perPhase = Math.floor(SUBMIT_DELAY_MS / LOADING_PHASES.length);
-
-  useEffect(() => {
-    const timers: number[] = [];
-    for (let i = 1; i < LOADING_PHASES.length; i++) {
-      timers.push(window.setTimeout(() => setPhaseIdx(i), perPhase * i));
-    }
-    return () => timers.forEach((t) => window.clearTimeout(t));
-  }, [perPhase]);
-
-  return (
-    <div className="min-h-screen w-full bg-ivory flex flex-col items-center justify-center px-6">
-      <motion.div
-        variants={fadeUp}
-        initial="hidden"
-        animate="show"
-        className="flex flex-col items-center text-center"
-      >
-        <div className="relative h-24 w-24 mb-8">
-          <div className="absolute inset-0 rounded-full border-2 border-line" aria-hidden />
-          <motion.div
-            className="absolute inset-0 rounded-full border-2 border-transparent"
-            style={{ borderTopColor: "#c85a17", borderRightColor: "#c85a17" }}
-            animate={{ rotate: 360 }}
-            transition={{ duration: 1.2, ease: "linear", repeat: Infinity }}
-            aria-hidden
-          />
-          <div className="absolute inset-0 flex items-center justify-center">
-            <motion.div
-              animate={{ scale: [1, 1.08, 1] }}
-              transition={{ duration: 1.4, ease: "easeInOut", repeat: Infinity }}
-              className="h-12 w-12 rounded-2xl bg-copper flex items-center justify-center shadow-md"
-            >
-              <FileText className="h-5 w-5 text-white" />
-            </motion.div>
-          </div>
-        </div>
-
-        <h2 className="text-2xl sm:text-3xl font-bold text-charcoal tracking-tight">
-          Setting up your session
-        </h2>
-        <p className="text-sm text-charcoal-lt mt-2 max-w-sm">
-          Hang tight — building the rubric and queuing the résumé for scoring.
-        </p>
-
-        <ul className="mt-10 w-full max-w-xs space-y-2.5 text-left">
-          {LOADING_PHASES.map((phase, i) => {
-            const Icon = phase.icon;
-            const status: "done" | "active" | "pending" =
-              i < phaseIdx ? "done" : i === phaseIdx ? "active" : "pending";
-            return (
-              <li
-                key={phase.label}
-                className={`flex items-center gap-3 px-3.5 py-2.5 rounded-xl border transition-colors ${
-                  status === "active"
-                    ? "bg-white border-accent/40 shadow-soft"
-                    : status === "done"
-                      ? "bg-ivory-light border-line"
-                      : "bg-transparent border-line/60"
-                }`}
-              >
-                <span
-                  className={`h-7 w-7 rounded-lg flex items-center justify-center shrink-0 ${
-                    status === "active"
-                      ? "bg-accent/10 text-accent"
-                      : status === "done"
-                        ? "bg-success-bg text-success"
-                        : "bg-ivory-medium text-charcoal-xlt"
-                  }`}
-                >
-                  {status === "done" ? (
-                    <Check className="h-3.5 w-3.5" strokeWidth={3} />
-                  ) : status === "active" ? (
-                    <motion.span
-                      animate={{ rotate: 360 }}
-                      transition={{ duration: 1, ease: "linear", repeat: Infinity }}
-                    >
-                      <Icon className="h-3.5 w-3.5" />
-                    </motion.span>
-                  ) : (
-                    <Icon className="h-3.5 w-3.5" />
-                  )}
-                </span>
-                <span
-                  className={`text-sm ${
-                    status === "active"
-                      ? "text-charcoal font-semibold"
-                      : status === "done"
-                        ? "text-charcoal-lt"
-                        : "text-charcoal-xlt"
-                  }`}
-                >
-                  {phase.label}
-                </span>
-              </li>
-            );
-          })}
-        </ul>
-      </motion.div>
-    </div>
   );
 }
