@@ -1,8 +1,8 @@
 {
   "slug": "candidate-scorecard-template",
-  "title": "Recruiter Scorecard Template for Structured Candidate Evaluation",
-  "subtitle": "A practical candidate scorecard template recruiters and hiring managers can use to compare candidates consistently.",
-  "description": "Use this recruiter scorecard template to evaluate candidates with consistent criteria, interview notes, resume screening signals, and hiring recommendations.",
+  "title": "Candidate Scorecard Template for Recruiters | Free Hiring Scorecard",
+  "subtitle": "A practical candidate scorecard template recruiters can copy to compare resumes, interviews, strengths, gaps, and next steps consistently.",
+  "description": "Use this candidate scorecard template to evaluate resumes and interviews consistently. Includes scoring criteria, evidence notes, strengths, gaps, and next steps.",
   "keywords": [
     "recruiter scorecard template",
     "candidate scorecard template",
@@ -16,7 +16,7 @@
     "role": "Product & Research"
   },
   "publishedAt": "2026-05-16",
-  "updatedAt": "2026-05-16",
+  "updatedAt": "2026-06-01",
   "readingTime": "8 min read",
   "coverImage": "/blog/blog2.jpeg",
   "coverAlt": "Recruiter reviewing a candidate scorecard template with structured evaluation criteria.",
@@ -28,6 +28,115 @@
     "Structured hiring"
   ],
   "body": [
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Candidate Scorecard Template for Recruiters"
+    },
+    {
+      "type": "paragraph",
+      "text": "Copy this scorecard structure before screening resumes or running interviews. It keeps every reviewer focused on the same role criteria, evidence, risks, and next step."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Candidate and role: note the applicant name, role, source, and reviewer.",
+        "Must-have criteria: list the skills, experience, qualifications, and constraints that are non-negotiable.",
+        "Scoring scale: use the same 1-5 or 1-10 scale for every candidate.",
+        "Evidence notes: capture the resume line, project, metric, or interview answer behind each score.",
+        "Strengths and gaps: summarize where the candidate is strong and where follow-up is needed.",
+        "Recommendation: move forward, hold, reject, or review with the hiring manager."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Example: Filled Candidate Scorecard"
+    },
+    {
+      "type": "paragraph",
+      "text": "Here is how the same scorecard could look for a backend engineer candidate after a first-pass resume review. Use the example as a guide, then replace the criteria, evidence, and weights for your own role."
+    },
+    {
+      "type": "table",
+      "columns": [
+        "Scorecard field",
+        "Filled example",
+        "How to use it"
+      ],
+      "rows": [
+        [
+          "Candidate and role",
+          "Priya S. - Backend Engineer",
+          "Identify the candidate, role, source, and reviewer so the scorecard is easy to reference later."
+        ],
+        [
+          "Role context",
+          "Mid-level backend role for a SaaS product team handling APIs, database design, and cloud deployments.",
+          "Write one short sentence on what the role actually needs. This keeps the scorecard tied to the hiring problem."
+        ],
+        [
+          "Must-have criteria",
+          "Node.js APIs, PostgreSQL, cloud deployment exposure, debugging ability, and 3+ years of backend ownership.",
+          "List only non-negotiable requirements. Keep preferred skills separate so good candidates are not rejected too early."
+        ],
+        [
+          "Preferred criteria",
+          "AWS, Docker, event-driven systems, observability, and prior SaaS experience.",
+          "Use this to separate strong differentiators from hard requirements."
+        ],
+        [
+          "Scoring scale",
+          "8/10 overall role fit.",
+          "Use the same scale for every candidate. Define what strong, partial, and weak evidence means before screening begins."
+        ],
+        [
+          "Technical skills score",
+          "4/5 - strong Node.js and PostgreSQL evidence; some cloud deployment exposure.",
+          "Score the candidate against the most important job-specific skills, not generic resume keywords."
+        ],
+        [
+          "Relevant experience score",
+          "4/5 - built production APIs, owned database migrations, and worked on backend services for 4 years.",
+          "Look for similar problems solved, ownership level, project complexity, and business context."
+        ],
+        [
+          "Impact evidence",
+          "Improved API response time by 35% and reduced failed background jobs through queue monitoring.",
+          "Capture measurable outcomes where available. This makes the score easier to defend with the hiring manager."
+        ],
+        [
+          "Strengths",
+          "Strong backend ownership, clear production experience, and evidence of performance improvement.",
+          "Summarize why the candidate may succeed in the role."
+        ],
+        [
+          "Gaps or risks",
+          "System design depth is unclear; limited evidence of leading architecture decisions.",
+          "Flag what needs validation instead of turning every unknown into a rejection."
+        ],
+        [
+          "Follow-up questions",
+          "Ask about one architecture decision, tradeoffs made, and how the candidate handled scaling or reliability issues.",
+          "Turn resume gaps into interview questions so the next step is focused."
+        ],
+        [
+          "Recommendation",
+          "Move forward to technical interview.",
+          "Use a clear decision label: move forward, hold, reject, or review with hiring manager."
+        ],
+        [
+          "Next step owner",
+          "Recruiter to schedule technical interview; hiring manager to review system design questions.",
+          "Assign ownership so the scorecard turns into action."
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "title": "Use This as Your First-Pass Hiring Scorecard",
+      "text": "Start with the template and example above, then adjust the criteria with the hiring manager before reviewing candidates. In HireSort, the same structure can become the rubric for AI-assisted resume screening."
+    },
     {
       "type": "heading",
       "level": 2,
@@ -44,7 +153,7 @@
     {
       "type": "heading",
       "level": 2,
-      "text": "Candidate Scorecard Template"
+      "text": "How to Use the Candidate Scorecard Template"
     },
     {
       "type": "paragraph",
