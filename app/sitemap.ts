@@ -12,6 +12,7 @@ import { getAllJobDescriptions } from '@/app/(public)/resources/job-descriptions
 import { getAllInterviewQuestions } from '@/app/(public)/resources/interview-questions/_data';
 import { getAllScorecards } from '@/app/(public)/resources/scorecards/_data';
 import { getAllScreeningRubrics } from '@/app/(public)/resources/screening-rubrics/_data';
+import { TEST_JOB } from '@/lib/test-job';
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || 'https://hiresort.ai';
@@ -133,8 +134,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${siteUrl}/product`, lastModified: sectionIndex, changeFrequency: 'weekly', priority: 0.85 },
   ];
 
+  const jobRoutes: MetadataRoute.Sitemap = [
+    {
+      url: `${siteUrl}/careers/${TEST_JOB.id}`,
+      lastModified: new Date(TEST_JOB.datePosted),
+      changeFrequency: 'daily',
+      priority: 0.9,
+    },
+  ];
+
   return [
     ...staticRoutes,
+    ...jobRoutes,
     ...postRoutes,
     ...compareRoutes,
     ...productRoutes,
