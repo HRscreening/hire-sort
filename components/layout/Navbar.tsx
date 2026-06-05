@@ -22,7 +22,8 @@ const linkItem = {
 type IconKey =
   | 'ats' | 'pipeline' | 'software' | 'parser' | 'resume'
   | 'compare' | 'blog' | 'about' | 'mail' | 'doc' | 'award' | 'sparkles'
-  | 'rocket' | 'users' | 'briefcase' | 'building' | 'volume';
+  | 'rocket' | 'users' | 'briefcase' | 'building' | 'volume' | 'tool'
+  | 'scan' | 'sliders';
 
 const Icon = ({ name }: { name: IconKey }) => {
   const common = { width: 18, height: 18, viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', strokeWidth: 1.8, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const, 'aria-hidden': true };
@@ -44,10 +45,13 @@ const Icon = ({ name }: { name: IconKey }) => {
     case 'briefcase': return <svg {...common}><rect x="2" y="7" width="20" height="14" rx="2" /><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" /></svg>;
     case 'building': return <svg {...common}><rect x="4" y="2" width="16" height="20" rx="2" /><path d="M9 22v-4h6v4M8 6h.01M16 6h.01M12 6h.01M12 10h.01M12 14h.01M16 10h.01M16 14h.01M8 10h.01M8 14h.01" /></svg>;
     case 'volume': return <svg {...common}><path d="M3 3v18h18M7 14l4-4 4 4 5-5" /></svg>;
+    case 'tool': return <svg {...common}><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2-2 2.5-2.5z" /></svg>;
+    case 'scan': return <svg {...common}><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2" /><circle cx="11" cy="11" r="2.5" /><path d="m14 14 2 2" /></svg>;
+    case 'sliders': return <svg {...common}><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6" /></svg>;
   }
 };
 
-type MegaItem = { href: string; label: string; description?: string; icon: IconKey };
+type MegaItem = { href: string; label: string; description?: string; icon: IconKey; badge?: string };
 type MegaGroup = { title: string; items: MegaItem[] };
 type MegaFeatured = {
   eyebrow: string;
@@ -168,11 +172,44 @@ const resourcesMega: MegaConfig = {
       ],
     },
   ],
+  featured: {
+    eyebrow: 'Guides',
+    title: 'Best AI resume screening',
+    body: 'See how the top AI resume screening tools compare — picks, pros and cons.',
+    href: '/resources/best/ai-resume-screening-software',
+    ctaLabel: 'Read the guide',
+  },
+};
+
+const toolsMega: MegaConfig = {
+  groups: [
+    {
+      title: 'Free tools',
+      items: [
+        { href: '/free-tools', label: 'All tools', description: 'Browse every free tool', icon: 'tool' },
+        { href: '/tools/screening', label: 'Resume Screening Tool', description: 'Score a resume against any JD', icon: 'scan' },
+      ],
+    },
+    {
+      title: 'Job descriptions',
+      items: [
+        { href: '/free-tools#job-description-generator', label: 'JD Generator', description: 'Draft a structured JD with AI', icon: 'doc', badge: 'Soon' },
+        { href: '/free-tools#generate-rubric', label: 'Rubric Generator', description: 'Turn a JD into a scoring rubric', icon: 'sliders', badge: 'Soon' },
+      ],
+    },
+  ],
+  featured: {
+    eyebrow: 'Free',
+    title: 'Free hiring tools',
+    body: 'Score a resume against a job description in seconds — no signup.',
+    href: '/free-tools',
+    ctaLabel: 'Try them free',
+  },
 };
 
 type NavEntry =
   | { kind: 'link'; href: string; label: string }
-  | { kind: 'mega'; key: string; label: string; config: MegaConfig };
+  | { kind: 'mega'; key: string; label: string; href?: string; config: MegaConfig };
 
 const navLinks: NavEntry[] = [
   { kind: 'link', href: '/#how', label: 'How it works' },
@@ -180,6 +217,7 @@ const navLinks: NavEntry[] = [
   { kind: 'mega', key: 'product', label: 'Product', config: productMega },
   { kind: 'mega', key: 'solutions', label: 'Solutions', config: useCasesMega },
   { kind: 'mega', key: 'resources', label: 'Resources', config: resourcesMega },
+  { kind: 'mega', key: 'tools', label: 'Free tools', href: '/free-tools', config: toolsMega },
   { kind: 'link', href: '/blog', label: 'Blog' },
   { kind: 'link', href: '/pricing', label: 'Pricing' },
 ];
@@ -189,6 +227,7 @@ const isActiveTop = (entry: NavEntry, pathname: string): boolean => {
     if (entry.href.startsWith('/#')) return false;
     return entry.href === '/' ? pathname === '/' : pathname === entry.href || pathname.startsWith(entry.href + '/');
   }
+  if (entry.href && (pathname === entry.href || pathname.startsWith(entry.href + '/'))) return true;
   return entry.config.groups.some((g) =>
     g.items.some((it) => pathname === it.href || pathname.startsWith(it.href + '/')),
   );
@@ -203,9 +242,11 @@ const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    setIsLoggedIn(
-      document.cookie.split('; ').some((c) => c === 'hs_auth=1'),
-    );
+    const checkAuthCookie = () => {
+      setIsLoggedIn(document.cookie.split('; ').some((c) => c === 'hs_auth=1'));
+    };
+
+    queueMicrotask(checkAuthCookie);
   }, []);
 
   const dashboardHref = isLoggedIn ? main_app_url : `${main_app_url}/login`;
@@ -342,6 +383,21 @@ const Navbar = () => {
               const active = isActiveTop(item, pathname);
               if (item.kind === 'mega') {
                 const isOpen = activeMega === item.key;
+                const triggerClass = `inline-flex items-center gap-1 bg-transparent p-0 text-[14.5px] font-medium transition-colors hover:text-accent ${active ? 'text-accent' : 'text-charcoal-md'}`;
+                const triggerInner = (
+                  <>
+                    <motion.span variants={linkHover} className="inline-block">
+                      {item.label}
+                    </motion.span>
+                    <motion.svg
+                      animate={{ rotate: isOpen ? 180 : 0 }}
+                      transition={{ duration: 0.2 }}
+                      width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"
+                    >
+                      <polyline points="6 9 12 15 18 9" />
+                    </motion.svg>
+                  </>
+                );
                 return (
                   <motion.div
                     key={item.key}
@@ -352,24 +408,27 @@ const Navbar = () => {
                     onFocus={() => openMega(item.key)}
                     className="relative"
                   >
-                    <button
-                      type="button"
-                      aria-haspopup="true"
-                      aria-expanded={isOpen}
-                      onClick={() => setActiveMega(isOpen ? null : item.key)}
-                      className={`inline-flex items-center gap-1 bg-transparent p-0 text-[14.5px] font-medium transition-colors hover:text-accent ${active ? 'text-accent' : 'text-charcoal-md'}`}
-                    >
-                      <motion.span variants={linkHover} className="inline-block">
-                        {item.label}
-                      </motion.span>
-                      <motion.svg
-                        animate={{ rotate: isOpen ? 180 : 0 }}
-                        transition={{ duration: 0.2 }}
-                        width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"
+                    {item.href ? (
+                      <Link
+                        href={item.href}
+                        aria-haspopup="true"
+                        aria-expanded={isOpen}
+                        onClick={() => setActiveMega(null)}
+                        className={`${triggerClass} no-underline`}
                       >
-                        <polyline points="6 9 12 15 18 9" />
-                      </motion.svg>
-                    </button>
+                        {triggerInner}
+                      </Link>
+                    ) : (
+                      <button
+                        type="button"
+                        aria-haspopup="true"
+                        aria-expanded={isOpen}
+                        onClick={() => setActiveMega(isOpen ? null : item.key)}
+                        className={triggerClass}
+                      >
+                        {triggerInner}
+                      </button>
+                    )}
                     {active && (
                       <span className="absolute -bottom-2 left-0 right-4 h-0.5 rounded-full bg-accent" aria-hidden="true" />
                     )}
@@ -391,7 +450,7 @@ const Navbar = () => {
                           >
                             <div
                               className="grid gap-5"
-                              style={{ gridTemplateColumns: `repeat(${Math.min(item.config.groups.length, 4)}, minmax(13rem, 14rem))` }}
+                              style={{ gridTemplateColumns: `repeat(${Math.min(item.config.groups.length, 4)}, minmax(13rem, 15rem))` }}
                             >
                               {item.config.groups.map((group) => (
                                 <div key={group.title}>
@@ -413,11 +472,18 @@ const Navbar = () => {
                                               <Icon name={it.icon} />
                                             </span>
                                             <span className="min-w-0 flex-1">
-                                              <span className={`block truncate text-[13.5px] font-semibold transition-colors ${itemActive ? 'text-accent' : 'text-charcoal group-hover:text-accent'}`}>
-                                                {it.label}
+                                              <span className="flex items-start gap-1.5">
+                                                <span className={`text-[13.5px] font-semibold leading-snug transition-colors ${itemActive ? 'text-accent' : 'text-charcoal group-hover:text-accent'}`}>
+                                                  {it.label}
+                                                </span>
+                                                {it.badge && (
+                                                  <span className="mt-0.5 inline-flex flex-none items-center rounded-full border border-line-soft bg-ivory-light px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-[0.5px] text-charcoal-lt">
+                                                    {it.badge}
+                                                  </span>
+                                                )}
                                               </span>
                                               {it.description && (
-                                                <span className="mt-0.5 block truncate text-[12px] leading-snug text-charcoal-md/80">
+                                                <span className="mt-0.5 block line-clamp-2 text-[12px] leading-snug text-charcoal-md/80">
                                                   {it.description}
                                                 </span>
                                               )}
@@ -606,9 +672,14 @@ const Navbar = () => {
                                               href={sub.href}
                                               onClick={() => setOpen(false)}
                                               aria-current={subActive ? 'page' : undefined}
-                                              className={`block rounded-md px-4 py-2.5 text-[14px] no-underline transition-colors ${subActive ? 'bg-accent/8 text-accent' : 'text-charcoal-md hover:bg-charcoal/5 hover:text-accent'}`}
+                                              className={`flex items-center justify-between gap-2 rounded-md px-4 py-2.5 text-[14px] no-underline transition-colors ${subActive ? 'bg-accent/8 text-accent' : 'text-charcoal-md hover:bg-charcoal/5 hover:text-accent'}`}
                                             >
-                                              {sub.label}
+                                              <span className="truncate">{sub.label}</span>
+                                              {sub.badge && (
+                                                <span className="inline-flex flex-none items-center rounded-full border border-line-soft bg-ivory-light px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-[0.5px] text-charcoal-lt">
+                                                  {sub.badge}
+                                                </span>
+                                              )}
                                             </Link>
                                           );
                                         })}

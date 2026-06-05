@@ -5,12 +5,12 @@ export const recruitmentSoftwareForSmallBusiness: BestPage = {
   slug: 'recruitment-software-for-small-business',
   category: 'Recruitment software for small business',
   publishedAt: '2026-05-10',
-  updatedAt: '2026-05-17',
+  updatedAt: '2026-06-01',
 
   meta: {
-    title: 'Best Recruitment Software for Small Business in 2026 | HireSort',
+    title: 'Best Recruitment Software for Small Businesses in 2026',
     description:
-      'Compare recruitment software for small businesses. Find tools for resume screening, applicant tracking, candidate management, and simple hiring workflows.',
+      'Compare recruitment software for small businesses. See tools for resume screening, candidate tracking, shortlisting, and hiring workflows without enterprise ATS complexity.',
     keywords: [
       'best recruitment software for small business',
       'recruitment software for small business',
@@ -24,25 +24,66 @@ export const recruitmentSoftwareForSmallBusiness: BestPage = {
 
   hero: {
     eyebrow: 'Best recruitment software for small business',
-    titlePrefix: 'Recruitment software for ',
-    titleAccent: 'small business teams.',
+    titlePrefix: 'Best recruitment software for ',
+    titleAccent: 'small businesses',
+    titleSuffix: ' hiring without a big HR team',
     lead: [
-      'Small businesses often hire with limited time, limited recruiting support, and little room for process complexity. The best recruitment software for a small business should make hiring easier immediately, not require weeks of setup.',
-      'For many small businesses, the first priority is simple: keep resumes organized, identify qualified candidates faster, and track where each applicant stands.',
+      'Small businesses often hire with limited time, limited recruiting support, and little room for process complexity. The right recruitment software should help you screen resumes, track candidates, and build shortlists without enterprise ATS overhead.',
+      'If your team is still using inboxes, spreadsheets, and manual resume review, start with the first bottleneck: finding qualified candidates faster and keeping every applicant easy to review.',
     ],
-    primaryCta: { label: 'Make small-business hiring easier', href: 'https://app.hiresort.ai/login' },
+    primaryCta: { label: 'Screen resumes for free', href: 'https://app.hiresort.ai/login' },
   },
 
   whatToLookFor: {
-    title: 'What small businesses should prioritize',
+    eyebrow: 'Buying criteria',
+    title: 'Compare Small-Business Recruiting Tools by the First Hiring Bottleneck',
+    intro:
+      'Small businesses rarely need every recruiting feature on day one. Choose the tool that removes the current hiring bottleneck while keeping the process simple enough for founders, managers, and lean HR teams.',
     items: [
-      'Simple setup and clear user experience',
-      'Affordable pricing or a useful free plan',
-      'Candidate tracking without heavy admin overhead',
-      'Resume screening support to reduce manual review',
-      'Searchable candidate database',
-      'Basic collaboration with hiring managers',
-      'Easy export, reporting, or handoff when needed',
+      'Resume screening for roles with too many applicants.',
+      'Candidate tracking when resumes are scattered across inboxes and spreadsheets.',
+      'Shortlist collaboration for founder, recruiter, and hiring manager review.',
+      'Searchable candidate database for future roles.',
+      'Affordable pricing or a useful free plan before hiring volume increases.',
+      'Simple setup, clear handoff, and low admin overhead.',
+      'Easy export, reporting, or migration path when the hiring process matures.',
+    ],
+  },
+
+  quickRecommendations: {
+    eyebrow: 'Quick picks',
+    title: 'Best Recruitment Software for Small Businesses by Use Case',
+    intro:
+      'Start with the hiring bottleneck your team feels today. The detailed comparison table below explains the tradeoffs across lightweight screening tools, ATS platforms, and broader HR suites.',
+    cards: [
+      {
+        label: 'Best for resume screening',
+        tool: 'HireSort',
+        href: '/product/recruitment-software',
+        description:
+          'Best fit when a small team is receiving enough resumes that manual review and spreadsheet tracking are slowing hiring down.',
+      },
+      {
+        label: 'Best small-business ATS',
+        tool: 'Breezy HR',
+        href: 'https://breezy.hr/',
+        description:
+          'Best fit when the team needs job posting, a careers page, hiring workflow automation, and collaborative applicant tracking.',
+      },
+      {
+        label: 'Best recruiting CRM',
+        tool: 'Zoho Recruit',
+        href: 'https://www.zoho.com/recruit/ai-recruitment.html',
+        description:
+          'Best fit for small businesses that want ATS capabilities plus CRM-style candidate management and broader automation.',
+      },
+      {
+        label: 'Best HR suite fit',
+        tool: 'Freshteam',
+        href: 'https://www.freshworks.com/hrms/recruitment-software/',
+        description:
+          'Best fit for small businesses already using Freshworks or wanting recruiting basics inside a wider HR ecosystem.',
+      },
     ],
   },
 
@@ -58,6 +99,115 @@ export const recruitmentSoftwareForSmallBusiness: BestPage = {
       { tool: 'Recruitee', href: 'https://recruitee.com/', bestFit: 'Teams wanting collaborative recruiting and employer branding workflows', whyItMayWork: 'Collaborative hiring, job posting, careers site, referrals, and team workflows', watchOut: 'Fit depends on whether collaboration is the main pain point' },
       { tool: 'Freshteam', href: 'https://www.freshworks.com/hrms/recruitment-software/', bestFit: 'Small businesses already using Freshworks or needing HR plus recruiting basics', whyItMayWork: 'Recruitment workflows, job posting, automation, and HR ecosystem fit', watchOut: 'May be chosen for HR suite alignment rather than specialized resume screening' },
     ],
+  },
+
+  comparisonMatrix: {
+    heading: 'Small-Business Recruitment Software Feature Matrix',
+    intro:
+      'Use this table for a quick feature scan. Then use the main comparison table above to choose based on workflow fit, setup complexity, and the hiring problem you need solved first.',
+    criteria: [
+      { key: 'resume-screening', label: 'Resume screening' },
+      { key: 'candidate-tracking', label: 'Candidate tracking' },
+      { key: 'job-posting', label: 'Job posting' },
+      { key: 'careers-page', label: 'Careers page' },
+      { key: 'recruiting-crm', label: 'Recruiting CRM' },
+      { key: 'hr-suite', label: 'HR suite' },
+      { key: 'pricing', label: 'Pricing fit' },
+      { key: 'best-fit', label: 'Best fit' },
+    ],
+    tools: [
+      {
+        tool: 'HireSort',
+        href: '/product/recruitment-software',
+        cells: {
+          'resume-screening': { value: true, note: 'Core strength' },
+          'candidate-tracking': { value: true, note: 'Lightweight' },
+          'job-posting': { value: false },
+          'careers-page': { value: false },
+          'recruiting-crm': { value: 'Basic repository' },
+          'hr-suite': { value: false },
+          pricing: { value: 'Free to start', note: 'Screening-first' },
+          'best-fit': { value: 'Small teams drowning in resumes' },
+        },
+      },
+      {
+        tool: 'Breezy HR',
+        href: 'https://breezy.hr/',
+        cells: {
+          'resume-screening': { value: true },
+          'candidate-tracking': { value: true },
+          'job-posting': { value: true },
+          'careers-page': { value: true },
+          'recruiting-crm': { value: 'Limited' },
+          'hr-suite': { value: false },
+          pricing: { value: 'SMB-friendly', note: 'Check current plan limits' },
+          'best-fit': { value: 'Small-business ATS workflows' },
+        },
+      },
+      {
+        tool: 'JazzHR',
+        href: 'https://www.jazzhr.com/',
+        cells: {
+          'resume-screening': { value: 'Basic' },
+          'candidate-tracking': { value: true },
+          'job-posting': { value: true },
+          'careers-page': { value: true },
+          'recruiting-crm': { value: false },
+          'hr-suite': { value: false },
+          pricing: { value: 'SMB-friendly', note: 'Check current plan limits' },
+          'best-fit': { value: 'Straightforward lean recruiting' },
+        },
+      },
+      {
+        tool: 'Zoho Recruit',
+        href: 'https://www.zoho.com/recruit/ai-recruitment.html',
+        cells: {
+          'resume-screening': { value: true },
+          'candidate-tracking': { value: true },
+          'job-posting': { value: true },
+          'careers-page': { value: true },
+          'recruiting-crm': { value: true, note: 'Strong CRM fit' },
+          'hr-suite': { value: 'Ecosystem' },
+          pricing: { value: 'Modular', note: 'Can fit budget-conscious teams' },
+          'best-fit': { value: 'ATS plus CRM automation' },
+        },
+      },
+      {
+        tool: 'Workable',
+        href: 'https://www.workable.com/features',
+        cells: {
+          'resume-screening': { value: true },
+          'candidate-tracking': { value: true },
+          'job-posting': { value: true },
+          'careers-page': { value: true },
+          'recruiting-crm': { value: true },
+          'hr-suite': { value: true },
+          pricing: { value: 'Higher suite cost', note: 'Best when breadth matters' },
+          'best-fit': { value: 'Complete recruiting platform' },
+        },
+      },
+      {
+        tool: 'Freshteam',
+        href: 'https://www.freshworks.com/hrms/recruitment-software/',
+        cells: {
+          'resume-screening': { value: 'Basic' },
+          'candidate-tracking': { value: true },
+          'job-posting': { value: true },
+          'careers-page': { value: true },
+          'recruiting-crm': { value: false },
+          'hr-suite': { value: true, note: 'Freshworks fit' },
+          pricing: { value: 'Suite-aligned', note: 'Best for Freshworks users' },
+          'best-fit': { value: 'HR suite alignment' },
+        },
+      },
+    ],
+    winnerByCriterion: {
+      'resume-screening': 'HireSort',
+      'candidate-tracking': 'Breezy HR',
+      'job-posting': 'Breezy HR',
+      'recruiting-crm': 'Zoho Recruit',
+      'hr-suite': 'Freshteam',
+    },
   },
 
   positioning: {

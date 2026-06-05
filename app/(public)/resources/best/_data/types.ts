@@ -27,6 +27,13 @@ export type ListSection = {
   items: string[];
 };
 
+export type RecommendationCard = {
+  label: string;
+  tool: string;
+  href?: string;
+  description: string;
+};
+
 // ────────────────────────────────────────────────────────────────────────────
 // Long-form guide blocks (introduced 2026-05-22, Change #3a)
 //
@@ -220,6 +227,13 @@ export type BestPage = {
   };
 
   whatToLookFor?: ListSection;
+
+  quickRecommendations?: {
+    eyebrow?: string;
+    title: string;
+    intro?: string;
+    cards: RecommendationCard[];
+  };
 
   toolsTable: {
     heading: string;

@@ -5,12 +5,12 @@ export const candidateScreeningSoftware: BestPage = {
   slug: 'candidate-screening-software',
   category: 'Candidate screening software',
   publishedAt: '2026-05-10',
-  updatedAt: '2026-05-17',
+  updatedAt: '2026-06-01',
 
   meta: {
-    title: 'Best Candidate Screening Software in 2026 | HireSort',
+    title: 'Best Candidate Screening Software in 2026 | AI Shortlisting Tools',
     description:
-      'Compare candidate screening software for resume review, AI shortlisting, candidate ranking, US hiring teams, startups, agencies, and high-volume hiring workflows.',
+      'Compare candidate screening software for recruiters and hiring teams. Find tools for AI resume screening, candidate ranking, scorecards, and faster shortlists.',
     keywords: [
       'best candidate screening software',
       'candidate screening software',
@@ -38,28 +38,63 @@ export const candidateScreeningSoftware: BestPage = {
   hero: {
     eyebrow: 'Best candidate screening software',
     titlePrefix: 'Best candidate screening software for ',
-    titleAccent: 'better shortlists.',
+    titleAccent: 'faster shortlists.',
     lead: [
-      'Candidate screening software helps hiring teams decide who should move forward before they spend time on interviews. The category includes resume screening tools, assessment platforms, video interview tools, conversational screening systems, and broader ATS platforms with screening features.',
-      'The right tool depends on what you want to screen for: resume fit, skills, communication, availability, qualifications, fraud signals, or role-specific assessments. For resume-heavy teams, the most important job is usually turning applicant volume into ranked, explainable shortlists.',
+      'Screening hundreds of resumes manually is slow, inconsistent, and hard to explain to hiring managers. Candidate screening software helps recruiters turn applicant volume into ranked, reviewable shortlists.',
+      'This guide compares tools for AI resume screening, candidate ranking, scorecards, assessments, and high-volume qualification so you can choose the right screening workflow for your team.',
     ],
-    primaryCta: { label: 'Screen Candidates with HireSort', href: 'https://app.hiresort.ai/login' },
+    primaryCta: { label: 'Screen resumes for free', href: 'https://app.hiresort.ai/login' },
   },
 
   whatToLookFor: {
-    eyebrow: 'Buying criteria',
-    title: 'What to Look For in Candidate Screening Software',
+    eyebrow: 'Shortlist faster',
+    title: 'Choose Candidate Screening Software by the Screening Job',
     intro:
-      'The strongest candidate screening software should reduce first-pass review time without hiding the reasoning behind each shortlist decision.',
+      'The best tool depends on what you need to decide before interviews. Start with the screening bottleneck, then compare tools by evidence, recruiter control, and hiring manager handoff.',
     items: [
-      'Role-specific screening criteria tied to the job description.',
-      'Explainable candidate ranking with resume evidence.',
-      'Bulk resume review for high-volume applicant pools.',
-      'Human review controls so recruiters can adjust recommendations.',
-      'Shortlist handoff notes for hiring managers.',
-      'Candidate repository and pipeline context for future roles.',
-      'Workflow fit for startups, staffing agencies, and lean hiring teams.',
-      'Privacy and compliance controls appropriate for your market.',
+      'Best for AI resume screening: rank applicants against a job description and review the evidence behind each score.',
+      'Best for scorecards: apply the same criteria to every candidate before hiring manager review.',
+      'Best for high-volume roles: process large resume batches without losing recruiter oversight.',
+      'Best for agencies: reuse candidate records and compare applicants across similar roles.',
+      'Best for structured hiring: turn shortlist decisions into notes, gaps, strengths, and next steps.',
+      'Best for compliance-sensitive teams: keep human review, auditability, privacy controls, and clear decision evidence.',
+    ],
+  },
+
+  quickRecommendations: {
+    eyebrow: 'Quick picks',
+    title: 'Best Candidate Screening Tools by Use Case',
+    intro:
+      'Start here if you already know the kind of screening workflow you need. The detailed comparison table below explains the tradeoffs.',
+    cards: [
+      {
+        label: 'Best AI resume screening',
+        tool: 'HireSort',
+        href: '/product/recruitment-software',
+        description:
+          'Best fit when the main bottleneck is ranking resumes against a JD and creating explainable shortlists.',
+      },
+      {
+        label: 'Best full ATS',
+        tool: 'Workable',
+        href: 'https://www.workable.com/workable-ai',
+        description:
+          'Best fit when teams need sourcing, job posting, scheduling, hiring workflows, and screening in one platform.',
+      },
+      {
+        label: 'Best recruiting CRM',
+        tool: 'Manatal',
+        href: 'https://www.manatal.com/',
+        description:
+          'Best fit for agencies and recruiters who need CRM-style candidate management plus matching workflows.',
+      },
+      {
+        label: 'Best enterprise screening',
+        tool: 'Eightfold AI',
+        href: 'https://eightfold.ai/',
+        description:
+          'Best fit for enterprise talent intelligence, skills matching, and large-scale workforce data use cases.',
+      },
     ],
   },
 
@@ -124,8 +159,112 @@ export const candidateScreeningSoftware: BestPage = {
       { tool: 'Paradox', href: 'https://www.paradox.ai/products/conversational-capture', bestFit: 'High-volume conversational screening and scheduling', whyItMayWork: 'Chat/text screening, scheduling, reminders, offers, and onboarding automation', watchOut: 'Best fit for frontline/high-volume workflows' },
       { tool: 'Fountain', href: 'https://www.fountain.com/', bestFit: 'Frontline candidate screening at scale', whyItMayWork: 'Mobile-first apply, AI screening, scheduling, messaging, analytics, and hourly hiring workflows', watchOut: 'Less focused on resume-heavy professional roles' },
       { tool: 'Workable', href: 'https://www.workable.com/workable-ai', bestFit: 'Recruiting teams wanting screening inside a broader platform', whyItMayWork: 'Resume parser, screening assistant, interview questions, sourcing, scheduling, and HR features', watchOut: 'May not be the most specialized resume ranking tool' },
+      { tool: 'Manatal', href: 'https://www.manatal.com/', bestFit: 'Recruitment agencies and recruiters needing CRM plus candidate matching', whyItMayWork: 'Recruitment CRM, candidate enrichment, AI matching, pipeline management, and agency-style workflows', watchOut: 'Broader CRM workflow may be more than needed for simple resume screening' },
+      { tool: 'Brainner', href: 'https://www.brainner.ai/', bestFit: 'Teams wanting AI resume screening connected to existing ATS workflows', whyItMayWork: 'AI-assisted resume screening, scoring, and shortlist support for recruiters', watchOut: 'Fit depends on current ATS workflow and integration needs' },
       { tool: 'Greenhouse', href: 'https://support.greenhouse.io/hc/en-us/articles/33043749845403-Greenhouse-AI-features', bestFit: 'Structured hiring and consistent interview evaluation', whyItMayWork: 'Scorecards, structured hiring workflows, AI features, reporting, and candidate trust controls', watchOut: 'Best when the organization wants broader ATS structure' },
     ],
+  },
+
+  comparisonMatrix: {
+    heading: 'Candidate Screening Software Feature Matrix',
+    intro:
+      'Use this matrix for a fast feature-level scan. Then use the main comparison table above for the more important question: which workflow fits your team?',
+    criteria: [
+      { key: 'ai-resume-screening', label: 'AI resume screening' },
+      { key: 'candidate-ranking', label: 'Candidate ranking' },
+      { key: 'ats-workflow', label: 'ATS workflow' },
+      { key: 'recruiting-crm', label: 'Recruiting CRM' },
+      { key: 'assessments', label: 'Assessments' },
+      { key: 'scheduling', label: 'Scheduling' },
+      { key: 'best-fit', label: 'Best fit' },
+    ],
+    tools: [
+      {
+        tool: 'HireSort',
+        href: '/product/recruitment-software',
+        cells: {
+          'ai-resume-screening': { value: true, note: 'Resume-first' },
+          'candidate-ranking': { value: true, note: 'JD-based ranking' },
+          'ats-workflow': { value: 'Lightweight' },
+          'recruiting-crm': { value: 'Basic repository' },
+          assessments: { value: false },
+          scheduling: { value: false },
+          'best-fit': { value: 'Resume-heavy shortlisting' },
+        },
+      },
+      {
+        tool: 'Workable',
+        href: 'https://www.workable.com/workable-ai',
+        cells: {
+          'ai-resume-screening': { value: true },
+          'candidate-ranking': { value: true },
+          'ats-workflow': { value: true, note: 'Full platform' },
+          'recruiting-crm': { value: true },
+          assessments: { value: true },
+          scheduling: { value: true },
+          'best-fit': { value: 'Full recruiting platform' },
+        },
+      },
+      {
+        tool: 'Manatal',
+        href: 'https://www.manatal.com/',
+        cells: {
+          'ai-resume-screening': { value: true },
+          'candidate-ranking': { value: true, note: 'Matching' },
+          'ats-workflow': { value: true },
+          'recruiting-crm': { value: true, note: 'Strong CRM fit' },
+          assessments: { value: false },
+          scheduling: { value: 'Limited' },
+          'best-fit': { value: 'Recruiting CRM and agencies' },
+        },
+      },
+      {
+        tool: 'Brainner',
+        href: 'https://www.brainner.ai/',
+        cells: {
+          'ai-resume-screening': { value: true },
+          'candidate-ranking': { value: true },
+          'ats-workflow': { value: 'Integrations' },
+          'recruiting-crm': { value: false },
+          assessments: { value: false },
+          scheduling: { value: false },
+          'best-fit': { value: 'AI screening in ATS workflows' },
+        },
+      },
+      {
+        tool: 'Eightfold AI',
+        href: 'https://eightfold.ai/',
+        cells: {
+          'ai-resume-screening': { value: true },
+          'candidate-ranking': { value: true, note: 'Skills intelligence' },
+          'ats-workflow': { value: true },
+          'recruiting-crm': { value: true },
+          assessments: { value: false },
+          scheduling: { value: false },
+          'best-fit': { value: 'Enterprise talent intelligence' },
+        },
+      },
+      {
+        tool: 'HireVue',
+        href: 'https://www.hirevue.com/platform/assessment-software',
+        cells: {
+          'ai-resume-screening': { value: false },
+          'candidate-ranking': { value: true },
+          'ats-workflow': { value: 'Integrations' },
+          'recruiting-crm': { value: false },
+          assessments: { value: true, note: 'Core strength' },
+          scheduling: { value: true },
+          'best-fit': { value: 'Assessments and video interviews' },
+        },
+      },
+    ],
+    winnerByCriterion: {
+      'ai-resume-screening': 'HireSort',
+      'ats-workflow': 'Workable',
+      'recruiting-crm': 'Manatal',
+      assessments: 'HireVue',
+      'candidate-ranking': 'HireSort',
+    },
   },
 
   howToChoose: {
@@ -165,7 +304,7 @@ export const candidateScreeningSoftware: BestPage = {
     eyebrow: 'Try it',
     title: 'Screen candidates before your team gets buried',
     body: 'Use HireSort to evaluate resumes against job-specific criteria and review ranked, explainable shortlists.',
-    primary: { label: 'Get started for free', href: redirectURL },
+    primary: { label: 'Screen resumes for free', href: redirectURL },
   },
 
   faqs: [

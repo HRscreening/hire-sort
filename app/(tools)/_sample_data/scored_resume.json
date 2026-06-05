@@ -1,0 +1,366 @@
+{
+    "id": "42aa6efd-15ed-4ba5-993c-c15ccbdaf86a",
+    "screening_id": "a5828d70-6c8e-4b35-97e2-b3d893ecd387",
+    "original_filename": "test/resume.pdf",
+    "candidate_name": "Mohit 22B0442",
+    "candidate_email": "22b0442@iitd.ac.in",
+    "candidate_phone": "+91-1234567890",
+    "candidate_current_job": "SDE Intern",
+    "status": "SCORED",
+    "overall_score": 88.67,
+    "category_scores":{
+        "Technical Skills": 90,
+        "Experience & Impact": 85,
+        "Qualifications & Role Fit": 90
+    },
+    "score": {
+        "id": "7d787611-f980-4508-88fc-b7fb78e5198e",
+        "resume_id": "42aa6efd-15ed-4ba5-993c-c15ccbdaf86a",
+        "screening_id": "a5828d70-6c8e-4b35-97e2-b3d893ecd387",
+        "overall_score": 88.67,
+        "rank": 2,
+        "breakdown": [
+            {
+                "criterion": "Golang and/or Python Proficiency",
+                "score": 9,
+                "confidence": "high",
+                "evidence": [
+                    "Programming C++,Python,Javascript,MySQL,TypeScript,Flutter,Tailwind,Dart,Jupiter,XCode",
+                    "Developed an AI chatbot integratable with various LLMs, including GPT, Azure, Ollama, and Mistral",
+                    "Created a Summarization API using OpenAI’s GPT-4 from uploaded files and Containerized using Docker",
+                    "Built REST APIs with Node.js & MongoDB, automated filtering of 15k+ talents using semantic extraction",
+                    "Built a GPT Bigram Model with 1M parameters using PyTorch trained on Shakespeare’s writings",
+                    "Developed React web-app using Styled-components and implemented Horizontal Scrolling, Parallax Animation,3D carousel, React-Bootstrap, Count-up Counter, Django Rest APIs with MySQL",
+                    "Streamlined registrations across 10+ web portals by creating a centralized website using ReactJS and Django",
+                    "Utilized a deep LSTM model to forecast waterlevel depth, leveraging historical data for accurate predictions.",
+                    "Finetuned Tiny-Llama-1.1B model to enhance its conversation summarization ability using Instruction-based Parameter Efficient Fine-Tuning (PEFT), reducing computation expense and memory usage",
+                    "Developed a gamified crypt-hunt quizzing platform using django framework with 2000+ participation"
+                ],
+                "explanation": "The candidate lists Python and Javascript in their skills and demonstrates extensive use of Python (PyTorch, Django, LangChain, GPT, LLMs, ML projects, data science libraries) and Javascript/TypeScript (Next.js, Node.js, ReactJS) across multiple projects and internships. This shows strong proficiency."
+            },
+            {
+                "criterion": "Concurrency Fundamentals",
+                "score": 7,
+                "confidence": "medium",
+                "evidence": [
+                    "Used multi-threading to fetch files, boosting efficiency by 80%. Created a cron scheduler for automation."
+                ],
+                "explanation": "The candidate explicitly mentions using multi-threading to boost efficiency, which is a direct application of concurrency. While it's a single instance, it shows practical experience."
+            },
+            {
+                "criterion": "Backend Systems & Data Fundamentals",
+                "score": 9,
+                "confidence": "high",
+                "evidence": [
+                    "Developed an AI chatbot integratable with various LLMs",
+                    "Created a Summarization API using OpenAI’s GPT-4 from uploaded files and Containerized using Docker",
+                    "Implemented Authentication using Google OAuth for secure Login and Signup using Supabase and Next.js",
+                    "Integrated Role-Based Access Control with multi-tenancy by linking users with roles using TypeScript",
+                    "Built REST APIs with Node.js & MongoDB, automated filtering of 15k+ talents using semantic extraction",
+                    "Developed React web-app using Styled-components and implemented Horizontal Scrolling, Parallax Animation,3D carousel, React-Bootstrap, Count-up Counter, Django Rest APIs with MySQL",
+                    "Streamlined registrations across 10+ web portals by creating a centralized website using ReactJS and Django",
+                    "Integrated API endpoints from other portals for seamless and automated population of registration data",
+                    "Implemented secure authentication using Django’s built-in authentication system after testing by Postman",
+                    "Built a Django-based webapp & algorithm for greying out mentors during Alumni Student Technical Mentorship Program registration, effectively integrating data from 5k+ previous mentors",
+                    "Implementing a threaded messaging feature facilitating 3k+ alumni-student engagement",
+                    "DevOps ReactJS, NodeJS, Django, ExpressJS,GetX, Bootstrap, Docker, Postman, Github",
+                    "Programming C++,Python,Javascript,MySQL,TypeScript,Flutter,Tailwind,Dart,Jupiter,XCode"
+                ],
+                "explanation": "The candidate has strong experience with REST APIs (Node.js, Django), databases (MongoDB, MySQL, Supabase), authentication (Google OAuth, Django's built-in system), and backend frameworks (Django, Node.js, ExpressJS). They also mention integrating API endpoints and building multi-tenancy systems, demonstrating a solid understanding of backend systems and data fundamentals."
+            },
+            {
+                "criterion": "Development Environment & Version Control",
+                "score": 8,
+                "confidence": "high",
+                "evidence": [
+                    "Containerized using Docker",
+                    "Implemented secure authentication using Django’s built-in authentication system after testing by Postman",
+                    "DevOps ReactJS, NodeJS, Django, ExpressJS,GetX, Bootstrap, Docker, Postman, Github"
+                ],
+                "explanation": "The candidate explicitly lists Docker, Postman, and Github in their skills and mentions using Docker for containerization. This indicates comfort with essential development tools and version control. While Linux CLI isn't explicitly mentioned, it's often implied with Docker/Git usage."
+            },
+            {
+                "criterion": "Real-time AI/Media Systems Exposure (Nice-to-Have)",
+                "score": 9,
+                "confidence": "high",
+                "evidence": [
+                    "Developed an AI chatbot integratable with various LLMs, including GPT, Azure, Ollama, and Mistral",
+                    "Created a Summarization API using OpenAI’s GPT-4",
+                    "Leveraged LangChain & GPT to generate resume embeddings & insights",
+                    "Built a GPT Bigram Model with 1M parameters using PyTorch",
+                    "Utilized multi-head self-attention blocks within Transformer architecture",
+                    "Developed Anime Image Generator using Generative Adversarial Networks, employing PyTorch on a GPU",
+                    "Utilized a CNN for Discriminator & Transposed Convolution layer for Generator to create realistic anime",
+                    "Trained GAN model on AnimeFaceDataset of 63k+images, handling GANs & optimizing hyperparameters",
+                    "Utilized a deep LSTM model to forecast waterlevel depth",
+                    "Implemented ARIMA and SARIMA models for waterlevel data",
+                    "Finetuned Tiny-Llama-1.1B model to enhance its conversation summarization ability using Instruction-based Parameter Efficient Fine-Tuning (PEFT), reducing computation expense and memory usage",
+                    "Further reduced memory usage and computation by utilizing the qLoRA technique for 4-bit quantization",
+                    "Achieved strong performance with transformer-based PyTorch model, trained on only 0.1% of parameters",
+                    "Solved Inverted Pendulum problem using Deep Q-Network and Deep Deterministic Policy Gradient",
+                    "Working on preprocess NIFTY50 stock data, training and fine-tuning RL models for optimal performance",
+                    "Testing model performance against models, including ARIMA and LSTM, to optimize trading strategies",
+                    "Mentored 8 students for object detection with YOLO, image classification & implementing paper on GAN",
+                    "Provided resources & assignments on Neural Nets and DeepLearning",
+                    "Courses Undertaken: Intro to ML, AI & Data Science, ML & Data Mining, Neural Networks & DeepLearning"
+                ],
+                "explanation": "The candidate has extensive exposure to AI/ML, including LLMs, GPT, Transformers, GANs, CNNs, LSTMs, ARIMA, SARIMA, Reinforcement Learning (DQN, DDPG), and fine-tuning techniques (PEFT, qLoRA). While not explicitly 'real-time voice systems' or 'SIP/WebRTC', the depth of AI/ML experience, especially with LLMs and deep learning, is highly relevant to AI/ML voice pipelines."
+            },
+            {
+                "criterion": "Relevant Internship/Project Experience",
+                "score": 9,
+                "confidence": "high",
+                "evidence": [
+                    "Samvid.AI | SDE Intern [May’24 - July’24]",
+                    "Qrata | Machine Learning Intern [Feb’24 - Apr’24]",
+                    "Awarded Letter of Recommendation from the company’s CEO for exceptional performance & work ethics",
+                    "KEY TECHNICAL PROJECTS"
+                ],
+                "explanation": "The candidate has two internships, totaling 5 months of professional experience, and a significant number of detailed academic projects demonstrating practical application of skills. The letter of recommendation is strong evidence of impact."
+            },
+            {
+                "criterion": "Contribution to Backend/Pipeline Development",
+                "score": 9,
+                "confidence": "high",
+                "evidence": [
+                    "Developed an AI chatbot integratable with various LLMs",
+                    "Created a Summarization API using OpenAI’s GPT-4 from uploaded files and Containerized using Docker",
+                    "Implemented Authentication using Google OAuth for secure Login and Signup using Supabase and Next.js",
+                    "Integrated Role-Based Access Control with multi-tenancy by linking users with roles using TypeScript",
+                    "Built REST APIs with Node.js & MongoDB, automated filtering of 15k+ talents using semantic extraction",
+                    "Built a GPT Bigram Model with 1M parameters using PyTorch",
+                    "Developed React web-app using Styled-components and implemented Horizontal Scrolling, Parallax Animation,3D carousel, React-Bootstrap, Count-up Counter, Django Rest APIs with MySQL",
+                    "Streamlined registrations across 10+ web portals by creating a centralized website using ReactJS and Django",
+                    "Integrated API endpoints from other portals for seamless and automated population of registration data",
+                    "Implemented secure authentication using Django’s built-in authentication system after testing by Postman",
+                    "Built a Django-based webapp & algorithm for greying out mentors during Alumni Student Technical Mentorship Program registration, effectively integrating data from 5k+ previous mentors",
+                    "Implementing a threaded messaging feature facilitating 3k+ alumni-student engagement"
+                ],
+                "explanation": "The candidate has clearly contributed to backend services (APIs, authentication, multi-tenancy, database integration) and built various pipelines (AI chatbot, summarization API, data filtering, web portals). The evidence is strong and spans multiple projects and internships."
+            },
+            {
+                "criterion": "Exposure to Production Systems & Optimization",
+                "score": 8,
+                "confidence": "medium",
+                "evidence": [
+                    "Containerized using Docker",
+                    "Used multi-threading to fetch files, boosting efficiency by 80%. Created a cron scheduler for automation.",
+                    "Trained GAN model on AnimeFaceDataset of 63k+images, handling GANs & optimizing hyperparameters",
+                    "Finetuned Tiny-Llama-1.1B model to enhance its conversation summarization ability using Instruction-based Parameter Efficient Fine-Tuning (PEFT), reducing computation expense and memory usage",
+                    "Further reduced memory usage and computation by utilizing the qLoRA technique for 4-bit quantization",
+                    "Achieved strong performance with transformer-based PyTorch model, trained on only 0.1% of parameters",
+                    "Working on preprocess NIFTY50 stock data, training and fine-tuning RL models for optimal performance",
+                    "Testing model performance against models, including ARIMA and LSTM, to optimize trading strategies"
+                ],
+                "explanation": "The candidate demonstrates exposure to containerization (Docker), performance optimization (multi-threading, PEFT, qLoRA for memory/computation reduction, hyperparameter optimization), and testing/fine-tuning models for optimal performance. While direct experience with deploying/monitoring microservices in a large-scale production environment isn't explicitly detailed, the foundational understanding and practical application of optimization techniques are present."
+            },
+            {
+                "criterion": "Problem-Solving & Analytical Skills",
+                "score": 10,
+                "confidence": "high",
+                "evidence": [
+                    "Solved 400+ problems of DP, graphs, hashing, STL, Trees, Heap & achieved 1100+ Codeforces Rating",
+                    "Implemented advance algorithms like Knapsack, Dijkstra’s, Prim’s, Kruskal’s, KMP algorithm, BFS, DFS",
+                    "Pre-processed data using Imputations and log-transformations & effectively performed ADFuller test.",
+                    "Utilized a deep LSTM model to forecast waterlevel depth, leveraging historical data for accurate predictions.",
+                    "Implemented ARIMA and SARIMA models for waterlevel data, providing forecasts over the next 3 years",
+                    "Finetuned Tiny-Llama-1.1B model to enhance its conversation summarization ability using Instruction-based Parameter Efficient Fine-Tuning (PEFT), reducing computation expense and memory usage",
+                    "Solved Inverted Pendulum problem using Deep Q-Network and Deep Deterministic Policy Gradient",
+                    "Testing model performance against models, including ARIMA and LSTM, to optimize trading strategies"
+                ],
+                "explanation": "The competitive programming achievements (400+ problems, 1100+ Codeforces Rating, advanced algorithms) and the analytical depth in ML projects (data preprocessing, model selection, fine-tuning, performance testing) strongly indicate excellent problem-solving and analytical skills."
+            },
+            {
+                "criterion": "Eagerness & Aptitude for Learning",
+                "score": 10,
+                "confidence": "high",
+                "evidence": [
+                    "Pursuing a Dual Minor in Computer Science & Engineering and Artificial Intelligence & Data Science",
+                    "Courses Undertaken: Computer Data Structres & Algorithms, Computer Programming, Logic for Computer Science, Intro to ML, AI & Data Science, ML & Data Mining, Neural Networks & DeepLearning",
+                    "Mentored 8 students for object detection with YOLO, image classification & implementing paper on GAN",
+                    "Provided resources & assignments on Neural Nets and DeepLearning, and Supported by addressing doubts",
+                    "KEY TECHNICAL PROJECTS"
+                ],
+                "explanation": "The candidate is pursuing dual minors, has taken numerous relevant courses, and has actively engaged in a wide array of complex technical projects and competitive programming. Their role as a mentor also demonstrates a deep understanding and willingness to share knowledge, implying continuous learning. This shows exceptional eagerness and aptitude."
+            },
+            {
+                "criterion": "Collaboration & Communication",
+                "score": 9,
+                "confidence": "high",
+                "evidence": [
+                    "Worked in a team of 80+ organizing 50+ events to foster relations in 60k+ alumni and 15k+ students",
+                    "Web Coordinator | Student Alumni Relations Cell [June’23 - May’24]",
+                    "Seasons of Code Mentor | Web & Coding Club, IIT Bombay [May’24 - Present]",
+                    "Mentored 8 students for object detection with YOLO, image classification & implementing paper on GAN",
+                    "Provided resources & assignments on Neural Nets and DeepLearning, and Supported by addressing doubts",
+                    "Led 2 teams-of-4 in CodeWars, a python-based game conducted by Web & Coding Club"
+                ],
+                "explanation": "The candidate has held leadership and mentorship roles, working in large teams and leading smaller ones. They have experience organizing events and mentoring students, which requires strong communication and collaboration skills."
+            }
+        ],
+        "grounding_data": [
+            {
+                "criterion": "Golang and/or Python Proficiency",
+                "evidence_quotes": [
+                    "Programming C++,Python,Javascript,MySQL,TypeScript,Flutter,Tailwind,Dart,Jupiter,XCode",
+                    "Developed an AI chatbot integratable with various LLMs, including GPT, Azure, Ollama, and Mistral",
+                    "Created a Summarization API using OpenAI’s GPT-4 from uploaded files and Containerized using Docker",
+                    "Built REST APIs with Node.js & MongoDB, automated filtering of 15k+ talents using semantic extraction",
+                    "Built a GPT Bigram Model with 1M parameters using PyTorch trained on Shakespeare’s writings",
+                    "Developed React web-app using Styled-components and implemented Horizontal Scrolling, Parallax Animation,3D carousel, React-Bootstrap, Count-up Counter, Django Rest APIs with MySQL",
+                    "Streamlined registrations across 10+ web portals by creating a centralized website using ReactJS and Django",
+                    "Utilized a deep LSTM model to forecast waterlevel depth, leveraging historical data for accurate predictions.",
+                    "Finetuned Tiny-Llama-1.1B model to enhance its conversation summarization ability using Instruction-based Parameter Efficient Fine-Tuning (PEFT), reducing computation expense and memory usage",
+                    "Developed a gamified crypt-hunt quizzing platform using django framework with 2000+ participation"
+                ]
+            },
+            {
+                "criterion": "Concurrency Fundamentals",
+                "evidence_quotes": [
+                    "Used multi-threading to fetch files, boosting efficiency by 80%. Created a cron scheduler for automation."
+                ]
+            },
+            {
+                "criterion": "Backend Systems & Data Fundamentals",
+                "evidence_quotes": [
+                    "Developed an AI chatbot integratable with various LLMs",
+                    "Created a Summarization API using OpenAI’s GPT-4 from uploaded files and Containerized using Docker",
+                    "Implemented Authentication using Google OAuth for secure Login and Signup using Supabase and Next.js",
+                    "Integrated Role-Based Access Control with multi-tenancy by linking users with roles using TypeScript",
+                    "Built REST APIs with Node.js & MongoDB, automated filtering of 15k+ talents using semantic extraction",
+                    "Developed React web-app using Styled-components and implemented Horizontal Scrolling, Parallax Animation,3D carousel, React-Bootstrap, Count-up Counter, Django Rest APIs with MySQL",
+                    "Streamlined registrations across 10+ web portals by creating a centralized website using ReactJS and Django",
+                    "Integrated API endpoints from other portals for seamless and automated population of registration data",
+                    "Implemented secure authentication using Django’s built-in authentication system after testing by Postman",
+                    "Built a Django-based webapp & algorithm for greying out mentors during Alumni Student Technical Mentorship Program registration, effectively integrating data from 5k+ previous mentors",
+                    "Implementing a threaded messaging feature facilitating 3k+ alumni-student engagement",
+                    "DevOps ReactJS, NodeJS, Django, ExpressJS,GetX, Bootstrap, Docker, Postman, Github",
+                    "Programming C++,Python,Javascript,MySQL,TypeScript,Flutter,Tailwind,Dart,Jupiter,XCode"
+                ]
+            },
+            {
+                "criterion": "Development Environment & Version Control",
+                "evidence_quotes": [
+                    "Containerized using Docker",
+                    "Implemented secure authentication using Django’s built-in authentication system after testing by Postman",
+                    "DevOps ReactJS, NodeJS, Django, ExpressJS,GetX, Bootstrap, Docker, Postman, Github"
+                ]
+            },
+            {
+                "criterion": "Real-time AI/Media Systems Exposure (Nice-to-Have)",
+                "evidence_quotes": [
+                    "Developed an AI chatbot integratable with various LLMs, including GPT, Azure, Ollama, and Mistral",
+                    "Created a Summarization API using OpenAI’s GPT-4",
+                    "Leveraged LangChain & GPT to generate resume embeddings & insights",
+                    "Built a GPT Bigram Model with 1M parameters using PyTorch",
+                    "Utilized multi-head self-attention blocks within Transformer architecture",
+                    "Developed Anime Image Generator using Generative Adversarial Networks, employing PyTorch on a GPU",
+                    "Utilized a CNN for Discriminator & Transposed Convolution layer for Generator to create realistic anime",
+                    "Trained GAN model on AnimeFaceDataset of 63k+images, handling GANs & optimizing hyperparameters",
+                    "Utilized a deep LSTM model to forecast waterlevel depth",
+                    "Implemented ARIMA and SARIMA models for waterlevel data",
+                    "Finetuned Tiny-Llama-1.1B model to enhance its conversation summarization ability using Instruction-based Parameter Efficient Fine-Tuning (PEFT), reducing computation expense and memory usage",
+                    "Further reduced memory usage and computation by utilizing the qLoRA technique for 4-bit quantization",
+                    "Achieved strong performance with transformer-based PyTorch model, trained on only 0.1% of parameters",
+                    "Solved Inverted Pendulum problem using Deep Q-Network and Deep Deterministic Policy Gradient",
+                    "Working on preprocess NIFTY50 stock data, training and fine-tuning RL models for optimal performance",
+                    "Testing model performance against models, including ARIMA and LSTM, to optimize trading strategies",
+                    "Mentored 8 students for object detection with YOLO, image classification & implementing paper on GAN",
+                    "Provided resources & assignments on Neural Nets and DeepLearning",
+                    "Courses Undertaken: Intro to ML, AI & Data Science, ML & Data Mining, Neural Networks & DeepLearning"
+                ]
+            },
+            {
+                "criterion": "Relevant Internship/Project Experience",
+                "evidence_quotes": [
+                    "Samvid.AI | SDE Intern [May’24 - July’24]",
+                    "Qrata | Machine Learning Intern [Feb’24 - Apr’24]",
+                    "Awarded Letter of Recommendation from the company’s CEO for exceptional performance & work ethics",
+                    "KEY TECHNICAL PROJECTS"
+                ]
+            },
+            {
+                "criterion": "Contribution to Backend/Pipeline Development",
+                "evidence_quotes": [
+                    "Developed an AI chatbot integratable with various LLMs",
+                    "Created a Summarization API using OpenAI’s GPT-4 from uploaded files and Containerized using Docker",
+                    "Implemented Authentication using Google OAuth for secure Login and Signup using Supabase and Next.js",
+                    "Integrated Role-Based Access Control with multi-tenancy by linking users with roles using TypeScript",
+                    "Built REST APIs with Node.js & MongoDB, automated filtering of 15k+ talents using semantic extraction",
+                    "Built a GPT Bigram Model with 1M parameters using PyTorch",
+                    "Developed React web-app using Styled-components and implemented Horizontal Scrolling, Parallax Animation,3D carousel, React-Bootstrap, Count-up Counter, Django Rest APIs with MySQL",
+                    "Streamlined registrations across 10+ web portals by creating a centralized website using ReactJS and Django",
+                    "Integrated API endpoints from other portals for seamless and automated population of registration data",
+                    "Implemented secure authentication using Django’s built-in authentication system after testing by Postman",
+                    "Built a Django-based webapp & algorithm for greying out mentors during Alumni Student Technical Mentorship Program registration, effectively integrating data from 5k+ previous mentors",
+                    "Implementing a threaded messaging feature facilitating 3k+ alumni-student engagement"
+                ]
+            },
+            {
+                "criterion": "Exposure to Production Systems & Optimization",
+                "evidence_quotes": [
+                    "Containerized using Docker",
+                    "Used multi-threading to fetch files, boosting efficiency by 80%. Created a cron scheduler for automation.",
+                    "Trained GAN model on AnimeFaceDataset of 63k+images, handling GANs & optimizing hyperparameters",
+                    "Finetuned Tiny-Llama-1.1B model to enhance its conversation summarization ability using Instruction-based Parameter Efficient Fine-Tuning (PEFT), reducing computation expense and memory usage",
+                    "Further reduced memory usage and computation by utilizing the qLoRA technique for 4-bit quantization",
+                    "Achieved strong performance with transformer-based PyTorch model, trained on only 0.1% of parameters",
+                    "Working on preprocess NIFTY50 stock data, training and fine-tuning RL models for optimal performance",
+                    "Testing model performance against models, including ARIMA and LSTM, to optimize trading strategies"
+                ]
+            },
+            {
+                "criterion": "Problem-Solving & Analytical Skills",
+                "evidence_quotes": [
+                    "Solved 400+ problems of DP, graphs, hashing, STL, Trees, Heap & achieved 1100+ Codeforces Rating",
+                    "Implemented advance algorithms like Knapsack, Dijkstra’s, Prim’s, Kruskal’s, KMP algorithm, BFS, DFS",
+                    "Pre-processed data using Imputations and log-transformations & effectively performed ADFuller test.",
+                    "Utilized a deep LSTM model to forecast waterlevel depth, leveraging historical data for accurate predictions.",
+                    "Implemented ARIMA and SARIMA models for waterlevel data, providing forecasts over the next 3 years",
+                    "Finetuned Tiny-Llama-1.1B model to enhance its conversation summarization ability using Instruction-based Parameter Efficient Fine-Tuning (PEFT), reducing computation expense and memory usage",
+                    "Solved Inverted Pendulum problem using Deep Q-Network and Deep Deterministic Policy Gradient",
+                    "Testing model performance against models, including ARIMA and LSTM, to optimize trading strategies"
+                ]
+            },
+            {
+                "criterion": "Eagerness & Aptitude for Learning",
+                "evidence_quotes": [
+                    "Pursuing a Dual Minor in Computer Science & Engineering and Artificial Intelligence & Data Science",
+                    "Courses Undertaken: Computer Data Structres & Algorithms, Computer Programming, Logic for Computer Science, Intro to ML, AI & Data Science, ML & Data Mining, Neural Networks & DeepLearning",
+                    "Mentored 8 students for object detection with YOLO, image classification & implementing paper on GAN",
+                    "Provided resources & assignments on Neural Nets and DeepLearning, and Supported by addressing doubts",
+                    "KEY TECHNICAL PROJECTS"
+                ]
+            },
+            {
+                "criterion": "Collaboration & Communication",
+                "evidence_quotes": [
+                    "Worked in a team of 80+ organizing 50+ events to foster relations in 60k+ alumni and 15k+ students",
+                    "Web Coordinator | Student Alumni Relations Cell [June’23 - May’24]",
+                    "Seasons of Code Mentor | Web & Coding Club, IIT Bombay [May’24 - Present]",
+                    "Mentored 8 students for object detection with YOLO, image classification & implementing paper on GAN",
+                    "Provided resources & assignments on Neural Nets and DeepLearning, and Supported by addressing doubts",
+                    "Led 2 teams-of-4 in CodeWars, a python-based game conducted by Web & Coding Club"
+                ]
+            }
+        ],
+        "overall_summary": "Mohit is a highly promising candidate with a strong academic background from IIT Bombay, pursuing dual minors in CS&E and AI&DS. Despite being an undergraduate, he demonstrates exceptional technical proficiency in Python, Javascript, backend development, and a wide array of AI/ML technologies through significant internship and project experience. His competitive programming achievements and leadership roles further highlight his problem-solving abilities and collaborative spirit.",
+        "strengths": [
+            "Exceptional proficiency in Python, Javascript, and related backend frameworks (Django, Node.js).",
+            "Extensive practical experience with diverse AI/ML technologies, including LLMs, Transformers, GANs, and Reinforcement Learning.",
+            "Strong problem-solving and analytical skills, evidenced by competitive programming and complex project work.",
+            "Demonstrated eagerness and aptitude for learning new technologies and complex domains.",
+            "Solid understanding of backend systems, APIs, databases, and development tools like Docker and Git."
+        ],
+        "missing_elements": [
+            "No explicit mention of Golang experience, which is a desired skill.",
+            "Limited direct experience with large-scale production system deployment, monitoring, or reliability improvements.",
+            "While AI/ML exposure is strong, specific experience with real-time voice systems (SIP/WebRTC) or container orchestration (Kubernetes) is not detailed.",
+            "Phone number is missing from the resume.",
+            "No explicit mention of Linux CLI comfort, though implied by other tools."
+        ],
+        "ai_confidence": null,
+        "processing_time_ms": 125690,
+        "created_at": "2026-05-20T19:11:54.442033Z"
+    }
+}

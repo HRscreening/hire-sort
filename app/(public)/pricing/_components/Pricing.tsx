@@ -138,7 +138,7 @@ const Pricing = ({ isLoggedIn, plan = "FREE" }: PricingProps) => {
           Simple, <span className="text-accent">transparent</span> pricing
         </h2>
         <p className="text-base leading-[1.6] text-charcoal-lt">
-          Start free. Upgrade as your hiring volume grows. No hidden fees.
+          Screen resumes for free . Upgrade as your hiring volume grows. No hidden fees.
         </p>
       </motion.div>
 

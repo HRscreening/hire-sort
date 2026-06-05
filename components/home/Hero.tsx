@@ -1,6 +1,7 @@
 'use client';
 
-import { Check, ArrowRight, Briefcase, GraduationCap, MapPin } from 'lucide-react';
+import Link from 'next/link';
+import { Check, ArrowRight, Briefcase, GraduationCap, MapPin, PlayCircle } from 'lucide-react';
 import { motion, type Variants } from 'framer-motion';
 import { trackCTAClick } from '@/lib/google_analytics_tracker';
 
@@ -224,22 +225,32 @@ const Hero = () => {
         Upload resumes in bulk, describe the role, and let HireSort rank candidates with explainable AI scores, strengths, gaps, and shortlist-ready insights.
       </p>
 
-      <div className="relative z-3 mt-9 flex flex-col items-center gap-3.5">
+      <div className="relative z-3 mt-9 flex flex-col items-center gap-3.5 sm:flex-row sm:justify-center">
         <a
           href={main_app_url + '/login'}
           target='_self'
           onClick={() => trackCTAClick('get_started', 'hero')}
           className="inline-flex items-center justify-center gap-2 rounded-md border border-copper bg-copper px-8 py-3.5 text-[15px] font-semibold leading-none text-white shadow-[0_8px_24px_rgba(0,0,0,0.12)] no-underline transition-transform hover:-translate-y-0.5 hover:bg-copper-dark"
         >
-          Get Started
+          Screen resumes for free
           <ArrowRight size={16} strokeWidth={2.5} />
         </a>
+        <Link
+          href="/demo"
+          onClick={() => trackCTAClick('try_demo', 'hero')}
+          className="inline-flex items-center justify-center gap-2 rounded-md border border-line bg-white px-8 py-3.5 text-[15px] font-semibold leading-none text-charcoal no-underline transition-transform hover:-translate-y-0.5 hover:bg-ivory-medium"
+        >
+          Try demo
+          <PlayCircle size={16} strokeWidth={2.5} />
+        </Link>
       </div>
 
       <div className="relative z-3 mx-auto mt-14 w-full max-w-4xl overflow-hidden rounded-xl border border-line-soft bg-white shadow-[0_20px_60px_rgba(0,0,0,0.12)]">
         <video
           src="/demo.mp4"
           poster='/demo-poster.png'
+          title="HireSort AI resume screening product demo"
+          aria-label="HireSort AI resume screening product demo: bulk resume upload, candidate ranking, and explainable match scores"
           autoPlay
           muted
           loop
