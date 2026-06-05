@@ -27,9 +27,8 @@ export async function generateMetadata({
   return {
     title,
     description,
-    // Test posting on a live domain: keep it OUT of the index / Google for Jobs.
-    // The Rich Results Test still validates the JobPosting schema on a noindex page.
-    robots: { index: false, follow: false },
+    // Indexable so Google for Jobs (and Indeed's crawler) can pick it up.
+    robots: { index: true, follow: true },
     alternates: { canonical: url },
     openGraph: { type: "website", title, description, url },
   };
