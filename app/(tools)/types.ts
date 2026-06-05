@@ -26,10 +26,19 @@ export interface Rubric {
 
 export type BreakdownItem = {
   criterion: string;
+  /** Rubric category this criterion rolls up into (server-labelled). */
+  category?: string;
   score: number;
   confidence: "high" | "medium" | "low";
   evidence: string[];
   explanation: string;
+};
+
+/** Server-computed average score (0–10) for one rubric category. */
+export type CategoryScore = {
+  category: string;
+  avg_score: number;
+  criteria_count: number;
 };
 
 export type ScoredResume = {
@@ -38,6 +47,8 @@ export type ScoredResume = {
   candidate_email?: string;
   candidate_phone?: string;
   candidate_current_job?: string;
+  /** Per-category averages from the server. Absent on older/sample payloads. */
+  category_scores?: CategoryScore[];
   score: {
     overall_score: number;
     rank?: number | null;

@@ -38,11 +38,13 @@ export const metadata: Metadata = {
 
 const Page = () => {
   return (
-    <DemoPageView
-      rubric={SampleRubric as Rubric}
-      resume={SampleResume as ScoredResume}
-      sessionId="sample"
-    />
+    <div className="w-full flex flex-col md:h-screen md:overflow-hidden bg-ivory">
+      <DemoPageView
+        rubric={SampleRubric as Rubric}
+        resume={SampleResume as ScoredResume}
+        sessionId="sample"
+      />
+    </div>
   )
 }
 
