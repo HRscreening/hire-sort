@@ -187,14 +187,14 @@ const toolsMega: MegaConfig = {
       title: 'Free tools',
       items: [
         { href: '/free-tools', label: 'All tools', description: 'Browse every free tool', icon: 'tool' },
-        { href: '/tools/screening', label: 'Resume Screening Tool', description: 'Score a resume against any JD', icon: 'scan' },
+        { href: '/free-tools/screening', label: 'Resume Screening Tool', description: 'Score a resume against any JD', icon: 'scan' },
       ],
     },
     {
       title: 'Job descriptions',
       items: [
-        { href: '/free-tools#job-description-generator', label: 'JD Generator', description: 'Draft a structured JD with AI', icon: 'doc', badge: 'Soon' },
-        { href: '/free-tools#generate-rubric', label: 'Rubric Generator', description: 'Turn a JD into a scoring rubric', icon: 'sliders', badge: 'Soon' },
+        { href: '/free-tools/jd-generator', label: 'JD Generator', description: 'Draft a structured JD with AI', icon: 'doc',  },
+        { href: '/free-tools/rubric-generator', label: 'Rubric Generator', description: 'Turn a JD into a scoring rubric', icon: 'sliders', badge: '' },
       ],
     },
   ],

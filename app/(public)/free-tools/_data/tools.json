@@ -21,7 +21,7 @@
         "No signup required"
       ],
       "tags": ["Explainable", "PDF & DOCX", "No signup"],
-      "cta": { "label": "Screen a resume", "href": "/tools/screening" },
+      "cta": { "label": "Screen a resume", "href": "/free-tools/screening" },
       "secondaryCta": { "label": "Try the interactive demo", "href": "/demo" },
       "keywords": [
         "free resume screening tool",
@@ -40,9 +40,9 @@
     {
       "slug": "generate-rubric",
       "name": "Rubric Generator",
-      "eyebrow": "Coming soon",
+      "eyebrow": "Free tool",
       "icon": "sliders",
-      "status": "coming-soon",
+      "status": "live",
       "tagline": "Turn a job description into a weighted, ready-to-score screening rubric.",
       "description": "Drop in a job description and the Rubric Generator drafts a structured screening rubric for you — must-have requirements, weighted criteria, and clear scoring bands — so every resume and every interviewer is judged against the same bar. Edit it, export it, and reuse it across the whole pipeline. Launching soon; in the meantime, our role-based rubric templates cover the most common positions.",
       "whenToUse": [
@@ -58,7 +58,7 @@
         "Editable and reusable"
       ],
       "tags": ["Weighted criteria", "Scoring bands", "Reusable"],
-      "cta": { "label": "Browse rubric templates", "href": "/resources/screening-rubrics" },
+      "cta": { "label": "Generate Rubric", "href": "/free-tools/rubric-generator" },
       "secondaryCta": { "label": "See an example scorecard", "href": "/resources/scorecards" },
       "keywords": [
         "rubric generator",
@@ -77,10 +77,10 @@
     {
       "slug": "job-description-generator",
       "name": "Job Description Generator",
-      "eyebrow": "Coming soon",
+      "eyebrow": "Free tool",
       "icon": "file-text",
       "category": "Job descriptions",
-      "status": "coming-soon",
+      "status": "live",
       "tagline": "Turn a role and a few details into a clear, structured job description — written by AI.",
       "description": "Give the Job Description Generator a role title and a few specifics — seniority, must-have skills, team, and location — and it drafts a complete, well-structured job description you can publish or refine. Consistent sections, inclusive language, and the right level of detail every time, so you spend minutes instead of hours on every new opening. Launching soon; in the meantime, our role-based JD templates cover the most common positions.",
       "whenToUse": [
@@ -96,7 +96,7 @@
         "Pairs with screening rubrics"
       ],
       "tags": ["Role-aware", "Inclusive", "Ready to post"],
-      "cta": { "label": "Browse JD templates", "href": "/resources/job-descriptions" },
+      "cta": { "label": "Generate Job Description", "href": "/free-tools/jd-generator" },
       "secondaryCta": { "label": "See interview questions", "href": "/resources/interview-questions" },
       "keywords": [
         "job description generator",

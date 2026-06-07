@@ -22,6 +22,39 @@ export interface Rubric {
   seniority_level?: string;
 }
 
+// ─── Generated Rubric (rubric-generator tool API) ────────────────────────────
+// The public /api/v1/rubric/generate endpoint returns a richer shape than the
+// internal `Rubric` above: each parameter carries its own weightage (all
+// parameters sum to 100), keyword hints, and a 1–5 rating guide. We model it
+// separately so the read-only generator view can render those extras.
+
+export interface RatingGuideItem {
+  score: number; // 1–5
+  guide: string; // what this score means
+}
+
+export interface ScreeningParameter {
+  name: string;
+  description: string;
+  weightage: number; // 0–100; all parameters across all categories sum to 100
+  keywords: string; // comma-separated keyword hints
+  rating_guide: RatingGuideItem[];
+  is_non_negotiable?: boolean;
+}
+
+export interface GeneratedRubricCategory {
+  name: string;
+  screening_parameters: ScreeningParameter[];
+}
+
+export interface GeneratedRubric {
+  categories: GeneratedRubricCategory[];
+  threshold_score: number;
+  source: "AI" | "MANUAL" | "COMBINED";
+  domain?: string;
+  seniority_level?: string;
+}
+
 // ─── Scored Resume ───────────────────────────────────────────────────────────
 
 export type BreakdownItem = {
