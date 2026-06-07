@@ -13,6 +13,7 @@ import {
 import type { ScoredResume } from "../types";
 import LoginCtaBar from "./loginCtaBar";
 import DemoPageView from "./panelView";
+import StartScreeningCta from "./startScreeningCta";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -79,6 +80,7 @@ export default function SessionResult({ sessionID, config }: SessionResultProps)
         jdUrl={data.urls?.jd_url}
         resumeUrl={data.urls?.resume_url}
       />
+      <StartScreeningCta />
     </div>
   );
 }

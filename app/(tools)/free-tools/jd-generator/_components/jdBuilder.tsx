@@ -17,6 +17,7 @@ import {
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import LoginCtaBar from "../../../_components/loginCtaBar";
+import StartScreeningCta from "../../../_components/startScreeningCta";
 import { stashJdForRubric } from "../../../_lib/rubricHandoff";
 import {
   downloadJdPdf,
@@ -251,6 +252,9 @@ export default function JdBuilder() {
     <div className="relative min-h-screen flex flex-col bg-ivory overflow-hidden">
       {/* Errors & limit notices surface as a top-right toast */}
       <Toast toast={toast} onClose={dismissToast} />
+
+      {/* Once a JD is generated, nudge into the full product */}
+      {hasGenerated && <StartScreeningCta />}
 
       {/* Homepage hero–style grid background with a radial fade */}
       <div

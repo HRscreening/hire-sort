@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import LoginCtaBar from "../../../_components/loginCtaBar";
+import StartScreeningCta from "../../../_components/startScreeningCta";
 import Toast, { type ToastData } from "../../../_components/toast";
 import { readStashedJd } from "../../../_lib/rubricHandoff";
 import type { GeneratedRubric } from "../../../types";
@@ -184,6 +185,12 @@ export default function RubricBuilder() {
       {/* Errors & limit notices surface as a top-right toast */}
       <Toast toast={toast} onClose={dismissToast} />
 
+      {/* Once a rubric is in hand, nudge into the full product. Lifted above the
+          sticky action bar so the two don't collide at the bottom-right. */}
+      {rubric !== null && (
+        <StartScreeningCta className="bottom-24 right-5 sm:bottom-24 sm:right-6" />
+      )}
+
       {/* Homepage hero–style grid background with a radial fade */}
       <div
         aria-hidden
@@ -211,32 +218,28 @@ export default function RubricBuilder() {
 
       <LoginCtaBar text="Turn any job description into a weighted screening rubric — then save it, screen resumes, and rank your pipeline." />
 
-      <main className="relative z-10 flex-1 flex items-center justify-center">
-        <div className="mx-auto w-full max-w-6xl px-4 sm:px-8 py-4 sm:py-10">
-          {/* Feature pills */}
-          <div className="mb-6 flex flex-wrap items-center justify-center gap-2 sm:gap-2.5">
-            {FEATURES.map((f) => (
-              <span
-                key={f.label}
-                className="inline-flex items-center gap-1.5 rounded-full border border-line bg-white/70 px-3 py-1.5 text-xs font-medium text-charcoal-md shadow-soft backdrop-blur-sm"
-              >
-                <f.Icon className={`h-3.5 w-3.5 ${f.color}`} />
-                {f.label}
-              </span>
-            ))}
-          </div>
+      <main className="relative z-10 flex flex-1 flex-col">
+        {!showRubricPanel ? (
+          /* ── Phase 1 — the JD input (centered card) ── */
+          <div className="flex flex-1 items-center justify-center">
+            <div className="mx-auto w-full max-w-6xl px-4 sm:px-8 py-4 sm:py-10">
+              {/* Feature pills */}
+              <div className="mb-6 flex flex-wrap items-center justify-center gap-2 sm:gap-2.5">
+                {FEATURES.map((f) => (
+                  <span
+                    key={f.label}
+                    className="inline-flex items-center gap-1.5 rounded-full border border-line bg-white/70 px-3 py-1.5 text-xs font-medium text-charcoal-md shadow-soft backdrop-blur-sm"
+                  >
+                    <f.Icon className={`h-3.5 w-3.5 ${f.color}`} />
+                    {f.label}
+                  </span>
+                ))}
+              </div>
 
-          {/* Single box at a time: phase 1 is the JD input, phase 2 swaps it
-              out for the generated rubric. */}
-          <div className={`mx-auto ${showRubricPanel ? "max-w-5xl" : "max-w-2xl"}`}>
-            <AnimatePresence mode="wait">
-              {!showRubricPanel ? (
-                /* ── Phase 1 — the JD input ── */
+              <div className="mx-auto max-w-2xl">
                 <motion.section
-                  key="input"
                   initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -12 }}
                   transition={{ duration: 0.3, ease }}
                   className="flex flex-col rounded-2xl border border-line bg-white p-5 sm:p-6 shadow-soft"
                 >
@@ -295,92 +298,96 @@ export default function RubricBuilder() {
                     )}
                   </div>
                 </motion.section>
-              ) : (
-                /* ── Phase 2 — generated rubric ── */
-                <motion.section
-                  key="rubric"
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -12 }}
-                  transition={{ duration: 0.3, ease }}
-                  className="flex flex-col rounded-2xl border border-line bg-white p-5 sm:p-6 shadow-soft"
-                >
-                  {/* Header — title on the left, quota + reset timer at the top */}
-                  <div className="mb-3 flex items-center justify-between gap-2">
-                    <span className="flex items-center gap-2 text-sm font-semibold text-charcoal">
-                      <Sliders className="h-4 w-4 text-accent" />
-                      Generated rubric
-                    </span>
-                    <div className="flex items-center gap-2 text-xs text-charcoal-xlt">
-                      {generating && (
-                        <span className="flex items-center gap-1.5 font-medium text-accent">
-                          <Loader2 className="h-3.5 w-3.5 animate-spin" />
-                          Building…
-                        </span>
-                      )}
-                      {attemptsLeft !== null && (
-                        <>
-                          <span
-                            className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 font-semibold ${
-                              outOfAttempts ? "bg-[#FBE9E7] text-[#a70c0c]" : "bg-ivory-medium text-charcoal-md"
-                            }`}
-                          >
-                            {maxAttempts !== null ? `${attemptsLeft} / ${maxAttempts}` : attemptsLeft}
-                            <span className="font-normal text-charcoal-xlt">left</span>
-                          </span>
-                          {resetLabel && <span>Resets {resetLabel}</span>}
-                        </>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Fixed, viewport-relative height so the panel (and its
-                      action buttons) always fit on screen; only the rubric
-                      scrolls. The scrollbar is styled + gapped so it's obvious. */}
-                  <div className="relative w-full overflow-y-auto pr-2 h-[clamp(18rem,60vh,32rem)] [scrollbar-width:thin] [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:my-1 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-ivory-medium [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-charcoal-lt hover:[&::-webkit-scrollbar-thumb]:bg-charcoal-md">
-                    {rubric ? (
-                      <GeneratedRubricView rubric={rubric} />
-                    ) : (
-                      <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
-                        <div className="h-5 w-5 rounded-full border-2 border-accent border-t-transparent animate-spin" />
-                        <p className="text-xs font-medium text-charcoal-lt">Building your rubric…</p>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Actions — generate a fresh rubric, or download this one */}
-                  <div className="mt-5 flex gap-3">
-                    <motion.button
-                      type="button"
-                      onClick={handleStartNew}
-                      disabled={generating}
-                      whileTap={!generating ? { scale: 0.97 } : {}}
-                      className="h-11 flex-1 px-5 border border-line bg-white text-charcoal text-sm font-semibold rounded-xl hover:bg-ivory hover:border-charcoal-xlt disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
-                    >
-                      <Wand2 className="h-4 w-4 text-accent" />
-                      Generate new
-                    </motion.button>
-                    <motion.button
-                      type="button"
-                      onClick={handleDownload}
-                      disabled={!canDownload}
-                      whileTap={canDownload ? { scale: 0.97 } : {}}
-                      className="h-11 flex-1 px-5 bg-copper text-white text-sm font-semibold rounded-xl hover:bg-copper-light disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
-                    >
-                      {downloading ? (
-                        <span className="h-4 w-4 rounded-full border-2 border-white border-t-transparent animate-spin" />
-                      ) : (
-                        <Download className="h-4 w-4" />
-                      )}
-                      {downloading ? "Downloading…" : "Download Excel"}
-                    </motion.button>
-                  </div>
-                </motion.section>
-              )}
-            </AnimatePresence>
+              </div>
+            </div>
           </div>
-        </div>
+        ) : (
+          /* ── Phase 2 — generated rubric, spread across the full page ── */
+          <motion.section
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, ease }}
+            className="w-full px-4 pt-5 pb-28 sm:px-6 sm:pt-6 lg:px-8"
+          >
+            <div className="mx-auto w-full max-w-7xl">
+              {/* Header — title on the left, quota + reset timer on the right */}
+              <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
+                <span className="flex items-center gap-2 text-sm font-semibold text-charcoal">
+                  <Sliders className="h-4 w-4 text-accent" />
+                  Generated rubric
+                </span>
+                <div className="flex items-center gap-2 text-xs text-charcoal-xlt">
+                  {generating && (
+                    <span className="flex items-center gap-1.5 font-medium text-accent">
+                      <Loader2 className="h-3.5 w-3.5 animate-spin" />
+                      Building…
+                    </span>
+                  )}
+                  {attemptsLeft !== null && (
+                    <>
+                      <span
+                        className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 font-semibold ${
+                          outOfAttempts ? "bg-[#FBE9E7] text-[#a70c0c]" : "bg-ivory-medium text-charcoal-md"
+                        }`}
+                      >
+                        {maxAttempts !== null ? `${attemptsLeft} / ${maxAttempts}` : attemptsLeft}
+                        <span className="font-normal text-charcoal-xlt">left</span>
+                      </span>
+                      {resetLabel && <span>Resets {resetLabel}</span>}
+                    </>
+                  )}
+                </div>
+              </div>
+
+              {rubric ? (
+                <GeneratedRubricView rubric={rubric} />
+              ) : (
+                <div className="flex h-[50vh] flex-col items-center justify-center gap-2">
+                  <div className="h-5 w-5 rounded-full border-2 border-accent border-t-transparent animate-spin" />
+                  <p className="text-xs font-medium text-charcoal-lt">Building your rubric…</p>
+                </div>
+              )}
+            </div>
+          </motion.section>
+        )}
       </main>
+
+      {/* Sticky action bar — pinned to the bottom while the table scrolls above */}
+      {showRubricPanel && (
+        <motion.div
+          initial={{ y: 24, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.3, ease, delay: 0.1 }}
+          className="fixed inset-x-0 bottom-0 z-30 border-t border-line bg-white/95 backdrop-blur-md"
+        >
+          <div className="mx-auto flex w-full max-w-7xl gap-3 px-4 py-3 sm:justify-end sm:px-6 lg:px-8">
+            <motion.button
+              type="button"
+              onClick={handleStartNew}
+              disabled={generating}
+              whileTap={!generating ? { scale: 0.97 } : {}}
+              className="h-11 flex-1 px-5 border border-line bg-white text-charcoal text-sm font-semibold rounded-xl hover:bg-ivory hover:border-charcoal-xlt disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2 sm:flex-none sm:min-w-48"
+            >
+              <Wand2 className="h-4 w-4 text-accent" />
+              Generate new
+            </motion.button>
+            <motion.button
+              type="button"
+              onClick={handleDownload}
+              disabled={!canDownload}
+              whileTap={canDownload ? { scale: 0.97 } : {}}
+              className="h-11 flex-1 px-5 bg-copper text-white text-sm font-semibold rounded-xl hover:bg-copper-light disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2 sm:flex-none sm:min-w-48"
+            >
+              {downloading ? (
+                <span className="h-4 w-4 rounded-full border-2 border-white border-t-transparent animate-spin" />
+              ) : (
+                <Download className="h-4 w-4" />
+              )}
+              {downloading ? "Downloading…" : "Download Excel"}
+            </motion.button>
+          </div>
+        </motion.div>
+      )}
     </div>
   );
 }
