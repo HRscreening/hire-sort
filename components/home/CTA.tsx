@@ -47,7 +47,7 @@ const CTA = () => {
           onClick={() => trackCTAClick('get_started', 'bottom_cta')}
           className="inline-flex items-center justify-center gap-2 rounded-md border border-copper bg-copper px-8 py-3.5 text-[15px] font-semibold leading-none text-white shadow-[0_8px_24px_rgba(0,0,0,0.12)] no-underline transition-colors hover:bg-copper-dark"
         >
-          Get started
+          Screen resumes for free
           <motion.span whileHover={{ x: 4 }} className="inline-flex">
             <ArrowRight size={16} strokeWidth={2.5} />
           </motion.span>
