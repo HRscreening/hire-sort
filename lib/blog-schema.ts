@@ -15,6 +15,11 @@ export const blogBlockSchema = z.discriminatedUnion('type', [
     items: z.array(z.string().min(1)).min(1),
   }),
   z.object({
+    type: z.literal('table'),
+    columns: z.array(z.string().min(1)).min(1),
+    rows: z.array(z.array(z.string().min(1)).min(1)).min(1),
+  }),
+  z.object({
     type: z.literal('linkList'),
     title: z.string().optional(),
     links: z

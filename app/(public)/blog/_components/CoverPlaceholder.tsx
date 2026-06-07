@@ -12,6 +12,7 @@ import {
   Workflow,
   type LucideIcon,
 } from 'lucide-react';
+import { createElement } from 'react';
 
 const VARIANT_COUNT = 5;
 
@@ -64,7 +65,6 @@ function CenterMark({
   category?: string;
   tone: 'light' | 'dark';
 }) {
-  const Icon = pickIcon(category);
   const ringBg = tone === 'light' ? 'bg-white/70' : 'bg-white/15';
   const ringRing = tone === 'light' ? 'ring-accent/15' : 'ring-white/25';
   const iconColor = tone === 'light' ? 'text-accent' : 'text-white';
@@ -72,7 +72,11 @@ function CenterMark({
     <div
       className={`flex h-[88px] w-[88px] items-center justify-center rounded-full ring-1 ${ringBg} ${ringRing} backdrop-blur-sm`}
     >
-      <Icon size={40} strokeWidth={1.6} className={iconColor} />
+      {createElement(pickIcon(category), {
+        size: 40,
+        strokeWidth: 1.6,
+        className: iconColor,
+      })}
     </div>
   );
 }

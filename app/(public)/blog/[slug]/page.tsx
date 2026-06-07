@@ -242,6 +242,41 @@ const Block = ({ block, slug }: { block: BlogBlock; slug: string }) => {
       </ul>
     );
   }
+  if (block.type === 'table') {
+    return (
+      <div className="my-6 overflow-x-auto rounded-xl border border-line-soft bg-white shadow-soft">
+        <table className="w-full min-w-[720px] border-collapse text-left text-[14px]">
+          <thead className="bg-ivory-light text-charcoal">
+            <tr>
+              {block.columns.map((column) => (
+                <th
+                  key={column}
+                  scope="col"
+                  className="border-b border-line-soft px-4 py-3 font-bold"
+                >
+                  {column}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {block.rows.map((row, rowIndex) => (
+              <tr key={rowIndex} className="border-b border-line-soft last:border-b-0">
+                {row.map((cell, cellIndex) => (
+                  <td
+                    key={`${rowIndex}-${cellIndex}`}
+                    className="px-4 py-3 align-top leading-[1.6] text-charcoal-md"
+                  >
+                    {renderInline(cell)}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    );
+  }
   if (block.type === 'linkList') {
     return (
       <aside className="my-10 rounded-xl border border-line-soft bg-white p-6 shadow-soft">
