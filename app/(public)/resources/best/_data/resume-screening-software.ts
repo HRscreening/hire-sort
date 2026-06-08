@@ -146,6 +146,7 @@ export const resumeScreeningSoftware: BestPage = {
   ],
 
   internalLinks: [
+    { href: '/free-tools/resume-screening', label: 'Free Resume Screening Tool' },
     { href: '/product/applicant-tracking-system', label: 'AI Applicant Tracking System' },
     { href: '/product/recruitment-software', label: 'AI Recruitment Software' },
     { href: '/product/resume-management', label: 'Resume Management Software' },

@@ -28,6 +28,14 @@ const columns: FooterColumn[] = [
     ],
   },
   {
+    title: 'Free tools',
+    links: [
+      { label: 'Resume Screening Tool', to: '/free-tools/resume-screening' },
+      { label: 'Rubric Generator', to: '/free-tools/generate-rubric' },
+      { label: 'Job Description Generator', to: '/free-tools/job-description-generator' },
+    ],
+  },
+  {
     title: 'Resources',
     links: [
       { label: 'Blogs', to: '/blog' },
@@ -59,7 +67,7 @@ const Footer = () => {
       variants={grid}
       className="mx-auto max-w-300 border-t border-line px-6 pt-12 pb-16"
     >
-      <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-[2fr_repeat(4,1fr)]">
+      <div className="grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 md:grid-cols-[1.6fr_repeat(5,1fr)]">
         <motion.div variants={col}>
           <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} className="mb-1">
             <Link

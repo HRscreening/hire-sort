@@ -59,6 +59,8 @@ export const buildStandardHeroCtas = () => ({
 
 export const standardInternalLinks = [
   { href: '/resources/job-descriptions', label: 'All job description templates' },
+  { href: '/free-tools/job-description-generator', label: 'Free Job Description Generator' },
+  { href: '/free-tools/generate-rubric', label: 'Free Rubric Generator' },
   { href: '/product/resume-parser', label: 'Resume Parser' },
   { href: '/product/applicant-tracking-system', label: 'Applicant Tracking System' },
   { href: '/resources/best/resume-screening-software', label: 'Best Resume Screening Software' },

@@ -373,6 +373,9 @@ export const recruitmentSoftware: ProductPage = {
 
   internalLinks: [
     { href: '/product/applicant-tracking-system', label: 'Applicant Tracking System' },
+    { href: '/free-tools/resume-screening', label: 'Free Resume Screening Tool' },
+    { href: '/free-tools/job-description-generator', label: 'Free Job Description Generator' },
+    { href: '/free-tools/generate-rubric', label: 'Free Rubric Generator' },
     { href: '/resources/best/candidate-screening-software', label: 'Best Candidate Screening Software' },
     { href: '/resources/best/high-volume-hiring-software', label: 'High-Volume Hiring Software' },
     { href: '/resources/best/ai-resume-screening-software', label: 'Best AI Resume Screening Software' },

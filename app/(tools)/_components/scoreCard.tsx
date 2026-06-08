@@ -144,7 +144,7 @@ function ScoredView({ resume, rubric, sessionId }: ScoredViewProps) {
               type="button"
               onClick={handleDownload}
               disabled={downloading}
-              className="inline-flex items-center gap-1.5 rounded-lg border border-[#E8E5DF] bg-white px-3 py-1.5 text-xs font-semibold text-[#404040] hover:border-[#C85A17] hover:text-[#C85A17] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="inline-flex items-center gap-1.5 rounded-lg border  bg-charcoal px-3 py-1.5 text-xs font-semibold text-ivory hover:border-[#C85A17] hover:text-[#C85A17] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
               {downloading ? (
                 <Loader2 className="h-3.5 w-3.5 animate-spin" />

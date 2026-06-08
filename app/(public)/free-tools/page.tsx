@@ -12,6 +12,16 @@ import {
 import { PageHero } from '@/components/layout/PageHero';
 import { breadcrumbJsonLd, jsonLdString, SITE_URL } from '@/lib/seo';
 import { getAllTools, getLiveTools, type FreeTool } from './_lib/tools';
+import { getToolDetailBySlug } from './_data/details';
+
+/**
+ * For structured data (JSON-LD), reference a tool's dedicated SEO detail page
+ * when one exists (e.g. /free-tools/resume-screening) so crawlers can discover
+ * it, falling back to the tool's CTA href otherwise. The visible card button
+ * always links straight to the interactive app (`t.cta.href`).
+ */
+const toolHref = (t: FreeTool): string =>
+  getToolDetailBySlug(t.slug) ? `/free-tools/${t.slug}` : t.cta.href;
 
 const PAGE_PATH = '/free-tools';
 const PAGE_TITLE = 'Free Hiring Tools — Resume Screening & Rubrics | HireSort';
@@ -90,7 +100,7 @@ const buildJsonLd = (tools: FreeTool[], liveTools: FreeTool[]) => {
       '@type': 'WebPage',
       name: t.name,
       description: t.tagline,
-      url: t.cta.href.startsWith('http') ? t.cta.href : absUrl(t.cta.href),
+      url: absUrl(toolHref(t)),
     })),
   };
 

@@ -34,6 +34,7 @@ import Toast, { type ToastData } from "../../../_components/toast";
 const ease = [0.22, 1, 0.36, 1] as const;
 
 const WORK_ARRANGEMENTS = ["Remote", "Hybrid", "On-site"] as const;
+const Employment_Types = ["Full-time", "Internship", "Consulting"] as const;
 
 // Trust/feature pills shown above the panels — quick reassurance on what the
 // tool does without re-introducing a heading.
@@ -56,9 +57,11 @@ export default function JdBuilder() {
   const [companyName, setCompanyName] = useState("");
   const [companyUrl, setCompanyUrl] = useState("");
   const [workArrangement, setWorkArrangement] = useState("");
+  const [employmentType, setEmploymentType] = useState("");
   const [location, setLocation] = useState("");
   const [yrsExperience, setYrsExperience] = useState("");
   const [salary, setSalary] = useState("");
+  const [department, setDepartment] = useState("");
   const [skills, setSkills] = useState("");
   const [prompt, setPrompt] = useState("");
   const [detailsOpen, setDetailsOpen] = useState(true);
@@ -89,17 +92,16 @@ export default function JdBuilder() {
   const resetLabel = formatResetTime(resetsAt);
   // The backend requires these four; gate generation on them so we show a clear
   // hint instead of bouncing off a 422.
-  const detailsComplete =
-    Boolean(companyName.trim()) &&
-    Boolean(companyUrl.trim()) &&
-    Boolean(workArrangement.trim()) &&
-    Boolean(location.trim());
+  // const detailsComplete =
+  //   Boolean(companyName.trim()) &&
+  //   Boolean(companyUrl.trim()) &&
+  //   Boolean(workArrangement.trim()) &&
+  //   Boolean(location.trim());
   const canGenerate =
-    Boolean(jobTitle.trim()) && detailsComplete && !generating && !outOfAttempts;
+    Boolean(jobTitle.trim()) && !generating && !outOfAttempts;
   const canDownload =
     Boolean(jobTitle.trim()) &&
     Boolean(jdText.trim()) &&
-    detailsComplete &&
     !generating &&
     !downloading;
 
@@ -123,11 +125,22 @@ export default function JdBuilder() {
   function buildJdDetails(): JdGenerateInput {
     const trimmedYrs = yrsExperience.trim();
     const parsedYrs = trimmedYrs ? Number(trimmedYrs) : null;
+
+    
+    const isCompanyUrlValid = !companyUrl.trim() || /^https?:\/\//i.test(companyUrl.trim());
+    if (!isCompanyUrlValid) {
+      
+      throw new Error("Invalid company URL");
+    }
+
+
     return {
       job_title: jobTitle.trim(),
       company_name: companyName.trim(),
       company_url: normalizeUrl(companyUrl),
-      employment_type_work_arrangement: workArrangement.trim(),
+      employment_type: employmentType.trim(),
+      work_arrangement: workArrangement.trim(),
+      department: department.trim() || null,
       location: location.trim(),
       yrs_experience: parsedYrs !== null && !Number.isNaN(parsedYrs) ? parsedYrs : null,
       salary_compensation_info: salary.trim() || null,
@@ -323,13 +336,7 @@ export default function JdBuilder() {
                 />
               </div>
 
-              {/* Job description mode */}
-              <div className="mb-3 flex items-center justify-between gap-3">
-                <span className="block text-sm font-semibold text-charcoal">
-                  Job description <span className="text-accent">*</span>
-                </span>
-                <SegmentedTabs />
-              </div>
+              
 
               {/* Job details — collapsible */}
               <div className="rounded-xl border border-line bg-white">
@@ -341,11 +348,7 @@ export default function JdBuilder() {
                 >
                   <span className="flex items-center gap-2 text-sm font-semibold text-charcoal">
                     Job details
-                    {!detailsComplete && (
-                      <span className="rounded-full bg-[#FBE9E7] px-2 py-0.5 text-[10px] font-semibold text-[#a70c0c]">
-                        Required
-                      </span>
-                    )}
+                    
                   </span>
                   <ChevronDown
                     className={`h-4 w-4 text-charcoal-lt transition-transform ${detailsOpen ? "rotate-180" : ""}`}
@@ -383,7 +386,7 @@ export default function JdBuilder() {
                         />
                         <div>
                           <label htmlFor="jd-work" className={labelClass}>
-                            Work arrangement <span className="text-accent">*</span>
+                            Work arrangement 
                           </label>
                           <select
                             id="jd-work"
@@ -396,6 +399,27 @@ export default function JdBuilder() {
                               Select…
                             </option>
                             {WORK_ARRANGEMENTS.map((opt) => (
+                              <option key={opt} value={opt} className="text-charcoal">
+                                {opt}
+                              </option>
+                            ))}
+                          </select>
+                        </div>
+                        <div>
+                          <label htmlFor="jd-work" className={labelClass}>
+                            Employment Type 
+                          </label>
+                          <select
+                            id="jd-employment"
+                            value={employmentType}
+                            onChange={(e) => setEmploymentType(e.target.value)}
+                            disabled={generating}
+                            className={`${fieldClass} ${employmentType ? "" : "text-charcoal-xlt"}`}
+                          >
+                            <option value="" disabled>
+                              Select…
+                            </option>
+                            {Employment_Types.map((opt) => (
                               <option key={opt} value={opt} className="text-charcoal">
                                 {opt}
                               </option>
@@ -430,6 +454,15 @@ export default function JdBuilder() {
                           disabled={generating}
                           placeholder="e.g. ₹18–24 LPA"
                         />
+                        <Field
+                          id="jd-department"
+                          label="Department / Team"
+                          optional
+                          value={department}
+                          onChange={setDepartment}
+                          disabled={generating}
+                          placeholder="e.g. Engineering — Platform"
+                        />
                         <div className="sm:col-span-2">
                           <Field
                             id="jd-skills"
@@ -451,7 +484,6 @@ export default function JdBuilder() {
               <div className="mt-5">
                 <label htmlFor="jd-prompt" className={labelClass}>
                   {hasGenerated ? "Refine the job description" : "Describe the role you want to hire for"}
-                  <span className="ml-1.5 font-normal text-charcoal-xlt">(optional)</span>
                 </label>
                 <div className="flex flex-col gap-2 sm:flex-row sm:items-stretch">
                   <input
@@ -490,11 +522,7 @@ export default function JdBuilder() {
                 </div>
                 {!jobTitle.trim() ? (
                   <p className="mt-1.5 text-xs text-[#a70c0c]">Enter a job title above to start generating.</p>
-                ) : !detailsComplete ? (
-                  <p className="mt-1.5 text-xs text-[#a70c0c]">
-                    Fill in the required job details above to start generating.
-                  </p>
-                ) : (
+                )  : (
                   !hasGenerated && (
                     <p className="mt-1.5 text-xs text-charcoal-xlt">
                       Leave the prompt blank to generate from the details above, or add notes to guide the AI.
@@ -631,7 +659,6 @@ function Field({
     <div>
       <label htmlFor={id} className={labelClass}>
         {label}
-        {required && <span className="text-accent"> *</span>}
         {optional && <span className="ml-1.5 font-normal text-charcoal-xlt">(optional)</span>}
       </label>
       <input
@@ -649,28 +676,6 @@ function Field({
   );
 }
 
-// The public tool only generates with AI. Paste / Upload are shown (to match the
-// full product) but login-gated, so they read as disabled here.
-function SegmentedTabs() {
-  return (
-    <div className="inline-flex items-center gap-0.5 rounded-full border border-line bg-ivory-medium p-0.5 text-xs font-medium">
-      <span className="inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-charcoal-xlt cursor-not-allowed">
-        <Clipboard className="h-3 w-3" />
-        <span className="hidden sm:inline">Paste</span>
-        <Lock className="h-2.5 w-2.5" />
-      </span>
-      <span className="inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-charcoal-xlt cursor-not-allowed">
-        <Upload className="h-3 w-3" />
-        <span className="hidden sm:inline">Upload</span>
-        <Lock className="h-2.5 w-2.5" />
-      </span>
-      <span className="inline-flex items-center gap-1 rounded-full bg-white px-2.5 py-1 text-charcoal shadow-soft">
-        <Sparkles className="h-3 w-3 text-accent" />
-        Build with AI
-      </span>
-    </div>
-  );
-}
 
 const SECTIONS = ["Company overview", "Responsibilities", "Requirements", "Benefits"] as const;
 

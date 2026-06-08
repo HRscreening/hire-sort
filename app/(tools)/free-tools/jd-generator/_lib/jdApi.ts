@@ -20,10 +20,12 @@ export interface JdGenerateInput {
   job_title: string;
   company_name: string;
   company_url: string;
-  employment_type_work_arrangement: string;
+  work_arrangement: string;
+  employment_type:string;
   location: string;
   yrs_experience: number | null;
   salary_compensation_info: string | null;
+  department: string | null;
   skills: string | null;
 }
 
