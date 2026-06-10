@@ -302,6 +302,58 @@ export function createToolApi(config: ToolConfig) {
   return { config, scoreTool, createSession, getSession };
 }
 
+// ─── Scorecard download ──────────────────────────────────────────────────────
+
+/** Pull a filename out of a Content-Disposition header, if the server sent one. */
+function filenameFromContentDisposition(header: string | null): string | null {
+  if (!header) return null;
+  // Prefer RFC 5987 filename* (carries an encoding), fall back to plain filename.
+  const star = /filename\*=(?:UTF-8'')?([^;]+)/i.exec(header);
+  if (star?.[1]) {
+    try {
+      return decodeURIComponent(star[1].replace(/["']/g, "").trim());
+    } catch {
+      // Malformed encoding — fall through to the plain filename below.
+    }
+  }
+  const plain = /filename="?([^";]+)"?/i.exec(header);
+  return plain?.[1]?.trim() ?? null;
+}
+
+/**
+ * GET <scoreEndpoint>/:id/download-scorecard — download a session's scorecard as
+ * a file. We stream the response into a blob and trigger the download ourselves
+ * (rather than navigating an `<a href>`) so a non-200 surfaces as a typed error
+ * and the cross-origin API host's filename header is honored when exposed via
+ * CORS. Defaults to the demo route; pass another tool's config to reuse it.
+ */
+export async function downloadScorecard(
+  sessionId: string,
+  config: ToolConfig = DEMO_CONFIG,
+): Promise<void> {
+  const res = await fetch(
+    `${API_BASE}${config.scoreEndpoint}/${encodeURIComponent(sessionId)}/download-scorecard`,
+  );
+  if (!res.ok) throw await toToolError(res, config.headers);
+
+  const blob = await res.blob();
+  const filename =
+    filenameFromContentDisposition(res.headers.get("Content-Disposition")) ??
+    `scorecard-${sessionId}.pdf`;
+
+  const url = URL.createObjectURL(blob);
+  try {
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+  } finally {
+    URL.revokeObjectURL(url);
+  }
+}
+
 // ─── UI helpers ──────────────────────────────────────────────────────────────
 
 const ERROR_MESSAGES: Record<DemoErrorCode, string> = {

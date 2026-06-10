@@ -72,7 +72,7 @@ const DemoPanelView = ({
   const [rightView, setRightView] = useState<ViewKey>("analysis");
 
   return (
-    <div className="md:h-screen w-full flex flex-col md:flex-row md:overflow-hidden bg-ivory">
+    <div className="md:flex-1 md:min-h-0 w-full flex flex-col md:flex-row md:overflow-hidden bg-ivory">
       <Panel
         view={leftView}
         onViewChange={setLeftView}

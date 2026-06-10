@@ -400,6 +400,7 @@ export const resumeParser: ProductPage = {
 
   internalLinks: [
     { href: '/product/resume-parser', label: 'AI Resume Screening' },
+    { href: '/free-tools/resume-screening', label: 'Free Resume Screening Tool' },
     { href: '/applicant-tracking-system', label: 'Applicant Tracking System' },
     { href: '/product/recruitment-software', label: 'Recruitment Software' },
     { href: '/product/resume-management', label: 'Resume Management' },

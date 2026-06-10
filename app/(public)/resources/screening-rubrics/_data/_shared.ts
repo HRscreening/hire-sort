@@ -110,6 +110,8 @@ export const buildInternalLinks = (
     links.push({ href: `/resources/interview-questions/${slug}`, label: 'Matching interview questions' });
   }
   links.push(
+    { href: '/free-tools/generate-rubric', label: 'Free Rubric Generator' },
+    { href: '/free-tools/resume-screening', label: 'Free Resume Screening Tool' },
     { href: '/resources/best/resume-screening-software', label: 'Best Resume Screening Software' },
     { href: '/product/applicant-tracking-system', label: 'Applicant Tracking System' },
     { href: '/pricing', label: 'Pricing' },

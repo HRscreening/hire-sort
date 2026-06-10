@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { FileText } from "lucide-react";
 import Link from "next/link";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState, type CSSProperties } from "react";
 import {
   createToolApi,
   demoErrorView,
@@ -11,7 +11,9 @@ import {
   type ToolConfig,
 } from "../_lib/api";
 import type { ScoredResume } from "../types";
+import LoginCtaBar from "./loginCtaBar";
 import DemoPageView from "./panelView";
+import StartScreeningCta from "./startScreeningCta";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -63,14 +65,23 @@ export default function SessionResult({ sessionID, config }: SessionResultProps)
   }
 
   return (
-    <DemoPageView
-      rubric={data.rubric}
-      resume={data.resume}
-      sessionId={sessionID}
-      onResumeScored={handleResumeScored}
-      jdUrl={data.urls?.jd_url}
-      resumeUrl={data.urls?.resume_url}
-    />
+    // --header-top lets the panels' sticky sub-headers tuck below the bar on
+    // mobile (where the whole page scrolls) instead of colliding at top:0.
+    <div
+      className="w-full flex flex-col md:h-screen md:overflow-hidden bg-ivory"
+      style={{ "--header-top": "3.5rem" } as CSSProperties}
+    >
+      <LoginCtaBar />
+      <DemoPageView
+        rubric={data.rubric}
+        resume={data.resume}
+        sessionId={sessionID}
+        onResumeScored={handleResumeScored}
+        jdUrl={data.urls?.jd_url}
+        resumeUrl={data.urls?.resume_url}
+      />
+      <StartScreeningCta />
+    </div>
   );
 }
 

@@ -1,8 +1,8 @@
 "use client";
 import { motion } from "framer-motion";
-import { FileText, ScanLine, Sparkles, Upload, Wand2, X } from "lucide-react";
+import { Download, FileText, Loader2, ScanLine, Sparkles, Upload, Wand2, X } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { demoErrorView, scoreResume } from "../_lib/api";
+import { demoErrorView, downloadScorecard, scoreResume } from "../_lib/api";
 import type { BreakdownItem, Rubric, ScoredResume } from "../types";
 
 function getTierLabel(score: number) {
@@ -16,6 +16,20 @@ function criterionBarColor(score: number) {
   if (score >= 7) return "#22C55E";
   if (score >= 4) return "#EAB308";
   return "#EF4444";
+}
+
+/**
+ * Look up a category's weight from the rubric. Tolerates minor label drift
+ * between the rubric and the score's category labels (e.g. the server returns
+ * "Technical Skills" while the rubric calls it "Technical Skills & Expertise").
+ */
+function weightForCategory(rubric: Rubric, category: string): number | null {
+  const key = category.toLowerCase().trim();
+  const match = rubric.categories.find((c) => {
+    const name = c.name.toLowerCase().trim();
+    return name === key || name.startsWith(key) || key.startsWith(name);
+  });
+  return match?.weight ?? null;
 }
 
 function formatDate(iso: string) {
@@ -41,12 +55,32 @@ export default function ScoreCard({ resume, rubric, sessionId, onResumeScored }:
   if (!resume) {
     return <ResumeUpload sessionId={sessionId} onResumeScored={onResumeScored} />;
   }
-  return <ScoredView resume={resume} rubric={rubric} />;
+  return <ScoredView resume={resume} rubric={rubric} sessionId={sessionId} />;
 }
 
-type ScoredViewProps = { resume: ScoredResume; rubric: Rubric };
+type ScoredViewProps = { resume: ScoredResume; rubric: Rubric; sessionId: string };
 
-function ScoredView({ resume, rubric }: ScoredViewProps) {
+function ScoredView({ resume, rubric, sessionId }: ScoredViewProps) {
+  const [downloading, setDownloading] = useState(false);
+  const [downloadError, setDownloadError] = useState<string | null>(null);
+
+  // The "sample" session is served from local JSON with no server-side
+  // scorecard, so there's nothing to download for it.
+  const canDownload = sessionId !== "" && sessionId !== "sample";
+
+  async function handleDownload() {
+    if (downloading) return;
+    setDownloading(true);
+    setDownloadError(null);
+    try {
+      await downloadScorecard(sessionId);
+    } catch (e) {
+      console.error(e);
+      setDownloadError(demoErrorView(e).message);
+    } finally {
+      setDownloading(false);
+    }
+  }
 
   const nonNegotiableSet = useMemo(() => {
     const set = new Set<string>();
@@ -58,7 +92,23 @@ function ScoredView({ resume, rubric }: ScoredViewProps) {
     return set;
   }, [rubric]);
 
-  const categoryScores = useMemo(() => {
+  const categoryScores = useMemo<
+    { name: string; weight: number | null; score: number | null }[]
+  >(() => {
+    // The server now returns per-category averages directly. Prefer them: its
+    // criterion labels don't always mirror the rubric verbatim, so the
+    // name-matching fallback below can under-count.
+    const provided = resume.category_scores ?? [];
+    if (provided.length > 0) {
+      return provided.map((c) => ({
+        name: c.category,
+        weight: weightForCategory(rubric, c.category),
+        score: c.avg_score,
+      }));
+    }
+
+    // Fallback for payloads without category_scores: derive a weighted average
+    // from the criterion breakdown.
     const breakdown = resume.score.breakdown ?? [];
     return rubric.categories.map((cat) => {
       let weighted = 0;
@@ -89,7 +139,25 @@ function ScoredView({ resume, rubric }: ScoredViewProps) {
       <div className="px-4 sm:px-6 pt-5 sm:pt-6 pb-3 border-b border-[#E8E5DF]">
         <div className="flex items-center justify-between gap-3">
           <h2 className="text-sm font-semibold text-[#0F0F0F]">Candidate analysis</h2>
+          {canDownload && (
+            <button
+              type="button"
+              onClick={handleDownload}
+              disabled={downloading}
+              className="inline-flex items-center gap-1.5 rounded-lg border  bg-charcoal px-3 py-1.5 text-xs font-semibold text-ivory hover:border-[#C85A17] hover:text-[#C85A17] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            >
+              {downloading ? (
+                <Loader2 className="h-3.5 w-3.5 animate-spin" />
+              ) : (
+                <Download className="h-3.5 w-3.5" />
+              )}
+              {downloading ? "Preparing…" : "Download"}
+            </button>
+          )}
         </div>
+        {downloadError && (
+          <p className="mt-2 text-xs text-red-600">{downloadError}</p>
+        )}
         <div className="mt-2 flex items-center gap-2">
           <div
             className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg border text-xs font-semibold ${tier.bg} ${tier.border} ${tier.color}`}
@@ -155,7 +223,9 @@ function ScoredView({ resume, rubric }: ScoredViewProps) {
                     {cat.name}
                   </p>
                   <p className="text-[10px] text-[#BDB8AE] mt-0.5">(out of 10)</p>
-                  <p className="text-[10px] text-[#A0A0A0]">{cat.weight}%</p>
+                  {cat.weight != null && (
+                    <p className="text-[10px] text-[#A0A0A0]">{cat.weight}%</p>
+                  )}
                   {cat.score !== null ? (
                     <>
                       <span className="text-base font-bold text-[#0F0F0F] mt-2 leading-none">

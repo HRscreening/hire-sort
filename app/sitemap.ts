@@ -12,6 +12,7 @@ import { getAllJobDescriptions } from '@/app/(public)/resources/job-descriptions
 import { getAllInterviewQuestions } from '@/app/(public)/resources/interview-questions/_data';
 import { getAllScorecards } from '@/app/(public)/resources/scorecards/_data';
 import { getAllScreeningRubrics } from '@/app/(public)/resources/screening-rubrics/_data';
+import { getAllToolDetails } from '@/app/(public)/free-tools/_data/details';
 import { TEST_JOB } from '@/lib/test-job';
 
 const siteUrl =
@@ -145,6 +146,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ];
 
+  // Dedicated, indexable SEO pages for each free tool (the interactive apps
+  // themselves canonicalize elsewhere; these detail pages carry the content).
+  const toolDetailRoutes: MetadataRoute.Sitemap = getAllToolDetails().map((t) => ({
+    url: `${siteUrl}/free-tools/${t.slug}`,
+    lastModified: new Date(t.updatedAt),
+    changeFrequency: 'monthly',
+    priority: 0.8,
+  }));
+
   // Only the live screening tool is indexable. The demo (/demo), sample result
   // (/sample) and per-session result pages are noindex → intentionally excluded.
   const toolRoutes: MetadataRoute.Sitemap = [
@@ -165,6 +175,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...scorecardRoutes,
     ...screeningRubricRoutes,
     ...sectionIndexRoutes,
+    ...toolDetailRoutes,
     ...toolRoutes,
   ];
 }

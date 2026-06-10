@@ -8,11 +8,11 @@
     "candidate_current_job": "SDE Intern",
     "status": "SCORED",
     "overall_score": 88.67,
-    "category_scores":{
-        "Technical Skills": 90,
-        "Experience & Impact": 85,
-        "Qualifications & Role Fit": 90
-    },
+    "category_scores": [
+        { "category": "Technical Skills", "avg_score": 8.4, "criteria_count": 5 },
+        { "category": "Experience & Impact", "avg_score": 8.67, "criteria_count": 3 },
+        { "category": "Qualifications & Role Fit", "avg_score": 9.67, "criteria_count": 3 }
+    ],
     "score": {
         "id": "7d787611-f980-4508-88fc-b7fb78e5198e",
         "resume_id": "42aa6efd-15ed-4ba5-993c-c15ccbdaf86a",

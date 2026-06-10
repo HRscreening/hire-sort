@@ -67,6 +67,8 @@ export const buildStandardHeroCtas = () => ({
 export const buildInternalLinks = (jdSlug?: string) => {
   const links = [
     { href: '/resources/interview-questions', label: 'All interview question sets' },
+    { href: '/free-tools/job-description-generator', label: 'Free Job Description Generator' },
+    { href: '/free-tools/resume-screening', label: 'Free Resume Screening Tool' },
     { href: '/resources/best/resume-screening-software', label: 'Best Resume Screening Software' },
     { href: '/product/applicant-tracking-system', label: 'Applicant Tracking System' },
     { href: '/product/resume-parser', label: 'Resume Parser' },

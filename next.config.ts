@@ -30,6 +30,9 @@ const cspDirectives = {
     "'self'",
     ...(supabaseHost ? [`https://${supabaseHost}`] : ['https://*.supabase.co']),
     ...(apiOrigin ? [apiOrigin] : []),
+    // Demo backend is deployed on Railway; PR-preview URLs vary per PR
+    // (e.g. resume-saas-...-pr-6.up.railway.app), so allow the wildcard.
+    'https://*.up.railway.app',
     'https://www.google-analytics.com',
     'https://vitals.vercel-insights.com',
     'https://va.vercel-scripts.com',
