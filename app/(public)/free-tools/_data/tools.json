@@ -111,6 +111,43 @@
         { "label": "Recruitment software", "href": "/product/recruitment-software", "note": "The full HireSort platform" },
         { "label": "Hiring blog", "href": "/blog", "note": "Guides on writing better JDs" }
       ]
+    },
+    {
+      "slug": "hiring-analytics-spreadsheet",
+      "name": "Hiring Analytics Spreadsheet",
+      "eyebrow": "Free Excel tool",
+      "icon": "file-text",
+      "category": "Recruiting analytics",
+      "status": "live",
+      "tagline": "Download a recruiting dashboard workbook for requisitions, pipeline stages, interviews, and bottleneck alerts.",
+      "description": "Use this free Excel workbook to track open requisitions, candidate movement, interview activity, source performance, recruiter workload, stale candidates, pending offers, and hiring bottlenecks. It includes a dashboard plus structured tabs for requisitions, candidate pipeline, today's interviews, reference data, and recommendations.",
+      "whenToUse": [
+        "You manage several open roles and need one recruiting dashboard for weekly review.",
+        "You want to measure hiring funnel conversion without building a BI dashboard from scratch.",
+        "Your ATS does not give recruiters and hiring managers an easy operational view.",
+        "You need a simple candidate pipeline tracker for small teams, agencies, or startup hiring."
+      ],
+      "features": [
+        "Hiring dashboard and funnel metrics",
+        "Requisition and candidate pipeline tracker",
+        "Today's interviews and feedback links",
+        "Bottleneck alerts and recommendations"
+      ],
+      "tags": ["Excel template", "Hiring funnel", "Pipeline tracker"],
+      "cta": { "label": "Download Excel", "href": "/hiring_analytics_tool/IQ-Line%20-%20Hiring%20Analytics.xlsx" },
+      "secondaryCta": { "label": "Read the guide", "href": "/free-tools/hiring-analytics-spreadsheet" },
+      "keywords": [
+        "hiring analytics excel template",
+        "recruiting dashboard excel",
+        "recruitment analytics template",
+        "candidate pipeline tracker excel"
+      ],
+      "related": [
+        { "label": "Hiring analytics guide", "href": "/free-tools/hiring-analytics-spreadsheet", "note": "How to use the workbook efficiently" },
+        { "label": "Resume Screening Tool", "href": "/free-tools/resume-screening", "note": "Score a resume against any JD" },
+        { "label": "Interview scorecards", "href": "/resources/scorecards", "note": "Standardize interview feedback" },
+        { "label": "Recruitment software", "href": "/product/recruitment-software", "note": "The full HireSort platform" }
+      ]
     }
   ]
 }

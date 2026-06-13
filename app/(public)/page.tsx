@@ -9,6 +9,7 @@ const Stats = dynamic(() => import('@/components/home/Stats'));
 const PopularResources = dynamic(() => import('@/components/home/PopularResources'));
 const ContactSection = dynamic(() => import('@/components/home/ContactSection'));
 const CTA = dynamic(() => import('@/components/home/CTA'));
+const Testimonials = dynamic(() => import('@/components/home/Testimonials'));
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://hiresort.ai';
 
@@ -169,8 +170,10 @@ export default function Home() {
       <Features />
       <Stats />
       <PopularResources />
+      <Testimonials />
       <ContactSection />
       <CTA />
+
     </>
   );
 }

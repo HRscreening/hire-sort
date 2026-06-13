@@ -1,6 +1,7 @@
 'use client';
 
 import { motion, type Variants } from 'framer-motion';
+import Image from 'next/image';
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -52,20 +53,20 @@ const Bullets = ({ items }: { items: string[] }) => (
 );
 
 const VisualWrap = ({ children }: { children: React.ReactNode }) => (
-  <div className="overflow-hidden rounded-2xl bg-linear-to-br from-ivory-medium to-ivory-dark p-1.5 shadow-lg sm:rounded-[32px]">
-    <div className="min-h-70 overflow-hidden rounded-[26px] border border-line-soft bg-linear-to-b from-ivory-light to-ivory-medium p-4 sm:p-7">
+  <div className="overflow-hidden rounded-2xl bg-linear-to-br from-ivory-medium to-ivory-dark p-[0.5px] shadow-lg sm:rounded-[32px]">
+    <div className="min-h-80 min-w-full overflow-hidden rounded-[26px] border border-line-soft bg-linear-to-b from-ivory-light to-ivory-medium p-2 sm:p-2 content-center">
       {children}
     </div>
   </div>
 );
 
-const featureRowClass = 'grid items-center gap-16 md:grid-cols-2';
+const featureRowClass = 'grid items-center gap-14 md:grid-cols-2';
 const featureTextHeadingClass = 'mb-3.5 text-[28px] font-extrabold leading-[1.2] tracking-[-0.8px]';
 const featureTextCopyClass = 'mb-6 text-[15.5px] leading-[1.7] text-charcoal-lt';
 
 const Features = () => {
   return (
-    <section id="features" className="mx-auto max-w-275 overflow-x-clip px-6 pt-20 pb-30">
+    <section id="features" className="mx-auto max-w-275 overflow-x-clip px-4 pt-20 pb-30">
       <motion.div
         initial="hidden"
         whileInView="show"
@@ -100,54 +101,14 @@ const Features = () => {
 
           <motion.div variants={fromRight} {...visualHover}>
             <VisualWrap>
-              <div className="mb-3 text-[11px] font-bold uppercase tracking-[0.5px] text-charcoal-lt">Criteria Breakdown</div>
-              <div className="flex flex-col gap-2">
-                {[
-                  { score: '10', title: 'Foundational Business Analysis', status: 'high', sub: 'The candidate demonstrates advanced business and fina...', progress: '100%' },
-                  { score: '9', title: 'Executive & Cross-Functional Coordinati...', status: 'high', sub: 'Direct experience working with a CEO, leading cross-func...', progress: '90%' },
-                  { score: '8', title: 'Structured Documentation & Informat...', status: 'medium', sub: "The candidate's work on policy design, review, and MIS im...", progress: '80%', accent: true },
-                  { score: '10', title: 'High-Priority Task Execution', status: 'high', sub: 'Co-founding a startup, leading multiple complex consulti...', progress: '100%' },
-                ].map((item, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, x: 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.3 + i * 0.1, duration: 0.5 }}
-                    className="w-full overflow-hidden rounded-md border border-line-soft bg-white px-4 py-3 shadow-soft"
-                  >
-                    <div className="flex w-full items-center gap-2">
-                      <div className="flex w-10 shrink-0 flex-col gap-1">
-                        <div className="flex items-baseline gap-px">
-                          <span className="text-[13px] font-extrabold">{item.score}</span>
-                          <span className="text-[9px] opacity-40">/10</span>
-                        </div>
-                        <div className="h-1 overflow-hidden rounded-full bg-ivory-medium">
-                          <div className="h-full rounded-full bg-success" style={{ width: item.progress }} />
-                        </div>
-                      </div>
+            <Image
+                src="/appScreenshots/17_candidate assessment expanded.png"
+                alt="Candidate assessment card with detailed scoring breakdown and AI-written insights"
+                width={800}
+                height={1200}
+                className='object-contain'
+              />
 
-                      <div className="min-w-0 flex-1">
-                        <div className="mb-0.5 flex flex-wrap items-center gap-1.5">
-                          <span className="min-w-0 flex-1 overflow-hidden text-ellipsis whitespace-nowrap text-xs font-semibold">{item.title}</span>
-                          <span
-                            className={`shrink-0 rounded-sm px-1 py-px text-[8px] font-extrabold lowercase ${
-                              item.accent ? 'bg-[#FFF9F0] text-accent' : 'bg-success-bg text-success'
-                            }`}
-                          >
-                            {item.status}
-                          </span>
-                        </div>
-                        <div className="overflow-hidden text-ellipsis whitespace-nowrap text-[10.5px] text-charcoal-lt">{item.sub}</div>
-                      </div>
-
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 opacity-20">
-                        <polyline points="6 9 12 15 18 9" />
-                      </svg>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
             </VisualWrap>
           </motion.div>
         </motion.div></article>
@@ -170,36 +131,15 @@ const Features = () => {
 
           <motion.div variants={fromLeft} {...visualHover} className="md:order-1">
             <VisualWrap>
-              <div className="mb-4 text-[13px] font-semibold text-charcoal">Processing 147 of 200 resumes...</div>
-              <div className="mb-5 h-2 overflow-hidden rounded-sm bg-ivory-medium">
-                <motion.div
-                  initial={{ width: 0 }}
-                  whileInView={{ width: '73.5%' }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.4, duration: 1.2, ease }}
-                  className="h-full rounded-sm bg-linear-to-r from-copper to-copper-light"
+    
+              <Image
+                src="/appScreenshots/11_Resume processing.png"
+                alt="Bulk resume upload interface showing ZIP file upload and processing status"
+                width={1400}
+                height={900}
+                className="w-full h-auto object-contain"
                 />
-              </div>
-              <div className="flex flex-col gap-1.5">
-                {[
-                  { label: 'batch_engineering_01.zip', status: 'Complete', borderColor: 'var(--color-success)', textCls: 'text-success' },
-                  { label: 'batch_engineering_02.zip', status: 'Processing', borderColor: 'var(--color-charcoal)', textCls: 'text-charcoal-md' },
-                  { label: 'batch_engineering_03.zip', status: 'Queued', borderColor: 'var(--color-line)', textCls: 'text-charcoal-xlt' },
-                ].map((row, i) => (
-                  <motion.div
-                    key={row.label}
-                    initial={{ opacity: 0, x: -16 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.6 + i * 0.12, duration: 0.45, ease }}
-                    style={{ borderLeft: `3px solid ${row.borderColor}` }}
-                    className="flex items-center gap-2.5 rounded-sm bg-ivory-light px-3 py-2 text-[13px]"
-                  >
-                    <span className="flex-1 font-medium text-charcoal text-[12.5px]">{row.label}</span>
-                    <span className={`text-[11px] font-semibold ${row.textCls}`}>{row.status}</span>
-                  </motion.div>
-                ))}
-              </div>
+      
             </VisualWrap>
           </motion.div>
         </motion.div></article>
@@ -326,46 +266,12 @@ const Features = () => {
 
           <motion.div variants={fromLeft} {...visualHover} className="md:order-1">
             <VisualWrap>
-              <div className="mb-3.5 flex items-center justify-between">
-                <div className="text-[13px] font-semibold text-charcoal">Candidate Pipeline</div>
-                <span className="text-[11px] font-semibold uppercase tracking-[0.5px] text-charcoal-xlt">24 total</span>
-              </div>
-              <div className="flex flex-col gap-2">
-                {[
-                  { initials: 'SC', name: 'Sarah Chen', sub: 'Score 92 · Shortlisted', tag: 'Interview', avatar: 'linear-gradient(135deg,#C8A27A,#B8926A)', tagCls: 'text-success bg-success-bg' },
-                  { initials: 'DK', name: 'David Kumar', sub: 'Score 87 · Under review', tag: 'Reviewing', avatar: 'linear-gradient(135deg,#7A9EC8,#6A8EB8)', tagCls: 'text-charcoal-md bg-ivory-medium' },
-                  { initials: 'AM', name: 'Ana Martinez', sub: 'Score 78 · New', tag: 'Parsed', avatar: 'linear-gradient(135deg,#8AC87A,#7AB86A)', tagCls: 'text-charcoal-xlt bg-ivory-medium' },
-                ].map((row, i) => (
-                  <motion.div
-                    key={row.initials}
-                    initial={{ opacity: 0, x: -16 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.4 + i * 0.12, duration: 0.5, ease }}
-                    whileHover={{ x: 4 }}
-                    className="flex items-center gap-2.5 rounded-[10px] border border-line-soft bg-white px-3 py-2.5"
-                  >
-                    <div className="flex h-7.5 w-7.5 shrink-0 items-center justify-center rounded-full text-[11px] font-bold text-white" style={{ background: row.avatar }}>
-                      {row.initials}
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <div className="text-[12.5px] font-semibold text-charcoal">{row.name}</div>
-                      <div className="text-[11px] text-charcoal-lt">{row.sub}</div>
-                    </div>
-                    <span className={`rounded-full px-2 py-[3px] text-[10.5px] font-bold ${row.tagCls}`}>{row.tag}</span>
-                  </motion.div>
-                ))}
-              </div>
-              <div className="mt-3 flex items-center justify-between border-t border-line-soft pt-3 text-[11.5px] text-charcoal-lt">
-                <span>Intake &rarr; Parse &rarr; Rank &rarr; Review</span>
-                <motion.span
-                  whileHover={{ y: 2 }}
-                  transition={{ type: 'spring', stiffness: 400, damping: 14 }}
-                  className="cursor-pointer font-semibold text-copper"
-                >
-                  Export CSV &darr;
-                </motion.span>
-              </div>
+              <Image
+                src="/appScreenshots/14_Hiring funnel.png"
+                alt="Bulk resume upload interface showing ZIP file upload and processing status"
+                width={800}
+                height={500}
+              />
             </VisualWrap>
           </motion.div>
         </motion.div></article>

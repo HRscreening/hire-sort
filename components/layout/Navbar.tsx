@@ -197,6 +197,12 @@ const toolsMega: MegaConfig = {
         { href: '/free-tools/rubric-generator', label: 'Rubric Generator', description: 'Turn a JD into a scoring rubric', icon: 'sliders', badge: '' },
       ],
     },
+    {
+      title: 'Analytics',
+      items: [
+        { href: '/free-tools/hiring-analytics-spreadsheet', label: 'ATS Spreadsheet', description: 'Spreadsheet template', icon: 'volume' },
+      ],
+    },
   ],
   featured: {
     eyebrow: 'Free',

@@ -48,6 +48,9 @@ export type ToolDetail = {
   /** The interactive app this page funnels into, e.g. "/free-tools/jd-generator". */
   appHref: string;
 
+  /** Defaults to SoftwareApplication; use DigitalDocument for downloadable files/templates. */
+  schemaType?: 'SoftwareApplication' | 'DigitalDocument';
+
   meta: {
     title: string;
     description: string;

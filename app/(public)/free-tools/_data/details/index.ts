@@ -2,6 +2,7 @@ import type { ToolDetail } from './types';
 import { resumeScreening } from './resume-screening';
 import { generateRubric } from './generate-rubric';
 import { jobDescriptionGenerator } from './job-description-generator';
+import { hiringAnalyticsSpreadsheet } from './hiring-analytics-spreadsheet';
 
 /**
  * Registry of all dedicated tool detail pages keyed by slug.
@@ -12,6 +13,7 @@ const TOOL_DETAILS: Record<string, ToolDetail> = {
   [resumeScreening.slug]: resumeScreening,
   [generateRubric.slug]: generateRubric,
   [jobDescriptionGenerator.slug]: jobDescriptionGenerator,
+  [hiringAnalyticsSpreadsheet.slug]: hiringAnalyticsSpreadsheet,
 };
 
 export const getToolDetailSlugs = (): string[] => Object.keys(TOOL_DETAILS);

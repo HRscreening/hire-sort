@@ -40,17 +40,29 @@ const buildJsonLd = (tool: ToolDetail) => {
   const pageUrl = absUrl(`/free-tools/${tool.slug}`);
   const ogImage = absUrl(tool.meta.ogImage ?? '/logo.png');
 
-  const software = {
-    '@context': 'https://schema.org',
-    '@type': 'SoftwareApplication',
-    name: tool.name,
-    applicationCategory: 'BusinessApplication',
-    operatingSystem: 'Web',
-    description: tool.meta.description,
-    url: pageUrl,
-    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-    provider: { '@type': 'Organization', name: 'HireSort', url: SITE_URL },
-  };
+  const primaryEntity =
+    tool.schemaType === 'DigitalDocument'
+      ? {
+          '@context': 'https://schema.org',
+          '@type': 'DigitalDocument',
+          name: tool.name,
+          description: tool.meta.description,
+          url: pageUrl,
+          encodingFormat: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+          isAccessibleForFree: true,
+          provider: { '@type': 'Organization', name: 'HireSort', url: SITE_URL },
+        }
+      : {
+          '@context': 'https://schema.org',
+          '@type': 'SoftwareApplication',
+          name: tool.name,
+          applicationCategory: 'BusinessApplication',
+          operatingSystem: 'Web',
+          description: tool.meta.description,
+          url: pageUrl,
+          offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+          provider: { '@type': 'Organization', name: 'HireSort', url: SITE_URL },
+        };
 
   const faq = {
     '@context': 'https://schema.org',
@@ -81,7 +93,7 @@ const buildJsonLd = (tool: ToolDetail) => {
     },
   };
 
-  return [software, faq, webPage];
+  return [primaryEntity, faq, webPage];
 };
 
 const CtaButton = ({
