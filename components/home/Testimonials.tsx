@@ -56,7 +56,7 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <section className="overflow-hidden py-25 px-18">
+    <section className="overflow-hidden mx-auto max-w-300 px-6 pb-30 pt-10">
       <div className="mx-auto mb-12 max-w-150 px-6 text-center">
         <h2 className="mb-3 text-[clamp(28px,4vw,40px)] font-extrabold leading-[1.15] tracking-[-1px] text-charcoal">
           Loved by <span className="text-accent">recruiters</span> everywhere

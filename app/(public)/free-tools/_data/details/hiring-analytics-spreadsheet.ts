@@ -1,12 +1,12 @@
 import type { ToolDetail } from './types';
 
-const DOWNLOAD_HREF = '/hiring_analytics_tool/Hiring%20Analytics.xlsx';
+const DOWNLOAD_HREF = '/hiring_analytics_tool/Hiring%20ATS%20Spreadsheet.xlsx';
 
 export const hiringAnalyticsSpreadsheet: ToolDetail = {
   slug: 'hiring-analytics-spreadsheet',
   name: 'Hiring Analytics Spreadsheet',
   publishedAt: '2026-06-11',
-  updatedAt: '2026-06-11',
+  updatedAt: '2026-06-17',
   appHref: DOWNLOAD_HREF,
   schemaType: 'DigitalDocument',
 
@@ -31,7 +31,9 @@ export const hiringAnalyticsSpreadsheet: ToolDetail = {
     titleAccent: 'hiring analytics dashboard',
     titleSuffix: 'for Excel',
     lead: 'Use this free workbook to track open requisitions, candidate movement, interviews, recruiter workload, source performance, and hiring bottlenecks in one spreadsheet. It includes a dashboard plus structured tabs for requisitions, pipeline data, reference values, today\'s interviews, and recommendations.',
-    ctaLabel: 'Download the Excel file',
+    ctaLabel: 'Download Excel Template',
+    secondaryCtaLabel: 'Read the User Guide',
+    secondaryCtaHref: '/hiring_analytics_tool/Workbook%20Guide.pdf',
   },
 
   intro: [
@@ -54,6 +56,40 @@ export const hiringAnalyticsSpreadsheet: ToolDetail = {
       {
         title: 'Review the dashboard and act',
         body: 'Open the Dashboard and Recommendations tabs to review funnel drop-offs, stale candidates, open roles, recruiter workload, source effectiveness, priority distribution, and bottleneck alerts.',
+      },
+    ],
+  },
+
+  guide: {
+    title: 'Getting Started',
+    intro:
+      'The spreadsheet is designed as a lightweight applicant tracking system. Follow this workflow to keep hiring data accurate and dashboard metrics reliable.',
+
+    sections: [
+      {
+        title: '1. Start with requisitions',
+        body:
+          'Create or update every open role in the Requisitions tab. Capture role title, department, hiring manager, recruiter, priority, location, budget, target close date, status, and comments. Each requisition should have a unique Req ID that is reused throughout the workbook.',
+      },
+      {
+        title: '2. Add candidates to the pipeline',
+        body:
+          'Enter candidates in the Candidate Pipeline tab and connect them to the correct Req ID. Track source, recruiter ownership, interview dates, stage outcomes, offer status, joining status, and notes.',
+      },
+      {
+        title: '3. Update stages consistently',
+        body:
+          'Use the predefined dropdown values for Screening, Interview Rounds, Offer Status, and Joining Status. Dashboard calculations depend on consistent values, so avoid custom spellings or manually typed alternatives.',
+      },
+      {
+        title: '4. Record dates for every completed stage',
+        body:
+          'Whenever a candidate clears or exits a stage, update the corresponding date column. This powers the Today’s Interviews sheet and helps measure time spent in each stage.',
+      },
+      {
+        title: '5. Review dashboard insights weekly',
+        body:
+          'Use the dashboard to monitor open positions, stale candidates, funnel conversion, recruiter workload, pending offers, source performance, and bottlenecks across active requisitions.',
       },
     ],
   },
@@ -101,7 +137,44 @@ export const hiringAnalyticsSpreadsheet: ToolDetail = {
     ],
   },
 
+  bestPractices: {
+    title: 'Best practices for maintaining a hiring tracker',
+    items: [
+      'Always use the dropdown values provided in the workbook instead of typing custom stage names.',
+      'Keep Req IDs consistent between the Requisitions and Candidate Pipeline tabs.',
+      'Update candidate stages immediately after screening calls and interviews.',
+      'Record interview dates to keep the Today’s Interviews view accurate.',
+      'Avoid editing formula-driven dashboard cells or calculated columns.',
+      'Review stale candidates and open requisitions every week to identify bottlenecks.',
+      'Update offer and joining status as soon as decisions are made so hiring metrics remain accurate.',
+    ],
+  },
+
   faqs: [
+    {
+      question: 'How do I track candidates through interview stages?',
+      answer: [
+        'Use the Candidate Pipeline tab and update each candidate through Screening, Round 1, Round 2, Round 3, Final Round, HR Round, Offer Status, and Joining Status. Record dates for completed stages to keep dashboard metrics accurate.',
+      ],
+    },
+    {
+      question: 'Why are dashboard numbers incorrect?',
+      answer: [
+        'The most common causes are mismatched Req IDs or stage values entered outside the workbook dropdowns. Use the predefined options and ensure every candidate is linked to the correct requisition.',
+      ],
+    },
+    {
+      question: 'Can I customize interview stages and dropdown values?',
+      answer: [
+        'Yes. Update the Reference Data sheet before adding new values. If you change stage names, ensure any dependent formulas, dashboards, and validations are updated as well.',
+      ],
+    },
+    {
+      question: 'Does the workbook include an interview schedule view?',
+      answer: [
+        'Yes. The Today’s Interviews sheet automatically displays interviews scheduled for today and the following two days based on dates entered in the Candidate Pipeline tab.',
+      ],
+    },
     {
       question: 'What is included in the hiring analytics Excel template?',
       answer: [

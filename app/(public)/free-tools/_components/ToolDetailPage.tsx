@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { ArrowRight, Check, Wrench } from 'lucide-react';
+import { ArrowRight, Check, Wrench,Link as LinkIcon } from 'lucide-react';
 import { PageHero } from '@/components/layout/PageHero';
 import Breadcrumb from '@/components/layout/Breadcrumb';
 import { breadcrumbJsonLd, jsonLdString, SITE_URL } from '@/lib/seo';
@@ -43,26 +43,26 @@ const buildJsonLd = (tool: ToolDetail) => {
   const primaryEntity =
     tool.schemaType === 'DigitalDocument'
       ? {
-          '@context': 'https://schema.org',
-          '@type': 'DigitalDocument',
-          name: tool.name,
-          description: tool.meta.description,
-          url: pageUrl,
-          encodingFormat: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-          isAccessibleForFree: true,
-          provider: { '@type': 'Organization', name: 'HireSort', url: SITE_URL },
-        }
+        '@context': 'https://schema.org',
+        '@type': 'DigitalDocument',
+        name: tool.name,
+        description: tool.meta.description,
+        url: pageUrl,
+        encodingFormat: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+        isAccessibleForFree: true,
+        provider: { '@type': 'Organization', name: 'HireSort', url: SITE_URL },
+      }
       : {
-          '@context': 'https://schema.org',
-          '@type': 'SoftwareApplication',
-          name: tool.name,
-          applicationCategory: 'BusinessApplication',
-          operatingSystem: 'Web',
-          description: tool.meta.description,
-          url: pageUrl,
-          offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-          provider: { '@type': 'Organization', name: 'HireSort', url: SITE_URL },
-        };
+        '@context': 'https://schema.org',
+        '@type': 'SoftwareApplication',
+        name: tool.name,
+        applicationCategory: 'BusinessApplication',
+        operatingSystem: 'Web',
+        description: tool.meta.description,
+        url: pageUrl,
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+        provider: { '@type': 'Organization', name: 'HireSort', url: SITE_URL },
+      };
 
   const faq = {
     '@context': 'https://schema.org',
@@ -119,6 +119,16 @@ const CtaButton = ({
   </Link>
 );
 
+const SecondaryCtaButton = ({ href, label }: { href: string; label: string }) => (
+  <Link
+    href={href}
+    className="inline-flex h-12 w-fit items-center gap-2 rounded-full border border-charcoal px-7 text-[14.5px] font-semibold no-underline text-charcoal transition-colors hover:bg-charcoal hover:text-ivory"
+  >
+    {label}
+    <LinkIcon size={16} strokeWidth={2.5} />
+  </Link>
+);
+
 const ToolDetailPage = ({ tool }: { tool: ToolDetail }) => {
   const crumbTrail = [
     { name: 'Free tools', path: '/free-tools' },
@@ -126,6 +136,8 @@ const ToolDetailPage = ({ tool }: { tool: ToolDetail }) => {
   ];
   const crumbs = breadcrumbJsonLd(crumbTrail);
   const schemas = buildJsonLd(tool);
+
+  const isSecondaryCta = !!(tool.hero.secondaryCtaLabel && tool.hero.secondaryCtaHref);
 
   return (
     <>
@@ -157,7 +169,12 @@ const ToolDetailPage = ({ tool }: { tool: ToolDetail }) => {
         }
         lead={tool.hero.lead}
       >
-        <CtaButton href={tool.appHref} label={tool.hero.ctaLabel} />
+        <div className={'flex flex-col justify-center items-center gap-4 ' + (isSecondaryCta ? 'sm:flex-row' : '')}>
+          {tool.hero.secondaryCtaLabel && tool.hero.secondaryCtaHref && (
+            <SecondaryCtaButton href={tool.hero.secondaryCtaHref} label={tool.hero.secondaryCtaLabel}/>
+          )}
+          <CtaButton href={tool.appHref} label={tool.hero.ctaLabel} />
+        </div>
       </PageHero>
 
       {/* Intro */}
@@ -197,6 +214,39 @@ const ToolDetailPage = ({ tool }: { tool: ToolDetail }) => {
         </ol>
       </section>
 
+      {/* Guide */}
+      {
+        tool.guide && (
+          <section className="mx-auto max-w-300 px-6 pt-12 pb-4">
+            <h2 className="text-[26px] font-extrabold tracking-[-0.6px] text-charcoal">
+              {tool.guide.title}
+            </h2>
+            {tool.guide.intro && (
+              <p className="mt-2 max-w-2xl text-[15px] leading-[1.65] text-charcoal-lt">
+                {tool.guide.intro}
+              </p>
+            )}
+            <ul className="mt-6 grid list-none grid-cols-1 gap-5 p-0 sm:grid-cols-2">
+              {tool.guide.sections.map((s, i) => (
+                <li key={i} className='rounded-3xl border border-line-soft bg-white p-6 shadow-soft'>
+                  <h3 className="text-[18px] font-bold tracking-[-0.3px] text-charcoal">{s.title}</h3>
+                  {typeof s.body === 'string' ? (
+                    <p className="mt-2 text-[14.5px] leading-[1.6] text-charcoal-lt">{s.body}</p>
+                  ) : (
+                    s.body.map((b, j) => (
+                      <p key={j} className="mt-2 text-[14.5px] leading-[1.6] text-charcoal-lt">
+                        {b}
+                      </p>
+                    ))
+                  )}
+                </li>
+              ))}
+            </ul>
+          </section>
+        )
+
+      }
+
       {/* Features */}
       <section className="mx-auto max-w-300 px-6 pt-12 pb-4">
         <h2 className="text-[26px] font-extrabold tracking-[-0.6px] text-charcoal">
@@ -220,6 +270,22 @@ const ToolDetailPage = ({ tool }: { tool: ToolDetail }) => {
         </ul>
       </section>
 
+      {/* BestPractices */}
+      {tool.bestPractices && (
+        <section className="mx-auto max-w-300 px-6 pt-12 pb-4">
+          <h2 className="text-[26px] font-extrabold tracking-[-0.6px] text-charcoal">
+            {tool.bestPractices.title}
+          </h2>
+          <ul className="mt-6 list-inside list-disc">
+            {tool.bestPractices.items.map((item, i) => (
+              <li key={i} className="mt-2 text-[14.5px] leading-[1.55] text-charcoal-lt">
+                {item}
+              </li>
+            ))}
+          </ul>
+        </section>
+
+      )}
       {/* When to use */}
       <section className="mx-auto max-w-300 px-6 pt-12 pb-4">
         <div className="rounded-3xl border border-line-soft bg-ivory-light p-7 sm:p-9">

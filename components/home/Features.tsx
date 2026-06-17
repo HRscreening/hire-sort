@@ -66,7 +66,7 @@ const featureTextCopyClass = 'mb-6 text-[15.5px] leading-[1.7] text-charcoal-lt'
 
 const Features = () => {
   return (
-    <section id="features" className="mx-auto max-w-275 overflow-x-clip px-4 pt-20 pb-30">
+    <section id="features" className="mx-auto max-w-275  px-4 pt-20 pb-30">
       <motion.div
         initial="hidden"
         whileInView="show"

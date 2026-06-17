@@ -33,6 +33,7 @@ const columns: FooterColumn[] = [
       { label: 'Resume Screening Tool', to: '/free-tools/resume-screening' },
       { label: 'Rubric Generator', to: '/free-tools/generate-rubric' },
       { label: 'Job Description Generator', to: '/free-tools/job-description-generator' },
+      { label: 'Hiring Analytics Spreadsheet', to: '/free-tools/hiring-analytics-spreadsheet' },
     ],
   },
   {

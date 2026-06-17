@@ -57,13 +57,22 @@ export default function LoginCtaBar({
         </p>
 
         {/* Right — sign in */}
-        <Link
-          href={href}
-          className="inline-flex h-9 shrink-0 items-center gap-1.5 rounded-full bg-charcoal px-4 text-[13px] font-semibold text-ivory no-underline transition-colors hover:bg-accent sm:px-5"
-        >
-          {isLoggedIn ? "Go to dashboard" : "Log in"}
-          <ArrowRight className="h-3.5 w-3.5" />
-        </Link>
+
+        <div className="flex items-center justify-end gap-2">
+          <Link
+            href={"/contact"}
+            className="mr-4 inline-flex h-8 items-center rounded-full bg-charcoal px-3 text-[13px] font-semibold text-ivory no-underline transition-colors hover:bg-accent"
+          >
+            Book a Demo
+          </Link>
+          <Link
+            href={href}
+            className="inline-flex h-9 shrink-0 items-center gap-1.5 rounded-full bg-charcoal px-4 text-[13px] font-semibold text-ivory no-underline transition-colors hover:bg-accent sm:px-5"
+          >
+            {isLoggedIn ? "Go to dashboard" : "Log in"}
+            <ArrowRight className="h-3.5 w-3.5" />
+          </Link>
+        </div>
       </div>
     </motion.header>
   );

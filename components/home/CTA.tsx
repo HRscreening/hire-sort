@@ -24,20 +24,20 @@ const CTA = () => {
       whileInView="show"
       viewport={{ once: true, amount: 0.35 }}
       variants={container}
-      className="mx-auto w-full px-10 md:px-30 pt-20 pb-30 text-center flex md:flex-row justify-between items-center gap-10"
+      className="mx-auto w-full px-10 lg:px-30 pt-20 pb-30 text-center flex flex-col-reverse lg:flex-row justify-between items-center gap-10"
     >
-      <div className="w-full md:w-1/2 h-full flex flex-col justify-center items-start">
+      <div className="w-full lg:w-1/2 h-full flex flex-col justify-center item-center lg:items-start">
 
 
         <motion.h2
           variants={item}
-          className="mb-5 text-left text-[clamp(32px,5vw,48px)] font-extrabold leading-[1.12] tracking-[-1.5px] text-charcoal"
+          className="mb-5 text-center lg:text-left text-[clamp(32px,5vw,48px)] font-extrabold leading-[1.12] tracking-[-1.5px] text-charcoal"
         >
           Stop reading resumes.
           <br />
           Start <span className="text-accent">finding talent</span>.
         </motion.h2>
-        <motion.p variants={item} className="text-left mb-9 text-[17px] leading-[1.6] text-charcoal-lt">
+        <motion.p variants={item} className="text-center lg:text-left mb-9 text-[17px] leading-[1.6] text-charcoal-lt">
           Upload your first batch and see ranked results in under 90 seconds. Free to start, no credit card required.
         </motion.p>
         <motion.div
@@ -45,7 +45,7 @@ const CTA = () => {
           whileHover={{ scale: 1.06, y: -3 }}
           whileTap={{ scale: 0.97 }}
           transition={{ type: 'spring', stiffness: 360, damping: 18 }}
-          className='flex flex-row justify-start'
+          className='flex flex-row justify-center lg:justify-start'
         >
           <a
             href={redirectURL}
