@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Check, ArrowRight, Briefcase, GraduationCap, MapPin, PlayCircle } from 'lucide-react';
 import { motion, type Variants } from 'framer-motion';
 import { trackCTAClick } from '@/lib/google_analytics_tracker';
+import Image from 'next/image';
 
 const main_app_url = process.env.NEXT_PUBLIC_MAIN_APP_URL || 'http://localhost:3000';
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -122,7 +123,7 @@ const Hero = () => {
           transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
           whileHover={{ scale: 1.04, rotate: 1, transition: { type: 'spring', stiffness: 260, damping: 18 } }}
         >
-          <div className={floatCardClass}>
+          {/* <div className={floatCardClass}>
             <div className={floatLabelClass}>Top Candidate</div>
             <div className="mb-3 flex items-center gap-2">
               <div className="flex h-8 w-8 items-center justify-center rounded-full bg-linear-to-br from-[#E8D5C0] to-[#D4B896] text-[11px] font-bold text-charcoal-md">
@@ -163,7 +164,15 @@ const Hero = () => {
             >
               Best Fit
             </motion.div>
-          </div>
+          </div> */}
+
+          <Image
+          src="/appScreenshots/12_Resume ranked list.png"
+          alt="Screenshot of HireSort ranked candidate list with AI match scores and insights"
+          width={300}
+          height={250}
+          className="rounded-lg border border-line-soft object-cover shadow-lg"
+          />
         </motion.div>
       </motion.div>
 
@@ -212,10 +221,7 @@ const Hero = () => {
       </motion.div>
 
       {/* Badge */}
-      <div className="relative z-3 mb-7 inline-flex items-center gap-2 rounded-full border border-[rgba(200,90,23,0.12)] bg-[rgba(0,0,0,0.05)] px-4 py-1.5 text-[13px] font-semibold text-copper">
-        <span className="h-[7px] w-[7px] animate-pulse rounded-full bg-copper" />
-        AI resume screening software
-      </div>
+      
 
       <h1 className="relative z-3 mx-auto mb-5 max-w-180 text-[clamp(36px,5.5vw,58px)] font-extrabold leading-[1.12] tracking-[-1.5px] text-charcoal">
         AI resume screening that ranks candidates in <span className="text-accent">seconds</span>

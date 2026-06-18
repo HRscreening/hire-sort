@@ -48,6 +48,9 @@ export type ToolDetail = {
   /** The interactive app this page funnels into, e.g. "/free-tools/jd-generator". */
   appHref: string;
 
+  /** Defaults to SoftwareApplication; use DigitalDocument for downloadable files/templates. */
+  schemaType?: 'SoftwareApplication' | 'DigitalDocument';
+
   meta: {
     title: string;
     description: string;
@@ -65,6 +68,8 @@ export type ToolDetail = {
     lead: string;
     /** Primary button label (the button launches `appHref`). */
     ctaLabel: string;
+    secondaryCtaLabel?: string;
+    secondaryCtaHref?: string;
   };
 
   /** Long-form intro paragraphs — the main crawlable body. */
@@ -76,6 +81,15 @@ export type ToolDetail = {
     steps: ToolDetailStep[];
   };
 
+  guide?:{
+    title: string;
+    intro?: string;
+    sections:{
+      title: string;
+      body: string | string[];
+    }[]
+  };
+
   features: {
     title: string;
     intro?: string;
@@ -83,6 +97,11 @@ export type ToolDetail = {
   };
 
   whenToUse: {
+    title: string;
+    items: string[];
+  };
+
+  bestPractices?: {
     title: string;
     items: string[];
   };

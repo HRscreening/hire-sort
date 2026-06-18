@@ -197,6 +197,12 @@ const toolsMega: MegaConfig = {
         { href: '/free-tools/rubric-generator', label: 'Rubric Generator', description: 'Turn a JD into a scoring rubric', icon: 'sliders', badge: '' },
       ],
     },
+    {
+      title: 'Analytics',
+      items: [
+        { href: '/free-tools/hiring-analytics-spreadsheet', label: 'ATS Spreadsheet', description: 'Spreadsheet template', icon: 'volume' },
+      ],
+    },
   ],
   featured: {
     eyebrow: 'Free',
@@ -348,7 +354,7 @@ const Navbar = () => {
         className="sticky top-0 z-100 border-b border-line-soft bg-ivory/95 backdrop-blur-xl"
         onMouseLeave={scheduleClose}
       >
-        <div className="mx-auto grid h-17 max-w-300 grid-cols-[auto_1fr_auto] items-center gap-6 px-6">
+        <div className="mx-auto grid h-17 max-w-315 grid-cols-[auto_1fr_auto] items-center gap-4 px-6">
           <motion.div
             initial={{ opacity: 0, x: -12 }}
             animate={{ opacity: 1, x: 0 }}
@@ -555,7 +561,7 @@ const Navbar = () => {
             })}
           </motion.div>
 
-          <div className="flex items-center gap-2 justify-self-end">
+          <div className="w-fit flex items-center gap-10 justify-self-end">
             <motion.div
               initial={{ opacity: 0, x: 12 }}
               animate={{ opacity: 1, x: 0 }}
@@ -564,6 +570,12 @@ const Navbar = () => {
               whileTap={{ scale: 0.97 }}
               className="hidden md:block"
             >
+              <Link
+                href={"/contact"}
+                className="mr-4 inline-flex h-8 items-center rounded-full bg-charcoal px-3 text-[13px] font-semibold text-ivory no-underline transition-colors hover:bg-accent"
+              >
+                Book a Demo
+              </Link>
               <Link
                 href={dashboardHref}
                 className="inline-flex h-8 items-center rounded-full bg-charcoal px-4 text-[13px] font-semibold text-ivory no-underline transition-colors hover:bg-accent"
@@ -713,6 +725,15 @@ const Navbar = () => {
                   >
                     Contact
                   </Link>
+
+                  <Link
+                    href={"/contact"}
+                    onClick={() => setOpen(false)}
+                    className="mt-3 inline-flex h-11 items-center justify-center rounded-full bg-charcoal px-5 text-[14.5px] font-semibold text-ivory no-underline transition-colors hover:bg-accent"
+                  >
+                    Book a Demo
+                  </Link>
+
                   <Link
                     href={dashboardHref}
                     onClick={() => setOpen(false)}

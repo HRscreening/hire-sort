@@ -124,12 +124,21 @@ export default function UploadFlow({ config }: UploadFlowProps) {
             <StepPill index={2} label="resume" active={jdReady} done={resumeReady} />
           </div>
 
-          <a
-            href={`${MAIN_APP_URL}/login`}
-            className="inline-flex h-8 items-center rounded-full bg-charcoal px-4 text-[13px] font-semibold text-ivory no-underline transition-colors hover:bg-accent shrink-0 justify-self-end"
-          >
-            Log in
-          </a>
+          <div className="flex items-center justify-end gap-2 justify-self-end">
+            <Link
+              href={"/contact"}
+              className="mr-4 inline-flex h-8 items-center rounded-full bg-charcoal px-3 text-[13px] font-semibold text-ivory no-underline transition-colors hover:bg-accent"
+            >
+              Book a Demo
+            </Link>
+
+            <a
+              href={`${MAIN_APP_URL}/login`}
+              className="inline-flex h-8 items-center rounded-full bg-charcoal px-4 text-[13px] font-semibold text-ivory no-underline transition-colors hover:bg-accent shrink-0 justify-self-end"
+            >
+              Log in
+            </a>
+          </div>
         </div>
       </header>
 
@@ -207,7 +216,7 @@ export default function UploadFlow({ config }: UploadFlowProps) {
               }
             />
 
-         
+
 
             <div
               aria-disabled={!jdReady}
@@ -237,7 +246,7 @@ export default function UploadFlow({ config }: UploadFlowProps) {
               />
             </div>
 
-               {!jdReady && (
+            {!jdReady && (
               <div className="my-4 flex items-center gap-2 rounded-xl border border-line bg-ivory-medium px-3.5 py-2.5 text-xs text-charcoal-lt">
                 <Lock className="h-3.5 w-3.5 shrink-0" />
                 Add a job description first to unlock resume scoring.
@@ -346,18 +355,16 @@ function StepPill({
 }) {
   return (
     <div
-      className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold transition-colors ${
-        done
-          ? "bg-success-bg text-success border border-success/30"
-          : active
-            ? "bg-copper text-white"
-            : "bg-ivory-medium text-charcoal-xlt border border-line"
-      }`}
+      className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold transition-colors ${done
+        ? "bg-success-bg text-success border border-success/30"
+        : active
+          ? "bg-copper text-white"
+          : "bg-ivory-medium text-charcoal-xlt border border-line"
+        }`}
     >
       <span
-        className={`h-4 w-4 rounded-full inline-flex items-center justify-center text-[10px] ${
-          done ? "bg-success text-white" : active ? "bg-white text-charcoal" : "bg-line text-white"
-        }`}
+        className={`h-4 w-4 rounded-full inline-flex items-center justify-center text-[10px] ${done ? "bg-success text-white" : active ? "bg-white text-charcoal" : "bg-line text-white"
+          }`}
       >
         {done ? <Check className="h-2.5 w-2.5" strokeWidth={3} /> : index}
       </span>
@@ -383,11 +390,10 @@ function SummaryChip({
 
   return (
     <span
-      className={`inline-flex items-center gap-1.5 max-w-[12rem] sm:max-w-[16rem] px-2.5 py-1.5 rounded-lg border text-xs font-medium ${
-        ready
-          ? "bg-success-bg border-success/30 text-success"
-          : "bg-ivory-medium border-line text-charcoal-xlt"
-      }`}
+      className={`inline-flex items-center gap-1.5 max-w-[12rem] sm:max-w-[16rem] px-2.5 py-1.5 rounded-lg border text-xs font-medium ${ready
+        ? "bg-success-bg border-success/30 text-success"
+        : "bg-ivory-medium border-line text-charcoal-xlt"
+        }`}
     >
       <span className="shrink-0">
         {ready ? (
@@ -548,23 +554,21 @@ function SourceBox({
             type="button"
             onClick={onSelectSample}
             disabled={sampleDisabled}
-            className={`w-full text-left rounded-xl border-2 p-3.5 transition-colors ${
-              sampleDisabled
-                ? "border-line bg-ivory-medium opacity-60 cursor-not-allowed"
-                : sampleActive
-                  ? "border-accent bg-accent/5"
-                  : "border-line bg-white hover:border-charcoal-xlt"
-            }`}
+            className={`w-full text-left rounded-xl border-2 p-3.5 transition-colors ${sampleDisabled
+              ? "border-line bg-ivory-medium opacity-60 cursor-not-allowed"
+              : sampleActive
+                ? "border-accent bg-accent/5"
+                : "border-line bg-white hover:border-charcoal-xlt"
+              }`}
           >
             <div className="flex items-center gap-3">
               <div
-                className={`h-10 w-10 rounded-xl flex items-center justify-center shrink-0 ${
-                  sampleDisabled
-                    ? "bg-line text-charcoal-xlt"
-                    : sampleActive
-                      ? "bg-accent/15 text-accent"
-                      : "bg-ivory-medium text-charcoal-lt"
-                }`}
+                className={`h-10 w-10 rounded-xl flex items-center justify-center shrink-0 ${sampleDisabled
+                  ? "bg-line text-charcoal-xlt"
+                  : sampleActive
+                    ? "bg-accent/15 text-accent"
+                    : "bg-ivory-medium text-charcoal-lt"
+                  }`}
               >
                 {sampleDisabled ? <Lock className="h-4 w-4" /> : <Sparkles className="h-5 w-5" />}
               </div>
@@ -576,9 +580,8 @@ function SourceBox({
               </div>
               {!sampleDisabled && (
                 <span
-                  className={`h-5 w-5 rounded-full border-2 flex items-center justify-center shrink-0 ${
-                    sampleActive ? "border-accent bg-accent" : "border-line"
-                  }`}
+                  className={`h-5 w-5 rounded-full border-2 flex items-center justify-center shrink-0 ${sampleActive ? "border-accent bg-accent" : "border-line"
+                    }`}
                 >
                   {sampleActive && <Check className="h-3 w-3 text-white" strokeWidth={3} />}
                 </span>
