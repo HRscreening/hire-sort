@@ -120,13 +120,14 @@ const CtaButton = ({
 );
 
 const SecondaryCtaButton = ({ href, label }: { href: string; label: string }) => (
-  <Link
+  <a
     href={href}
+    target='_blank'
     className="inline-flex h-12 w-fit items-center gap-2 rounded-full border border-charcoal px-7 text-[14.5px] font-semibold no-underline text-charcoal transition-colors hover:bg-charcoal hover:text-ivory"
   >
     {label}
     <LinkIcon size={16} strokeWidth={2.5} />
-  </Link>
+  </a>
 );
 
 const ToolDetailPage = ({ tool }: { tool: ToolDetail }) => {
