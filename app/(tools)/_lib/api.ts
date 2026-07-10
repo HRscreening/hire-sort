@@ -60,7 +60,7 @@ export const SCREENING_CONFIG: ToolConfig = {
   key: "screening",
   scoreEndpoint: "/api/v1/screening",
   sessionEndpoint: "/api/v1/session",
-  resultBase: "/tools/screening",
+  resultBase: "/free-tools/screening",
   allowSample: false,
   headers: {
     sessionId: "X-Screen-Session-Id",
