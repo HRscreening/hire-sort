@@ -98,6 +98,12 @@ export const softwareEngineer: ScreeningRubricPage = {
 
   howHireSortHelps: standardHowHireSortHelps,
   faqs: buildStandardFaqs('software engineer'),
-  internalLinks: buildInternalLinks('software-engineer'),
+  internalLinks: [
+    {
+      href: '/resources/hiring-guides/software-engineer',
+      label: 'Software Engineer Hiring Guide',
+    },
+    ...buildInternalLinks('software-engineer'),
+  ],
   cta: buildStandardCta('software engineer'),
 };

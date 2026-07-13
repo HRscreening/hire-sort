@@ -101,6 +101,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+@media (min-width: 1280px) {
+  body.hiring-guide-detail-page footer {
+    margin-left: 240px;
+    max-width: calc(100vw - 240px);
+  }
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;

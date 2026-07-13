@@ -6,6 +6,7 @@ import {
   Briefcase,
   ClipboardCheck,
   GitCompare,
+  GraduationCap,
   Library,
   MessageSquare,
   SlidersHorizontal,
@@ -91,6 +92,15 @@ const cards: ResourceCard[] = [
       'Side-by-side comparisons with popular ATS platforms, resume parsers and spreadsheet-based workflows.',
     highlights: ['vs Workable', 'vs spreadsheets', 'Alternatives'],
     icon: <GitCompare size={22} strokeWidth={2.2} />,
+  },
+  {
+    href: '/resources/hiring-guides',
+    eyebrow: 'Role guides',
+    title: 'Role hiring guides',
+    description:
+      'Practical role guides that put the useful parts first — screening checklists, interview questions, scorecards, work samples and free tools.',
+    highlights: ['Screening checklist', 'Interview questions', 'Scorecards'],
+    icon: <GraduationCap size={22} strokeWidth={2.2} />,
   },
   {
     href: '/resources/job-descriptions',

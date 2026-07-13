@@ -108,5 +108,11 @@ export const businessDevelopmentExecutive: JobDescriptionPage = {
   howHireSortHelps: standardHowHireSortHelps,
   cta: buildStandardCta('Business Development Executive'),
   faqs: buildStandardFaqs('Business Development Executive', 'business development executive'),
-  internalLinks: standardInternalLinks,
+  internalLinks: [
+    {
+      href: '/resources/hiring-guides/business-development-executive',
+      label: 'Business Development Executive Hiring Guide',
+    },
+    ...standardInternalLinks,
+  ],
 };

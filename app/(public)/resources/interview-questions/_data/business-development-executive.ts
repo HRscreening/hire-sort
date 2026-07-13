@@ -125,6 +125,12 @@ export const businessDevelopmentExecutive: InterviewQuestionsPage = {
   },
 
   faqs: buildStandardFaqs('Business Development Executive', 'business development executive'),
-  internalLinks: buildInternalLinks('business-development-executive'),
+  internalLinks: [
+    {
+      href: '/resources/hiring-guides/business-development-executive',
+      label: 'Business Development Executive Hiring Guide',
+    },
+    ...buildInternalLinks('business-development-executive'),
+  ],
   cta: buildStandardCta('Business Development Executive'),
 };

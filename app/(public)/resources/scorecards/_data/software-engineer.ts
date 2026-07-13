@@ -87,6 +87,12 @@ export const softwareEngineer: ScorecardPage = {
 
   howHireSortHelps: buildHowHireSortHelps('software engineer'),
   faqs: buildStandardFaqs('software engineer'),
-  internalLinks: buildInternalLinks('software-engineer'),
+  internalLinks: [
+    {
+      href: '/resources/hiring-guides/software-engineer',
+      label: 'Software Engineer Hiring Guide',
+    },
+    ...buildInternalLinks('software-engineer'),
+  ],
   cta: buildStandardCta('software engineer'),
 };

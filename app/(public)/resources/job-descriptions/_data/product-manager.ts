@@ -108,5 +108,11 @@ export const productManager: JobDescriptionPage = {
   howHireSortHelps: standardHowHireSortHelps,
   cta: buildStandardCta('Product Manager'),
   faqs: buildStandardFaqs('Product Manager', 'product manager'),
-  internalLinks: standardInternalLinks,
+  internalLinks: [
+    {
+      href: '/resources/hiring-guides/product-manager',
+      label: 'Product Manager Hiring Guide',
+    },
+    ...standardInternalLinks,
+  ],
 };

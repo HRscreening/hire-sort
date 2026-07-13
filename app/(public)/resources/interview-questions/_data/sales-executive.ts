@@ -125,6 +125,12 @@ export const salesExecutive: InterviewQuestionsPage = {
   },
 
   faqs: buildStandardFaqs('Sales Executive', 'sales executive'),
-  internalLinks: buildInternalLinks('sales-executive'),
+  internalLinks: [
+    {
+      href: '/resources/hiring-guides/sales-executive',
+      label: 'Sales Executive Hiring Guide',
+    },
+    ...buildInternalLinks('sales-executive'),
+  ],
   cta: buildStandardCta('Sales Executive'),
 };

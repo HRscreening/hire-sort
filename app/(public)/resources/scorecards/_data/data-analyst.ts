@@ -87,6 +87,9 @@ export const dataAnalyst: ScorecardPage = {
 
   howHireSortHelps: buildHowHireSortHelps('data analyst'),
   faqs: buildStandardFaqs('data analyst'),
-  internalLinks: buildInternalLinks('data-analyst'),
+  internalLinks: [
+    { href: '/resources/hiring-guides/data-analyst', label: 'Data Analyst Hiring Guide' },
+    ...buildInternalLinks('data-analyst'),
+  ],
   cta: buildStandardCta('data analyst'),
 };

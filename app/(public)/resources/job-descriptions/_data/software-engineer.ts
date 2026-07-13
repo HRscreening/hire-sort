@@ -108,5 +108,11 @@ export const softwareEngineer: JobDescriptionPage = {
   howHireSortHelps: standardHowHireSortHelps,
   cta: buildStandardCta('Software Engineer'),
   faqs: buildStandardFaqs('Software Engineer', 'software engineer'),
-  internalLinks: standardInternalLinks,
+  internalLinks: [
+    {
+      href: '/resources/hiring-guides/software-engineer',
+      label: 'Software Engineer Hiring Guide',
+    },
+    ...standardInternalLinks,
+  ],
 };

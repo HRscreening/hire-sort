@@ -165,6 +165,7 @@ const resourcesMega: MegaConfig = {
     {
       title: 'Templates',
       items: [
+        { href: '/resources/hiring-guides', label: 'Hiring guides', description: 'Checklist, questions, scorecards', icon: 'award' },
         { href: '/resources/job-descriptions', label: 'Job descriptions', description: 'Browse every role', icon: 'doc' },
         { href: '/resources/interview-questions', label: 'Interview questions', description: 'Structured by role', icon: 'users' },
         { href: '/resources/scorecards', label: 'Scorecards', description: 'Evaluate by role', icon: 'award' },

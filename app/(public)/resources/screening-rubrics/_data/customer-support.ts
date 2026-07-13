@@ -96,6 +96,9 @@ export const customerSupport: ScreeningRubricPage = {
 
   howHireSortHelps: standardHowHireSortHelps,
   faqs: buildStandardFaqs('customer support'),
-  internalLinks: buildInternalLinks('customer-support'),
+  internalLinks: [
+    { href: '/resources/hiring-guides/customer-support-specialist', label: 'Customer Support Specialist Hiring Guide' },
+    ...buildInternalLinks('customer-support'),
+  ],
   cta: buildStandardCta('customer support'),
 };

@@ -108,5 +108,8 @@ export const dataAnalyst: JobDescriptionPage = {
   howHireSortHelps: standardHowHireSortHelps,
   cta: buildStandardCta('Data Analyst'),
   faqs: buildStandardFaqs('Data Analyst', 'data analyst'),
-  internalLinks: standardInternalLinks,
+  internalLinks: [
+    { href: '/resources/hiring-guides/data-analyst', label: 'Data Analyst Hiring Guide' },
+    ...standardInternalLinks,
+  ],
 };

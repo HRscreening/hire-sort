@@ -124,6 +124,12 @@ export const softwareEngineer: InterviewQuestionsPage = {
   },
 
   faqs: buildStandardFaqs('Software Engineer', 'software engineer'),
-  internalLinks: buildInternalLinks('software-engineer'),
+  internalLinks: [
+    {
+      href: '/resources/hiring-guides/software-engineer',
+      label: 'Software Engineer Hiring Guide',
+    },
+    ...buildInternalLinks('software-engineer'),
+  ],
   cta: buildStandardCta('Software Engineer'),
 };

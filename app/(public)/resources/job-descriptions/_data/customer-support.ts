@@ -108,5 +108,8 @@ export const customerSupport: JobDescriptionPage = {
   howHireSortHelps: standardHowHireSortHelps,
   cta: buildStandardCta('Customer Support'),
   faqs: buildStandardFaqs('Customer Support', 'customer support'),
-  internalLinks: standardInternalLinks,
+  internalLinks: [
+    { href: '/resources/hiring-guides/customer-support-specialist', label: 'Customer Support Specialist Hiring Guide' },
+    ...standardInternalLinks,
+  ],
 };

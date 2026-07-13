@@ -96,6 +96,12 @@ export const productManager: ScreeningRubricPage = {
 
   howHireSortHelps: standardHowHireSortHelps,
   faqs: buildStandardFaqs('product manager'),
-  internalLinks: buildInternalLinks('product-manager'),
+  internalLinks: [
+    {
+      href: '/resources/hiring-guides/product-manager',
+      label: 'Product Manager Hiring Guide',
+    },
+    ...buildInternalLinks('product-manager'),
+  ],
   cta: buildStandardCta('product manager'),
 };
