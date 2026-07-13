@@ -12,6 +12,7 @@ import { getAllJobDescriptions } from '@/app/(public)/resources/job-descriptions
 import { getAllInterviewQuestions } from '@/app/(public)/resources/interview-questions/_data';
 import { getAllScorecards } from '@/app/(public)/resources/scorecards/_data';
 import { getAllScreeningRubrics } from '@/app/(public)/resources/screening-rubrics/_data';
+import { getAllHiringGuides } from '@/app/(public)/resources/hiring-guides/_data';
 import { getAllToolDetails } from '@/app/(public)/free-tools/_data/details';
 import { TEST_JOB } from '@/lib/test-job';
 
@@ -122,6 +123,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.75,
   }));
 
+  const hiringGuideRoutes: MetadataRoute.Sitemap = getAllHiringGuides().map((p) => ({
+    url: `${siteUrl}/resources/hiring-guides/${p.slug}`,
+    lastModified: new Date(p.updatedAt),
+    changeFrequency: 'monthly',
+    priority: 0.8,
+  }));
+
   const sectionIndex = STATIC_PAGE_UPDATED.sectionIndex;
   const sectionIndexRoutes: MetadataRoute.Sitemap = [
     { url: `${siteUrl}/use-cases`, lastModified: sectionIndex, changeFrequency: 'weekly', priority: 0.7 },
@@ -131,6 +139,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${siteUrl}/resources/compare`, lastModified: sectionIndex, changeFrequency: 'weekly', priority: 0.7 },
     { url: `${siteUrl}/resources/best`, lastModified: sectionIndex, changeFrequency: 'weekly', priority: 0.7 },
     { url: `${siteUrl}/resources/job-descriptions`, lastModified: sectionIndex, changeFrequency: 'weekly', priority: 0.7 },
+    { url: `${siteUrl}/resources/hiring-guides`, lastModified: sectionIndex, changeFrequency: 'weekly', priority: 0.75 },
     { url: `${siteUrl}/resources/interview-questions`, lastModified: sectionIndex, changeFrequency: 'weekly', priority: 0.7 },
     { url: `${siteUrl}/resources/scorecards`, lastModified: sectionIndex, changeFrequency: 'weekly', priority: 0.7 },
     { url: `${siteUrl}/resources/screening-rubrics`, lastModified: sectionIndex, changeFrequency: 'weekly', priority: 0.7 },
@@ -174,6 +183,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...interviewQuestionRoutes,
     ...scorecardRoutes,
     ...screeningRubricRoutes,
+    ...hiringGuideRoutes,
     ...sectionIndexRoutes,
     ...toolDetailRoutes,
     ...toolRoutes,

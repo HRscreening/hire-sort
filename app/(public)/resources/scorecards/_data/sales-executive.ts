@@ -87,6 +87,12 @@ export const salesExecutive: ScorecardPage = {
 
   howHireSortHelps: buildHowHireSortHelps('sales executive'),
   faqs: buildStandardFaqs('sales executive'),
-  internalLinks: buildInternalLinks('sales-executive'),
+  internalLinks: [
+    {
+      href: '/resources/hiring-guides/sales-executive',
+      label: 'Sales Executive Hiring Guide',
+    },
+    ...buildInternalLinks('sales-executive'),
+  ],
   cta: buildStandardCta('sales executive'),
 };

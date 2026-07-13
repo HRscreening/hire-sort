@@ -97,6 +97,12 @@ export const businessDevelopmentExecutive: ScreeningRubricPage = {
 
   howHireSortHelps: standardHowHireSortHelps,
   faqs: buildStandardFaqs('business development executive'),
-  internalLinks: buildInternalLinks('business-development-executive', { hasScorecard: false }),
+  internalLinks: [
+    {
+      href: '/resources/hiring-guides/business-development-executive',
+      label: 'Business Development Executive Hiring Guide',
+    },
+    ...buildInternalLinks('business-development-executive', { hasScorecard: false }),
+  ],
   cta: buildStandardCta('business development executive'),
 };

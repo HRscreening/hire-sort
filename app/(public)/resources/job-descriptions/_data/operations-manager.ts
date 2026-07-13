@@ -108,5 +108,8 @@ export const operationsManager: JobDescriptionPage = {
   howHireSortHelps: standardHowHireSortHelps,
   cta: buildStandardCta('Operations Manager'),
   faqs: buildStandardFaqs('Operations Manager', 'operations manager'),
-  internalLinks: standardInternalLinks,
+  internalLinks: [
+    { href: '/resources/hiring-guides/operations-manager', label: 'Operations Manager Hiring Guide' },
+    ...standardInternalLinks,
+  ],
 };

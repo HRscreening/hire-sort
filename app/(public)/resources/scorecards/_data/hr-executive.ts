@@ -87,6 +87,12 @@ export const hrExecutive: ScorecardPage = {
 
   howHireSortHelps: buildHowHireSortHelps('hr executive'),
   faqs: buildStandardFaqs('hr executive'),
-  internalLinks: buildInternalLinks('hr-executive'),
+  internalLinks: [
+    {
+      href: '/resources/hiring-guides/hr-executive',
+      label: 'HR Executive Hiring Guide',
+    },
+    ...buildInternalLinks('hr-executive'),
+  ],
   cta: buildStandardCta('hr executive'),
 };

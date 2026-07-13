@@ -87,6 +87,9 @@ export const operationsManager: ScorecardPage = {
 
   howHireSortHelps: buildHowHireSortHelps('operations manager'),
   faqs: buildStandardFaqs('operations manager'),
-  internalLinks: buildInternalLinks('operations-manager', { hasJd: true, hasIq: false }),
+  internalLinks: [
+    { href: '/resources/hiring-guides/operations-manager', label: 'Operations Manager Hiring Guide' },
+    ...buildInternalLinks('operations-manager', { hasJd: true, hasIq: false }),
+  ],
   cta: buildStandardCta('operations manager'),
 };

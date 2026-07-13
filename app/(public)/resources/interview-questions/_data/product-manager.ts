@@ -124,6 +124,12 @@ export const productManager: InterviewQuestionsPage = {
   },
 
   faqs: buildStandardFaqs('Product Manager', 'product manager'),
-  internalLinks: buildInternalLinks('product-manager'),
+  internalLinks: [
+    {
+      href: '/resources/hiring-guides/product-manager',
+      label: 'Product Manager Hiring Guide',
+    },
+    ...buildInternalLinks('product-manager'),
+  ],
   cta: buildStandardCta('Product Manager'),
 };

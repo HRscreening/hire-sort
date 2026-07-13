@@ -108,5 +108,11 @@ export const hrExecutive: JobDescriptionPage = {
   howHireSortHelps: standardHowHireSortHelps,
   cta: buildStandardCta('HR Executive'),
   faqs: buildStandardFaqs('HR Executive', 'HR executive'),
-  internalLinks: standardInternalLinks,
+  internalLinks: [
+    {
+      href: '/resources/hiring-guides/hr-executive',
+      label: 'HR Executive Hiring Guide',
+    },
+    ...standardInternalLinks,
+  ],
 };

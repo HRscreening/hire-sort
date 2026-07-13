@@ -124,6 +124,9 @@ export const dataAnalyst: InterviewQuestionsPage = {
   },
 
   faqs: buildStandardFaqs('Data Analyst', 'data analyst'),
-  internalLinks: buildInternalLinks('data-analyst'),
+  internalLinks: [
+    { href: '/resources/hiring-guides/data-analyst', label: 'Data Analyst Hiring Guide' },
+    ...buildInternalLinks('data-analyst'),
+  ],
   cta: buildStandardCta('Data Analyst'),
 };

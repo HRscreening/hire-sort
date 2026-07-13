@@ -125,6 +125,9 @@ export const customerSupport: InterviewQuestionsPage = {
   },
 
   faqs: buildStandardFaqs('Customer Support', 'customer support'),
-  internalLinks: buildInternalLinks('customer-support'),
+  internalLinks: [
+    { href: '/resources/hiring-guides/customer-support-specialist', label: 'Customer Support Specialist Hiring Guide' },
+    ...buildInternalLinks('customer-support'),
+  ],
   cta: buildStandardCta('Customer Support'),
 };

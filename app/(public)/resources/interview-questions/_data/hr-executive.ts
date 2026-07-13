@@ -125,6 +125,12 @@ export const hrExecutive: InterviewQuestionsPage = {
   },
 
   faqs: buildStandardFaqs('HR Executive', 'HR executive'),
-  internalLinks: buildInternalLinks('hr-executive'),
+  internalLinks: [
+    {
+      href: '/resources/hiring-guides/hr-executive',
+      label: 'HR Executive Hiring Guide',
+    },
+    ...buildInternalLinks('hr-executive'),
+  ],
   cta: buildStandardCta('HR Executive'),
 };

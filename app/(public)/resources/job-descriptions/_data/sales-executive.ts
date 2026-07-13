@@ -108,5 +108,11 @@ export const salesExecutive: JobDescriptionPage = {
   howHireSortHelps: standardHowHireSortHelps,
   cta: buildStandardCta('Sales Executive'),
   faqs: buildStandardFaqs('Sales Executive', 'sales executive'),
-  internalLinks: standardInternalLinks,
+  internalLinks: [
+    {
+      href: '/resources/hiring-guides/sales-executive',
+      label: 'Sales Executive Hiring Guide',
+    },
+    ...standardInternalLinks,
+  ],
 };
