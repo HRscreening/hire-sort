@@ -12,7 +12,8 @@ type Params = Promise<{ jobId: string }>;
 export const dynamic = "force-dynamic";
 export const dynamicParams = true;
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+// const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"; //! use in production
+const API_BASE = process.env.NEXT_PUBLIC_SOURCING_URL || "http://localhost:8000";
 
 // Helper to fetch job details
 const fetchJobDetails = cache(async (jobId: string): Promise<{ data: ScreeningDetailsPublicResponseDTO | null; status: number }> => {

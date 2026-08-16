@@ -8,7 +8,9 @@ type Status =
   | { kind: "success"; message: string }
   | { kind: "error"; message: string };
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL;
+// const API_BASE = process.env.NEXT_PUBLIC_API_URL; // use when prod supports
+const API_BASE = process.env.NEXT_PUBLIC_SOURCING_URL || "http://localhost:8000";
+
 
 export default function ApplyForm({ jobId }: { jobId: string }) {
   const [status, setStatus] = useState<Status>({ kind: "idle" });
