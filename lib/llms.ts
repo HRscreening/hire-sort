@@ -71,8 +71,8 @@ const staticOptional: Entry[] = [
   {
     url: `${SITE_URL}/pricing`,
     title: 'Pricing',
-    oneLine: 'HireSort plans and pricing for resume screening.',
-    longSummary: 'Pricing for HireSort plans including a free tier and paid options for individual recruiters, growing teams, and high-volume hiring agencies. Each plan includes AI resume screening, ranked shortlists, and a candidate repository; paid tiers add higher monthly resume volume, configurable scoring rubrics, and team collaboration.',
+    oneLine: 'HireSort pricing for agentic hiring workflows, hiring credits, and done-for-you hiring.',
+    longSummary: 'HireSort pricing includes a Free plan for one active role, Starter at $49/month, Growth at $149/month, Scale at $399/month, Enterprise custom pricing, and done-for-you hiring with success-fee pricing. Plans include hiring credits that can be used across AI resume screening, AI phone screening, AI first-round interviews, and sourcing or job posting actions.',
   },
   {
     url: `${SITE_URL}/about`,

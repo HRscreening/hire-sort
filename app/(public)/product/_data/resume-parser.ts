@@ -393,7 +393,7 @@ export const resumeParser: ProductPage = {
       id: 'is-ats',
       question: 'Does HireSort replace a full ATS?',
       answer: [
-        'HireSort is best positioned as a lightweight, screening-first hiring workspace. It focuses on parsing, resume management, AI screening, shortlists, and candidate tracking rather than full enterprise ATS workflows.',
+        'HireSort is best positioned as a lightweight early-hiring workspace. It focuses on parsing, resume management, AI screening, phone screening, first-round interviews, shortlists, and candidate tracking rather than full enterprise ATS workflows.',
       ],
     },
   ],

@@ -62,7 +62,7 @@ export const candidatePipeline: ProductPage = {
     {
       type: 'positioning',
       eyebrow: 'Positioning',
-      title: 'A screening-first candidate pipeline.',
+      title: 'An early-hiring candidate pipeline.',
       body: [
         'HireSort is not trying to be an enterprise recruiting suite with every possible hiring workflow. It is built for teams that want a practical pipeline connected to the first real hiring bottleneck: resume screening.',
         'This makes HireSort especially useful for teams that want structure after screening but do not yet need a full enterprise ATS implementation.',
@@ -283,13 +283,13 @@ export const candidatePipeline: ProductPage = {
         ['Funnel customization', 'Manual columns', 'Often configurable', 'Simple default funnel customization'],
         ['Candidate reuse', 'Hard to search later', 'Usually supported', 'Central repository and reuse workflow'],
         ['Setup complexity', 'Low but messy', 'Often high', 'Lightweight and fast'],
-        ['Best fit', 'Very early hiring', 'Mature recruiting operations', 'Growing teams that need screening-first pipeline management'],
+        ['Best fit', 'Very early hiring', 'Mature recruiting operations', 'Growing teams that need early-hiring pipeline management'],
       ],
     },
     {
       type: 'why',
       eyebrow: 'Why HireSort',
-      title: 'Why choose a screening-first candidate pipeline?',
+      title: 'Why choose an early-hiring candidate pipeline?',
       items: [
         { title: 'Move faster after screening', body: 'Do not let strong candidates sit idle after the shortlist is created.' },
         { title: 'Keep context visible', body: 'Review score, evidence, resume data, role association, and stage together.' },
@@ -311,14 +311,15 @@ export const candidatePipeline: ProductPage = {
         'Candidate detail review',
         'Resume repository connection',
         'AI screening context inside the pipeline',
+        'Phone-screen summaries',
+        'First-round interview notes',
       ],
-      outLabel: 'Not in near-term scope',
+      outLabel: 'Not a full HR suite',
       outItems: [
-        'Interview scheduling',
-        'Candidate messaging',
         'Offer letters',
         'Onboarding',
         'Background checks',
+        'Payroll',
         'Full CRM-style nurturing',
       ],
     },

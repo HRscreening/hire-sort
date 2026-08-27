@@ -607,7 +607,7 @@ const ScopeBlock = ({ b }: { b: Extract<ProductBlock, { type: 'scope' }> }) => (
       >
         <div className="mb-3 flex items-center gap-2 text-[12px] font-bold uppercase tracking-[0.8px] text-charcoal-xlt">
           <XCircle size={14} strokeWidth={2.4} />
-          {b.outLabel ?? 'Not in near-term scope'}
+          {b.outLabel ?? 'Not a full HR suite'}
         </div>
         <ul className="flex list-none flex-col gap-2 p-0">
           {b.outItems.map((s) => (
@@ -758,6 +758,24 @@ const ProductClient = ({ data }: { data: ProductPage }) => {
   const [openFaq, setOpenFaq] = useState<string | null>(data.faqs[0]?.id ?? null);
   const heroSlot = `product_${data.slug}_hero`;
   const ctaSlot = `product_${data.slug}_bottom_cta`;
+  const journeySectionIndex = (() => {
+    for (let i = data.sections.length - 1; i >= 0; i -= 1) {
+      const section = data.sections[i];
+      if (section.type === 'positioning' && section.eyebrow === 'End-to-end hiring journey') {
+        return i;
+      }
+    }
+    return -1;
+  })();
+  const mainSections =
+    journeySectionIndex >= 0
+      ? data.sections.filter((_, i) => i !== journeySectionIndex)
+      : data.sections;
+  const journeySection =
+    journeySectionIndex >= 0 ? data.sections[journeySectionIndex] : null;
+  const faqTitle = data.product.startsWith('For ')
+    ? `Questions ${data.product.toLowerCase()}`
+    : `Questions about ${data.product}`;
 
   const toggleFaq = (id: string) => {
     setOpenFaq((curr) => {
@@ -816,7 +834,7 @@ const ProductClient = ({ data }: { data: ProductPage }) => {
         )}
       </PageHero>
 
-      {data.sections.map((b, i) => (
+      {mainSections.map((b, i) => (
         <Section key={`${b.type}-${i}`} index={i}>
           <RenderBlock b={b} />
         </Section>
@@ -870,6 +888,12 @@ const ProductClient = ({ data }: { data: ProductPage }) => {
         </motion.div>
       </section>
 
+      {journeySection && (
+        <Section index={mainSections.length}>
+          <RenderBlock b={journeySection} />
+        </Section>
+      )}
+
       {/* FAQ */}
       <section className="mx-auto max-w-250 px-6 py-16">
         <motion.div
@@ -886,7 +910,7 @@ const ProductClient = ({ data }: { data: ProductPage }) => {
             variants={pageFadeUp}
             className="text-[clamp(24px,3.2vw,32px)] font-extrabold leading-[1.2] tracking-[-0.6px] text-charcoal"
           >
-            Frequently asked questions
+            {faqTitle}
           </motion.h2>
         </motion.div>
         <motion.ul

@@ -166,10 +166,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Only the live screening tool is indexable. The demo (/demo), sample result
   // (/sample) and per-session result pages are noindex → intentionally excluded.
-  const toolRoutes: MetadataRoute.Sitemap = [
-    { url: `${siteUrl}/tools/screening`, lastModified: STATIC_PAGE_UPDATED.tools, changeFrequency: 'monthly', priority: 0.8 },
-  ];
-
   return [
     ...staticRoutes,
     ...jobRoutes,
@@ -186,6 +182,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...hiringGuideRoutes,
     ...sectionIndexRoutes,
     ...toolDetailRoutes,
-    ...toolRoutes,
   ];
 }

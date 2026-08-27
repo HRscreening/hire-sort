@@ -2287,6 +2287,279 @@ export const customerSupportSpecialist: HiringGuidePage = {
   ],
 };
 
+const createAeoHiringGuide = ({
+  slug,
+  topic,
+  title,
+  description,
+  keywords,
+  whatTheyDo,
+}: {
+  slug: string;
+  topic: string;
+  title: string;
+  description: string;
+  keywords: string[];
+  whatTheyDo: string;
+}): HiringGuidePage => ({
+  slug,
+  role: topic,
+  department: 'Recruiting',
+  publishedAt: '2026-08-26',
+  updatedAt: '2026-08-26',
+  meta: {
+    title,
+    description,
+    keywords,
+    ogImage: '/logo.png',
+    ogImageAlt: `${topic} guide`,
+  },
+  summary: {
+    whatTheyDo,
+    whenToHire:
+      'Use this approach when manual recruiting work slows down sourcing, screening, phone screens, interviews, or shortlist delivery.',
+    strongCandidatesShow: [
+      'Clear role requirements before sourcing starts.',
+      'Consistent screening criteria across every candidate.',
+      'Structured notes that recruiters and hiring managers can review quickly.',
+    ],
+    bestFor: [
+      'Lean hiring teams',
+      'Recruitment agencies',
+      'High-volume hiring',
+      'Founder-led or manager-led hiring',
+    ],
+  },
+  screening: {
+    mustHave: [
+      'Role details such as location, budget, must-haves, and hiring timeline.',
+      'A clear screening rubric tied to the job description.',
+      'Human review of AI scores, notes, and shortlist recommendations.',
+      'Structured candidate records that can be reused later.',
+    ],
+    niceToHave: [
+      'Agentic sourcing connected to job posts and incoming applicants.',
+      'AI phone screening before recruiter time is spent.',
+      'AI first-round interviews for candidates who pass the phone screen.',
+    ],
+    redFlags: [
+      'Black-box scores without resume or interview evidence.',
+      'No recruiter review before candidates move forward.',
+      'Scattered notes across emails, sheets, and calls.',
+    ],
+  },
+  interviewQuestions: [
+    {
+      question: 'What role details must be clear before sourcing starts?',
+      strongSignal: 'Role, location, budget, must-haves, and timeline are defined.',
+      watchOutFor: 'Starting sourcing with vague requirements.',
+    },
+    {
+      question: 'What criteria should every candidate be screened against?',
+      strongSignal: 'The team agrees on must-have skills, experience, and knockout criteria.',
+      watchOutFor: 'Each reviewer using a different standard.',
+    },
+    {
+      question: 'Which tasks should AI agents complete first?',
+      strongSignal: 'Repeatable work such as JD drafting, posting, screening, calls, and notes is identified.',
+      watchOutFor: 'Trying to automate final judgment.',
+    },
+    {
+      question: 'Where should recruiters stay in the loop?',
+      strongSignal: 'Recruiters review criteria, scores, call notes, interview notes, and shortlists.',
+      watchOutFor: 'No human review before next steps.',
+    },
+    {
+      question: 'What should phone screening confirm?',
+      strongSignal: 'Interest, availability, location, compensation, communication, and basic role fit.',
+      watchOutFor: 'Phone screens that repeat resume questions without adding signal.',
+    },
+    {
+      question: 'What should a first-round interview assess?',
+      strongSignal: 'Role-specific skills, judgment, motivation, and fit against the same rubric.',
+      watchOutFor: 'Unstructured interviews that are hard to compare.',
+    },
+    {
+      question: 'What data should the hiring workflow produce?',
+      strongSignal: 'Candidate profiles, stages, TAT, notes, assessments, and decisions are captured.',
+      watchOutFor: 'Useful information lost after calls or interviews.',
+    },
+    {
+      question: 'How will the final shortlist be reviewed?',
+      strongSignal: 'Hiring managers receive ranked candidates with evidence and notes.',
+      watchOutFor: 'Sending raw resumes without decision context.',
+    },
+  ],
+  scorecard: {
+    intro: 'Use this scorecard to evaluate whether an agentic hiring workflow is ready to use.',
+    criteria: [
+      { criterion: 'Role clarity', weight: 20, whatToAssess: 'Role details, must-haves, compensation, location, and timeline.' },
+      { criterion: 'Sourcing workflow', weight: 15, whatToAssess: 'How candidates enter the funnel from job posts or sourcing.' },
+      { criterion: 'Screening consistency', weight: 25, whatToAssess: 'Rubrics, resume evidence, scores, and recruiter review.' },
+      { criterion: 'Interview structure', weight: 20, whatToAssess: 'Phone screens, first-round interviews, and structured notes.' },
+      { criterion: 'Hiring data quality', weight: 20, whatToAssess: 'Candidate profiles, stages, TAT, notes, and assessments.' },
+    ],
+    scoringAnchors: scoreAnchors,
+  },
+  hiringProcess: [
+    'Collect role details, location, budget, and hiring timeline.',
+    'Generate the JD and role-specific screening criteria.',
+    'Post the role and source candidates.',
+    'Run AI resume screening with recruiter review.',
+    'Call qualified candidates for phone screening.',
+    'Run first-round interviews for strong candidates.',
+    'Share a structured shortlist with notes and scores.',
+  ],
+  intake: {
+    mustHaveRequirements: [
+      'Role title, location, budget, and start date.',
+      'Must-have skills, experience, and disqualifiers.',
+      'Expected hiring volume and turnaround time.',
+      'Who approves shortlist decisions.',
+    ],
+    trainableRequirements: [
+      'Company-specific vocabulary and interview style.',
+      'Nice-to-have tools or domain knowledge.',
+      'Internal stage names and reporting preferences.',
+    ],
+    prompts: [
+      'What must this person be able to do from day one?',
+      'Which tradeoffs are acceptable?',
+      'What makes a candidate a clear no?',
+    ],
+  },
+  workSample: {
+    task: 'Give the workflow a real role and review the shortlist quality.',
+    timeLimit: 'One active hiring cycle.',
+    howToScore: [
+      'Shortlist relevance and quality.',
+      'Clarity of resume and interview evidence.',
+      'Recruiter time saved.',
+      'Hiring manager confidence in the shortlist.',
+    ],
+  },
+  variants: [
+    'Recruiter-in-the-loop: recruiters approve AI work.',
+    'Done-for-you: HireSort recruiters run the workflow.',
+    'High-volume hiring: focus on speed and consistency.',
+    'Agency hiring: focus on reusable candidates and client-ready notes.',
+  ],
+  seniorityAdjustments: [
+    'Junior roles: prioritize volume, availability, and trainable skills.',
+    'Mid-level roles: prioritize role fit and relevant ownership.',
+    'Senior roles: prioritize judgment, depth, and interview evidence.',
+  ],
+  falsePositives: [
+    'Keyword matches without relevant experience.',
+    'Strong resumes but poor phone-screen fit.',
+    'Interview confidence without evidence against criteria.',
+  ],
+  outcomes: {
+    thirty: ['Role intake, JD creation, posting, and sourcing are structured.'],
+    sixty: ['Resume screening and phone screening produce consistent notes.'],
+    ninety: ['Shortlists are faster, cleaner, and easier to review.'],
+  },
+  toolLinks: [
+    { ...FREE_TOOLS.jd, context: 'Create a structured JD before sourcing.' },
+    { ...FREE_TOOLS.rubric, context: 'Generate consistent screening criteria.' },
+    { ...FREE_TOOLS.screening, context: 'Screen resumes against the role.' },
+  ],
+  relatedResources: [
+    {
+      href: '/product/agentic-hiring-platform',
+      label: 'Agentic Hiring Platform',
+      description: 'See how HireSort moves from role brief to shortlist.',
+    },
+    {
+      href: '/product/automated-screening-and-interviews',
+      label: 'Automated Screening and Interviews',
+      description: 'Learn how screening, phone screens, and interviews work together.',
+    },
+    {
+      href: '/resources/best/ai-recruiting-agents',
+      label: 'Best AI Recruiting Agents',
+      description: 'Compare tools for agentic hiring workflows.',
+    },
+  ],
+  faqs: [
+    {
+      id: 'what-is',
+      question: `What is ${topic.toLowerCase()}?`,
+      answer: [whatTheyDo],
+    },
+    {
+      id: 'phone-screening',
+      question: 'How does AI phone screening work?',
+      answer: ['AI phone screening calls qualified candidates, asks preliminary fit questions, and turns answers into structured notes for recruiter review.'],
+    },
+    {
+      id: 'recruiter-loop',
+      question: 'Can recruiters stay in the loop?',
+      answer: ['Yes. Recruiters can review criteria, sourcing results, resume scores, phone-screen notes, interview notes, and shortlists.'],
+    },
+    {
+      id: 'done-for-you',
+      question: 'Can HireSort deliver candidates for us?',
+      answer: ['Yes. HireSort’s fleet of human recruiters can understand your requirements and use proprietary agentic workflows to share best-fit candidates in a matter of days.'],
+    },
+  ],
+});
+
+export const whatIsAgenticHiring = createAeoHiringGuide({
+  slug: 'what-is-agentic-hiring',
+  topic: 'Agentic Hiring',
+  title: 'What Is Agentic Hiring? A Simple Guide for Recruiters',
+  description:
+    'Agentic hiring uses AI agents to handle sourcing, screening, phone screens, first-round interviews, and shortlist preparation with recruiter review.',
+  keywords: ['what is agentic hiring', 'agentic hiring', 'AI recruiting agents', 'AI hiring workflows'],
+  whatTheyDo:
+    'Agentic hiring uses AI agents to complete multi-step recruiting work such as JD creation, job posting, sourcing, resume screening, phone screening, interviews, and shortlist preparation.',
+});
+
+export const whatAreAiRecruitingAgents = createAeoHiringGuide({
+  slug: 'what-are-ai-recruiting-agents',
+  topic: 'AI Recruiting Agents',
+  title: 'What Are AI Recruiting Agents? Simple Guide',
+  description:
+    'AI recruiting agents help hiring teams create JDs, source candidates, screen resumes, run calls, conduct interviews, and prepare shortlists.',
+  keywords: ['what are AI recruiting agents', 'AI recruiting agents', 'AI recruiting agent', 'AI hiring agents'],
+  whatTheyDo:
+    'AI recruiting agents are software agents that carry out recruiting tasks such as sourcing, screening, candidate calls, interview notes, and shortlist preparation.',
+});
+
+export const agenticHiringVsRecruitmentAutomation = createAeoHiringGuide({
+  slug: 'agentic-hiring-vs-recruitment-automation',
+  topic: 'Agentic Hiring vs Recruitment Automation',
+  title: 'Agentic Hiring vs Recruitment Automation',
+  description:
+    'Agentic hiring completes multi-step recruiting workflows, while traditional recruitment automation usually handles fixed tasks or reminders.',
+  keywords: ['agentic hiring vs recruitment automation', 'recruitment automation', 'agentic hiring', 'AI recruitment automation'],
+  whatTheyDo:
+    'Agentic hiring handles connected recruiting workflows across sourcing, screening, calls, interviews, and shortlists. Recruitment automation often focuses on simpler fixed tasks.',
+});
+
+export const aiRecruitingAgentsVsAts = createAeoHiringGuide({
+  slug: 'ai-recruiting-agents-vs-ats',
+  topic: 'AI Recruiting Agents vs ATS',
+  title: 'AI Recruiting Agents vs ATS: What Is the Difference?',
+  description:
+    'AI recruiting agents do hiring work across sourcing, screening, calls, and interviews. An ATS mainly tracks applicants and hiring stages.',
+  keywords: ['AI recruiting agents vs ATS', 'AI recruiting agents', 'ATS vs AI recruiting', 'AI applicant tracking system'],
+  whatTheyDo:
+    'AI recruiting agents complete recruiting tasks. An ATS organizes applicants, stages, notes, and hiring activity. Many teams need both working together.',
+});
+
+export const howAiPhoneScreeningWorks = createAeoHiringGuide({
+  slug: 'how-ai-phone-screening-works',
+  topic: 'AI Phone Screening',
+  title: 'How AI Phone Screening Works',
+  description:
+    'AI phone screening calls qualified candidates, asks preliminary fit questions, captures answers, and creates structured recruiter notes.',
+  keywords: ['how AI phone screening works', 'AI phone screening', 'AI screening phone calls', 'automated phone screening'],
+  whatTheyDo:
+    'AI phone screening calls candidates after resume screening, checks fit and availability, and turns answers into structured notes for recruiter review.',
+});
+
 const PAGES: Record<string, HiringGuidePage> = {
   [softwareEngineer.slug]: softwareEngineer,
   [productManager.slug]: productManager,
@@ -2296,6 +2569,11 @@ const PAGES: Record<string, HiringGuidePage> = {
   [dataAnalyst.slug]: dataAnalyst,
   [operationsManager.slug]: operationsManager,
   [customerSupportSpecialist.slug]: customerSupportSpecialist,
+  [whatIsAgenticHiring.slug]: whatIsAgenticHiring,
+  [whatAreAiRecruitingAgents.slug]: whatAreAiRecruitingAgents,
+  [agenticHiringVsRecruitmentAutomation.slug]: agenticHiringVsRecruitmentAutomation,
+  [aiRecruitingAgentsVsAts.slug]: aiRecruitingAgentsVsAts,
+  [howAiPhoneScreeningWorks.slug]: howAiPhoneScreeningWorks,
 };
 
 export const getHiringGuideSlugs = (): string[] => Object.keys(PAGES);

@@ -6,6 +6,7 @@ import { leverAlternative } from './lever-alternative';
 import { hiresortVsManualScreening } from './hiresort-vs-manual-screening';
 import { hiresortVsSpreadsheets } from './hiresort-vs-spreadsheets';
 import { resumeScreeningVsParser } from './resume-screening-software-vs-resume-parser';
+import { agenticCompetitorPages } from './agentic-competitors';
 
 const PAGES: Record<string, CompetitorPage> = {
   [workableAlternative.slug]: workableAlternative,
@@ -15,6 +16,7 @@ const PAGES: Record<string, CompetitorPage> = {
   [hiresortVsManualScreening.slug]: hiresortVsManualScreening,
   [hiresortVsSpreadsheets.slug]: hiresortVsSpreadsheets,
   [resumeScreeningVsParser.slug]: resumeScreeningVsParser,
+  ...Object.fromEntries(agenticCompetitorPages.map((page) => [page.slug, page])),
 };
 
 export const getComparisonSlugs = (): string[] => Object.keys(PAGES);

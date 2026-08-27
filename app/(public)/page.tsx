@@ -10,6 +10,7 @@ const PopularResources = dynamic(() => import('@/components/home/PopularResource
 const ContactSection = dynamic(() => import('@/components/home/ContactSection'));
 const CTA = dynamic(() => import('@/components/home/CTA'));
 const Testimonials = dynamic(() => import('@/components/home/Testimonials'));
+const TwoWaysToHire = dynamic(() => import('@/components/home/TwoWaysToHire'));
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://hiresort.ai';
 
@@ -17,15 +18,15 @@ export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: {
-    absolute: 'HireSort: AI Resume Screening Built for Speed and Compliance',
+    absolute: 'HireSort: Agentic Hiring Workflows for Faster Shortlists',
   },
   description:
-    'HireSort is AI resume screening software that ranks candidates in seconds with explainable scores. Upload resumes in bulk, configure scoring rubrics, and shortlist faster.',
+    'HireSort creates JDs, posts jobs, sources candidates, screens resumes, runs AI phone screens, conducts first-round interviews, and delivers structured shortlists.',
   alternates: { canonical: '/' },
   openGraph: {
-    title: 'HireSort: AI Resume Screening Built for Speed and Compliance',
+    title: 'HireSort: Agentic Hiring Workflows for Faster Shortlists',
     description:
-      'Rank candidates in seconds with explainable AI scores, bulk resume processing, and structured shortlists.',
+      'Create JDs, post jobs, source candidates, screen resumes, run phone screens, and deliver structured shortlists with less manual work.',
     url: '/',
     type: 'website',
     siteName: 'HireSort',
@@ -33,9 +34,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'HireSort: AI Resume Screening Built for Speed and Compliance',
+    title: 'HireSort: Agentic Hiring Workflows for Faster Shortlists',
     description:
-      'Rank candidates in seconds with explainable AI scores, bulk resume processing, and structured shortlists.',
+      'Create JDs, post jobs, source candidates, screen resumes, run phone screens, and deliver structured shortlists with less manual work.',
     images: [`${siteUrl}/logo.png`],
   },
 };
@@ -49,10 +50,14 @@ const softwareAppJsonLd = {
   operatingSystem: 'Web',
   url: siteUrl,
   description:
-    'AI resume screening software with explainable scoring, bulk processing, and candidate ranking for hiring teams.',
+    'Agentic hiring workflow software for JD creation, job posting, sourcing, AI resume screening, phone screening, first-round interviews, and structured shortlists.',
   image: `${siteUrl}/logo.png`,
   featureList: [
-    'Explainable AI resume scoring',
+    'AI job description creation',
+    'One-tap job posting and sourcing',
+    'Explainable AI resume screening',
+    'AI phone screening',
+    'AI first-round interviews',
     'Bulk upload and processing',
     'Customizable scoring rubrics',
     'Contextual candidate search',
@@ -65,35 +70,49 @@ const softwareAppJsonLd = {
       name: 'Free',
       price: '0',
       priceCurrency: 'USD',
-      description: 'Up to 50 resume analyses per month.',
+      description: 'One active role and 250 hiring credits.',
     },
     {
       '@type': 'Offer',
-      name: 'Plus',
-      price: '25',
+      name: 'Starter',
+      price: '49',
       priceCurrency: 'USD',
       priceSpecification: {
         '@type': 'UnitPriceSpecification',
-        price: '25',
+        price: '49',
         priceCurrency: 'USD',
         billingIncrement: 1,
         unitText: 'MONTH',
       },
-      description: '1,000 AI resume analyses per month.',
+      description: 'Two active roles and 1,000 hiring credits per month.',
     },
     {
       '@type': 'Offer',
-      name: 'Pro',
-      price: '150',
+      name: 'Growth',
+      price: '149',
       priceCurrency: 'USD',
       priceSpecification: {
         '@type': 'UnitPriceSpecification',
-        price: '150',
+        price: '149',
         priceCurrency: 'USD',
         billingIncrement: 1,
         unitText: 'MONTH',
       },
-      description: '10,000 AI resume analyses per month with configurable scoring rubrics.',
+      description: 'Five active roles and 4,000 hiring credits per month for sourcing, screening, phone screens, and interviews.',
+    },
+    {
+      '@type': 'Offer',
+      name: 'Scale',
+      price: '399',
+      priceCurrency: 'USD',
+      priceSpecification: {
+        '@type': 'UnitPriceSpecification',
+        price: '399',
+        priceCurrency: 'USD',
+        billingIncrement: 1,
+        unitText: 'MONTH',
+      },
+      description: 'Fifteen active roles and 12,000 hiring credits per month for agencies and high-volume teams.',
     },
   ],
   publisher: { '@type': 'Organization', name: 'HireSort' },
@@ -128,23 +147,47 @@ const homepageFaqJsonLd = {
       name: 'What is HireSort?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'HireSort is AI resume screening software that helps recruiters upload resumes, rank candidates, review explainable scores, and build shortlists faster.',
+        text: 'HireSort is an agentic hiring platform that helps teams create JDs, post jobs, source candidates, screen resumes, run phone screens, conduct first-round interviews, and review structured shortlists.',
       },
     },
     {
       '@type': 'Question',
-      name: 'How does HireSort rank candidates?',
+      name: 'What is agentic hiring?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'HireSort compares resumes against the role requirements and scoring rubric, then produces candidate rankings with evidence, strengths, gaps, and match scores.',
+        text: 'Agentic hiring uses AI agents to complete multi-step recruiting work such as JD creation, sourcing, screening, phone calls, interviews, and shortlist preparation while recruiters keep review and approval control.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Can HireSort process resumes in bulk?',
+      name: 'How does AI phone screening work?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes. HireSort supports bulk resume uploads and background processing so hiring teams can screen large candidate pools without manually reviewing every file first.',
+        text: 'AI phone screening calls qualified candidates, asks preliminary fit questions, captures answers, and turns the call into structured notes for recruiter review.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can HireSort work with a recruiter in the loop?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. Recruiters can review AI-created JDs, sourcing results, resume scores, phone-screen notes, interview notes, and final shortlists before making hiring decisions.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can HireSort deliver candidates for us?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. HireSort can combine human recruiters with proprietary agentic workflows to understand your role and share best-fit candidates in a matter of days.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How much time can HireSort save?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'HireSort is designed to reduce manual recruiting time and effort by 50%-90% by automating sourcing, screening, phone screens, interviews, and shortlist preparation.',
       },
     },
   ],
@@ -167,6 +210,7 @@ export default function Home() {
       />
       <Hero />
       <HowItWorks />
+      <TwoWaysToHire />
       <Features />
       <Stats />
       <PopularResources />

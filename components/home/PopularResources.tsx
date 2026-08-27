@@ -7,10 +7,26 @@ type ResourceLink = {
   description: string;
 };
 
-const groups: { heading: string; links: ResourceLink[] }[] = [
+type ResourceGroup = {
+  heading: string;
+  moreHref: string;
+  moreLabel: string;
+  links: ResourceLink[];
+};
+
+const groups: ResourceGroup[] = [
   {
     heading: 'Product',
+    moreHref: '/product',
+    moreLabel: 'More product pages',
     links: [
+      {
+        href: '/product/agentic-hiring-platform',
+        eyebrow: 'Product',
+        title: 'Agentic Hiring Platform',
+        description:
+          'Create JDs, post jobs, source candidates, screen resumes, interview, and shortlist.',
+      },
       {
         href: '/product/applicant-tracking-system',
         eyebrow: 'Product',
@@ -19,24 +35,33 @@ const groups: { heading: string; links: ResourceLink[] }[] = [
           'A lightweight ATS built around AI resume screening, ranked shortlists, and stage tracking.',
       },
       {
-        href: '/product/recruitment-software',
+        href: '/product/automated-screening-and-interviews',
         eyebrow: 'Product',
-        title: 'Recruitment Software',
+        title: 'Automated Screening & Interviews',
         description:
-          'A simpler recruitment workflow for teams that want results without spreadsheets.',
-      },
-      {
-        href: '/product/resume-management',
-        eyebrow: 'Product',
-        title: 'Resume & CV Management',
-        description:
-          'Turn every resume into a reusable candidate record you can reach for again.',
+          'AI resume screening, phone screens, and first-round interviews in one workflow.',
       },
     ],
   },
   {
     heading: 'Software guides',
+    moreHref: '/resources/best',
+    moreLabel: 'More software guides',
     links: [
+      {
+        href: '/resources/best/ai-recruiting-agents',
+        eyebrow: 'Guide',
+        title: 'Best AI Recruiting Agents in 2026',
+        description:
+          'A practical guide to agentic recruiting tools for sourcing, screening, interviews, and shortlists.',
+      },
+      {
+        href: '/resources/hiring-guides/what-is-agentic-hiring',
+        eyebrow: 'Guide',
+        title: 'What Is Agentic Hiring?',
+        description:
+          'A simple answer for teams comparing AI recruiting agents, automation, and ATS tools.',
+      },
       {
         href: '/resources/best/candidate-screening-software',
         eyebrow: 'Guide',
@@ -44,31 +69,12 @@ const groups: { heading: string; links: ResourceLink[] }[] = [
         description:
           'How to choose candidate screening software for resume shortlisting, HR screening, assessments, and high-volume hiring.',
       },
-      {
-        href: '/resources/best/ai-resume-screening-software',
-        eyebrow: 'Guide',
-        title: 'Best AI Resume Screening Software in 2026',
-        description:
-          'A round-up of AI resume screening tools recruiters are using to rank candidates faster.',
-      },
-      {
-        href: '/resources/best/high-volume-hiring-software',
-        eyebrow: 'Guide',
-        title: 'Best High-Volume Hiring Software in 2026',
-        description:
-          'Software for teams that need to screen large candidate pools without slowing down.',
-      },
-      {
-        href: '/blog/how-to-shortlist-candidates-faster',
-        eyebrow: 'Guide',
-        title: 'How to Shortlist Candidates Faster',
-        description:
-          'A practical shortlisting workflow for ranking resumes, using evidence, and handing off finalists.',
-      },
     ],
   },
   {
     heading: 'Compare',
+    moreHref: '/resources/compare',
+    moreLabel: 'More comparisons',
     links: [
       {
         href: '/resources/compare/workable-alternative',
@@ -85,23 +91,25 @@ const groups: { heading: string; links: ResourceLink[] }[] = [
           'A lighter, faster Greenhouse alternative focused on AI resume ranking.',
       },
       {
-        href: '/resources/compare/hiresort-vs-manual-screening',
+        href: '/resources/compare/hiresort-vs-hireez',
         eyebrow: 'Compare',
-        title: 'HireSort vs Manual Resume Screening',
+        title: 'HireSort vs hireEZ',
         description:
-          'Compare AI-assisted candidate screening with manual resume review workflows.',
+          'Compare agentic hiring workflows with outbound sourcing software.',
       },
       {
-        href: '/resources/compare/ai-resume-screening-vs-ats',
+        href: '/resources/compare/hiresort-vs-hirevue',
         eyebrow: 'Compare',
-        title: 'AI Resume Screening vs ATS',
+        title: 'HireSort vs HireVue',
         description:
-          'Understand when teams need ATS tracking, AI screening, or both in the same workflow.',
+          'Compare automated screening, interviews, and shortlist workflows.',
       },
     ],
   },
   {
     heading: 'Templates & rubrics',
+    moreHref: '/resources',
+    moreLabel: 'More resources',
     links: [
       {
         href: '/resources/scorecards',
@@ -124,13 +132,6 @@ const groups: { heading: string; links: ResourceLink[] }[] = [
         description:
           'Role-ready templates that help teams define requirements before candidate screening begins.',
       },
-      {
-        href: '/blog/resume-screening-checklist',
-        eyebrow: 'Checklist',
-        title: 'Resume Screening Checklist',
-        description:
-          'A step-by-step checklist for consistent resume review and shortlist decisions.',
-      },
     ],
   },
 ];
@@ -150,7 +151,7 @@ const PopularResources = () => {
           Popular <span className="text-accent">resources</span>
         </h2>
         <p className="text-base leading-[1.6] text-charcoal-lt">
-          Product pages, software guides, comparisons, templates, and rubrics teams use to screen resumes faster.
+          Product pages, software guides, comparisons, templates, and rubrics teams use to hire faster.
         </p>
       </div>
 
@@ -180,6 +181,12 @@ const PopularResources = () => {
                 </li>
               ))}
             </ul>
+            <Link
+              href={group.moreHref}
+              className="mt-4 inline-flex text-[14px] font-bold text-accent transition-colors hover:text-copper"
+            >
+              {group.moreLabel} -&gt;
+            </Link>
           </div>
         ))}
       </div>

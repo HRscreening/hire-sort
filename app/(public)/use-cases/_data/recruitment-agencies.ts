@@ -34,7 +34,7 @@ export const recruitmentAgencies: ProductPage = {
     primary: { label: 'Get started for free', href: redirectURL },
     secondary: { label: 'Build your first shortlist', href: '#how-it-works' },
     supporting:
-      'A screening-first workspace to evaluate candidates, reuse past resumes, and send better shortlists to clients.',
+      'An early-hiring workspace to source, screen, interview, reuse candidates, and send better shortlists to clients.',
   },
 
   sections: [
@@ -53,7 +53,7 @@ export const recruitmentAgencies: ProductPage = {
         'Reuse strong profiles across future roles',
       ],
       closing:
-        'HireSort gives agencies a screening-first workspace to evaluate candidates, reuse past resumes, and send better shortlists to clients.',
+        'HireSort gives agencies an early-hiring workspace to source candidates, evaluate resumes, run early interviews, reuse past profiles, and send better shortlists to clients.',
     },
     {
       type: 'workflow',
@@ -143,7 +143,7 @@ export const recruitmentAgencies: ProductPage = {
     {
       id: 'crm',
       question: 'Does HireSort include full CRM-style candidate nurturing?',
-      answer: ['Not in the near-term scope. HireSort is focused on resume screening, candidate tracking, and reusable resume management.'],
+      answer: ['Not as a full CRM suite. HireSort is focused on sourcing support, AI resume screening, candidate tracking, reusable resume management, phone screening, first-round interviews, and structured shortlists.'],
     },
   ],
 

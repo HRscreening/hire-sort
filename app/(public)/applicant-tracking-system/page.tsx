@@ -8,7 +8,7 @@ import { Icon } from '@/app/(public)/product/_components/icons';
 const PAGE_PATH = '/applicant-tracking-system';
 const PAGE_TITLE = 'Applicant Tracking System Solutions | HireSort';
 const PAGE_DESCRIPTION =
-  'Lightweight applicant tracking system pages for small businesses, startups, and growing teams. Store resumes, screen candidates with AI, and track stages without enterprise complexity.';
+  'Lightweight applicant tracking system pages for small businesses, startups, and growing teams. Store resumes, screen candidates with AI, run early interviews, and track stages without enterprise complexity.';
 
 const absUrl = (path: string) =>
   path.startsWith('http') ? path : `${SITE_URL}${path.startsWith('/') ? path : `/${path}`}`;
@@ -25,6 +25,9 @@ export const metadata: Metadata = {
     'lightweight ATS',
     'AI ATS',
     'recruiting software',
+    'AI resume screening',
+    'AI phone screening',
+    'AI first-round interviews',
   ],
   alternates: { canonical: PAGE_PATH },
   openGraph: {

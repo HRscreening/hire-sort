@@ -11,7 +11,7 @@ export const atsForStartups: ProductPage = {
   meta: {
     title: 'ATS for Startups: Lightweight Applicant Tracking System | HireSort',
     description:
-      'HireSort is a lightweight ATS for startups that helps founders and lean hiring teams screen resumes, rank candidates, track stages, and build reusable candidate records without spreadsheet chaos.',
+      'HireSort is a lightweight ATS for startups that helps founders and lean hiring teams screen resumes, run early interviews, track stages, and build reusable candidate records without spreadsheet chaos.',
     keywords: [
       'ATS for startups',
       'startup ATS',
@@ -32,7 +32,7 @@ export const atsForStartups: ProductPage = {
     titleAccent: 'hire faster.',
     lead: [
       'HireSort gives startup founders, first recruiters, and lean hiring teams a simple applicant tracking system built around the part of hiring that slows teams down first: resume screening and candidate shortlisting.',
-      'Create jobs, upload resumes, screen candidates with AI, track hiring stages, and build a reusable candidate repository — without the complexity of enterprise ATS software.',
+      'Create jobs, upload resumes, screen candidates with AI, run early interviews, track hiring stages, and build a reusable candidate repository — without the complexity of enterprise ATS software.',
     ],
     primary: { label: 'Get started for free', href: redirectURL },
     secondary: { label: 'See how it works', href: '#how-it-works' },
@@ -186,11 +186,11 @@ export const atsForStartups: ProductPage = {
     {
       type: 'paragraph',
       eyebrow: 'Scope clarity',
-      title: 'Built for screening-first startup hiring',
+      title: 'Built for early-stage startup hiring',
       body: [
-        'HireSort is best positioned as a lightweight applicant tracking system for startups that need to organize resumes, screen candidates, and track stages.',
-        'It is not positioned as a full enterprise recruiting suite with interview scheduling, candidate messaging, offer letters, background checks, onboarding, or complete HR workflows.',
-        'That focus is intentional: most startups first need to fix resume screening, shortlisting, and candidate tracking before they need a full recruiting operations platform.',
+        'HireSort is best positioned as a lightweight applicant tracking system for startups that need to organize resumes, screen candidates, run early interviews, and track stages.',
+        'It is not positioned as a full enterprise HR suite with offer letters, background checks, onboarding, payroll, or complete HR workflows.',
+        'That focus is intentional: most startups first need to fix role setup, resume screening, shortlisting, interviews, and candidate tracking before they need a full recruiting operations platform.',
       ],
     },
   ],
@@ -198,7 +198,7 @@ export const atsForStartups: ProductPage = {
   cta: {
     eyebrow: 'Ready when you are',
     title: 'Ready to move beyond spreadsheets?',
-    body: 'Use HireSort to create jobs, screen resumes, rank candidates, track stages, and build a reusable candidate database for your startup.',
+    body: 'Use HireSort to create jobs, screen resumes, run early interviews, track stages, and build a reusable candidate database for your startup.',
     primary: { label: 'Get started for free', href: redirectURL },
     secondary: { label: 'View pricing', href: '/pricing' },
   },
@@ -236,8 +236,8 @@ export const atsForStartups: ProductPage = {
     },
     {
       id: 'scheduling',
-      question: 'Does HireSort include interview scheduling?',
-      answer: ['No. Interview scheduling is outside the near-term scope. HireSort focuses on resume screening, candidate tracking, and early-stage applicant management.'],
+      question: 'Does HireSort include interviews?',
+      answer: ['HireSort supports early candidate workflows, including AI resume screening, AI phone screening, and first-round interviews. It is not a full HR suite for offers, onboarding, payroll, or background checks.'],
     },
   ],
 

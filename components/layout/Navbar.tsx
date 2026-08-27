@@ -67,14 +67,19 @@ const productMega: MegaConfig = {
     {
       title: 'Platform',
       items: [
-        { href: '/product/applicant-tracking-system', label: 'Applicant Tracking', description: 'Track candidates end-to-end', icon: 'ats' },
-        { href: '/product/recruitment-software', label: 'Recruitment Software', description: 'AI-powered hiring workflows', icon: 'software' },
-        { href: '/product/candidate-pipeline', label: 'Candidate Pipeline', description: 'Visualise your hiring funnel', icon: 'pipeline' },
+        { href: '/product/agentic-hiring-platform', label: 'Agentic Hiring', description: 'Role brief to shortlist', icon: 'sparkles' },
+        { href: '/product/agentic-sourcing', label: 'Agentic Sourcing', description: 'Post jobs and source candidates', icon: 'rocket' },
+        { href: '/product/automated-screening-and-interviews', label: 'Screening & Interviews', description: 'Automate early hiring steps', icon: 'software' },
+        { href: '/product/ai-phone-screening', label: 'AI Phone Screening', description: 'Preliminary phone screens', icon: 'mail' },
+        { href: '/product/ai-first-round-interview', label: 'First-Round Interviews', description: 'Structured AI interviews', icon: 'users' },
       ],
     },
     {
-      title: 'Resumes',
+      title: 'Core tools',
       items: [
+        { href: '/product/recruitment-software', label: 'Recruitment Software', description: 'AI-powered hiring workflows', icon: 'software' },
+        { href: '/product/applicant-tracking-system', label: 'Applicant Tracking', description: 'Track candidates end-to-end', icon: 'ats' },
+        { href: '/product/candidate-pipeline', label: 'Candidate Pipeline', description: 'Visualise your hiring funnel', icon: 'pipeline' },
         { href: '/product/resume-parser', label: 'Resume Parser', description: 'Extract structured data', icon: 'parser' },
         { href: '/product/resume-management', label: 'Resume Management', description: 'Organise and search resumes', icon: 'resume' },
       ],
@@ -91,9 +96,9 @@ const productMega: MegaConfig = {
   featured: {
     eyebrow: 'Get started',
     title: 'Try HireSort free',
-    body: 'Screen resumes in seconds with AI-ranked shortlists.',
+    body: 'Automate screening, interviews, and shortlist delivery.',
     href: main_app_url + '/',
-    ctaLabel: 'Start for free',
+    ctaLabel: 'Try it free',
   },
 };
 
@@ -104,23 +109,30 @@ const useCasesMega: MegaConfig = {
       items: [
         { href: '/use-cases', label: 'All use cases', description: 'Browse every workflow', icon: 'users' },
         { href: '/use-cases/founder-led-hiring', label: 'Founder-led hiring', description: 'Hire your first team', icon: 'rocket' },
-        { href: '/use-cases/hiring-managers', label: 'Hiring managers', description: 'Faster shortlist reviews', icon: 'briefcase' },
-        { href: '/use-cases/recruiters', label: 'Recruiters', description: 'Screen more, faster', icon: 'users' },
+        { href: '/use-cases/hiring-managers', label: 'Hiring managers', description: 'Review richer shortlists', icon: 'briefcase' },
+        { href: '/use-cases/recruiters', label: 'Recruiters', description: 'Source and shortlist faster', icon: 'users' },
       ],
     },
     {
       title: 'By scale',
       items: [
-        { href: '/use-cases/recruitment-agencies', label: 'Recruitment agencies', description: 'Multi-client screening', icon: 'building' },
-        { href: '/use-cases/high-volume-hiring', label: 'High-volume hiring', description: 'Scale screening fast', icon: 'volume' },
+        { href: '/use-cases/recruitment-agencies', label: 'Recruitment agencies', description: 'Client shortlists faster', icon: 'building' },
+        { href: '/use-cases/high-volume-hiring', label: 'High-volume hiring', description: 'Automate hiring volume', icon: 'volume' },
+      ],
+    },
+    {
+      title: 'By workflow',
+      items: [
+        { href: '/use-cases/recruiter-in-the-loop', label: 'Recruiter in the loop', description: 'Approve agent work', icon: 'users' },
+        { href: '/use-cases/done-for-you-hiring', label: 'Done-for-you hiring', description: 'Shortlists in 3-7 days', icon: 'sparkles' },
       ],
     },
   ],
   featured: {
     eyebrow: 'New',
-    title: 'High-volume hiring',
-    body: 'Process thousands of resumes per role with explainable AI.',
-    href: '/use-cases/high-volume-hiring',
+    title: 'Two ways to hire',
+    body: 'Keep your recruiter in the loop or hand the role to HireSort.',
+    href: '/use-cases/done-for-you-hiring',
     ctaLabel: 'See how',
   },
 };
@@ -157,6 +169,10 @@ const resourcesMega: MegaConfig = {
     {
       title: 'Recruiting guides',
       items: [
+        { href: '/resources/hiring-guides/what-is-agentic-hiring', label: 'Agentic hiring', description: 'Plain-English guide', icon: 'sparkles' },
+        { href: '/resources/best/ai-recruiting-agents', label: 'AI recruiting agents', description: 'Best tools compared', icon: 'award' },
+        { href: '/resources/best/ai-sourcing-tools', label: 'AI sourcing tools', description: 'Sourcing tools compared', icon: 'rocket' },
+        { href: '/resources/best/ai-interview-software', label: 'AI interview software', description: 'Interview tools compared', icon: 'users' },
         { href: '/resources/best/ats-for-startups', label: 'ATS for startups', description: 'Lean hiring stack', icon: 'rocket' },
         { href: '/resources/best/recruitment-software-for-small-business', label: 'Software for SMBs', description: 'Right-sized tools', icon: 'briefcase' },
         { href: '/resources/best/high-volume-hiring-software', label: 'High-volume hiring', description: 'Scale screening fast', icon: 'volume' },
@@ -175,9 +191,9 @@ const resourcesMega: MegaConfig = {
   ],
   featured: {
     eyebrow: 'Guides',
-    title: 'Best AI resume screening',
-    body: 'See how the top AI resume screening tools compare — picks, pros and cons.',
-    href: '/resources/best/ai-resume-screening-software',
+    title: 'What is agentic hiring?',
+    body: 'A simple guide to AI recruiting agents, workflows, and shortlists.',
+    href: '/resources/hiring-guides/what-is-agentic-hiring',
     ctaLabel: 'Read the guide',
   },
 };

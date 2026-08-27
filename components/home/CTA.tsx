@@ -4,7 +4,6 @@ import { ArrowRight } from 'lucide-react';
 import { motion, type Variants } from 'framer-motion';
 import { trackCTAClick } from '@/lib/google_analytics_tracker';
 import redirectURL from '@/lib/mainsSiteRedirectUrl';
-import Image from 'next/image';
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -33,12 +32,12 @@ const CTA = () => {
           variants={item}
           className="mb-5 text-center lg:text-left text-[clamp(32px,5vw,48px)] font-extrabold leading-[1.12] tracking-[-1.5px] text-charcoal"
         >
-          Stop reading resumes.
+          Stop running hiring manually.
           <br />
-          Start <span className="text-accent">finding talent</span>.
+          Start <span className="text-accent">shortlisting faster</span>.
         </motion.h2>
         <motion.p variants={item} className="text-center lg:text-left mb-9 text-[17px] leading-[1.6] text-charcoal-lt">
-          Upload your first batch and see ranked results in under 90 seconds. Free to start, no credit card required.
+          Let HireSort handle JD creation, sourcing, screening, phone screens, and first-round interviews in one structured workflow.
         </motion.p>
         <motion.div
           variants={item}
@@ -52,7 +51,7 @@ const CTA = () => {
             onClick={() => trackCTAClick('get_started', 'bottom_cta')}
             className="inline-flex items-center justify-center gap-2 rounded-md border border-copper bg-copper px-8 py-3.5 text-[15px] font-semibold leading-none text-white shadow-[0_8px_24px_rgba(0,0,0,0.12)] no-underline transition-colors hover:bg-copper-dark"
           >
-            Screen resumes for free
+            Automate hiring
             <motion.span whileHover={{ x: 4 }} className="inline-flex">
               <ArrowRight size={16} strokeWidth={2.5} />
             </motion.span>

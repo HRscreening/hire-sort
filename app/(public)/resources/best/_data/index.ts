@@ -5,6 +5,14 @@ import { candidateScreeningSoftware } from './candidate-screening-software';
 import { highVolumeHiringSoftware } from './high-volume-hiring-software';
 import { recruitmentSoftwareForSmallBusiness } from './recruitment-software-for-small-business';
 import { resumeScreeningSoftware } from './resume-screening-software';
+import {
+  aiInterviewSoftware,
+  aiRecruitingAgents,
+  aiRecruitingSoftware,
+  aiSourcingTools,
+  automatedHiringPlatforms,
+  recruitmentAutomationSoftware,
+} from './agentic-best-pages';
 
 const PAGES: Record<string, BestPage> = {
   [aiResumeScreeningSoftware.slug]: aiResumeScreeningSoftware,
@@ -13,6 +21,12 @@ const PAGES: Record<string, BestPage> = {
   [highVolumeHiringSoftware.slug]: highVolumeHiringSoftware,
   [recruitmentSoftwareForSmallBusiness.slug]: recruitmentSoftwareForSmallBusiness,
   [resumeScreeningSoftware.slug]: resumeScreeningSoftware,
+  [aiRecruitingSoftware.slug]: aiRecruitingSoftware,
+  [aiRecruitingAgents.slug]: aiRecruitingAgents,
+  [aiSourcingTools.slug]: aiSourcingTools,
+  [aiInterviewSoftware.slug]: aiInterviewSoftware,
+  [automatedHiringPlatforms.slug]: automatedHiringPlatforms,
+  [recruitmentAutomationSoftware.slug]: recruitmentAutomationSoftware,
 };
 
 export const getBestPageSlugs = (): string[] => Object.keys(PAGES);

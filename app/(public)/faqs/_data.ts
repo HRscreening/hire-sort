@@ -118,7 +118,25 @@ export const FAQS: FaqItem[] = [
     category: 'plans',
     question: 'Is there a free trial or demo?',
     answer: [
-      'Explore our product instantly with the live demo on our main page. You can also get started with our Free plan — no credit card required. For custom plans, contact us at support@hiresort.ai',
+      'Explore our product instantly with the live demo on our main page. You can also start with the Free plan for one active role and limited hiring credits — no credit card required.',
+    ],
+  },
+  {
+    id: 'hiring-credits',
+    category: 'plans',
+    question: 'What are hiring credits?',
+    answer: [
+      'Hiring credits are included in every plan and can be used across AI resume screening, AI phone screens, AI first-round interviews, and sourcing or job posting actions.',
+      'Resume screening uses fewer credits, while phone screens and first-round interviews use more credits because they run deeper workflows.',
+    ],
+  },
+  {
+    id: 'done-for-you-pricing',
+    category: 'plans',
+    question: 'How does done-for-you hiring pricing work?',
+    answer: [
+      'For done-for-you hiring, HireSort recruiters understand your role, run proprietary agentic workflows, and share qualified candidates in days.',
+      'This option is success-fee based, so you pay when you hire from the shortlist.',
     ],
   },
   {

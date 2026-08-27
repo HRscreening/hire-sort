@@ -12,10 +12,10 @@ const HowItWorks = () => {
     <section id="how" className="mx-auto max-w-300 px-6 pb-30 pt-10">
       <div className="mx-auto mb-12 max-w-150 px-6 text-center">
         <h2 className="mb-3 text-[clamp(28px,4vw,40px)] font-extrabold leading-[1.15] tracking-[-1px] text-charcoal">
-          Three steps to your <span className="text-accent">perfect hire</span>
+          From role brief to <span className="text-accent">shortlist</span>
         </h2>
         <p className="text-base leading-[1.6] text-charcoal-lt">
-          From upload to ranked results in under 90 seconds. No setup, no training required.
+          Enter the role, budget, and location. HireSort turns it into a structured hiring workflow.
         </p>
       </div>
 
@@ -23,16 +23,16 @@ const HowItWorks = () => {
         {/* Step 1 */}
         <div className={cardClass}>
           <div className={stepNumberClass}>1</div>
-          <h3 className={cardTitleClass}>Upload Resumes</h3>
+          <h3 className={cardTitleClass}>Create the role</h3>
           <p className={cardCopyClass}>
-            Drop a single PDF or a ZIP with hundreds. We extract text from any format instantly.
+            Add the role, location, budget, and must-have skills. AI drafts the JD and screening criteria.
           </p>
           <div className={visualWrapClass}>
             <div className="flex flex-col gap-2">
               {[
-                { name: 'sarah_chen_resume.pdf', size: '248 KB', type: 'pdf' },
-                { name: 'david_kumar_cv.pdf', size: '312 KB', type: 'pdf' },
-                { name: 'all_applicants.zip', size: '4.2 MB', type: 'zip' },
+                { name: 'Role: Sales Executive', size: 'Open', type: 'pdf' },
+                { name: 'Location: Bengaluru', size: 'Hybrid', type: 'pdf' },
+                { name: 'Budget: 8-12 LPA', size: 'Set', type: 'zip' },
               ].map((file) => (
                 <div
                   key={file.name}
@@ -62,18 +62,18 @@ const HowItWorks = () => {
         {/* Step 2 */}
         <div className={cardClass}>
           <div className={stepNumberClass}>2</div>
-          <h3 className={cardTitleClass}>AI Analyzes</h3>
+          <h3 className={cardTitleClass}>Agents do the work</h3>
           <p className={cardCopyClass}>
-            Our 5-stage pipeline extracts, parses, understands the JD, scores, and ranks every candidate.
+            HireSort posts jobs, sources candidates, screens resumes, and calls qualified candidates.
           </p>
           <div className={visualWrapClass}>
             <div className="flex flex-col gap-3">
               {[
-                { label: 'Text Extraction', width: '100%', state: 'active' },
-                { label: 'Resume Parsing', width: '100%', state: 'active' },
-                { label: 'JD Analysis', width: '100%', state: 'active' },
-                { label: 'AI Scoring', width: '85%', state: 'active' },
-                { label: 'Ranking', width: '20%', state: 'pending' },
+                { label: 'JD created', width: '100%', state: 'active' },
+                { label: 'Jobs posted', width: '100%', state: 'active' },
+                { label: 'Resumes screened', width: '100%', state: 'active' },
+                { label: 'Phone screens', width: '85%', state: 'active' },
+                { label: 'First interviews', width: '35%', state: 'pending' },
               ].map((item) => (
                 <div
                   key={item.label}
@@ -96,9 +96,9 @@ const HowItWorks = () => {
         {/* Step 3 */}
         <div className={cardClass}>
           <div className={stepNumberClass}>3</div>
-          <h3 className={cardTitleClass}>Ranked Results</h3>
+          <h3 className={cardTitleClass}>Review the shortlist</h3>
           <p className={cardCopyClass}>
-            Get a scored, ranked list with AI explanations. Share with your team instantly.
+            Get ranked candidates with resume notes, phone-screen summaries, interview notes, and scores.
           </p>
           <div className={visualWrapClass}>
             <div className="flex flex-col gap-2">

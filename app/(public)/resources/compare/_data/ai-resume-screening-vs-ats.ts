@@ -79,9 +79,9 @@ export const aiResumeScreeningVsAts: CompetitorPage = {
         hiresort: 'Ranked shortlists',
       },
       {
-        area: 'Interview scheduling',
+        area: 'Early interviews',
         competitor: 'Often available',
-        hiresort: 'Outside near-term scope',
+        hiresort: 'AI phone screens and first-round interviews',
       },
       {
         area: 'Candidate reuse',
@@ -153,8 +153,8 @@ export const aiResumeScreeningVsAts: CompetitorPage = {
       { need: 'Rank candidates by role fit', competitor: 'Varies', hiresort: 'Ranked shortlists' },
       { need: 'Explain why a candidate was shortlisted', competitor: 'Limited', hiresort: 'Score breakdowns and evidence' },
       { need: 'Reuse strong candidates across roles', competitor: 'Often available', hiresort: 'Reusable candidate records' },
-      { need: 'Schedule interviews and offers', competitor: 'Often available', hiresort: 'Outside near-term scope' },
-      { need: 'Onboarding and HR workflows', competitor: 'Often available', hiresort: 'Outside near-term scope' },
+      { need: 'Run early screening interviews', competitor: 'Often available', hiresort: 'AI phone screens and first-round interviews' },
+      { need: 'Manage offers, onboarding, and HR workflows', competitor: 'Often available', hiresort: 'Not a full HR suite' },
       { need: 'Lightweight setup and adoption', competitor: 'Varies', hiresort: 'Designed to stay simple' },
     ],
   },
@@ -184,7 +184,7 @@ export const aiResumeScreeningVsAts: CompetitorPage = {
     title: 'When You Need a Full ATS',
     bullets: [
       'You manage many roles and interview stages across a large organization',
-      'You need candidate communication, scheduling, approvals or offer workflows',
+      'You need complex scheduling, approvals or offer workflows',
       'You require detailed permissions, integrations and enterprise reporting',
       'You need a full recruiting operations platform',
     ],

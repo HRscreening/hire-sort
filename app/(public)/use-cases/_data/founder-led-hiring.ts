@@ -143,7 +143,7 @@ export const founderLedHiring: ProductPage = {
     {
       id: 'too-complex',
       question: 'Is HireSort too complex for early-stage startups?',
-      answer: ['No. The product is positioned as lightweight and screening-first, not as a full enterprise ATS.'],
+      answer: ['No. The product is positioned as a lightweight early-hiring workflow for role setup, screening, early interviews, shortlists, and candidate tracking, not as a full enterprise ATS.'],
     },
     {
       id: 'referrals-inbound',

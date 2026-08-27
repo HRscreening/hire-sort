@@ -1,22 +1,39 @@
 import type { ProductPage } from './types';
+import { withEndToEndContext } from './end-to-end-context';
 import { applicantTrackingSystem } from '../_data/applicant-tracking-system';
 import { recruitmentSoftware } from '../_data/recruitment-software';
 import { resumeManagement } from '../_data/resume-management';
 import { resumeParser } from '../_data/resume-parser';
 import { candidatePipeline } from '../_data/candidate-pipeline';
+import {
+  agenticHiringPlatform,
+  agenticSourcing,
+  automatedScreeningAndInterviews,
+  aiPhoneScreening,
+  aiFirstRoundInterview,
+} from '../_data/agentic-pages';
 
 /**
  * Registry of all product landing pages keyed by slug.
  * To add a new page: write a data file under ./data/, import it here,
  * and add an entry. The route's page.tsx + sitemap pick it up automatically.
  */
-const PAGES: Record<string, ProductPage> = {
+const BASE_PAGES: Record<string, ProductPage> = {
+  [agenticHiringPlatform.slug]: agenticHiringPlatform,
+  [agenticSourcing.slug]: agenticSourcing,
+  [automatedScreeningAndInterviews.slug]: automatedScreeningAndInterviews,
+  [aiPhoneScreening.slug]: aiPhoneScreening,
+  [aiFirstRoundInterview.slug]: aiFirstRoundInterview,
   [applicantTrackingSystem.slug]: applicantTrackingSystem,
   [recruitmentSoftware.slug]: recruitmentSoftware,
   [resumeManagement.slug]: resumeManagement,
   [resumeParser.slug]: resumeParser,
   [candidatePipeline.slug]: candidatePipeline,
 };
+
+const PAGES: Record<string, ProductPage> = Object.fromEntries(
+  Object.values(BASE_PAGES).map((page) => [page.slug, withEndToEndContext(page)]),
+) as Record<string, ProductPage>;
 
 export const getProductPageSlugs = (): string[] => Object.keys(PAGES);
 

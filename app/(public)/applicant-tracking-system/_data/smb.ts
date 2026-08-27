@@ -62,7 +62,7 @@ export const atsForSmallBusinesses: ProductPage = {
     {
       type: 'positioning',
       eyebrow: 'Positioning',
-      title: 'A screening-first ATS for lean hiring teams',
+      title: 'An early-hiring ATS for lean teams',
       body: [
         'HireSort is built for small businesses that care about one thing first: moving from resume volume to a clear, reviewable shortlist.',
         'Instead of trying to manage every possible hiring workflow from day one, HireSort focuses on the most important early-stage hiring needs.',
@@ -230,8 +230,8 @@ export const atsForSmallBusinesses: ProductPage = {
       eyebrow: 'Scope clarity',
       title: 'Designed for small-business applicant tracking, not enterprise HR complexity',
       body: [
-        'HireSort is focused on the workflows small businesses need most: resume storage, candidate metadata, AI screening, ranked shortlists, candidate stages, resume reuse, and simple funnel tracking.',
-        'It is not currently positioned as a full enterprise suite with interview scheduling, offer-letter workflows, candidate messaging, background checks, onboarding, or complete CRM-style candidate nurturing.',
+        'HireSort is focused on the workflows small businesses need most: resume storage, candidate metadata, AI screening, AI phone screening, first-round interviews, ranked shortlists, candidate stages, resume reuse, and simple funnel tracking.',
+        'It is not positioned as a full enterprise HR suite with offer-letter workflows, background checks, onboarding, payroll, or complete CRM-style candidate nurturing.',
         'This focus keeps the product lightweight, easier to adopt, and better suited for small businesses that want to improve hiring without overcomplicating it.',
       ],
     },
@@ -288,8 +288,8 @@ export const atsForSmallBusinesses: ProductPage = {
     },
     {
       id: 'scope',
-      question: 'Does HireSort include interview scheduling and offer management?',
-      answer: ['No. HireSort is focused on resume screening, candidate management, stage tracking, and shortlist creation. Interview scheduling, offer management, candidate messaging, and onboarding are outside the near-term scope.'],
+      question: 'Does HireSort include interviews and offer management?',
+      answer: ['HireSort supports early candidate workflows, including AI resume screening, AI phone screening, and first-round interviews. It is not a full HR suite for offer management, onboarding, payroll, or background checks.'],
     },
   ],
 

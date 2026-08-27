@@ -85,19 +85,19 @@ export const workableAlternative: CompetitorPage = {
         hiresort: 'More focused and lightweight',
       },
       {
-        area: 'Interview scheduling',
+        area: 'Early interviews',
         competitor: 'Available in Workable',
-        hiresort: "Not part of HireSort's near-term scope",
+        hiresort: 'AI phone screens and first-round interviews',
       },
       {
         area: 'Offer management',
         competitor: 'Available in Workable',
-        hiresort: "Not part of HireSort's near-term scope",
+        hiresort: 'Not a full HR suite',
       },
       {
         area: 'Onboarding / HR workflows',
         competitor: 'Available in Workable',
-        hiresort: "Not part of HireSort's near-term scope",
+        hiresort: 'Not a full HR suite',
       },
       {
         area: 'Best reason to choose',
@@ -225,9 +225,9 @@ export const workableAlternative: CompetitorPage = {
       { need: 'Post jobs to multiple job boards', competitor: 'Strong fit', hiresort: 'Not the primary focus' },
       { need: 'Source passive candidates', competitor: 'Strong fit', hiresort: 'Not the primary focus' },
       { need: 'Manage full hiring pipeline', competitor: 'Strong fit', hiresort: 'Lightweight candidate tracking' },
-      { need: 'Schedule interviews', competitor: 'Strong fit', hiresort: 'Not in near-term scope' },
-      { need: 'Send offers and approvals', competitor: 'Strong fit', hiresort: 'Not in near-term scope' },
-      { need: 'Manage onboarding / HR workflows', competitor: 'Strong fit', hiresort: 'Not in near-term scope' },
+      { need: 'Run early screening interviews', competitor: 'Strong fit', hiresort: 'AI phone screens and first-round interviews' },
+      { need: 'Send offers and approvals', competitor: 'Strong fit', hiresort: 'Not a full HR suite' },
+      { need: 'Manage onboarding / HR workflows', competitor: 'Strong fit', hiresort: 'Not a full HR suite' },
       { need: 'Upload resumes in bulk', competitor: 'Available through recruiting workflows', hiresort: 'Core workflow' },
       { need: 'Generate rubric from JD', competitor: 'Available through broader AI hiring workflows', hiresort: 'Core workflow' },
       { need: 'Score resumes against role criteria', competitor: 'Available', hiresort: 'Core workflow' },
@@ -269,7 +269,7 @@ export const workableAlternative: CompetitorPage = {
     bullets: [
       'Broad job posting and candidate sourcing',
       'Passive candidate sourcing at scale',
-      'Interview scheduling',
+      'Complex interview scheduling',
       'Candidate communication workflows',
       'Offer management',
       'Background checks',
@@ -416,14 +416,14 @@ export const workableAlternative: CompetitorPage = {
       id: 'scheduling',
       question: 'Does HireSort support interview scheduling?',
       answer: [
-        "No. Interview scheduling is not part of HireSort's near-term scope. HireSort focuses on screening, ranking, repository, and basic candidate tracking.",
+        'HireSort supports early screening workflows, including AI phone screens and first-round interviews. Complex calendar scheduling is still better handled by a broader ATS or calendar workflow.',
       ],
     },
     {
       id: 'offers-onboarding',
       question: 'Does HireSort support offer letters and onboarding?',
       answer: [
-        "No. Offer workflows and onboarding are not part of HireSort's near-term scope. Teams that need those workflows may prefer a broader platform.",
+        'No. HireSort is not a full HR suite for offer workflows, onboarding, payroll, or background checks. Teams that need those workflows may prefer a broader platform.',
       ],
     },
     {

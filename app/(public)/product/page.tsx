@@ -6,9 +6,9 @@ import { getAllProductPages } from './_lib/registry';
 import { Icon } from './_components/icons';
 
 const PAGE_PATH = '/product';
-const PAGE_TITLE = 'HireSort Product Suite — AI ATS, Resume Screening & Candidate Pipeline';
+const PAGE_TITLE = 'HireSort Product Suite - Agentic Hiring, Screening & Interviews';
 const PAGE_DESCRIPTION =
-  'Explore the HireSort product suite — a lightweight applicant tracking system, AI resume screening, resume management, resume parsing, and candidate pipeline tools built for fast, structured hiring.';
+  'Explore HireSort products for agentic sourcing, AI resume screening, AI phone screening, first-round interviews, resume management, and structured hiring workflows.';
 
 const absUrl = (path: string) =>
   path.startsWith('http') ? path : `${SITE_URL}${path.startsWith('/') ? path : `/${path}`}`;
@@ -20,6 +20,11 @@ export const metadata: Metadata = {
   description: PAGE_DESCRIPTION,
   keywords: [
     'HireSort product',
+    'agentic hiring platform',
+    'AI recruiting agents',
+    'agentic sourcing',
+    'AI phone screening',
+    'AI first-round interview',
     'applicant tracking system',
     'AI resume screening',
     'resume management',

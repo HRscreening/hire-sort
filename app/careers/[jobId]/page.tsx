@@ -140,7 +140,7 @@ export default async function JobPage({ params }: { params: Params }) {
     return (
       <>
         <Navbar />
-        <main className="flex-1 flex items-center justify-center min-h-[60vh] bg-ivory px-6 py-20 text-center">
+        <main id="main" className="flex-1 flex items-center justify-center min-h-[60vh] bg-ivory px-6 py-20 text-center">
           <div className="max-w-md w-full rounded-2xl border border-line-soft bg-ivory-light p-8 shadow-card">
             <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-red-100 text-red-600 mb-6">
               <svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
@@ -151,8 +151,8 @@ export default async function JobPage({ params }: { params: Params }) {
             <p className="mt-3 text-sm text-charcoal-lt leading-relaxed">
               We encountered a temporary server error while retrieving this listing. Please reload or try again later.
             </p>
-            <a 
-              href="."
+            <a
+              href={`/careers/${jobId}`}
               aria-label="Reload page"
               className="mt-6 inline-flex w-full items-center justify-center rounded-xl bg-charcoal px-4 py-2.5 text-sm font-semibold text-ivory transition-colors hover:bg-accent focus:outline-none"
             >
@@ -179,7 +179,7 @@ export default async function JobPage({ params }: { params: Params }) {
 
       <Navbar />
 
-      <main className="min-h-screen bg-ivory py-10 md:py-16">
+      <main id="main" className="min-h-screen bg-ivory py-10 md:py-16">
         <section className="mx-auto max-w-6xl px-6 mb-8 md:mb-12">
           <div className="rounded-2xl border border-line bg-ivory-light p-5 md:p-6 shadow-soft">
             {/* Top row: info + buttons */}

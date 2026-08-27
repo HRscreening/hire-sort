@@ -16,10 +16,10 @@ const Stats = () => {
   return (
     <section className="bg-linear-to-b from-ivory to-ivory-medium px-6 py-20">
       <div className="mx-auto grid max-w-250 grid-cols-2 gap-10 text-center md:grid-cols-4">
-        <Stat value="90%" label="Less time screening" />
-        <Stat value="15s" label="Avg. processing time" />
-        <Stat value="50K+" label="Resumes processed" />
-        <Stat value="500" label="uploads at once" />
+        <Stat value="50%" label="Less hiring time guaranteed" />
+        <Stat value="2-7" label="Days to close roles" />
+        <Stat value="50K+" label="Candidates processed" />
+        <Stat value="1" label="Workflow from JD to shortlist" />
       </div>
     </section>
   );

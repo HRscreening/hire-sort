@@ -20,6 +20,15 @@ const testimonials = [
   text: 'HireSort helped our team reduce the time spent on manual resume screening while improving the consistency of candidate evaluations. The AI-driven scoring and explanations made it easier to identify strong talent quickly and streamline our hiring workflow.',
   highlightText: 'streamline our hiring workflow',
 },
+{
+  avatar: 'K',
+  name: 'Kaustav',
+  role: 'Recruiter',
+  company: 'Avyka',
+  stars: 5,
+  text: 'HireSort made hiring faster and easier for our team. I especially loved the automated job sourcing part because it helped us get to relevant candidates without extra manual work.',
+  highlightText: 'automated job sourcing',
+},
  
 ];
 
@@ -62,12 +71,12 @@ const Testimonials = () => {
           Loved by <span className="text-accent">recruiters</span> everywhere
         </h2>
         <p className="text-base leading-[1.6] text-charcoal-lt">
-          Join hundreds of hiring teams who cut their screening time by 80%.
+          Built for teams that want faster, more consistent shortlists.
         </p>
       </div>
 
       <div className="relative w-full">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
+        <div className="grid grid-cols-1 gap-6 w-full md:grid-cols-3">
         {testimonials.map((t, i) => (
             <TestimonialCard key={`t1-${i}`} {...t} />
           ))}

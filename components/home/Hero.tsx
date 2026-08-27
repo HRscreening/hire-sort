@@ -187,8 +187,8 @@ const Hero = () => {
           whileHover={{ scale: 1.06 }}
         >
           <div className="pointer-events-auto rounded-md border border-line-soft bg-white px-[18px] py-3.5 text-left shadow-md">
-            <div className="font-mono text-2xl font-extrabold leading-none text-charcoal">2.4s</div>
-            <div className="mt-0.5 text-[11px] text-charcoal-lt">Avg. per resume</div>
+            <div className="font-mono text-2xl font-extrabold leading-none text-charcoal">50-90%</div>
+            <div className="mt-0.5 text-[11px] text-charcoal-lt">Less manual effort</div>
           </div>
         </motion.div>
       </motion.div>
@@ -213,8 +213,8 @@ const Hero = () => {
               <Check size={16} strokeWidth={2.5} />
             </motion.div>
             <div className="text-left">
-              <div className="text-xs font-semibold text-charcoal">47 resumes ranked</div>
-              <div className="text-[11px] font-normal text-charcoal-lt">Completed just now</div>
+              <div className="text-xs font-semibold text-charcoal">8 candidates shortlisted</div>
+              <div className="text-[11px] font-normal text-charcoal-lt">Ready for review</div>
             </div>
           </div>
         </motion.div>
@@ -224,11 +224,11 @@ const Hero = () => {
       
 
       <h1 className="relative z-3 mx-auto mb-5 max-w-180 text-[clamp(36px,5.5vw,58px)] font-extrabold leading-[1.12] tracking-[-1.5px] text-charcoal">
-        AI resume screening that ranks candidates in <span className="text-accent">seconds</span>
+        Hire faster with <span className="text-accent">agentic hiring workflows</span>
       </h1>
 
       <p className="relative z-3 mx-auto mb-12 max-w-130 text-[clamp(16px,2vw,19px)] leading-[1.6] text-charcoal-lt">
-        Upload resumes in bulk, describe the role, and let HireSort rank candidates with explainable AI scores, strengths, gaps, and shortlist-ready insights.
+        HireSort creates JDs, posts jobs, sources candidates, screens resumes, runs phone screens, conducts first-round interviews, and delivers structured shortlists with 50%-90% less manual recruiting effort.
       </p>
 
       <div className="relative z-3 mt-9 flex flex-col items-center gap-3.5 sm:flex-row sm:justify-center">
@@ -238,7 +238,7 @@ const Hero = () => {
           onClick={() => trackCTAClick('get_started', 'hero')}
           className="inline-flex items-center justify-center gap-2 rounded-md border border-copper bg-copper px-8 py-3.5 text-[15px] font-semibold leading-none text-white shadow-[0_8px_24px_rgba(0,0,0,0.12)] no-underline transition-transform hover:-translate-y-0.5 hover:bg-copper-dark"
         >
-          Screen resumes for free
+          Automate hiring
           <ArrowRight size={16} strokeWidth={2.5} />
         </a>
         <Link

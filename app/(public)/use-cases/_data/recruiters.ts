@@ -36,7 +36,7 @@ export const recruiters: ProductPage = {
     primary: { label: 'Get started for free', href: redirectURL },
     secondary: { label: 'See how HireSort works', href: '#how-it-works' },
     supporting:
-      'A screening-first workflow for recruiters who need to move faster, align better with hiring managers, and keep candidate records reusable across future roles.',
+      'An early-hiring workflow for recruiters who need to source, screen, interview, shortlist faster, and keep candidate records reusable across future roles.',
   },
 
   sections: [
@@ -195,8 +195,8 @@ export const recruiters: ProductPage = {
       eyebrow: 'Scope clarity',
       title: 'A lightweight recruiter workspace, not a heavy enterprise ATS',
       body: [
-        'HireSort is focused on the recruiter workflows closest to resume screening and candidate management: resume storage, metadata extraction, AI screening, ranked shortlists, stage tracking, search, filters, and candidate reuse.',
-        'It is not currently positioned as a full enterprise hiring suite with interview scheduling, offer letters, candidate messaging, background checks, onboarding, or complete CRM-style candidate nurturing.',
+        'HireSort is focused on the recruiter workflows closest to early hiring execution: role setup, sourcing support, resume storage, metadata extraction, AI screening, phone screening, first-round interviews, ranked shortlists, stage tracking, search, filters, and candidate reuse.',
+        'It is not positioned as a full enterprise HR suite with offer letters, background checks, onboarding, payroll, or complete CRM-style candidate nurturing.',
       ],
     },
   ],
@@ -247,8 +247,8 @@ export const recruiters: ProductPage = {
     },
     {
       id: 'scheduling',
-      question: 'Does HireSort include interview scheduling?',
-      answer: ['No. Interview scheduling is outside the near-term scope. HireSort is focused on resume screening, candidate management, stage tracking, and shortlist creation.'],
+      question: 'Does HireSort include interviews?',
+      answer: ['HireSort supports early candidate screening workflows, including AI phone screening and first-round interviews. It is not a full HR suite for offers, onboarding, payroll, or background checks.'],
     },
   ],
 

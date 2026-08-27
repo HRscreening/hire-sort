@@ -1,11 +1,16 @@
 import type { ProductPage } from '@/app/(public)/product/_lib/types';
+import { withEndToEndContext } from '@/app/(public)/product/_lib/end-to-end-context';
 import { atsForSmallBusinesses } from '../_data/smb';
 import { atsForStartups } from '../_data/startups';
 
-const PAGES: Record<string, ProductPage> = {
+const BASE_PAGES: Record<string, ProductPage> = {
   [atsForSmallBusinesses.slug]: atsForSmallBusinesses,
   [atsForStartups.slug]: atsForStartups,
 };
+
+const PAGES: Record<string, ProductPage> = Object.fromEntries(
+  Object.values(BASE_PAGES).map((page) => [page.slug, withEndToEndContext(page)]),
+) as Record<string, ProductPage>;
 
 export const getAtsPageSlugs = (): string[] => Object.keys(PAGES);
 

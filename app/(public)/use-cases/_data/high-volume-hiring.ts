@@ -112,9 +112,9 @@ export const highVolumeHiring: ProductPage = {
     {
       type: 'paragraph',
       eyebrow: 'Scope clarity',
-      title: 'Built for screening, not full enterprise mass hiring',
+      title: 'Built for high-volume shortlisting, not enterprise HR complexity',
       body: [
-        'HireSort focuses on screening, shortlisting, candidate organization, and basic stage tracking. It is not currently positioned as a full enterprise high-volume suite with automated scheduling, offer workflows, mass messaging, onboarding, or background checks.',
+        'HireSort focuses on sourcing support, AI resume screening, phone screening, first-round interviews, shortlisting, candidate organization, and basic stage tracking. It is not positioned as a full enterprise HR suite with offer workflows, onboarding, payroll, or background checks.',
         'This focus keeps the workflow lightweight and fast.',
       ],
     },
@@ -152,7 +152,7 @@ export const highVolumeHiring: ProductPage = {
     {
       id: 'mass-hiring',
       question: 'Is HireSort suitable for mass hiring workflows?',
-      answer: ['HireSort is suitable for the screening and candidate-management layer of mass hiring. It does not currently cover full scheduling, messaging, offer, or onboarding automation.'],
+      answer: ['HireSort is suitable for the early hiring layer of mass hiring: sourcing support, bulk AI resume screening, AI phone screening, first-round interviews, candidate tracking, and structured shortlists. It is not a full HR suite for offers, onboarding, payroll, or background checks.'],
     },
   ],
 

@@ -67,9 +67,9 @@ export const greenhouseAlternative: CompetitorPage = {
         hiresort: 'AI resume screening and explainable ranking as core workflow',
       },
       {
-        area: 'Scheduling / onboarding',
+        area: 'Early interviews / onboarding',
         competitor: 'Available in platform workflows',
-        hiresort: 'Outside near-term scope',
+        hiresort: 'AI interviews; not a full onboarding suite',
       },
       {
         area: 'Resume repository',
@@ -131,7 +131,8 @@ export const greenhouseAlternative: CompetitorPage = {
       { need: 'Structured hiring', competitor: 'Strong structured hiring and interview workflows', hiresort: 'Rubric-first resume screening and shortlist evaluation' },
       { need: 'Scorecards', competitor: 'Interview scorecards and structured feedback', hiresort: 'Screening rubrics and candidate scorecards' },
       { need: 'AI features', competitor: 'AI features across recruiting workflows', hiresort: 'AI resume screening and explainable ranking as core workflow' },
-      { need: 'Scheduling / onboarding', competitor: 'Available in platform workflows', hiresort: 'Outside near-term scope' },
+      { need: 'Early screening interviews', competitor: 'Available in platform workflows', hiresort: 'AI phone screens and first-round interviews' },
+      { need: 'Onboarding and offer workflows', competitor: 'Available in platform workflows', hiresort: 'Not a full HR suite' },
       { need: 'Resume repository', competitor: 'Candidate records in ATS', hiresort: 'Central resume repository with candidate reuse focus' },
       { need: 'Best fit', competitor: 'Enterprise and mature hiring teams', hiresort: 'Startups, recruiters, agencies and growing teams focused on screening' },
     ],
@@ -160,9 +161,9 @@ export const greenhouseAlternative: CompetitorPage = {
   chooseCompetitor: {
     title: 'Greenhouse may be better if you need',
     bullets: [
-      'An all-in-one hiring platform across sourcing, interviewing, approvals and onboarding',
+      'An all-in-one hiring platform across complex sourcing, approvals and onboarding',
       'Deep structured hiring programs and governance across a large organization',
-      'Interview kits, scorecards, scheduling, onboarding and reporting in one platform',
+      'Interview kits, scorecards, complex scheduling, onboarding and reporting in one platform',
       'Mature TA function support with multiple teams and processes',
     ],
     closing:
@@ -187,9 +188,9 @@ export const greenhouseAlternative: CompetitorPage = {
     },
     {
       id: 'scheduling-onboarding',
-      question: 'Does HireSort include interview scheduling or onboarding?',
+      question: 'Does HireSort include interviews or onboarding?',
       answer: [
-        'No. HireSort focuses on resume screening, candidate ranking, resume management and stage tracking. Scheduling, onboarding and offer workflows are outside the near-term scope.',
+        'HireSort supports early screening workflows, including AI phone screens and first-round interviews. It is not a full onboarding, offer management, payroll, or HRIS suite.',
       ],
     },
     {

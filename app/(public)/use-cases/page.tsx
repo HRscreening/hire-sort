@@ -6,9 +6,9 @@ import { getAllUseCases } from './_lib/registry';
 import { Icon } from '@/app/(public)/product/_components/icons';
 
 const PAGE_PATH = '/use-cases';
-const PAGE_TITLE = 'HireSort Use Cases — AI Resume Screening for Every Hiring Team';
+const PAGE_TITLE = 'HireSort Use Cases - Agentic Hiring Workflows for Every Team';
 const PAGE_DESCRIPTION =
-  'See how founders, recruiters, hiring managers, recruitment agencies, and high-volume hiring teams use HireSort to screen resumes, rank candidates, and track stages in one lightweight workspace.';
+  'See how founders, recruiters, hiring managers, recruitment agencies, and high-volume teams use HireSort for sourcing, AI resume screening, AI phone screening, interviews, and structured shortlists.';
 
 const absUrl = (path: string) =>
   path.startsWith('http') ? path : `${SITE_URL}${path.startsWith('/') ? path : `/${path}`}`;
@@ -26,6 +26,10 @@ export const metadata: Metadata = {
     'recruiter software',
     'hiring manager software',
     'recruitment agency software',
+    'agentic hiring workflows',
+    'AI phone screening',
+    'AI first-round interviews',
+    'agentic sourcing',
   ],
   alternates: { canonical: PAGE_PATH },
   openGraph: {
