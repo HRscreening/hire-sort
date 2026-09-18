@@ -1,9 +1,9 @@
 import { cache } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { SITE_URL, jsonLdString } from "@/lib/seo";
-import Navbar from "@/components/layout/Navbar";
 import Carousel from "./Carousel";
 import Footer from "@/components/layout/Footer";
 import ApplyForm from "./ApplyForm";
@@ -131,6 +131,46 @@ function cleanDetailsHtml(html: string | null | undefined): string {
   return clean.trim();
 }
 
+function HomeLogoLink() {
+  return (
+    <header className="absolute left-0 top-0 z-50 px-5 py-4 md:px-8 md:py-5">
+      <Link href="/" aria-label="HireSort home" className="inline-flex items-center gap-2.5 text-charcoal no-underline">
+        <Image src="/logo.png" alt="" width={30} height={30} priority sizes="30px" className="h-7 w-auto object-contain" />
+        <span className="text-[18px] font-bold tracking-[-0.4px]">HireSort</span>
+      </Link>
+    </header>
+  );
+}
+
+function JobTopBar({ job }: { job: ScreeningDetailsPublicResponseDTO }) {
+  return (
+    <header className="sticky top-0 z-50 border-b border-line-soft bg-ivory/95 backdrop-blur-xl">
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-5 md:px-6">
+        <Link href="/" aria-label="HireSort home" className="inline-flex shrink-0 items-center gap-2.5 text-charcoal no-underline">
+          <Image src="/logo.png" alt="" width={30} height={30} priority sizes="30px" className="h-7 w-auto object-contain" />
+          <span className="hidden text-[20px] font-bold tracking-[-0.4px] sm:inline">HireSort</span>
+        </Link>
+
+        <div className="min-w-0 flex-1 text-center">
+          <p className="truncate text-base font-semibold text-charcoal md:text-lg">
+            Applying for: {job.title}
+          </p>
+          <p className="hidden truncate text-sm font-medium text-charcoal-lt sm:block">
+            {job.company_name || "Apply for this role"}
+          </p>
+        </div>
+
+        <a
+          href="#job-details"
+          className="inline-flex h-9 shrink-0 items-center justify-center rounded-md bg-charcoal px-4 text-[15px] font-semibold text-ivory no-underline transition-colors hover:bg-accent"
+        >
+          Apply Now
+        </a>
+      </div>
+    </header>
+  );
+}
+
 export default async function JobPage({ params }: { params: Params }) {
   const { jobId } = await params;
   const { data: job, status } = await fetchJobDetails(jobId);
@@ -144,8 +184,8 @@ export default async function JobPage({ params }: { params: Params }) {
   if (status >= 500 || !job) {
     return (
       <>
-        <Navbar />
-      <Carousel />
+        <HomeLogoLink />
+        <Carousel />
         <main id="main" className="flex-1 flex items-center justify-center min-h-[60vh] bg-ivory px-6 py-20 text-center">
           <div className="max-w-md w-full rounded-2xl border border-line-soft bg-ivory-light p-8 shadow-card">
             <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-red-100 text-red-600 mb-6">
@@ -183,12 +223,12 @@ export default async function JobPage({ params }: { params: Params }) {
         }}
       />
 
-      <Navbar />
+      <JobTopBar job={job} />
       <Carousel />
       <main id="main" className="min-h-screen bg-ivory pb-16">
         
         {/* Sticky Header Section */}
-        <section className="sticky top-16 z-30 bg-ivory/95 backdrop-blur-md py-2 mb-3">
+        <section id="job-details" className="sticky top-16 z-30 scroll-mt-16 bg-ivory/95 backdrop-blur-md py-2 mb-3">
           <div className="mx-auto max-w-6xl px-6">
             <div className="rounded-2xl border border-line-soft bg-ivory-light p-5 md:p-6 shadow-soft">
               {/* Top row: info + buttons */}
@@ -335,13 +375,13 @@ export default async function JobPage({ params }: { params: Params }) {
 
                 <div className="text-xs md:text-sm text-charcoal-md leading-relaxed space-y-3">
                   <p>
-                    <strong className="font-bold text-charcoal">HireSort</strong> is an <strong className="font-bold text-charcoal">AI-powered recruitment and candidate evaluation platform</strong> built to help high-growth teams recruit faster, smarter, and with complete objectivity.
+                    <strong className="font-bold text-charcoal">HireSort</strong> is a <strong className="font-bold text-charcoal">modern recruitment agency</strong> that helps companies find, evaluate, and hire the right candidates faster.
                   </p>
                   <p>
-                    By replacing manual resume screening with <strong className="font-bold text-charcoal">explainable AI rubric scoring</strong>, <strong className="font-bold text-charcoal">one-click job distribution</strong>, and <strong className="font-bold text-charcoal">autonomous conversational voice interviews</strong>, HireSort eliminates hiring bottlenecks and ensures top candidate talent is shortlisted <span className="font-bold text-accent">10x faster</span>.
+                    Our recruiters manage the hiring workflow end to end: understanding the role, sourcing candidates, screening applications, and building structured shortlists for hiring teams.
                   </p>
                   <p>
-                    Our platform provides transparent evidence breakdowns, candidate ranking dashboards, and automated pipeline analytics so recruiters and hiring managers can make confident hiring decisions with zero bias.
+                    Behind the scenes, we use <strong className="font-bold text-charcoal">AI-powered workflows</strong> to move faster, evaluate more consistently, and help recruiters focus on candidate quality instead of repetitive manual work.
                   </p>
                 </div>
 
@@ -351,13 +391,13 @@ export default async function JobPage({ params }: { params: Params }) {
                     href="/contact"
                     className="flex-1 inline-flex h-9 items-center justify-center rounded-xl bg-charcoal px-4 text-xs font-semibold text-ivory no-underline transition-all hover:bg-accent hover:scale-[1.02] active:scale-[0.98] duration-200"
                   >
-                    Start Demo
+                    Book a Demo
                   </a>
                   <a
                     href="/free-tools"
                     className="flex-1 inline-flex h-9 items-center justify-center rounded-xl border border-line-soft bg-ivory px-4 text-xs font-semibold text-charcoal no-underline transition-all hover:border-accent hover:text-accent hover:scale-[1.02] active:scale-[0.98] duration-200"
                   >
-                    Start Screening
+                    Contact Us
                   </a>
                 </div>
               </div>

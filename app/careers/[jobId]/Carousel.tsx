@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import Autoplay from 'embla-carousel-autoplay'
 import {
     Carousel,
@@ -11,7 +12,7 @@ import {
     CarouselPrevious,
     type CarouselApi,
 } from '@/components/ui/carousel'
-import { Sparkles, Zap, Bot, Mic, BarChart3, CheckCircle2, Star, Quote } from 'lucide-react'
+import { Sparkles, Zap, Bot, Mic, BarChart3, CheckCircle2, Quote } from 'lucide-react'
 
 const testimonials = [
     {
@@ -111,23 +112,11 @@ function FirstIntroTestimonialCard() {
 
                     {/* Left Side: HireSort Intro */}
                     <div className="md:col-span-6 flex flex-col justify-center">
-                        <div className="flex items-center justify-between mb-2">
-                            <span className="inline-flex items-center gap-1.5 rounded-full border border-accent/40 bg-accent/20 px-3 py-0.5 text-[11px] font-bold uppercase tracking-wider text-accent-light">
-                                <Sparkles className="h-3.5 w-3.5 text-accent-light" />
-                                HIRESORT AI PLATFORM
-                            </span>
-                            <div className="flex items-center gap-0.5">
-                                {[...Array(5)].map((_, i) => (
-                                    <Star key={i} className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
-                                ))}
-                            </div>
-                        </div>
-
-                        <h3 className="text-lg md:text-xl font-bold text-white tracking-tight leading-snug">
-                            Intelligent Screening & Voice AI
+                        <h3 className="text-xl md:text-2xl font-extrabold text-white tracking-[-0.5px] leading-tight">
+                            Our Recruiters Powered by AI Workflows
                         </h3>
-                        <p className="mt-1 text-xs md:text-sm text-white/75 leading-relaxed">
-                            HireSort automates candidate ranking, resume evaluation, and AI voice interviews so your hiring team makes confident decisions faster.
+                        <p className="mt-2 text-xs md:text-sm text-white/75 leading-relaxed">
+                            HireSort works as your recruiting partner: experienced recruiters source, screen, and shortlist candidates while AI workflows help us move faster and evaluate more consistently.
                         </p>
                     </div>
 
@@ -216,18 +205,39 @@ export default function FeatureCarousel() {
                         <Sparkles className="h-3.5 w-3.5" />
                         <span>HIRESORT FEATURE SHOWCASE</span>
                     </div> */}
-                    <h2 className="text-xl md:text-2xl font-bold text-charcoal tracking-tight">
+                    <h2 className="mx-auto max-w-180 text-[clamp(36px,5.5vw,58px)] font-extrabold leading-[1.12] tracking-[-1.5px] text-charcoal">
                         Hire Smarter. Hire Faster. Stress Less.
                     </h2>
                     <div className='flex flex-col gap-1'>
-                        <p className="mt-1 text-xs md:text-sm text-charcoal-md leading-relaxed">
-                            HireSort is a new-age recruitment partner that helps you find the right candidates, faster.
+                        <p className="mx-auto mt-5 max-w-170 text-[clamp(16px,2vw,19px)] leading-[1.6] text-charcoal-lt">
+                            HireSort is a modern recruitment agency that hires for you, with dedicated recruiters backed by AI-powered workflows.
                         </p>
-                        <p className="mt-1 text-xs md:text-sm text-charcoal-md leading-relaxed">
-                            Join a growing list of companies building stronger teams with less effort and zero hiring stress.
+                        <p className="mx-auto mt-1 max-w-170 text-[clamp(16px,2vw,19px)] leading-[1.6] text-charcoal-lt">
+                            We handle sourcing, screening, and shortlisting so your team meets better-fit candidates faster, with less hiring stress.
                         </p>
 
                     </div>
+                    <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row">
+                        <Link
+                            href="/contact"
+                            className="inline-flex h-11 items-center justify-center rounded-md border border-copper bg-copper px-7 text-[14.5px] font-semibold leading-none text-white no-underline shadow-[0_8px_24px_rgba(0,0,0,0.12)] transition-colors hover:bg-copper-dark"
+                        >
+                            Book a Demo
+                        </Link>
+                        <Link
+                            href="/contact"
+                            className="inline-flex h-11 items-center justify-center rounded-md border border-line bg-white px-7 text-[14.5px] font-semibold leading-none text-charcoal no-underline transition-colors hover:border-charcoal-xlt hover:bg-ivory-medium"
+                        >
+                            Contact Us
+                        </Link>
+                    </div>
+                    <a
+                        href="#job-details"
+                        className="mx-auto mt-5 inline-flex items-center gap-2 text-[13.5px] font-semibold text-charcoal-md no-underline transition-colors hover:text-accent"
+                    >
+                        Applying for this role? Job details and application start below
+                        <span aria-hidden="true" className="text-accent">↓</span>
+                    </a>
                 </div>
 
                 {/* Carousel Container with Generous Side Padding for Nav Buttons */}
