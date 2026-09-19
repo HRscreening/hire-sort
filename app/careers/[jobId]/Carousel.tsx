@@ -196,28 +196,24 @@ export default function FeatureCarousel() {
     }, [api])
 
     return (
-        <section className="w-full bg-linear-to-b from-ivory-light via-ivory to-ivory-light py-8 md:py-10 border-y border-line-soft overflow-hidden">
+        <section className="w-full bg-linear-to-b from-ivory-light via-ivory to-ivory-light py-4 md:py-5 border-y border-line-soft overflow-hidden">
             <div className="mx-auto max-w-6xl px-4 md:px-6">
 
                 {/* Section Header */}
-                <div className="text-center mb-6 max-w-2xl mx-auto">
+                <div className="text-center mb-4 max-w-5xl mx-auto">
                     {/* <div className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/10 px-3.5 py-1 text-xs font-semibold text-accent mb-2">
                         <Sparkles className="h-3.5 w-3.5" />
                         <span>HIRESORT FEATURE SHOWCASE</span>
                     </div> */}
-                    <h2 className="mx-auto max-w-180 text-[clamp(36px,5.5vw,58px)] font-extrabold leading-[1.12] tracking-[-1.5px] text-charcoal">
+                    <h2 className="mx-auto max-w-full text-[clamp(30px,4vw,46px)] font-extrabold leading-[1.08] tracking-[-1.5px] text-charcoal md:whitespace-nowrap">
                         Hire Smarter. Hire Faster. Stress Less.
                     </h2>
-                    <div className='flex flex-col gap-1'>
-                        <p className="mx-auto mt-5 max-w-170 text-[clamp(16px,2vw,19px)] leading-[1.6] text-charcoal-lt">
-                            HireSort is a modern recruitment agency that hires for you, with dedicated recruiters backed by AI-powered workflows.
+                    <div>
+                        <p className="mx-auto mt-3 max-w-4xl text-[clamp(15px,1.7vw,18px)] leading-[1.5] text-charcoal-lt">
+                            HireSort is a modern recruitment agency that hires for you: our recruiters use AI-powered workflows to source, screen, and shortlist better-fit candidates faster.
                         </p>
-                        <p className="mx-auto mt-1 max-w-170 text-[clamp(16px,2vw,19px)] leading-[1.6] text-charcoal-lt">
-                            We handle sourcing, screening, and shortlisting so your team meets better-fit candidates faster, with less hiring stress.
-                        </p>
-
                     </div>
-                    <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row">
+                    <div className="mt-4 flex flex-col items-center justify-center gap-3 sm:flex-row">
                         <Link
                             href="/contact"
                             className="inline-flex h-11 items-center justify-center rounded-md border border-copper bg-copper px-7 text-[14.5px] font-semibold leading-none text-white no-underline shadow-[0_8px_24px_rgba(0,0,0,0.12)] transition-colors hover:bg-copper-dark"
@@ -231,13 +227,6 @@ export default function FeatureCarousel() {
                             Contact Us
                         </Link>
                     </div>
-                    <a
-                        href="#job-details"
-                        className="mx-auto mt-5 inline-flex items-center gap-2 text-[13.5px] font-semibold text-charcoal-md no-underline transition-colors hover:text-accent"
-                    >
-                        Applying for this role? Job details and application start below
-                        <span aria-hidden="true" className="text-accent">↓</span>
-                    </a>
                 </div>
 
                 {/* Carousel Container with Generous Side Padding for Nav Buttons */}

@@ -131,6 +131,17 @@ function cleanDetailsHtml(html: string | null | undefined): string {
   return clean.trim();
 }
 
+function getDisplayDepartment(job: ScreeningDetailsPublicResponseDTO): string {
+  if (job.department?.trim()) return job.department;
+
+  const title = job.title.toLowerCase();
+  if (title.includes("legal") || title.includes("law") || title.includes("counsel")) {
+    return "Legal";
+  }
+
+  return "Role";
+}
+
 function HomeLogoLink() {
   return (
     <header className="absolute left-0 top-0 z-50 px-5 py-4 md:px-8 md:py-5">
@@ -212,6 +223,7 @@ export default async function JobPage({ params }: { params: Params }) {
   }
 
   const cleanedDetails = cleanDetailsHtml(job.details);
+  const displayDepartment = getDisplayDepartment(job);
 
   return (
     <>
@@ -234,36 +246,6 @@ export default async function JobPage({ params }: { params: Params }) {
               {/* Top row: info + buttons */}
               <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
                 <div className="min-w-0 flex-1">
-                  <div className="flex flex-wrap items-center gap-2 mb-2">
-                    <span className="inline-flex items-center rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold text-accent">
-                      {job.department || "Engineering"}
-                    </span>
-                    {job.location && (
-                      <span className="flex items-center gap-1.5 bg-charcoal/5 px-2.5 py-1 rounded-lg text-xs font-semibold text-charcoal-md">
-                        <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5" className="text-accent">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                        </svg>
-                        {job.location}
-                      </span>
-                    )}
-                    {job.employment_type && (
-                      <span className="flex items-center gap-1.5 bg-charcoal/5 px-2.5 py-1 rounded-lg text-xs font-semibold text-charcoal-md">
-                        <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5" className="text-accent">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                        </svg>
-                        {job.employment_type}
-                      </span>
-                    )}
-                    {job.work_arrangement && (
-                      <span className="flex items-center gap-1.5 bg-charcoal/5 px-2.5 py-1 rounded-lg text-xs font-semibold text-charcoal-md">
-                        <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5" className="text-accent">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                        </svg>
-                        {job.work_arrangement}
-                      </span>
-                    )}
-                  </div>
                   <h1 className="text-2xl md:text-3xl font-bold text-charcoal tracking-tight">
                     {job.title}
                   </h1>
@@ -319,7 +301,7 @@ export default async function JobPage({ params }: { params: Params }) {
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs">
                   <div>
                     <span className="text-neutral-500 font-semibold block uppercase text-[10px]">Department</span>
-                    <span className="font-bold text-charcoal text-sm mt-0.5 block">{job.department || "General"}</span>
+                    <span className="font-bold text-charcoal text-sm mt-0.5 block">{displayDepartment}</span>
                   </div>
                   <div>
                     <span className="text-neutral-500 font-semibold block uppercase text-[10px]">Work Arrangement</span>
