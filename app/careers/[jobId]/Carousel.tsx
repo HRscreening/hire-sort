@@ -102,7 +102,7 @@ function FirstIntroTestimonialCard() {
 
     return (
         <CarouselItem className="pl-4 basis-full lg:basis-[75%] md:basis-[80%]">
-            <div className="relative rounded-2xl border border-white/15 bg-copper p-5 md:p-6 shadow-xl text-white overflow-hidden h-full flex flex-col justify-between">
+            <div className="relative rounded-2xl border border-white/15 bg-[#eedbd0] p-5 md:p-6 shadow-xl text-black overflow-hidden h-full flex flex-col justify-between">
 
                 {/* Ambient background glow */}
                 <div className="absolute -top-12 -right-12 h-36 w-36 rounded-full bg-accent/25 blur-3xl pointer-events-none" />
@@ -112,16 +112,16 @@ function FirstIntroTestimonialCard() {
 
                     {/* Left Side: HireSort Intro */}
                     <div className="md:col-span-6 flex flex-col justify-center">
-                        <h3 className="text-xl md:text-2xl font-extrabold text-white tracking-[-0.5px] leading-tight">
+                        <h3 className="text-xl md:text-2xl font-extrabold text-black tracking-[-0.5px] leading-tight">
                             Our Recruiters Powered by AI Workflows
                         </h3>
-                        <p className="mt-2 text-xs md:text-sm text-white/75 leading-relaxed">
+                        <p className="mt-2 text-xs md:text-sm text-black/75 leading-relaxed">
                             HireSort works as your recruiting partner: experienced recruiters source, screen, and shortlist candidates while AI workflows help us move faster and evaluate more consistently.
                         </p>
                     </div>
 
                     {/* Right Side: User Review Box */}
-                    <div className="md:col-span-6 rounded-xl border border-white/10 bg-white/5 p-4 backdrop-blur-xs flex flex-col justify-between">
+                    <div className="md:col-span-6 rounded-xl border border-white bg-[#f4f2ed] p-4 backdrop-blur-xs flex flex-col justify-between">
                         <div className="flex items-center justify-between mb-2">
                             <div className="flex items-center gap-1.5">
                                 <Quote className="h-4 w-4 text-accent-light shrink-0" />
@@ -144,7 +144,7 @@ function FirstIntroTestimonialCard() {
                             </div>
                         </div>
 
-                        <p className="text-xs md:text-sm text-white/90 italic leading-relaxed mb-3">
+                        <p className="text-xs md:text-sm text-black/90 italic leading-relaxed mb-3">
                             "{current.text}"
                         </p>
 
@@ -153,8 +153,8 @@ function FirstIntroTestimonialCard() {
                                 {current.avatar}
                             </div>
                             <div className="min-w-0 flex-1">
-                                <p className="text-xs font-bold text-white truncate leading-none">{current.name}</p>
-                                <p className="text-[11px] text-white/60 truncate mt-0.5">{current.role}, {current.company}</p>
+                                <p className="text-xs font-bold text-black truncate leading-none">{current.name}</p>
+                                <p className="text-[11px] text-black/60 truncate mt-0.5">{current.role}, {current.company}</p>
                             </div>
                         </div>
                     </div>

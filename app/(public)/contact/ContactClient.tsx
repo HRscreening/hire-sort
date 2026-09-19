@@ -154,7 +154,7 @@ const ContactClient = () => {
                   href="tel:+918789733414"
                   className={`${infoValueClass} transition-colors hover:text-accent`}
                 >
-                  +91 8789733414
+                  +91 9870345396
                 </a>
               </div>
             </motion.div>

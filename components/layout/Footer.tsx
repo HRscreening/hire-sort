@@ -3,6 +3,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion, type Variants } from 'framer-motion';
+import {Phone, Mail} from 'lucide-react';
+
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -89,6 +91,16 @@ const Footer = () => {
           <p className="mt-3 max-w-65 text-[13.5px] leading-[1.6] text-charcoal-lt">
             AI-powered resume screening that explains its reasoning. Built for hiring teams who value transparency.
           </p>
+
+          <div className="mt-6 justify-start items-start gap-4 text-[14px]">
+            <a 
+            href="mailto:support@hiresort.ai">
+            <span className='flex items-center gap-2'><Mail size={14} /> support@hiresort.ai</span>
+            </a>
+            <span className='flex items-center gap-2'><Phone size={14}/> +91 9870345396 </span>
+          </div>
+        
+
         </motion.div>
 
         {columns.map((c) => (
