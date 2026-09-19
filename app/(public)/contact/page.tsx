@@ -36,10 +36,12 @@ const contactPageJsonLd = {
     '@type': 'Organization',
     name: 'HireSort',
     email: 'support@hiresort.ai',
+    telephone: '+91 9870345396',
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'customer support',
       email: 'support@hiresort.ai',
+      telephone: '+91 9870345396',
       availableLanguage: ['English'],
     },
   },

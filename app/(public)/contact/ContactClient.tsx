@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import {
   Mail,
+  Phone,
   Clock,
   MessageSquare,
   Send,
@@ -139,6 +140,21 @@ const ContactClient = () => {
                   className={`${infoValueClass} transition-colors hover:text-accent`}
                 >
                   support@hiresort.ai
+                </a>
+              </div>
+            </motion.div>
+
+            <motion.div variants={itemVariants} className={infoCardClass}>
+              <div className="flex h-9.5 w-9.5 shrink-0 items-center justify-center rounded-lg bg-[rgba(0,0,0,0.05)] text-copper">
+                <Phone size={18} strokeWidth={2.2} />
+              </div>
+              <div>
+                <div className={infoLabelClass}>Phone</div>
+                <a
+                  href="tel:+918789733414"
+                  className={`${infoValueClass} transition-colors hover:text-accent`}
+                >
+                  +91 9870345396
                 </a>
               </div>
             </motion.div>
