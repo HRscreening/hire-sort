@@ -1,14 +1,24 @@
-import dynamic from 'next/dynamic';
 import type { Metadata } from 'next';
 import { cookies } from "next/headers";
 import type { PlanType } from '@/types/types';
-const Pricing = dynamic(() => import('@/app/(public)/pricing/_components/Pricing'));
+import type { PlanSpec, PlansResponse } from './PlanSpec.type';
+import Pricing from './_components/Pricing';
 
-export const revalidate = 3600;
+const API_BASE = process.env.APP_BACKEND_URL || process.env.NEXT_PUBLIC_API_URL || 'https://api.hiresort.ai';
 
-const EXCHANGE_RATE_API = 'https://open.er-api.com/v6/latest/USD';
-
-
+async function fetchPlans(): Promise<PlanSpec[]> {
+    try {
+        const res = await fetch(`${API_BASE}/api/billing/plans`, {
+            next: { revalidate: 3600, tags: ['billing-plans'] },
+        });
+        if (!res.ok) return [];
+        const data: PlansResponse = await res.json();
+        return data.plans || [];
+    } catch (err) {
+        console.error('Error fetching billing plans server-side:', err);
+        return [];
+    }
+}
 
 export const metadata: Metadata = {
     title: 'Pricing — HireSort',
@@ -46,28 +56,28 @@ const pricingJsonLd = {
             name: 'Free',
             price: '0',
             priceCurrency: 'USD',
-            description: 'One active role and 250 hiring credits.',
+            description: 'One active role and 50 resume analysis per month.',
         },
         {
             '@type': 'Offer',
-            name: 'Starter',
+            name: 'Plus',
             price: '49',
             priceCurrency: 'USD',
-            description: 'Two active roles and 1,000 hiring credits per month.',
+            description: 'Three active roles and 1,000 resume analysis per month.',
         },
         {
             '@type': 'Offer',
-            name: 'Growth',
-            price: '149',
+            name: 'Pro',
+            price: '199',
             priceCurrency: 'USD',
-            description: 'Five active roles and 4,000 hiring credits per month.',
+            description: 'Five active roles and 4,000 resume analysis per month.',
         },
         {
             '@type': 'Offer',
-            name: 'Scale',
-            price: '399',
+            name: 'Custom',
+            price: 'Contact us',
             priceCurrency: 'USD',
-            description: 'Fifteen active roles and 12,000 hiring credits per month.',
+            description: 'Custom plans for enterprise hiring needs.',
         },
     ],
 };
@@ -77,13 +87,14 @@ export default async function PricingPage() {
     const jar = await cookies()
     const isLoggedIn = jar.get("hs_auth")?.value === "1"
     const plan = (jar.get("hs_plan")?.value as PlanType | undefined) ?? 'FREE'
+    const plans = await fetchPlans();
     return (
         <>
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(pricingJsonLd) }}
             />
-            <Pricing isLoggedIn={isLoggedIn} plan={plan} />
+            <Pricing isLoggedIn={isLoggedIn} plan={plan} plans={plans} />
         </>
     );
 }

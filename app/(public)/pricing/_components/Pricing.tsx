@@ -4,19 +4,36 @@ import { useState } from 'react';
 import { motion, AnimatePresence, type Variants } from 'framer-motion';
 import { trackCTAClick, trackEvent } from '@/lib/google_analytics_tracker';
 import Link from 'next/link';
-import type { PlanType } from '@/types/types';
+import type { PlanSpec, PlanType } from '../PlanSpec.type';
 
 const main_app_url = process.env.NEXT_PUBLIC_MAIN_APP_URL || 'http://localhost:3000';
 
-const PLAN_SLUGS: Record<Exclude<PlanType, 'FREE'>, string> = {
+const PLAN_SLUGS: Record<string, string> = {
   BUSINESS: 'business',
   PLUS: 'plus',
   PRO: 'pro',
   ENTERPRISE: 'enterprise',
 };
 
-const checkoutUrl = (plan: 'BUSINESS' | 'PLUS' | 'PRO', yearly: boolean) =>
-  `${main_app_url}/checkout/${PLAN_SLUGS[plan]}?cycle=${yearly ? 'yearly' : 'monthly'}&from=pricing`;
+const PLAN_ORDER: Record<string, number> = {
+  FREE: 0,
+  PLUS: 1,
+  PRO: 2,
+  BUSINESS: 3,
+  ENTERPRISE: 4,
+  UNLIMITED: 5,
+};
+
+const PLAN_DESCRIPTIONS: Record<string, string> = {
+  FREE: 'Perfect for individuals and small teams getting started with AI-powered resume screening.',
+  PLUS: 'Built for teams that hire regularly and need faster, higher-volume screening.',
+  PRO: 'Designed for high-volume hiring teams that need scale, flexibility, and greater control over screening workflows.',
+  BUSINESS: 'For agencies and high-volume teams that need more roles and throughput.',
+  ENTERPRISE: 'Built for large organizations that need advanced security, customization, and dedicated support at scale.',
+};
+
+const checkoutUrl = (plan: string, yearly: boolean) =>
+  `${main_app_url}/checkout/${PLAN_SLUGS[plan] || plan.toLowerCase()}?cycle=${yearly ? 'yearly' : 'monthly'}&from=pricing`;
 const ease = [0.22, 1, 0.36, 1] as const;
 
 const headerVariants: Variants = {
@@ -37,7 +54,6 @@ const Check = () => (
     <polyline points="20 6 9 17 4 12" />
   </svg>
 );
-
 
 const cardBaseClass =
   'flex h-full flex-col rounded-xl border border-line-soft bg-white p-7 transition-all hover:shadow-lg';
@@ -68,113 +84,11 @@ const PriceAmount = ({ amount }: { amount: string }) => (
   </AnimatePresence>
 );
 
-
 type PricingProps = {
   isLoggedIn: boolean;
   plan: PlanType;
+  plans: PlanSpec[];
 };
-
-type PlanCard = {
-  name: string;
-  mappedPlan: PlanType;
-  checkoutPlan?: 'BUSINESS' | 'PLUS' | 'PRO';
-  monthly: string;
-  yearly?: string;
-  suffix?: string;
-  description: string;
-  features: string[];
-  featured?: boolean;
-  contact?: boolean;
-};
-
-const plans: PlanCard[] = [
-  {
-    name: 'Free',
-    mappedPlan: 'FREE',
-    monthly: '$0',
-    suffix: '/month',
-    description: 'Try HireSort on your first role before you upgrade.',
-    features: [
-      '1 active role',
-      '**250** hiring credits',
-      'AI JD generation',
-      'Limited job posting',
-      'AI resume screening',
-      'A few AI phone screens and interviews',
-      'No credit card required',
-    ],
-  },
-  {
-    name: 'Starter',
-    mappedPlan: 'PLUS',
-    checkoutPlan: 'PLUS',
-    monthly: '$49',
-    yearly: '$39',
-    suffix: '/month',
-    description: 'For small teams hiring occasionally with automated screening and interviews.',
-    features: [
-      '2 active roles',
-      '**1,000** hiring credits/month',
-      'Automated candidate screening',
-      'AI phone screens',
-      'Basic structured shortlists',
-      'Extra credits available',
-    ],
-  },
-  {
-    name: 'Growth',
-    mappedPlan: 'PRO',
-    checkoutPlan: 'PRO',
-    monthly: '$149',
-    yearly: '$119',
-    suffix: '/month',
-    description: 'For startups and recruitment teams running sourcing, screening, and interviews.',
-    features: [
-      '5 active roles',
-      '**4,000** hiring credits/month',
-      'Agentic sourcing workflows',
-      'AI resume screening',
-      'AI phone screens and first-round interviews',
-      'Recruiter-in-the-loop approvals',
-      'Structured hiring data',
-    ],
-    featured: true,
-  },
-  {
-    name: 'Scale',
-    mappedPlan: 'BUSINESS',
-    monthly: '$399',
-    yearly: '$319',
-    suffix: '/month',
-    description: 'For agencies and high-volume teams that need more roles and throughput.',
-    features: [
-      '15 active roles',
-      '**12,000** hiring credits/month',
-      'Team access',
-      'Higher sourcing volume',
-      'Priority workflows',
-      'Hiring funnel analytics',
-      'Custom workflow support',
-    ],
-    contact: true,
-  },
-  {
-    name: 'Enterprise',
-    mappedPlan: 'ENTERPRISE',
-    monthly: 'Custom',
-    description: 'For large teams that need custom credits, integrations, security, and support.',
-    features: [
-      'Custom active roles',
-      'Custom hiring credits',
-      'ATS and workflow integrations',
-      'SSO and advanced security',
-      'Compliance support',
-      'Dedicated onboarding',
-      'SLA and uptime support',
-    ],
-    contact: true,
-  },
-];
 
 const creditRows = [
   ['Resume screening', '1 credit'],
@@ -189,9 +103,38 @@ const extraCreditRows = [
   ['Agency and bulk volume', 'Custom'],
 ];
 
-const Pricing = ({ isLoggedIn, plan = "FREE" }: PricingProps) => {
+function formatPrice(plan: PlanSpec, isYearly: boolean): string {
+  if (plan.key === 'ENTERPRISE' || plan.price_label === 'Custom') return 'Custom';
+  if (isYearly) {
+    if (plan.yearly_price_monthly_usd !== undefined) {
+      return plan.yearly_price_monthly_usd === 0
+        ? '$0'
+        : `$${plan.yearly_price_monthly_usd % 1 === 0 ? plan.yearly_price_monthly_usd : plan.yearly_price_monthly_usd.toFixed(2)}`;
+    }
+    return plan.yearly_price_label.replace(/\/mo.*$/, '') || '$0';
+  }
+  if (plan.price_monthly_usd !== undefined) return `$${plan.price_monthly_usd}`;
+  return plan.price_label.replace(/\/mo.*$/, '') || '$0';
+}
+
+function formatAnnualTotal(plan: PlanSpec): string | null {
+  if (plan.key === 'ENTERPRISE' || plan.key === 'FREE') return null;
+  if (plan.yearly_price_monthly_usd !== undefined && plan.yearly_price_monthly_usd > 0) {
+    const total = plan.yearly_price_monthly_usd * 12;
+    const formatted = total % 1 === 0 ? `$${total}` : `$${total.toFixed(2)}`;
+    return `(billed at ${formatted}/year)`;
+  }
+  return '(billed yearly)';
+}
+
+function isCustomPriced(plan: PlanSpec): boolean {
+  return plan.key === 'ENTERPRISE' || plan.price_label === 'Custom' || (plan.price_monthly_usd === undefined && plan.key !== 'FREE');
+}
+
+const Pricing = ({ isLoggedIn, plan: currentPlan = "FREE", plans = [] }: PricingProps) => {
   const [isYearly, setIsYearly] = useState(false);
 
+  const orderedPlans = [...plans].sort((a, b) => (PLAN_ORDER[a.key] ?? 99) - (PLAN_ORDER[b.key] ?? 99));
 
   const setBilling = (yearly: boolean) => {
     if (yearly !== isYearly) {
@@ -200,18 +143,19 @@ const Pricing = ({ isLoggedIn, plan = "FREE" }: PricingProps) => {
     setIsYearly(yearly);
   };
 
-  const selectPlan = (plan: string) => () =>
-    trackCTAClick('plan_select', 'pricing_' + plan.toLowerCase().replace(/\s+/g, '_') + '_' + (isYearly ? 'yearly' : 'monthly'));
+  const selectPlan = (planName: string) => () =>
+    trackCTAClick('plan_select', 'pricing_' + planName.toLowerCase().replace(/\s+/g, '_') + '_' + (isYearly ? 'yearly' : 'monthly'));
 
-  function handleBtnTitle(plan: PlanType, currentPlan: PlanType) {
-    const planLabels: Record<PlanType, string> = {
+  function handleBtnTitle(planKey: PlanType, displayName?: string) {
+    const planLabels: Record<string, string> = {
       FREE: 'Free',
-      PLUS: 'Starter',
-      PRO: 'Growth',
+      PLUS: 'Plus',
+      PRO: 'Pro',
       BUSINESS: 'Scale',
       ENTERPRISE: 'Enterprise',
     };
-    const planOrder: Record<PlanType, number> = {
+    const label = displayName || planLabels[planKey] || planKey;
+    const planOrder: Record<string, number> = {
       FREE: 0,
       PLUS: 1,
       PRO: 2,
@@ -220,19 +164,19 @@ const Pricing = ({ isLoggedIn, plan = "FREE" }: PricingProps) => {
     };
 
     if (!isLoggedIn) return 'Get started';
-    if (plan === currentPlan) {
+    if (planKey === currentPlan) {
       return 'Current Plan';
     }
-    if (plan === "FREE") {
+    if (planKey === "FREE") {
       return 'Downgrade to Free';
     }
-    if (plan === "ENTERPRISE") {
+    if (planKey === "ENTERPRISE") {
       return 'Contact Us';
     }
-    if (planOrder[plan] < planOrder[currentPlan]) {
-      return `Downgrade to ${planLabels[plan]}`;
+    if ((planOrder[planKey] ?? 0) < (planOrder[currentPlan] ?? 0)) {
+      return `Downgrade to ${label}`;
     }
-    return `Upgrade to ${planLabels[plan]}`;
+    return `Upgrade to ${label}`;
   }
 
   const renderFeature = (f: string) => (
@@ -295,18 +239,6 @@ const Pricing = ({ isLoggedIn, plan = "FREE" }: PricingProps) => {
         >
           Save 20%
         </motion.span>
-
-        {/* <select
-          value={currency}
-          onChange={(e) => setCurrency(e.target.value as CurrencyCode)}
-          className="ml-4 rounded border border-line-soft bg-white px-2 py-1 text-[13px] font-semibold text-charcoal outline-none transition-all hover:border-charcoal-lt"
-        >
-          {Object.entries(CURRENCIES).map(([code, { label }]) => (
-            <option key={code} value={code}>
-              {label}
-            </option>
-          ))}
-        </select> */}
       </motion.div>
 
       {/* Cards */}
@@ -315,22 +247,18 @@ const Pricing = ({ isLoggedIn, plan = "FREE" }: PricingProps) => {
         whileInView="show"
         viewport={{ once: true, amount: 0.2 }}
         variants={gridVariants}
-        className="mx-auto mt-14 grid max-w-105 grid-cols-1 gap-4 md:max-w-none md:grid-cols-2 xl:grid-cols-5"
+        className="mx-auto mt-10 sm:mt-14 grid max-w-105 grid-cols-1 gap-6 md:max-w-none md:grid-cols-2 xl:grid-cols-4 md:gap-4"
       >
-        {plans.map((p, planIndex) => {
-          const amount = isYearly && p.yearly ? p.yearly : p.monthly;
-          const isFeatured = p.featured && (!isLoggedIn || plan === 'FREE');
-          const href = p.mappedPlan === 'FREE'
-            ? `${main_app_url}/login`
-            : p.contact || !p.checkoutPlan
-              ? '/contact'
-              : checkoutUrl(p.checkoutPlan, isYearly);
-          const buttonClass = isFeatured || plan === p.mappedPlan ? ctaPrimary : ctaSecondary;
-          const buttonLabel = p.contact ? 'Talk to sales' : p.mappedPlan === 'FREE' ? 'Start free' : handleBtnTitle(p.mappedPlan, plan);
+        {orderedPlans.map((planItem, planIdx) => {
+          const isFeatured = planItem.key === 'PRO' && (!isLoggedIn || currentPlan === 'FREE');
+          const isEnterprise = planItem.key === 'ENTERPRISE';
+          const isFree = planItem.key === 'FREE';
+          const isCurrent = isLoggedIn && planItem.key === currentPlan;
+          const isPaidYearly = isYearly && !isFree && !isEnterprise && planItem.yearly_price_monthly_usd && planItem.yearly_price_monthly_usd > 0;
 
           return (
             <motion.div
-              key={p.name}
+              key={planItem.key}
               variants={cardVariants}
               whileHover={{ y: isFeatured ? -14 : -10, transition: { type: 'spring', stiffness: 300, damping: 20 } }}
               animate={isFeatured ? {
@@ -340,25 +268,33 @@ const Pricing = ({ isLoggedIn, plan = "FREE" }: PricingProps) => {
                   '0 10px 30px rgba(0,0,0,0.08)',
                 ],
               } : undefined}
-              transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-              className={`${cardBaseClass} ${isFeatured ? `${cardFeaturedClass} ${featuredBadgeAfter}` : ''} ${p.contact ? 'bg-ivory-light' : ''}`}
+              transition={isFeatured ? { duration: 4, repeat: Infinity, ease: 'easeInOut' } : undefined}
+              className={[
+                cardBaseClass,
+                isEnterprise ? 'bg-ivory-light' : '',
+                isFeatured ? `${cardFeaturedClass} ${featuredBadgeAfter}` : '',
+                isCurrent ? '!border-charcoal' : '',
+              ].filter(Boolean).join(' ')}
             >
-              <div className={planNameClass}>{p.name}</div>
+              <div className={planNameClass}>{planItem.display_name}</div>
               <div className="mb-1.5 flex items-baseline gap-1">
-                <PriceAmount amount={amount} />
-                {p.suffix ? <span className="text-sm text-charcoal-xlt">{p.suffix}</span> : null}
+                <PriceAmount amount={formatPrice(planItem, isYearly)} />
+                {!isCustomPriced(planItem) && (
+                  <span className="text-sm text-charcoal-xlt">/month</span>
+                )}
               </div>
               <p className={planDescClass}>
-                {p.description} {isYearly && p.yearly ? '(billed yearly)' : ''}
+                {PLAN_DESCRIPTIONS[planItem.key] || 'For teams that need automated sourcing, screening, and hiring.'}{' '}
+                {isPaidYearly && formatAnnualTotal(planItem)}
               </p>
               <ul className="mb-7 flex flex-1 list-none flex-col gap-2.5">
-                {p.features.map((f, i) => (
+                {planItem.display_features.map((f, i) => (
                   <motion.li
                     key={f}
                     initial={{ opacity: 0, x: -12 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: 0.3 + (planIndex * 0.06) + i * 0.04, duration: 0.4, ease }}
+                    transition={{ delay: 0.3 + planIdx * 0.1 + i * 0.04, duration: 0.4, ease }}
                     className={planFeatureClass}
                   >
                     <Check />
@@ -366,21 +302,41 @@ const Pricing = ({ isLoggedIn, plan = "FREE" }: PricingProps) => {
                   </motion.li>
                 ))}
               </ul>
-              {href.startsWith('/') ? (
+
+              {isCurrent ? (
+                <span className={`${ctaPrimary} cursor-default opacity-70`}>
+                  Current Plan
+                </span>
+              ) : isEnterprise ? (
                 <motion.div whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }} className="mt-auto">
-                  <Link href={href} onClick={selectPlan(p.name)} className={buttonClass}>
-                    {buttonLabel}
+                  <Link href="/contact" onClick={selectPlan(planItem.display_name)} className={ctaSecondary}>
+                    {handleBtnTitle(planItem.key, planItem.display_name)}
                   </Link>
                 </motion.div>
+              ) : isFree ? (
+                <motion.a
+                  href={`${main_app_url}/login`}
+                  onClick={selectPlan(planItem.display_name)}
+                  whileHover={{ scale: 1.04, y: -2 }}
+                  whileTap={{ scale: 0.97 }}
+                  className={ctaSecondary}
+                >
+                  {!isLoggedIn ? 'Start free' : handleBtnTitle(planItem.key, planItem.display_name)}
+                </motion.a>
               ) : (
-                <motion.a href={href} onClick={selectPlan(p.name)} whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }} className={buttonClass}>
-                  {buttonLabel}
+                <motion.a
+                  href={checkoutUrl(planItem.key, isYearly)}
+                  onClick={selectPlan(planItem.display_name)}
+                  whileHover={{ scale: 1.04, y: -2 }}
+                  whileTap={{ scale: 0.97 }}
+                  className={isFeatured ? ctaPrimary : ctaSecondary}
+                >
+                  {handleBtnTitle(planItem.key, planItem.display_name)}
                 </motion.a>
               )}
             </motion.div>
           );
         })}
-
       </motion.div>
 
       <div className="mx-auto mt-12 grid max-w-260 grid-cols-1 gap-5 lg:grid-cols-[1.1fr_0.9fr]">
@@ -398,7 +354,7 @@ const Pricing = ({ isLoggedIn, plan = "FREE" }: PricingProps) => {
           </p>
           <div className="mb-6 grid gap-3 sm:grid-cols-3">
             {[
-              ['6%-8%', 'of annual CTC on successful hire'],
+              ['10%-15%', 'of annual CTC on successful hire'],
               ['0', 'upfront setup fee initially'],
               ['3-7 days', 'to get finalized shortlists'],
             ].map(([value, label]) => (
