@@ -210,7 +210,7 @@ const toolsMega: MegaConfig = {
     {
       title: 'Job descriptions',
       items: [
-        { href: '/free-tools/jd-generator', label: 'JD Generator', description: 'Draft a structured JD with AI', icon: 'doc',  },
+        { href: '/free-tools/jd-generator', label: 'JD Generator', description: 'Draft a structured JD with AI', icon: 'doc', },
         { href: '/free-tools/rubric-generator', label: 'Rubric Generator', description: 'Turn a JD into a scoring rubric', icon: 'sliders', badge: '' },
       ],
     },
