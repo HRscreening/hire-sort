@@ -338,8 +338,8 @@ const Pricing = ({ isLoggedIn, plan: currentPlan = "FREE", plans = [] }: Pricing
           );
         })}
       </motion.div>
-
-      <div className="mx-auto mt-12 grid max-w-260 grid-cols-1 gap-5 lg:grid-cols-[1.1fr_0.9fr]">
+        
+      <div className="mx-auto mt-12 max-w-150">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -369,38 +369,6 @@ const Pricing = ({ isLoggedIn, plan: currentPlan = "FREE", plans = [] }: Pricing
           </Link>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.55, ease, delay: 0.08 }}
-          className="rounded-xl border border-line-soft bg-white p-7"
-        >
-          <div className="mb-2 text-sm font-semibold text-charcoal-lt">How credits work</div>
-          <h3 className="mb-3 text-2xl font-extrabold tracking-[-0.5px] text-charcoal">Use credits across hiring tasks</h3>
-          <p className="mb-5 text-sm leading-6 text-charcoal-lt">
-            Every plan includes hiring credits. Use them for resume screening, AI phone screening, interviews, and sourcing actions.
-          </p>
-          <div className="space-y-2">
-            {creditRows.map(([action, cost]) => (
-              <div key={action} className="flex items-center justify-between rounded-md bg-ivory-light px-4 py-3 text-sm">
-                <span className="text-charcoal-md">{action}</span>
-                <strong className="text-charcoal">{cost}</strong>
-              </div>
-            ))}
-          </div>
-          <div className="mt-5 border-t border-line-soft pt-5">
-            <div className="mb-2 text-sm font-semibold text-charcoal">Extra credits</div>
-            <div className="space-y-2">
-              {extraCreditRows.map(([pack, cost]) => (
-                <div key={pack} className="flex items-center justify-between text-sm text-charcoal-lt">
-                  <span>{pack}</span>
-                  <strong className="text-charcoal">{cost}</strong>
-                </div>
-              ))}
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );
