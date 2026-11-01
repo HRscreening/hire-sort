@@ -121,13 +121,13 @@ const softwareAppJsonLd = {
 const heroVideoJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'VideoObject',
-  name: 'HireSort AI resume screening product demo',
+  name: 'HireSort AI product video',
   description:
-    'Walkthrough of HireSort: bulk resume upload, AI-driven candidate ranking with explainable match scores, and shortlist-ready insights for recruiters.',
-  thumbnailUrl: [`${siteUrl}/demo-poster.png`],
-  contentUrl: `${siteUrl}/demo.mp4`,
-  uploadDate: '2026-05-04',
-  duration: 'PT30S',
+    'How HireSort AI runs hiring end to end: writes and posts the job description, scores every resume against your rubric, calls shortlisted candidates for AI screening, and runs first-round AI interviews.',
+  thumbnailUrl: [`${siteUrl}/hiresort-launch-poster.jpg`],
+  contentUrl: `${siteUrl}/hiresort-launch.mp4`,
+  uploadDate: '2026-11-01',
+  duration: 'PT41S',
   embedUrl: siteUrl,
   publisher: {
     '@type': 'Organization',

@@ -1,7 +1,8 @@
 'use client';
 
+import { useRef, useState } from 'react';
 import Link from 'next/link';
-import { Check, ArrowRight, Briefcase, GraduationCap, MapPin, PlayCircle } from 'lucide-react';
+import { Check, ArrowRight, Briefcase, GraduationCap, MapPin, PlayCircle, Volume2, VolumeX } from 'lucide-react';
 import { motion, type Variants } from 'framer-motion';
 import { trackCTAClick } from '@/lib/google_analytics_tracker';
 import Image from 'next/image';
@@ -25,6 +26,23 @@ const floatLabelClass =
   'mb-2.5 text-[10px] font-bold uppercase tracking-[1px] text-charcoal-xlt';
 
 const Hero = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [muted, setMuted] = useState(true);
+
+  // Unmuting restarts the video so the voiceover is heard from the beginning.
+  const toggleSound = () => {
+    const v = videoRef.current;
+    if (!v) return;
+    if (muted) {
+      v.currentTime = 0;
+      v.muted = false;
+      v.play().catch(() => {});
+    } else {
+      v.muted = true;
+    }
+    setMuted(!muted);
+  };
+
   return (
     <motion.section
       initial="hidden"
@@ -253,10 +271,11 @@ const Hero = () => {
 
       <div className="relative z-3 mx-auto mt-14 w-full max-w-4xl overflow-hidden rounded-xl border border-line-soft bg-white shadow-[0_20px_60px_rgba(0,0,0,0.12)]">
         <video
-          src="/demo.mp4"
-          poster='/demo-poster.png'
-          title="HireSort AI resume screening product demo"
-          aria-label="HireSort AI resume screening product demo: bulk resume upload, candidate ranking, and explainable match scores"
+          ref={videoRef}
+          src="/hiresort-launch.mp4"
+          poster='/hiresort-launch-poster.jpg'
+          title="HireSort AI product video"
+          aria-label="HireSort AI product video: job description writing, resume scoring, AI screening calls, and first-round AI interviews"
           autoPlay
           muted
           loop
@@ -268,6 +287,15 @@ const Hero = () => {
           className="pointer-events-none block aspect-video h-auto w-full object-cover"
           style={{ filter: 'brightness(1)' }}
         />
+        <button
+          type="button"
+          onClick={toggleSound}
+          aria-label={muted ? 'Play video with sound' : 'Mute video'}
+          className="absolute bottom-3 right-3 inline-flex items-center gap-1.5 rounded-full bg-black/60 px-3 py-1.5 text-[12px] font-semibold text-white backdrop-blur-sm transition-colors hover:bg-black/75"
+        >
+          {muted ? <VolumeX size={14} strokeWidth={2.5} /> : <Volume2 size={14} strokeWidth={2.5} />}
+          {muted ? 'Sound on' : 'Mute'}
+        </button>
       </div>
 
 
