@@ -291,10 +291,10 @@ const Hero = () => {
           type="button"
           onClick={toggleSound}
           aria-label={muted ? 'Play video with sound' : 'Mute video'}
-          className="absolute bottom-3 right-3 inline-flex items-center gap-1.5 rounded-full bg-black/60 px-3 py-1.5 text-[12px] font-semibold text-white backdrop-blur-sm transition-colors hover:bg-black/75"
+          className="absolute bottom-2 right-2 inline-flex items-center gap-1.5 rounded-full bg-black/60 p-2 text-[12px] font-semibold text-white backdrop-blur-sm transition-colors hover:bg-black/75 sm:bottom-3 sm:right-3 sm:px-3 sm:py-1.5"
         >
           {muted ? <VolumeX size={14} strokeWidth={2.5} /> : <Volume2 size={14} strokeWidth={2.5} />}
-          {muted ? 'Sound on' : 'Mute'}
+          <span className="hidden sm:inline">{muted ? 'Sound on' : 'Mute'}</span>
         </button>
       </div>
 
