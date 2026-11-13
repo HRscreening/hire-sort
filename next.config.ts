@@ -6,6 +6,7 @@ const supabaseHost = supabaseUrl ? new URL(supabaseUrl).hostname : null;
 // so its origin must be allowed in connect-src.
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 const apiOrigin = apiUrl ? new URL(apiUrl).origin : null;
+const posthogHost = process.env.NEXT_PUBLIC_POSTHOG_HOST || 'https://us.i.posthog.com';
 const isProd = process.env.NODE_ENV === 'production';
 
 // Content Security Policy. Permissive baseline that accommodates Next.js'
@@ -22,6 +23,8 @@ const cspDirectives = {
     'https://www.google-analytics.com',
     'https://va.vercel-scripts.com',
     'https://vercel.live',
+    posthogHost,
+    'https://*.posthog.com',
   ],
   'style-src': ["'self'", "'unsafe-inline'"],
   'img-src': ["'self'", 'data:', 'blob:', 'https:'],
@@ -36,6 +39,8 @@ const cspDirectives = {
     'https://www.google-analytics.com',
     'https://vitals.vercel-insights.com',
     'https://va.vercel-scripts.com',
+    posthogHost,
+    'https://*.posthog.com',
   ],
   // Sources we're allowed to embed in an <iframe>. Covers the same-origin
   // sample PDF previews plus the JD/resume PDFs the demo API serves from

@@ -15,10 +15,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { AnalyticsEvent, useAnalytics } from "@/analytics";
 import LoadingScreen from "@/components/tools/LoadingScreen";
 import {
   createToolApi,
   type CreateSessionInput,
+  DemoApiError,
   demoErrorView,
   formatResetTime,
   type ToolConfig,
@@ -47,8 +49,10 @@ type UploadFlowProps = {
 
 export default function UploadFlow({ config }: UploadFlowProps) {
   const router = useRouter();
+  const analytics = useAnalytics();
   const api = useMemo(() => createToolApi(config), [config]);
   const { allowSample } = config;
+  const toolName = config.key === "demo" ? "Resume Screening Demo" : "Resume Screening Tool";
 
   const [jdMode, setJdMode] = useState<SourceMode>(null);
   const [jdFile, setJdFile] = useState<File | null>(null);
@@ -66,6 +70,14 @@ export default function UploadFlow({ config }: UploadFlowProps) {
     resumeMode === "sample" || (resumeMode === "upload" && resumeFile !== null);
   const canContinue = jdReady && resumeReady && !submitting;
 
+  useEffect(() => {
+    analytics.track(AnalyticsEvent.FREE_TOOL_OPENED, {
+      tool: toolName,
+      tool_slug: config.key === "demo" ? "demo" : "resume-screening",
+      source: "direct",
+    });
+  }, [analytics, config.key, toolName]);
+
   // Resume can only be touched once a JD is provided — clear any stale resume
   // selection if the JD is removed so we never submit a resume without a JD.
   useEffect(() => {
@@ -80,6 +92,12 @@ export default function UploadFlow({ config }: UploadFlowProps) {
     setSubmitting(true);
     setError(null);
     setLimit(null);
+    analytics.track(AnalyticsEvent.FREE_TOOL_CTA_CLICKED, {
+      tool: toolName,
+      tool_slug: config.key === "demo" ? "demo" : "resume-screening",
+      cta: "primary",
+      source: "tool",
+    });
     try {
       const jd: CreateSessionInput["jd"] =
         jdMode === "sample"
@@ -94,10 +112,29 @@ export default function UploadFlow({ config }: UploadFlowProps) {
         api.createSession({ jd, resume }),
         new Promise((r) => setTimeout(r, SUBMIT_DELAY_MS)),
       ]);
+      const inputMode =
+        jdMode === resumeMode ? (jdMode === "sample" ? "sample" : "upload") : "mixed";
+      analytics.track(AnalyticsEvent.FREE_TOOL_GENERATED, {
+        tool: toolName,
+        tool_slug: config.key === "demo" ? "demo" : "resume-screening",
+        input_mode: inputMode,
+      });
       router.push(`${config.resultBase}/${session_id}`);
     } catch (e) {
       console.error(e);
       const view = demoErrorView(e);
+      analytics.track(AnalyticsEvent.FREE_TOOL_ERROR_SEEN, {
+        tool: toolName,
+        tool_slug: config.key === "demo" ? "demo" : "resume-screening",
+        error_type: view.isLimit
+          ? "limit"
+          : e instanceof DemoApiError &&
+              (e.code === "DEMO_INPUT_INVALID" || e.code === "VALIDATION_FAILED")
+            ? "validation"
+            : e instanceof DemoApiError
+              ? "unknown"
+              : "network",
+      });
       setError(view.message);
       setLimit(view.isLimit ? { resetsAt: view.resetsAt } : null);
       setSubmitting(false);

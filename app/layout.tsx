@@ -5,7 +5,7 @@ import { Analytics } from '@vercel/analytics/next';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import './globals.css';
 import BfcacheRemount from '@/components/layout/BfcacheRemount';
-
+import { AnalyticsProvider } from "@/analytics";
 
 const gtagKey = process.env.NEXT_PUBLIC_GA_ID || ''
 
@@ -15,12 +15,12 @@ const siteUrl =
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseHost = supabaseUrl
   ? (() => {
-      try {
-        return new URL(supabaseUrl).hostname;
-      } catch {
-        return null;
-      }
-    })()
+    try {
+      return new URL(supabaseUrl).hostname;
+    } catch {
+      return null;
+    }
+  })()
   : null;
 
 const dmSans = DM_Sans({
@@ -98,7 +98,7 @@ export const metadata: Metadata = {
       'max-video-preview': -1,
     },
   },
-  
+
   icons: {
     icon: [
       { url: '/logo.png', type: 'image/png' },
@@ -144,25 +144,27 @@ export default function RootLayout({
       data-scroll-behavior="smooth"
       className={`${dmSans.variable} ${dmMono.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col">
-        {supabaseHost && (
-          <>
-            <link rel="preconnect" href={`https://${supabaseHost}`} crossOrigin="" />
-            <link rel="dns-prefetch" href={`https://${supabaseHost}`} />
-          </>
-        )}
-        <BfcacheRemount>{children}</BfcacheRemount>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
-        />
-        <SpeedInsights />
-        <Analytics />
-      </body>
+      <AnalyticsProvider>
+        <body className="flex min-h-full flex-col">
+          {supabaseHost && (
+            <>
+              <link rel="preconnect" href={`https://${supabaseHost}`} crossOrigin="" />
+              <link rel="dns-prefetch" href={`https://${supabaseHost}`} />
+            </>
+          )}
+          <BfcacheRemount>{children}</BfcacheRemount>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+          />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+          />
+          <SpeedInsights />
+          <Analytics />
+        </body>
+      </AnalyticsProvider>
       {gtagKey && <GoogleAnalytics gaId={gtagKey} />}
     </html>
   );

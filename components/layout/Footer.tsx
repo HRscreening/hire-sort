@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion, type Variants } from 'framer-motion';
 import {Phone, Mail} from 'lucide-react';
+import { AnalyticsEvent, useAnalytics } from '@/analytics';
 
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -62,6 +63,8 @@ const columns: FooterColumn[] = [
 ];
 
 const Footer = () => {
+  const analytics = useAnalytics();
+
   return (
     <motion.footer
       initial="hidden"
@@ -111,12 +114,23 @@ const Footer = () => {
             {c.links.map((l) => {
               const className =
                 'block py-1 text-[14px] text-charcoal-md no-underline transition-colors hover:text-charcoal';
+              const isFreeToolLink = c.title === 'Free tools' && Boolean(l.to);
+              const toolSlug = l.to?.split('/').filter(Boolean).at(-1);
+              const onFreeToolClick = () => {
+                if (!isFreeToolLink || !toolSlug) return;
+                analytics.track(AnalyticsEvent.FREE_TOOL_CTA_CLICKED, {
+                  tool: l.label,
+                  tool_slug: toolSlug,
+                  cta: 'primary',
+                  source: 'footer',
+                });
+              };
               return l.to ? (
                 <motion.div
                   key={l.label}
                   whileHover={{ x: 4, transition: { type: 'spring', stiffness: 400, damping: 18 } }}
                 >
-                  <Link href={l.to} className={className}>
+                  <Link href={l.to} className={className} onClick={onFreeToolClick}>
                     {l.label}
                   </Link>
                 </motion.div>

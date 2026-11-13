@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import { AnalyticsEvent, useAnalytics } from "@/analytics";
 import LoginCtaBar from "../../../_components/loginCtaBar";
 import StartScreeningCta from "../../../_components/startScreeningCta";
 import {
@@ -65,6 +66,9 @@ const labelClass = "block text-xs font-medium text-charcoal-md mb-1";
 
 export default function InterviewKitBuilder() {
   const router = useRouter();
+  const analytics = useAnalytics();
+  const toolName = "Interview Kit Generator";
+  const toolSlug = "interview-kit";
 
   // ── Form state ──
   const [jobTitle, setJobTitle] = useState("");
@@ -81,6 +85,14 @@ export default function InterviewKitBuilder() {
   const [includeRedFlags, setIncludeRedFlags] = useState(true);
 
   const [optionsOpen, setOptionsOpen] = useState(false);
+
+  useEffect(() => {
+    analytics.track(AnalyticsEvent.FREE_TOOL_OPENED, {
+      tool: toolName,
+      tool_slug: toolSlug,
+      source: "direct",
+    });
+  }, [analytics, toolName, toolSlug]);
 
   // ── Generation / output state ──
   const [kit, setKit] = useState<InterviewKit | null>(null);
@@ -118,6 +130,11 @@ export default function InterviewKitBuilder() {
       setError(err.message);
       setErrorIsLimit(err.isLimit);
       setLimitResetsAt(err.resetsAt);
+      analytics.track(AnalyticsEvent.FREE_TOOL_ERROR_SEEN, {
+        tool: toolName,
+        tool_slug: toolSlug,
+        error_type: err.isLimit ? "limit" : "unknown",
+      });
       if (source === "generate") {
         if (err.isLimit) setAttemptsLeft(0);
         if (err.resetsAt) setResetsAt(err.resetsAt);
@@ -130,6 +147,11 @@ export default function InterviewKitBuilder() {
       setError(err instanceof Error ? err.message : fallback);
       setErrorIsLimit(false);
       setLimitResetsAt(null);
+      analytics.track(AnalyticsEvent.FREE_TOOL_ERROR_SEEN, {
+        tool: toolName,
+        tool_slug: toolSlug,
+        error_type: "unknown",
+      });
     }
   }
 
@@ -139,6 +161,12 @@ export default function InterviewKitBuilder() {
     setLimitResetsAt(null);
     setGenerating(true);
     setCopied(false);
+    analytics.track(AnalyticsEvent.FREE_TOOL_CTA_CLICKED, {
+      tool: toolName,
+      tool_slug: toolSlug,
+      cta: "primary",
+      source: "tool",
+    });
 
     const payload: InterviewKitInput = {
       job_title: jobTitle.trim(),
@@ -158,6 +186,11 @@ export default function InterviewKitBuilder() {
       const { data, meta } = await generateinterviewKit(payload, sessionIdRef.current);
       setKit(data);
       setHasGenerated(true);
+      analytics.track(AnalyticsEvent.FREE_TOOL_GENERATED, {
+        tool: toolName,
+        tool_slug: toolSlug,
+        input_mode: "form",
+      });
       applyMeta(meta);
     } catch (err) {
       handleError(err, "generate");

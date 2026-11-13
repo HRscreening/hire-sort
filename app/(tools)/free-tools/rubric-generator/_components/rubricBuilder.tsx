@@ -26,6 +26,7 @@ import {
   RubricApiError,
 } from "../_lib/rubricApi";
 import GeneratedRubricView from "./generatedRubricView";
+import { useAnalytics, AnalyticsEvent } from "@/analytics"
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -42,12 +43,20 @@ const FEATURES = [
 ] as const;
 
 export default function RubricBuilder() {
+  const initialRouted = typeof window !== "undefined"
+    ? new URLSearchParams(window.location.search).get("is_routed") === "true"
+    : false;
+  const initialPrefilledJd = initialRouted ? readStashedJd() ?? "" : "";
+
   const [mode, setMode] = useState<InputMode>("paste");
-  const [jdText, setJdText] = useState("");
+  const [jdText, setJdText] = useState(initialPrefilledJd);
   const [jdFile, setJdFile] = useState<File | null>(null);
   // Set when the JD was carried over from the JD generator, so we can show a
   // small "prefilled for you" hint above the textarea.
-  const [fromJdGenerator, setFromJdGenerator] = useState(false);
+  const fromJdGenerator = Boolean(initialPrefilledJd);
+  const analytics = useAnalytics();
+  const toolName = "Rubric Generator";
+  const toolSlug = "generate-rubric";
 
   const [rubric, setRubric] = useState<GeneratedRubric | null>(null);
   const [generating, setGenerating] = useState(false);
@@ -66,20 +75,18 @@ export default function RubricBuilder() {
   const outOfAttempts = attemptsLeft !== null && attemptsLeft <= 0;
   const resetLabel = formatResetTime(resetsAt);
 
+  useEffect(() => {
+    analytics.track(AnalyticsEvent.FREE_TOOL_OPENED, {
+      tool: toolName,
+      tool_slug: toolSlug,
+      source: "direct",
+    });
+  }, [analytics, toolName, toolSlug]);
+
   // Pick up a JD handed off from the JD generator and drop it into the "Paste JD"
   // box — but only when we arrived via its button, signalled by ?is_routed=true.
   // The read doesn't clear the stash, so a reload (flag still in the URL) keeps
   // the box populated; a fresh visit without the flag is left untouched.
-  useEffect(() => {
-    const routed = new URLSearchParams(window.location.search).get("is_routed") === "true";
-    if (!routed) return;
-    const stashed = readStashedJd();
-    if (stashed) {
-      setJdText(stashed);
-      setMode("paste");
-      setFromJdGenerator(true);
-    }
-  }, []);
 
   const canGenerate =
     (mode === "paste" ? jdText.trim().length > 0 : jdFile !== null) &&
@@ -96,10 +103,10 @@ export default function RubricBuilder() {
   // red for anything else.
   const toast: ToastData | null = error
     ? {
-        message: error,
-        variant: errorIsLimit || outOfAttempts ? "limit" : "error",
-        resetLabel: formatResetTime(limitResetsAt),
-      }
+      message: error,
+      variant: errorIsLimit || outOfAttempts ? "limit" : "error",
+      resetLabel: formatResetTime(limitResetsAt),
+    }
     : null;
 
   // Fold the latest quota/session headers into local state. The backend may omit
@@ -127,14 +134,26 @@ export default function RubricBuilder() {
       setError(err.message);
       setErrorIsLimit(err.isLimit);
       setLimitResetsAt(err.resetsAt);
+      analytics.track(AnalyticsEvent.FREE_TOOL_ERROR_SEEN, {
+        tool: toolName,
+        tool_slug: toolSlug,
+        error_type: err.isLimit ? "limit" : "unknown",
+      });
+
       // A 403 means the budget is spent: zero out the counter so the UI flips to
       // its limit state, and keep the reset time in the meta bar too.
       if (err.isLimit) setAttemptsLeft(0);
       if (err.resetsAt) setResetsAt(err.resetsAt);
     } else {
-      setError(err instanceof Error ? err.message : "Couldn't generate the rubric. Please try again.");
+      const message = err instanceof Error ? err.message : "Couldn't generate the rubric. Please try again.";
+      setError(message);
       setErrorIsLimit(false);
       setLimitResetsAt(null);
+      analytics.track(AnalyticsEvent.FREE_TOOL_ERROR_SEEN, {
+        tool: toolName,
+        tool_slug: toolSlug,
+        error_type: "unknown",
+      });
     }
   }
 
@@ -145,11 +164,24 @@ export default function RubricBuilder() {
     setLimitResetsAt(null);
     setGenerating(true);
     setRubric(null);
+    analytics.track(AnalyticsEvent.FREE_TOOL_CTA_CLICKED, {
+      tool: toolName,
+      tool_slug: toolSlug,
+      cta: "primary",
+      source: "tool",
+    });
+
     try {
       const { rubric: result, meta } = await generateRubric(
         mode === "upload" && jdFile ? { jdFile, sessionId } : { jdText, sessionId },
       );
       setRubric(result);
+      analytics.track(AnalyticsEvent.FREE_TOOL_GENERATED, {
+        tool: toolName,
+        tool_slug: toolSlug,
+        input_mode: mode === "upload" ? "upload" : "paste",
+      });
+
       applyMeta(meta);
     } catch (err) {
       handleError(err);
@@ -171,8 +203,19 @@ export default function RubricBuilder() {
     setErrorIsLimit(false);
     setLimitResetsAt(null);
     setDownloading(true);
+    analytics.track(AnalyticsEvent.FREE_TOOL_CTA_CLICKED, {
+      tool: toolName,
+      tool_slug: toolSlug,
+      cta: "secondary",
+      source: "tool",
+    });
     try {
       await downloadRubricExcel(sessionId);
+      analytics.track(AnalyticsEvent.FREE_TOOL_DOWNLOADED, {
+        tool: toolName,
+        tool_slug: toolSlug,
+        format: "excel",
+      });
     } catch (err) {
       handleError(err);
     } finally {
@@ -247,7 +290,13 @@ export default function RubricBuilder() {
                     <span className="block text-sm font-semibold text-charcoal">
                       Job description <span className="text-accent">*</span>
                     </span>
-                    <SegmentedTabs mode={mode} onChange={setMode} />
+                    <SegmentedTabs mode={mode} onChange={
+                      (e) => {
+                        analytics.track(AnalyticsEvent.JD_INPUT_MODE_CHANGED, { mode: e })
+                        setMode(e)
+                      }
+
+                    } />
                   </div>
 
                   {fromJdGenerator && mode === "paste" && (
@@ -293,7 +342,7 @@ export default function RubricBuilder() {
                       </p>
                     ) : (
                       <p className="mt-1.5 text-xs text-charcoal-xlt">
-                        We'll draft weighted categories, must-have flags, and scoring bands you can edit.
+                        We&apos;ll draft weighted categories, must-have flags, and scoring bands you can edit.
                       </p>
                     )}
                   </div>
@@ -326,9 +375,8 @@ export default function RubricBuilder() {
                   {attemptsLeft !== null && (
                     <>
                       <span
-                        className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 font-semibold ${
-                          outOfAttempts ? "bg-[#FBE9E7] text-[#a70c0c]" : "bg-ivory-medium text-charcoal-md"
-                        }`}
+                        className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 font-semibold ${outOfAttempts ? "bg-[#FBE9E7] text-[#a70c0c]" : "bg-ivory-medium text-charcoal-md"
+                          }`}
                       >
                         {maxAttempts !== null ? `${attemptsLeft} / ${maxAttempts}` : attemptsLeft}
                         <span className="font-normal text-charcoal-xlt">left</span>
@@ -408,9 +456,8 @@ function SegmentedTabs({ mode, onChange }: { mode: InputMode; onChange: (m: Inpu
             key={t.key}
             type="button"
             onClick={() => onChange(t.key)}
-            className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1 transition-colors ${
-              active ? "bg-white text-charcoal shadow-soft" : "text-charcoal-lt hover:text-charcoal"
-            }`}
+            className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1 transition-colors ${active ? "bg-white text-charcoal shadow-soft" : "text-charcoal-lt hover:text-charcoal"
+              }`}
           >
             <t.Icon className={`h-3 w-3 ${active ? "text-accent" : ""}`} />
             <span className="hidden sm:inline">{t.label}</span>
@@ -461,9 +508,8 @@ function UploadBox({
         backgroundColor: dragOver ? "rgba(200,90,23,0.06)" : "#faf9f6",
       }}
       transition={{ duration: 0.18, ease }}
-      className={`flex-1 min-h-80 flex items-center justify-center rounded-xl border-2 border-dashed p-6 text-center ${
-        disabled ? "cursor-not-allowed opacity-60" : "cursor-pointer"
-      }`}
+      className={`flex-1 min-h-80 flex items-center justify-center rounded-xl border-2 border-dashed p-6 text-center ${disabled ? "cursor-not-allowed opacity-60" : "cursor-pointer"
+        }`}
     >
       <input
         ref={inputRef}
