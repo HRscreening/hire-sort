@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import { useAnalytics, AnalyticsEvent } from '@/analytics';
 
 const ease = [0.22, 1, 0.36, 1] as const;
 const main_app_url = process.env.NEXT_PUBLIC_MAIN_APP_URL || 'https://app.hiresort.ai';
@@ -263,6 +264,8 @@ const Navbar = () => {
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const analytics = useAnalytics()
 
   useEffect(() => {
     const checkAuthCookie = () => {
@@ -699,7 +702,17 @@ const Navbar = () => {
                                             <Link
                                               key={sub.href}
                                               href={sub.href}
-                                              onClick={() => setOpen(false)}
+                                              onClick={() => {
+                                                setOpen(false)
+                                                analytics.track(
+                                                  AnalyticsEvent.FREE_TOOL_OPENED,
+                                                  {
+                                                    tool: sub.label,
+                                                    tool_slug: sub.href.replace(/^\//, '').replace(/\/+$/, '').split('/').filter(Boolean).at(-1) ?? sub.label,
+                                                    source: 'nav',
+                                                  }
+                                                )
+                                              }}
                                               aria-current={subActive ? 'page' : undefined}
                                               className={`flex items-center justify-between gap-2 rounded-md px-4 py-2.5 text-[14px] no-underline transition-colors ${subActive ? 'bg-accent/8 text-accent' : 'text-charcoal-md hover:bg-charcoal/5 hover:text-accent'}`}
                                             >

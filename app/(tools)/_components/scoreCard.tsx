@@ -2,7 +2,8 @@
 import { motion } from "framer-motion";
 import { Download, FileText, Loader2, ScanLine, Sparkles, Upload, Wand2, X } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { demoErrorView, downloadScorecard, scoreResume } from "../_lib/api";
+import { AnalyticsEvent, useAnalytics } from "@/analytics";
+import { demoErrorView, downloadScorecard, scoreResume, type ToolConfig } from "../_lib/api";
 import type { BreakdownItem, Rubric, ScoredResume } from "../types";
 
 function getTierLabel(score: number) {
@@ -48,19 +49,21 @@ type ScoreCardProps = {
   resume: ScoredResume | null;
   rubric: Rubric;
   sessionId: string;
+  config: ToolConfig;
   onResumeScored?: (resume: ScoredResume) => void;
 }
 
-export default function ScoreCard({ resume, rubric, sessionId, onResumeScored }: ScoreCardProps) {
+export default function ScoreCard({ resume, rubric, sessionId, config, onResumeScored }: ScoreCardProps) {
   if (!resume) {
     return <ResumeUpload sessionId={sessionId} onResumeScored={onResumeScored} />;
   }
-  return <ScoredView resume={resume} rubric={rubric} sessionId={sessionId} />;
+  return <ScoredView resume={resume} rubric={rubric} sessionId={sessionId} config={config} />;
 }
 
-type ScoredViewProps = { resume: ScoredResume; rubric: Rubric; sessionId: string };
+type ScoredViewProps = { resume: ScoredResume; rubric: Rubric; sessionId: string; config: ToolConfig };
 
-function ScoredView({ resume, rubric, sessionId }: ScoredViewProps) {
+function ScoredView({ resume, rubric, sessionId, config }: ScoredViewProps) {
+  const analytics = useAnalytics();
   const [downloading, setDownloading] = useState(false);
   const [downloadError, setDownloadError] = useState<string | null>(null);
 
@@ -72,10 +75,26 @@ function ScoredView({ resume, rubric, sessionId }: ScoredViewProps) {
     if (downloading) return;
     setDownloading(true);
     setDownloadError(null);
+    analytics.track(AnalyticsEvent.FREE_TOOL_CTA_CLICKED, {
+      tool: config.key === "demo" ? "Resume Screening Demo" : "Resume Screening Tool",
+      tool_slug: config.key === "demo" ? "demo" : "resume-screening",
+      cta: "secondary",
+      source: "tool",
+    });
     try {
-      await downloadScorecard(sessionId);
+      await downloadScorecard(sessionId, config);
+      analytics.track(AnalyticsEvent.FREE_TOOL_DOWNLOADED, {
+        tool: config.key === "demo" ? "Resume Screening Demo" : "Resume Screening Tool",
+        tool_slug: config.key === "demo" ? "demo" : "resume-screening",
+        format: "pdf",
+      });
     } catch (e) {
       console.error(e);
+      analytics.track(AnalyticsEvent.FREE_TOOL_ERROR_SEEN, {
+        tool: config.key === "demo" ? "Resume Screening Demo" : "Resume Screening Tool",
+        tool_slug: config.key === "demo" ? "demo" : "resume-screening",
+        error_type: demoErrorView(e).isLimit ? "limit" : "unknown",
+      });
       setDownloadError(demoErrorView(e).message);
     } finally {
       setDownloading(false);

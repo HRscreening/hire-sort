@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { BarChart3, Briefcase, Check, ChevronDown, FileText, ListChecks } from "lucide-react";
 import { useState } from "react";
 import type { Rubric as RubricType, ScoredResume } from "../types";
+import type { ToolConfig } from "../_lib/api";
 import Rubric from "./rubric";
 import ScoreCard from "./scoreCard";
 
@@ -55,6 +56,7 @@ type DemoPanelViewProps = {
   rubric: RubricType;
   resume: ScoredResume | null;
   sessionId: string;
+  config: ToolConfig;
   onResumeScored?: (resume: ScoredResume) => void;
   jdUrl?: string;
   resumeUrl?: string;
@@ -64,6 +66,7 @@ const DemoPanelView = ({
   rubric,
   resume,
   sessionId,
+  config,
   onResumeScored,
   jdUrl = DEFAULT_JD_URL,
   resumeUrl = DEFAULT_RESUME_URL,
@@ -79,6 +82,7 @@ const DemoPanelView = ({
         rubric={rubric}
         resume={resume}
         sessionId={sessionId}
+        config={config}
         onResumeScored={onResumeScored}
         jdUrl={jdUrl}
         resumeUrl={resumeUrl}
@@ -90,6 +94,7 @@ const DemoPanelView = ({
         rubric={rubric}
         resume={resume}
         sessionId={sessionId}
+        config={config}
         onResumeScored={onResumeScored}
         jdUrl={jdUrl}
         resumeUrl={resumeUrl}
@@ -107,6 +112,7 @@ type PanelProps = {
   rubric: RubricType;
   resume: ScoredResume | null;
   sessionId: string;
+  config: ToolConfig;
   onResumeScored?: (resume: ScoredResume) => void;
   jdUrl: string;
   resumeUrl: string;
@@ -119,6 +125,7 @@ function Panel({
   rubric,
   resume,
   sessionId,
+  config,
   onResumeScored,
   jdUrl,
   resumeUrl,
@@ -150,6 +157,7 @@ function Panel({
               resume={resume}
               rubric={rubric}
               sessionId={sessionId}
+              config={config}
               onResumeScored={onResumeScored}
             />
           </div>

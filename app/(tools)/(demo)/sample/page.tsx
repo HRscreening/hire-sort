@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import DemoPageView from '../../_components/panelView'
 import SampleRubric from "../../_sample_data/sample-rubric.json";
 import SampleResume from "../../_sample_data/scored_resume.json";
+import { DEMO_CONFIG } from "../../_lib/api";
 import type { Rubric, ScoredResume } from "../../types";
 
 const TITLE = "Sample Resume Screening Result";
@@ -43,6 +44,7 @@ const Page = () => {
         rubric={SampleRubric as Rubric}
         resume={SampleResume as ScoredResume}
         sessionId="sample"
+        config={DEMO_CONFIG}
       />
     </div>
   )

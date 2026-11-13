@@ -13,6 +13,7 @@ import { PageHero } from '@/components/layout/PageHero';
 import { breadcrumbJsonLd, jsonLdString, SITE_URL } from '@/lib/seo';
 import { getAllTools, getLiveTools, type FreeTool } from './_lib/tools';
 import { getToolDetailBySlug } from './_data/details';
+import TrackedToolLink from './_components/trackedToolLink';
 
 /**
  * For structured data (JSON-LD), reference a tool's dedicated SEO detail page
@@ -173,8 +174,12 @@ const Page = () => {
             const tags = t.tags ?? t.features.slice(0, 3);
             return (
               <li key={t.slug} id={t.slug} className="flex h-full scroll-mt-24">
-                <Link
+                <TrackedToolLink
                   href={t.cta.href}
+                  tool={t.name}
+                  toolSlug={t.slug}
+                  cta="primary"
+                  source="hub"
                   className="group flex h-full w-full flex-col rounded-3xl border border-line-soft bg-white p-6 no-underline shadow-soft transition-all hover:-translate-y-0.5 hover:border-[rgba(200,90,23,0.35)] hover:shadow-card"
                 >
                   {/* Icon + status */}
@@ -219,7 +224,7 @@ const Page = () => {
                       className="transition-transform group-hover:translate-x-0.5"
                     />
                   </span>
-                </Link>
+                </TrackedToolLink>
               </li>
             );
           })}

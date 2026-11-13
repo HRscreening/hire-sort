@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { FileText } from "lucide-react";
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useState, type CSSProperties } from "react";
+import { AnalyticsEvent, useAnalytics } from "@/analytics";
 import {
   createToolApi,
   demoErrorView,
@@ -23,7 +24,17 @@ type SessionResultProps = {
 };
 
 export default function SessionResult({ sessionID, config }: SessionResultProps) {
+  const analytics = useAnalytics();
   const api = useMemo(() => createToolApi(config), [config]);
+  const toolName = config.key === "demo" ? "Resume Screening Demo" : "Resume Screening Tool";
+
+  useEffect(() => {
+    analytics.track(AnalyticsEvent.FREE_TOOL_OPENED, {
+      tool: toolName,
+      tool_slug: config.key === "demo" ? "demo" : "resume-screening",
+      source: "direct",
+    });
+  }, [analytics, config.key, toolName]);
 
   const [data, setData] = useState<SessionPayload | null>(null);
   const [loading, setLoading] = useState(true);
@@ -76,6 +87,7 @@ export default function SessionResult({ sessionID, config }: SessionResultProps)
         rubric={data.rubric}
         resume={data.resume}
         sessionId={sessionID}
+        config={config}
         onResumeScored={handleResumeScored}
         jdUrl={data.urls?.jd_url}
         resumeUrl={data.urls?.resume_url}

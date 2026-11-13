@@ -5,6 +5,8 @@ import { PageHero } from '@/components/layout/PageHero';
 import Breadcrumb from '@/components/layout/Breadcrumb';
 import { breadcrumbJsonLd, jsonLdString, SITE_URL } from '@/lib/seo';
 import type { ToolDetail } from '../_data/details';
+import FreeToolPageTracking from './freeToolPageTracking';
+import TrackedToolLink from './trackedToolLink';
 
 const absUrl = (path: string) =>
   path.startsWith('http') ? path : `${SITE_URL}${path.startsWith('/') ? path : `/${path}`}`;
@@ -99,14 +101,20 @@ const buildJsonLd = (tool: ToolDetail) => {
 const CtaButton = ({
   href,
   label,
+  tool,
   inverted = false,
 }: {
   href: string;
   label: string;
+  tool: ToolDetail;
   inverted?: boolean;
 }) => (
-  <Link
+  <TrackedToolLink
     href={href}
+    tool={tool.name}
+    toolSlug={tool.slug}
+    cta="primary"
+    source="detail"
     className={
       'inline-flex h-12 w-fit items-center gap-2 rounded-full px-7 text-[14.5px] font-semibold no-underline transition-colors ' +
       (inverted
@@ -116,18 +124,30 @@ const CtaButton = ({
   >
     {label}
     <ArrowRight size={16} strokeWidth={2.5} />
-  </Link>
+  </TrackedToolLink>
 );
 
-const SecondaryCtaButton = ({ href, label }: { href: string; label: string }) => (
-  <a
+const SecondaryCtaButton = ({
+  href,
+  label,
+  tool,
+}: {
+  href: string;
+  label: string;
+  tool: ToolDetail;
+}) => (
+  <TrackedToolLink
     href={href}
-    target='_blank'
+    tool={tool.name}
+    toolSlug={tool.slug}
+    cta="secondary"
+    source="detail"
+    external
     className="inline-flex h-12 w-fit items-center gap-2 rounded-full border border-charcoal px-7 text-[14.5px] font-semibold no-underline text-charcoal transition-colors hover:bg-charcoal hover:text-ivory"
   >
     {label}
     <LinkIcon size={16} strokeWidth={2.5} />
-  </a>
+  </TrackedToolLink>
 );
 
 const ToolDetailPage = ({ tool }: { tool: ToolDetail }) => {
@@ -142,6 +162,7 @@ const ToolDetailPage = ({ tool }: { tool: ToolDetail }) => {
 
   return (
     <>
+      <FreeToolPageTracking tool={tool.name} toolSlug={tool.slug} />
       <script
         type="application/ld+json"
         // eslint-disable-next-line react/no-danger
@@ -172,9 +193,9 @@ const ToolDetailPage = ({ tool }: { tool: ToolDetail }) => {
       >
         <div className={'flex flex-col justify-center items-center gap-4 ' + (isSecondaryCta ? 'sm:flex-row' : '')}>
           {tool.hero.secondaryCtaLabel && tool.hero.secondaryCtaHref && (
-            <SecondaryCtaButton href={tool.hero.secondaryCtaHref} label={tool.hero.secondaryCtaLabel}/>
+            <SecondaryCtaButton href={tool.hero.secondaryCtaHref} label={tool.hero.secondaryCtaLabel} tool={tool} />
           )}
-          <CtaButton href={tool.appHref} label={tool.hero.ctaLabel} />
+          <CtaButton href={tool.appHref} label={tool.hero.ctaLabel} tool={tool} />
         </div>
       </PageHero>
 
@@ -361,7 +382,7 @@ const ToolDetailPage = ({ tool }: { tool: ToolDetail }) => {
           <h2 className="max-w-2xl text-[26px] font-extrabold tracking-[-0.6px] text-ivory">
             Try the {tool.name} — free, no signup
           </h2>
-          <CtaButton href={tool.appHref} label={tool.hero.ctaLabel} inverted />
+          <CtaButton href={tool.appHref} label={tool.hero.ctaLabel} tool={tool} inverted />
         </div>
       </section>
     </>

@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import { AnalyticsEvent, useAnalytics } from "@/analytics";
 import LoginCtaBar from "../../../_components/loginCtaBar";
 import StartScreeningCta from "../../../_components/startScreeningCta";
 import { stashJdForRubric } from "../../../_lib/rubricHandoff";
@@ -51,6 +52,9 @@ const labelClass = "block text-xs font-medium text-charcoal-md mb-1";
 
 export default function JdBuilder() {
   const router = useRouter();
+  const analytics = useAnalytics();
+  const toolName = "Job Description Generator";
+  const toolSlug = "job-description-generator";
 
   // ── Form state — the structured details that ground generation ──
   const [jobTitle, setJobTitle] = useState("");
@@ -104,6 +108,14 @@ export default function JdBuilder() {
     Boolean(jdText.trim()) &&
     !generating &&
     !downloading;
+
+  useEffect(() => {
+    analytics.track(AnalyticsEvent.FREE_TOOL_OPENED, {
+      tool: toolName,
+      tool_slug: toolSlug,
+      source: "direct",
+    });
+  }, [analytics, toolName, toolSlug]);
 
   // Reveal streamed text at a steady typewriter pace rather than in the big
   // bursts the backend sends. `generating` stays true until the reveal drains.
@@ -165,6 +177,11 @@ export default function JdBuilder() {
       setError(err.message);
       setErrorIsLimit(err.isLimit);
       setLimitResetsAt(err.resetsAt);
+      analytics.track(AnalyticsEvent.FREE_TOOL_ERROR_SEEN, {
+        tool: toolName,
+        tool_slug: toolSlug,
+        error_type: err.isLimit ? "limit" : "unknown",
+      });
       if (source === "generate") {
         if (err.isLimit) setAttemptsLeft(0);
         if (err.resetsAt) setResetsAt(err.resetsAt);
@@ -177,6 +194,11 @@ export default function JdBuilder() {
       setError(err instanceof Error ? err.message : fallback);
       setErrorIsLimit(false);
       setLimitResetsAt(null);
+      analytics.track(AnalyticsEvent.FREE_TOOL_ERROR_SEEN, {
+        tool: toolName,
+        tool_slug: toolSlug,
+        error_type: "unknown",
+      });
     }
   }
 
@@ -185,6 +207,12 @@ export default function JdBuilder() {
     setError(null);
     setLimitResetsAt(null);
     setGenerating(true);
+    analytics.track(AnalyticsEvent.FREE_TOOL_CTA_CLICKED, {
+      tool: toolName,
+      tool_slug: toolSlug,
+      cta: "primary",
+      source: "tool",
+    });
     // Capture the JD to refine before we clear the output for the new stream.
     const currentJd = jdText;
     typewriter.reset();
@@ -200,6 +228,11 @@ export default function JdBuilder() {
         (fullText) => typewriter.push(fullText),
       );
       setHasGenerated(true);
+      analytics.track(AnalyticsEvent.FREE_TOOL_GENERATED, {
+        tool: toolName,
+        tool_slug: toolSlug,
+        input_mode: "form",
+      });
       applyMeta(meta);
       // Let the typewriter finish revealing what's still buffered; it flips
       // `generating` off via onDone.
@@ -218,6 +251,12 @@ export default function JdBuilder() {
     setError(null);
     setLimitResetsAt(null);
     setDownloading(true);
+    analytics.track(AnalyticsEvent.FREE_TOOL_CTA_CLICKED, {
+      tool: toolName,
+      tool_slug: toolSlug,
+      cta: "secondary",
+      source: "tool",
+    });
     try {
       const { blob, filename, meta } = await downloadJdPdf(
         {
@@ -236,6 +275,11 @@ export default function JdBuilder() {
       a.click();
       a.remove();
       URL.revokeObjectURL(url);
+      analytics.track(AnalyticsEvent.FREE_TOOL_DOWNLOADED, {
+        tool: toolName,
+        tool_slug: toolSlug,
+        format: "pdf",
+      });
     } catch (err) {
       handleError(err, "download");
     } finally {
