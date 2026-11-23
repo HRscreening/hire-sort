@@ -6,7 +6,7 @@ import { notFound } from "next/navigation";
 import { SITE_URL, jsonLdString } from "@/lib/seo";
 import Carousel from "./Carousel";
 import Footer from "@/components/layout/Footer";
-import ApplyForm from "./ApplyForm";
+import ApplyForm, { ApplyFormTrigger } from "./ApplyForm";
 import type { ScreeningDetailsPublicResponseDTO } from "./types";
 
 type Params = Promise<{ jobId: string }>;
@@ -171,12 +171,9 @@ function JobTopBar({ job }: { job: ScreeningDetailsPublicResponseDTO }) {
           </p>
         </div>
 
-        <a
-          href="#job-details"
+        <ApplyFormTrigger
           className="inline-flex h-9 shrink-0 items-center justify-center rounded-md bg-charcoal px-4 text-[15px] font-semibold text-ivory no-underline transition-colors hover:bg-accent"
-        >
-          Apply Now
-        </a>
+        />
       </div>
     </header>
   );
@@ -196,7 +193,6 @@ export default async function JobPage({ params }: { params: Params }) {
     return (
       <>
         <HomeLogoLink />
-        <Carousel />
         <main id="main" className="flex-1 flex items-center justify-center min-h-[60vh] bg-ivory px-6 py-20 text-center">
           <div className="max-w-md w-full rounded-2xl border border-line-soft bg-ivory-light p-8 shadow-card">
             <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-red-100 text-red-600 mb-6">
@@ -217,6 +213,7 @@ export default async function JobPage({ params }: { params: Params }) {
             </a>
           </div>
         </main>
+        <Carousel />
         <Footer />
       </>
     );
@@ -235,12 +232,12 @@ export default async function JobPage({ params }: { params: Params }) {
         }}
       />
 
-      <JobTopBar job={job} />
-      <Carousel />
-      <main id="main" className="min-h-screen bg-ivory pb-16">
+      <ApplyForm jobId={jobId}>
+        <JobTopBar job={job} />
+        <main id="main" className="min-h-screen bg-ivory pb-16">
         
         {/* Sticky Header Section */}
-        <section id="job-details" className="sticky top-16 z-30 scroll-mt-16 bg-ivory/95 backdrop-blur-md py-2 mb-3">
+        <section id="job-details" className="scroll-mt-16 bg-ivory/95 py-2 mb-3">
           <div className="mx-auto max-w-6xl px-6">
             <div className="rounded-2xl border border-line-soft bg-ivory-light p-5 md:p-6 shadow-soft">
               {/* Top row: info + buttons */}
@@ -256,7 +253,7 @@ export default async function JobPage({ params }: { params: Params }) {
 
                 {/* Action buttons */}
                 <div className="flex flex-row items-center gap-2.5 flex-shrink-0 mt-1 md:mt-0">
-                  <ApplyForm jobId={jobId} />
+                  <ApplyFormTrigger className="inline-flex h-10 items-center justify-center rounded-xl bg-charcoal px-5 text-sm font-semibold text-ivory no-underline transition-all hover:bg-accent hover:scale-[1.02] active:scale-[0.98] duration-200" />
                   {job.jd_url && (
                     <a
                       href={job.jd_url}
@@ -338,7 +335,7 @@ export default async function JobPage({ params }: { params: Params }) {
             </div>
 
             {/* Right sidebar info */}
-            <div className="lg:col-span-1 space-y-6 lg:sticky lg:top-[250px]">
+            <div className="lg:col-span-1 self-start space-y-6 lg:sticky lg:top-20">
 
               {/* About HireSort Card */}
               <div className="rounded-2xl border border-line-soft bg-ivory-light p-6 shadow-card">
@@ -388,8 +385,10 @@ export default async function JobPage({ params }: { params: Params }) {
 
           </div>
         </section>
-      </main>
+        </main>
+      </ApplyForm>
 
+      <Carousel />
       <Footer />
     </>
   );

@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { Dialog, DialogTrigger, DialogHeader, DialogDescription,DialogContent } from "@/components/ui/dialog"
+import type { ReactNode } from "react";
+import { Dialog, DialogTrigger, DialogContent } from "@/components/ui/dialog"
 
 
 type Status =
@@ -13,7 +14,27 @@ type Status =
 const API_BASE = process.env.NEXT_PUBLIC_API_URL;
 
 
-export default function ApplyForm({ jobId }: { jobId: string }) {
+export function ApplyFormTrigger({
+  className,
+  children = "Apply Now",
+}: {
+  className: string;
+  children?: ReactNode;
+}) {
+  return (
+    <DialogTrigger>
+      <span className={className}>{children}</span>
+    </DialogTrigger>
+  );
+}
+
+export default function ApplyForm({
+  jobId,
+  children,
+}: {
+  jobId: string;
+  children: ReactNode;
+}) {
   const [status, setStatus] = useState<Status>({ kind: "idle" });
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [dragActive, setDragActive] = useState(false);
@@ -154,16 +175,9 @@ export default function ApplyForm({ jobId }: { jobId: string }) {
 
   return (
     <Dialog>
-      <DialogTrigger>
-        <span
-          className="inline-flex h-10 items-center justify-center rounded-xl bg-charcoal px-5 text-sm font-semibold text-ivory no-underline transition-all hover:bg-accent hover:scale-[1.02] active:scale-[0.98] duration-200"
-        >
-          Apply Now
-        </span>
-
-      </DialogTrigger>
-      <DialogContent className="max-w-lg bg-ivory-light border-0 shadow-2xl rounded-2xl p-6 md:p-8 outline-none ring-0 focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0 [&_*:focus]:outline-none">
-      <form onSubmit={handleSubmit} className="space-y-4">
+      {children}
+      <DialogContent className="max-w-lg min-w-0 bg-ivory-light border-0 shadow-2xl rounded-2xl p-6 md:p-8 outline-none ring-0 focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0 [&_*:focus]:outline-none">
+      <form onSubmit={handleSubmit} className="w-full min-w-0 space-y-4">
         <div>
           <label htmlFor="name" className="text-[11px] font-bold uppercase tracking-wider text-neutral-500">
             Full name<span className="text-accent"> *</span>
@@ -221,7 +235,7 @@ export default function ApplyForm({ jobId }: { jobId: string }) {
             onDragLeave={handleDrag}
             onDrop={handleDrop}
             onClick={() => fileInputRef.current?.click()}
-            className={`relative flex flex-col items-center justify-center rounded-xl border border-dashed p-5 text-center cursor-pointer transition-all duration-200 ${dragActive
+            className={`relative flex w-full min-w-0 flex-col items-center justify-center rounded-xl border border-dashed p-5 text-center cursor-pointer transition-all duration-200 ${dragActive
               ? "border-accent bg-accent/5"
               : selectedFile
                 ? "border-success bg-success-bg/10"
@@ -239,12 +253,12 @@ export default function ApplyForm({ jobId }: { jobId: string }) {
             />
 
             {selectedFile ? (
-              <div className="flex items-center justify-between w-full px-2">
-                <div className="flex items-center gap-2 text-left min-w-0">
+              <div className="flex w-full min-w-0 items-center justify-between px-2">
+                <div className="flex min-w-0 flex-1 items-center gap-2 text-left">
                   <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" className="text-success flex-shrink-0">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
-                  <div className="min-w-0">
+                  <div className="min-w-0 flex-1">
                     <p className="text-xs font-semibold text-charcoal truncate">{selectedFile.name}</p>
                     <p className="text-[10px] text-neutral-500">{(selectedFile.size / (1024 * 1024)).toFixed(2)} MB</p>
                   </div>
@@ -255,7 +269,7 @@ export default function ApplyForm({ jobId }: { jobId: string }) {
                     e.stopPropagation();
                     removeFile();
                   }}
-                  className="rounded-lg p-1.5 text-neutral-500 hover:bg-charcoal/5 hover:text-accent transition-colors"
+                  className="shrink-0 rounded-lg p-1.5 text-neutral-500 hover:bg-charcoal/5 hover:text-accent transition-colors"
                   aria-label="Remove file"
                 >
                   <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
